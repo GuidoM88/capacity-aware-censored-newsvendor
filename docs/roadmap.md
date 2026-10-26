@@ -9,22 +9,32 @@
 - [x] Implement sales-as-demand, fixed-tail and finite-scenario reference policies.
 - [x] Add analytical and independent numerical checks.
 - [x] Create a literature map and an explicit claim register.
+- [x] Audit the proposed identification contribution against nearby theorems.
+- [x] Derive a general common-action characterization for the population model.
+- [x] Derive an exact endpoint reduction and check mixed-tail worst cases.
 
-## Next decision: is there a substantive theoretical gap?
+## Audit decision, 2026-10-26
 
-1. Reproduce the central identification argument of Hssaine and Sinclair.
-2. Inspect the exact reductions of Kumar and Mouchtaki and the full offline
-   multiproduct substitution paper; document whether relevant special cases
-   already cover the proposed result.
-3. Seek a sharp characterization for heterogeneous costs, stock boundaries and
-   one shared resource. Test candidate conditions against adversarial tails.
-4. Determine whether the resulting characterization exceeds a routine KKT
-   reformulation. If not, keep it as background and redirect the question.
+The general identification argument is elementary. Keep it as background rather
+than treating it as the prospective central theorem. See
+[novelty_audit.md](novelty_audit.md) for the evidence and access limitations.
+
+## Next bounded investigation: computational substance
+
+1. Derive the adversarial allocation subproblem behind the exact `2^n` endpoint
+   reduction, with the distribution-aware, capacity-feasible comparator explicit.
+2. Compare it against older budget-constrained regret and network revenue
+   management formulations, including the relevant Roels thesis chapter.
+3. Seek a tractable special case, a meaningful complexity characterization, or
+   a certified approximation that is not already supplied by those methods.
+4. If the result is a routine reformulation, redirect the static model before
+   expanding experiments or writing a paper draft.
 
 ## Conditional next stages
 
-- Specify support or moment assumptions for the full censoring ambiguity class;
-  derive irreducible regret and a tractable robust decision rule.
+- Develop a useful decision rule for the full censoring ambiguity class. Finite
+  capacity already bounds regret without a common demand-mean bound; extra
+  support or moment information would define a different problem.
 - Introduce finite iid samples and quantify estimation error separately from
   nonidentification. Population-known prefixes are not finite-sample certificates.
 - Prespecify and run comparisons with strong censoring-aware baselines under the

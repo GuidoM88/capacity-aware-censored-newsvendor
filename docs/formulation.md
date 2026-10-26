@@ -147,10 +147,17 @@ BA has the same regret; AA and BB have zero regret. The worst regret is therefor
 over these four worlds. This comparison quantifies the value of the *supplied
 scenario information*, not a demonstrated advantage of a data-driven estimator.
 
-## 6. Remaining mathematical work
+## 6. General population reductions and remaining work
 
-The research targets are general necessary and sufficient conditions for common
-optimal actions, the minimax regret remaining when those conditions fail, and
-finite-sample guarantees. A full-class guarantee needs an explicitly specified
-ambiguity set and a justified computational reduction. None follows merely from
-the four-scenario numerical optimization above.
+The [population reduction note](population_reduction.md) now supplies an exact
+common-action characterization for heterogeneous products under the stated
+ambiguity class, and an exact endpoint reduction of full-class regret. It also
+proves that the full-class minimax value is 60 at capacity 120, distinct from
+the A/B-family value above. These conclusions rely on the written arguments,
+not on extrapolating the four-scenario experiment.
+
+The [originality audit](novelty_audit.md) treats these reductions as elementary
+background. A substantive computational improvement over endpoint enumeration
+and existing robust optimization methods remains to be found. Finite-sample
+guarantees, additional distributional restrictions, and forecasting extensions
+remain separate unresolved tasks.

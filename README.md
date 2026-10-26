@@ -6,10 +6,11 @@ Historical sales reveal `min(demand, stock)`, not necessarily demand. This proje
 asks when a resource constraint makes the optimal allocation identifiable even
 though the unobserved demand tails remain unknown.
 
-**Status:** initial mathematical formulation and reproducible population example.
-The example and its optimality conditions are elementary starting points; no
-claim of a new publishable result is made. General identification conditions,
-full ambiguity-set optimization, and finite-sample guarantees remain open tasks.
+**Status:** research foundation with reproducible population examples and
+elementary general reductions. The [originality audit](docs/novelty_audit.md)
+does not support identification plus capacity as a sufficient central paper
+contribution. No publishable novelty is claimed. A substantive computational
+advance and finite-sample guarantees remain unresolved.
 
 ## Initial example
 
@@ -41,6 +42,12 @@ from 0 to 260. At capacity 120 the finite-scenario minimax reference has worst
 regret `5/3`, while sales-as-demand has worst regret 70 over the four supplied
 worlds. The fixed A-tail policy also attains `5/3` there; this single instance
 does not distinguish those two policies. Information assumptions are listed below.
+
+The separate [full-class analysis](docs/population_reduction.md) gives minimax
+regret **60** at capacity 120 when every compatible demand tail is allowed.
+The value `5/3` above concerns only the supplied A/B family. The population note
+proves a general common-action characterization and an exact endpoint reduction;
+the original A/B experiment and its saved results are unchanged.
 
 ## Reproduce
 
@@ -92,10 +99,23 @@ references. These checks validate this implementation within its supported scope
 
 - [Formulation, elementary certificate, and exact toy threshold](docs/formulation.md)
 - [Closest literature and unresolved overlap](docs/literature.md)
+- [Originality audit and research decision](docs/novelty_audit.md)
+- [General population reductions and full-class toy regret](docs/population_reduction.md)
 - [Claim register](docs/claims.md)
 - [Research protocol and failure controls](docs/research_protocol.md)
 - [Next milestones](docs/roadmap.md)
 - [Bibliography](references.bib)
+
+Independent checks for the population reductions:
+
+```bash
+python scripts/check_population_reduction.py
+```
+
+This writes the [audit check report](results/audit/population_reduction.json).
+It uses separate linear programs and numerical integration rather than the
+production allocation and finite-scenario solvers. Its finite checks supplement
+the proofs; they do not establish originality or a general theorem by themselves.
 
 The initial scope is a single-period, separable expected-loss problem. Demand
 substitution, lead times, inventory carry-over, contextual forecasting, and time

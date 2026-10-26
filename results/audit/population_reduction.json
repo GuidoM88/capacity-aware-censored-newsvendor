@@ -1,0 +1,798 @@
+{
+  "scope": "Numerical checks; proofs are in docs/population_reduction.md",
+  "seed": 20261026,
+  "tolerance": 1e-07,
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "script_sha256": "c5a9f0e036c2f65b4064f2c6b8df087bd874c5c1b422daafd45e4bd86c368fdb",
+  "atomic_cases": [
+    {
+      "case": 0,
+      "products": 1,
+      "stock": [
+        5.0
+      ],
+      "weights": [
+        3.0
+      ],
+      "underage": [
+        3.0
+      ],
+      "overage": [
+        3.0
+      ],
+      "capacity": 0.0,
+      "endpoint_scenarios": 2,
+      "expanded_scenarios": 4,
+      "common_action_exists": true,
+      "certificate_gap": 0.0,
+      "minimax_regret": 0.0,
+      "minimax_action": [
+        0.0
+      ],
+      "expanded_value_error": 0.0,
+      "action_regret_error": 0.0
+    },
+    {
+      "case": 1,
+      "products": 2,
+      "stock": [
+        3.0,
+        5.0
+      ],
+      "weights": [
+        3.0,
+        2.0
+      ],
+      "underage": [
+        2.0,
+        3.0
+      ],
+      "overage": [
+        2.0,
+        2.0
+      ],
+      "capacity": 0.0,
+      "endpoint_scenarios": 4,
+      "expanded_scenarios": 16,
+      "common_action_exists": true,
+      "certificate_gap": 0.0,
+      "minimax_regret": 0.0,
+      "minimax_action": [
+        0.0,
+        0.0
+      ],
+      "expanded_value_error": 0.0,
+      "action_regret_error": 0.0
+    },
+    {
+      "case": 2,
+      "products": 3,
+      "stock": [
+        4.0,
+        4.0,
+        4.0
+      ],
+      "weights": [
+        2.0,
+        3.0,
+        3.0
+      ],
+      "underage": [
+        1.0,
+        2.0,
+        6.0
+      ],
+      "overage": [
+        2.0,
+        2.0,
+        2.0
+      ],
+      "capacity": 0.0,
+      "endpoint_scenarios": 8,
+      "expanded_scenarios": 64,
+      "common_action_exists": true,
+      "certificate_gap": 0.0,
+      "minimax_regret": 0.0,
+      "minimax_action": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "expanded_value_error": 0.0,
+      "action_regret_error": 0.0
+    },
+    {
+      "case": 3,
+      "products": 1,
+      "stock": [
+        4.0
+      ],
+      "weights": [
+        1.0
+      ],
+      "underage": [
+        4.0
+      ],
+      "overage": [
+        3.0
+      ],
+      "capacity": 0.0,
+      "endpoint_scenarios": 2,
+      "expanded_scenarios": 4,
+      "common_action_exists": true,
+      "certificate_gap": 0.0,
+      "minimax_regret": 0.0,
+      "minimax_action": [
+        0.0
+      ],
+      "expanded_value_error": 0.0,
+      "action_regret_error": 0.0
+    },
+    {
+      "case": 4,
+      "products": 2,
+      "stock": [
+        5.0,
+        2.0
+      ],
+      "weights": [
+        1.0,
+        1.0
+      ],
+      "underage": [
+        4.0,
+        4.0
+      ],
+      "overage": [
+        3.0,
+        4.0
+      ],
+      "capacity": 2.1,
+      "endpoint_scenarios": 4,
+      "expanded_scenarios": 16,
+      "common_action_exists": false,
+      "certificate_gap": 0.20755817496770135,
+      "minimax_regret": 0.13665073306189157,
+      "minimax_action": [
+        0.0,
+        2.0341626832654724
+      ],
+      "expanded_value_error": 0.0,
+      "action_regret_error": 1.7763568394002505e-15
+    },
+    {
+      "case": 5,
+      "products": 3,
+      "stock": [
+        5.0,
+        3.0,
+        5.0
+      ],
+      "weights": [
+        3.0,
+        1.0,
+        3.0
+      ],
+      "underage": [
+        4.0,
+        5.0,
+        2.0
+      ],
+      "overage": [
+        3.0,
+        1.0,
+        4.0
+      ],
+      "capacity": 9.9,
+      "endpoint_scenarios": 8,
+      "expanded_scenarios": 64,
+      "common_action_exists": false,
+      "certificate_gap": 0.6362998401655453,
+      "minimax_regret": 0.5882696028889427,
+      "minimax_action": [
+        2.126387594710926,
+        3.520837215867222,
+        0.0
+      ],
+      "expanded_value_error": 0.0,
+      "action_regret_error": 3.552713678800501e-15
+    },
+    {
+      "case": 6,
+      "products": 1,
+      "stock": [
+        4.0
+      ],
+      "weights": [
+        2.0
+      ],
+      "underage": [
+        6.0
+      ],
+      "overage": [
+        1.0
+      ],
+      "capacity": 2.4,
+      "endpoint_scenarios": 2,
+      "expanded_scenarios": 4,
+      "common_action_exists": true,
+      "certificate_gap": 0.0,
+      "minimax_regret": 0.0,
+      "minimax_action": [
+        1.2
+      ],
+      "expanded_value_error": 0.0,
+      "action_regret_error": 0.0
+    },
+    {
+      "case": 7,
+      "products": 2,
+      "stock": [
+        3.0,
+        5.0
+      ],
+      "weights": [
+        2.0,
+        3.0
+      ],
+      "underage": [
+        5.0,
+        5.0
+      ],
+      "overage": [
+        3.0,
+        4.0
+      ],
+      "capacity": 6.3,
+      "endpoint_scenarios": 4,
+      "expanded_scenarios": 16,
+      "common_action_exists": true,
+      "certificate_gap": 0.0,
+      "minimax_regret": 0.0,
+      "minimax_action": [
+        0.0,
+        2.1
+      ],
+      "expanded_value_error": 0.0,
+      "action_regret_error": 0.0
+    },
+    {
+      "case": 8,
+      "products": 3,
+      "stock": [
+        2.0,
+        6.0,
+        6.0
+      ],
+      "weights": [
+        2.0,
+        2.0,
+        2.0
+      ],
+      "underage": [
+        4.0,
+        2.0,
+        4.0
+      ],
+      "overage": [
+        1.0,
+        2.0,
+        2.0
+      ],
+      "capacity": 22.400000000000002,
+      "endpoint_scenarios": 8,
+      "expanded_scenarios": 64,
+      "common_action_exists": false,
+      "certificate_gap": 2.476342699870557,
+      "minimax_regret": 1.597775789107878,
+      "minimax_action": [
+        1.4077558125471503,
+        3.0,
+        6.792244187452851
+      ],
+      "expanded_value_error": 3.552713678800501e-15,
+      "action_regret_error": 3.552713678800501e-15
+    },
+    {
+      "case": 9,
+      "products": 1,
+      "stock": [
+        3.0
+      ],
+      "weights": [
+        2.0
+      ],
+      "underage": [
+        5.0
+      ],
+      "overage": [
+        2.0
+      ],
+      "capacity": 4.800000000000001,
+      "endpoint_scenarios": 2,
+      "expanded_scenarios": 4,
+      "common_action_exists": true,
+      "certificate_gap": 0.0,
+      "minimax_regret": 0.0,
+      "minimax_action": [
+        1.5000000000000004
+      ],
+      "expanded_value_error": 0.0,
+      "action_regret_error": 0.0
+    },
+    {
+      "case": 10,
+      "products": 2,
+      "stock": [
+        6.0,
+        5.0
+      ],
+      "weights": [
+        1.0,
+        3.0
+      ],
+      "underage": [
+        4.0,
+        4.0
+      ],
+      "overage": [
+        3.0,
+        4.0
+      ],
+      "capacity": 16.8,
+      "endpoint_scenarios": 4,
+      "expanded_scenarios": 16,
+      "common_action_exists": true,
+      "certificate_gap": 0.0,
+      "minimax_regret": 0.0,
+      "minimax_action": [
+        2.9999999999999996,
+        4.600000000000002
+      ],
+      "expanded_value_error": 1.0658141036401503e-14,
+      "action_regret_error": 1.7763568394002505e-15
+    },
+    {
+      "case": 11,
+      "products": 3,
+      "stock": [
+        2.0,
+        6.0,
+        6.0
+      ],
+      "weights": [
+        2.0,
+        1.0,
+        2.0
+      ],
+      "underage": [
+        3.0,
+        6.0,
+        3.0
+      ],
+      "overage": [
+        1.0,
+        2.0,
+        4.0
+      ],
+      "capacity": 17.6,
+      "endpoint_scenarios": 8,
+      "expanded_scenarios": 64,
+      "common_action_exists": false,
+      "certificate_gap": 7.123025905306633,
+      "minimax_regret": 4.497137369529149,
+      "minimax_action": [
+        3.6908777960271166,
+        6.000000000000003,
+        0.0
+      ],
+      "expanded_value_error": 0.0,
+      "action_regret_error": 7.105427357601002e-15
+    },
+    {
+      "case": 12,
+      "products": 1,
+      "stock": [
+        5.0
+      ],
+      "weights": [
+        2.0
+      ],
+      "underage": [
+        3.0
+      ],
+      "overage": [
+        2.0
+      ],
+      "capacity": 10.0,
+      "endpoint_scenarios": 2,
+      "expanded_scenarios": 4,
+      "common_action_exists": true,
+      "certificate_gap": 0.0,
+      "minimax_regret": 0.0,
+      "minimax_action": [
+        5.0
+      ],
+      "expanded_value_error": 0.0,
+      "action_regret_error": 8.881784197001252e-16
+    },
+    {
+      "case": 13,
+      "products": 2,
+      "stock": [
+        2.0,
+        4.0
+      ],
+      "weights": [
+        1.0,
+        1.0
+      ],
+      "underage": [
+        6.0,
+        6.0
+      ],
+      "overage": [
+        4.0,
+        1.0
+      ],
+      "capacity": 6.0,
+      "endpoint_scenarios": 4,
+      "expanded_scenarios": 16,
+      "common_action_exists": false,
+      "certificate_gap": 3.6155403422598607,
+      "minimax_regret": 1.105520973182383,
+      "minimax_action": [
+        0.9540831511357926,
+        5.045916848864207
+      ],
+      "expanded_value_error": 4.440892098500626e-15,
+      "action_regret_error": 3.552713678800501e-15
+    },
+    {
+      "case": 14,
+      "products": 3,
+      "stock": [
+        6.0,
+        2.0,
+        5.0
+      ],
+      "weights": [
+        3.0,
+        1.0,
+        2.0
+      ],
+      "underage": [
+        2.0,
+        4.0,
+        6.0
+      ],
+      "overage": [
+        4.0,
+        2.0,
+        4.0
+      ],
+      "capacity": 30.0,
+      "endpoint_scenarios": 8,
+      "expanded_scenarios": 64,
+      "common_action_exists": false,
+      "certificate_gap": 20.128070145208156,
+      "minimax_regret": 14.825393622120245,
+      "minimax_action": [
+        0.0,
+        7.801251927839806,
+        5.000000000000001
+      ],
+      "expanded_value_error": 7.105427357601002e-15,
+      "action_regret_error": 7.105427357601002e-15
+    },
+    {
+      "case": 15,
+      "products": 1,
+      "stock": [
+        6.0
+      ],
+      "weights": [
+        1.0
+      ],
+      "underage": [
+        2.0
+      ],
+      "overage": [
+        1.0
+      ],
+      "capacity": 6.0,
+      "endpoint_scenarios": 2,
+      "expanded_scenarios": 4,
+      "common_action_exists": true,
+      "certificate_gap": 0.0,
+      "minimax_regret": 0.0,
+      "minimax_action": [
+        6.0
+      ],
+      "expanded_value_error": 0.0,
+      "action_regret_error": 8.881784197001252e-16
+    },
+    {
+      "case": 16,
+      "products": 2,
+      "stock": [
+        6.0,
+        5.0
+      ],
+      "weights": [
+        2.0,
+        2.0
+      ],
+      "underage": [
+        4.0,
+        6.0
+      ],
+      "overage": [
+        4.0,
+        2.0
+      ],
+      "capacity": 30.799999999999997,
+      "endpoint_scenarios": 4,
+      "expanded_scenarios": 16,
+      "common_action_exists": false,
+      "certificate_gap": 10.700359683053549,
+      "minimax_regret": 6.210317237777453,
+      "minimax_action": [
+        3.0000000000000004,
+        8.105158618888726
+      ],
+      "expanded_value_error": 0.0,
+      "action_regret_error": 0.0
+    },
+    {
+      "case": 17,
+      "products": 3,
+      "stock": [
+        4.0,
+        2.0,
+        6.0
+      ],
+      "weights": [
+        1.0,
+        1.0,
+        3.0
+      ],
+      "underage": [
+        5.0,
+        5.0,
+        3.0
+      ],
+      "overage": [
+        1.0,
+        3.0,
+        1.0
+      ],
+      "capacity": 33.599999999999994,
+      "endpoint_scenarios": 8,
+      "expanded_scenarios": 64,
+      "common_action_exists": false,
+      "certificate_gap": 45.880660182401286,
+      "minimax_regret": 18.326987232493174,
+      "minimax_action": [
+        18.986086655372873,
+        1.0,
+        4.537971114875707
+      ],
+      "expanded_value_error": 0.0,
+      "action_regret_error": 2.842170943040401e-14
+    },
+    {
+      "case": 18,
+      "products": 1,
+      "stock": [
+        4.0
+      ],
+      "weights": [
+        3.0
+      ],
+      "underage": [
+        4.0
+      ],
+      "overage": [
+        2.0
+      ],
+      "capacity": 16.799999999999997,
+      "endpoint_scenarios": 2,
+      "expanded_scenarios": 4,
+      "common_action_exists": false,
+      "certificate_gap": 0.7350829127180187,
+      "minimax_regret": 0.5977676640802772,
+      "minimax_action": [
+        4.298883832040139
+      ],
+      "expanded_value_error": 0.0,
+      "action_regret_error": 0.0
+    },
+    {
+      "case": 19,
+      "products": 2,
+      "stock": [
+        2.0,
+        3.0
+      ],
+      "weights": [
+        2.0,
+        3.0
+      ],
+      "underage": [
+        4.0,
+        2.0
+      ],
+      "overage": [
+        1.0,
+        2.0
+      ],
+      "capacity": 18.2,
+      "endpoint_scenarios": 4,
+      "expanded_scenarios": 16,
+      "common_action_exists": false,
+      "certificate_gap": 2.6168458007539623,
+      "minimax_regret": 1.912102503871317,
+      "minimax_action": [
+        3.9121025038713158,
+        0.0
+      ],
+      "expanded_value_error": 0.0,
+      "action_regret_error": 8.881784197001252e-16
+    },
+    {
+      "case": 20,
+      "products": 3,
+      "stock": [
+        5.0,
+        5.0,
+        3.0
+      ],
+      "weights": [
+        1.0,
+        3.0,
+        2.0
+      ],
+      "underage": [
+        2.0,
+        1.0,
+        5.0
+      ],
+      "overage": [
+        1.0,
+        2.0,
+        3.0
+      ],
+      "capacity": 57.2,
+      "endpoint_scenarios": 8,
+      "expanded_scenarios": 64,
+      "common_action_exists": false,
+      "certificate_gap": 55.34873833461788,
+      "minimax_regret": 35.900904287618786,
+      "minimax_action": [
+        5.000000000000005,
+        0.0,
+        11.725851966988289
+      ],
+      "expanded_value_error": 0.0,
+      "action_regret_error": 0.0
+    },
+    {
+      "case": 21,
+      "products": 1,
+      "stock": [
+        3.0
+      ],
+      "weights": [
+        2.0
+      ],
+      "underage": [
+        3.0
+      ],
+      "overage": [
+        2.0
+      ],
+      "capacity": 13.200000000000001,
+      "endpoint_scenarios": 2,
+      "expanded_scenarios": 4,
+      "common_action_exists": true,
+      "certificate_gap": 0.0,
+      "minimax_regret": -4.440892098500626e-16,
+      "minimax_action": [
+        1.5
+      ],
+      "expanded_value_error": 0.0,
+      "action_regret_error": 0.0
+    },
+    {
+      "case": 22,
+      "products": 2,
+      "stock": [
+        6.0,
+        2.0
+      ],
+      "weights": [
+        2.0,
+        3.0
+      ],
+      "underage": [
+        4.0,
+        4.0
+      ],
+      "overage": [
+        4.0,
+        4.0
+      ],
+      "capacity": 39.6,
+      "endpoint_scenarios": 4,
+      "expanded_scenarios": 16,
+      "common_action_exists": true,
+      "certificate_gap": 0.0,
+      "minimax_regret": 5.329070518200751e-15,
+      "minimax_action": [
+        3.0000000000000018,
+        0.9999999999999789
+      ],
+      "expanded_value_error": 8.881784197001252e-15,
+      "action_regret_error": 3.552713678800501e-15
+    },
+    {
+      "case": 23,
+      "products": 3,
+      "stock": [
+        4.0,
+        3.0,
+        5.0
+      ],
+      "weights": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "underage": [
+        4.0,
+        4.0,
+        2.0
+      ],
+      "overage": [
+        1.0,
+        2.0,
+        2.0
+      ],
+      "capacity": 37.400000000000006,
+      "endpoint_scenarios": 8,
+      "expanded_scenarios": 64,
+      "common_action_exists": false,
+      "certificate_gap": 66.30287018729231,
+      "minimax_regret": 49.5796790199903,
+      "minimax_action": [
+        20.07617980523493,
+        12.323820194765078,
+        2.5000000000000004
+      ],
+      "expanded_value_error": 0.0,
+      "action_regret_error": 0.0
+    }
+  ],
+  "continuous_toy": {
+    "capacity": 120,
+    "upper_endpoint": 121,
+    "integer_grid_actions": 7381,
+    "grid_minimax_action": [
+      60,
+      60
+    ],
+    "full_class_minimax_value": 60.00000000000003,
+    "regrets_at_60_60": [
+      40.00000000000001,
+      60.00000000000003,
+      60.00000000000003,
+      5.684341886080802e-14
+    ],
+    "sales_as_demand_worst_regret": 80.00000000000006,
+    "all_low_all_high_only_value": 26.666666666666686,
+    "that_actions_full_class_regret": 66.66666666666669
+  }
+}

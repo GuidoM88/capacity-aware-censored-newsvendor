@@ -29,8 +29,10 @@ make correctness, information assumptions and evidential limits inspectable.
    elementary result until a substantive contribution is established against
    the closest full papers.
 2. **Compare equal information.** Document exactly what every method sees. The
-   present finite-scenario reference knows four complete candidate worlds; its
-   gains cannot be attributed to learning hidden tails from sales.
+   original A/B reference knows four complete candidate worlds; its gains cannot
+   be attributed to learning hidden tails from sales. The later endpoint audit
+   derives its scenarios from the population sales law and explicit ambiguity
+   assumptions. Those are different information models and must be labeled.
 3. **Prespecify evaluative experiments.** Before a future empirical comparison,
    record the dataset, splits, costs, capacities, metrics, baselines and decision
    rule. Exploration may change these choices, but then requires a fresh final
