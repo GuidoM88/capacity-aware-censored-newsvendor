@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "capacity-aware-censored-newsvendor"
+version = "0.1.0"
+description = "Research experiments on decision identifiability under censored demand and shared capacity"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["numpy>=1.26,<3", "scipy>=1.11,<2", "matplotlib>=3.8,<4"]
+
+[project.scripts]
+censored-newsvendor-toy = "censored_newsvendor.experiment:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,4 @@
+# Direct dependency versions used for the initial reference experiment.
+numpy==2.3.5
+scipy==1.17.0
+matplotlib==3.10.8
