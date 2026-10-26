@@ -11,6 +11,9 @@
 | C7 | The project contains a publishable original contribution | Novelty audit dated 2026-10-26 | Not established; identification alone rejected as the proposed central contribution |
 | C8 | Full-class worst-case regret reduces exactly to at most 2^n endpoint completions | Proof in population_reduction.md, Proposition 2; independent LP checks | Population result under unrestricted compatible tails; no polynomial complexity or novelty claim |
 | C9 | At capacity 120, the toy full-class minimax value is 60 | Symmetry and explicit lower bound; independent quadrature and grid checks | Exact illustrative calculation; distinct from C3's supplied A/B family |
+| C10 | Under the unrestricted population-tail model and continuous compact packing constraints, at most rank(A) upper tails suffice for worst regret at every decision; one resource needs at most n+1 worlds | Proof in sparse_scenarios.md; full endpoint enumeration checks | Candidate structural result; originality and publication significance unresolved; standard vertex argument |
+| C11 | With explicit finite rational sales supports, full-class minimax admits polynomial-size LP computation for fixed rank(A), including a final LP with 3n+1 variables | Construction in sparse_scenarios.md; separate full and shared-epigraph LP checks | Population algorithm; no finite-sample guarantee or polynomial claim for growing rank or arbitrary implicit distributions |
+| C12 | Ignoring individual order caps invalidates the one-upper reduction | Three-product analytical counterexample; saved LP results give true minimax 1.5 versus incorrect value 1 and actual regret 3 | Negative result preserved; all order constraints must enter the geometry |
 
 Numerical tests support implementation correctness and can refute a conjecture.
 They cannot certify an unrestricted mathematical theorem or establish originality.

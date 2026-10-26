@@ -1,6 +1,6 @@
 # Capacity-Aware Censored Newsvendor
 
-Research code for **decision identifiability under censored demand and shared capacity**.
+Research code for **identifiability and minimax regret under censored demand and shared capacity**.
 
 Historical sales reveal `min(demand, stock)`, not necessarily demand. This project
 asks when a resource constraint makes the optimal allocation identifiable even
@@ -9,8 +9,11 @@ though the unobserved demand tails remain unknown.
 **Status:** research foundation with reproducible population examples and
 elementary general reductions. The [originality audit](docs/novelty_audit.md)
 does not support identification plus capacity as a sufficient central paper
-contribution. No publishable novelty is claimed. A substantive computational
-advance and finite-sample guarantees remain unresolved.
+contribution. A subsequent [working derivation](docs/sparse_scenarios.md) reduces
+full-class regret to `n+1` endpoint worlds for one shared resource, and to
+rank-bounded upper-tail subsets for a packing polytope. It includes an exact
+finite-atomic LP. **Originality, publication significance and finite-sample
+guarantees remain unresolved.**
 
 ## Initial example
 
@@ -101,6 +104,8 @@ references. These checks validate this implementation within its supported scope
 - [Closest literature and unresolved overlap](docs/literature.md)
 - [Originality audit and research decision](docs/novelty_audit.md)
 - [General population reductions and full-class toy regret](docs/population_reduction.md)
+- [Sparse-tail theorem, proof and exact LP](docs/sparse_scenarios.md)
+- [Computational prior-art follow-up](docs/computational_prior_art.md)
 - [Claim register](docs/claims.md)
 - [Research protocol and failure controls](docs/research_protocol.md)
 - [Next milestones](docs/roadmap.md)
@@ -110,12 +115,16 @@ Independent checks for the population reductions:
 
 ```bash
 python scripts/check_population_reduction.py
+python scripts/check_sparse_scenarios.py
 ```
 
 This writes the [audit check report](results/audit/population_reduction.json).
 It uses separate linear programs and numerical integration rather than the
 production allocation and finite-scenario solvers. Its finite checks supplement
 the proofs; they do not establish originality or a general theorem by themselves.
+The sparse-scenario script separately compares full enumeration, the selected
+worlds and a compact LP; its [generated report](results/audit/sparse_scenarios.md)
+also preserves a counterexample to ignoring individual order caps.
 
 The initial scope is a single-period, separable expected-loss problem. Demand
 substitution, lead times, inventory carry-over, contextual forecasting, and time

@@ -11,7 +11,8 @@ certificate of novelty. Links point to primary sources; reading depth is explici
 | Shi, Chen and Duenyas (2016) | Censored multiproduct learning with warehouse capacity and carry-over | Establishes that the combination of those three ingredients is not itself new | Author PDF model, Assumption 1, DDM and Theorem 2 inspected |
 | Zheng, Chen, Hedenstierna and Yang (2026) | Offline multiproduct demand and substitution estimation | Relevant offline prior art with observation-coverage conditions | Publisher abstract and companion B.1 inspected; complete main text still inaccessible |
 | Perakis and Roels, *Regret in the Newsvendor Model with Partial Information* (2008) | Distributional minimax regret with partial information | Section 6 explicitly points to capacity-constrained multiproduct results in Roels' thesis | Author-hosted article formulation and conclusion inspected; thesis chapter not obtained |
-| Perakis and Roels, *Robust Controls for Network Revenue Management* (2010) | Robust capacity allocation with polyhedral uncertainty | Computational prior art for any proposed scalable regret algorithm | Primary abstract and repository-indexed section 4 inspected; full reduction comparison pending |
+| Perakis and Roels, *Robust Controls for Network Revenue Management* (2010) | Robust capacity allocation with polyhedral uncertainty | Computational prior art for any proposed scalable regret algorithm | Primary abstract, indexed section 4, and companion proofs of Propositions 1, 2(a), 5 inspected; main-text comparison incomplete |
+| An, Mikhaylov and Jung (2021) | Interval-uncertainty network booking controls | Additional computational prior art | Publisher abstract, introduction and section excerpts inspected; full propositions not obtained |
 
 ## Primary sources
 
@@ -24,6 +25,8 @@ certificate of novelty. Links point to primary sources; reading depth is explici
 5. Perakis and Roels (2008): https://www.anderson.ucla.edu/documents/areas/fac/dotm/bio/pdf_GR03.pdf
 6. Roels (2006), thesis landing page: https://dspace.mit.edu/entities/publication/683dc5a1-2bc8-49c4-a19b-d6ab7e3273eb
 7. Perakis and Roels (2010): https://doi.org/10.1287/msom.1080.0252
+   - Online companion: https://mitsloan.mit.edu/shared/ods/documents/?PublicationDocumentID=2281
+8. An, Mikhaylov and Jung (2021): https://doi.org/10.1016/j.jairtraman.2020.101979
 
 ## Adjacent leads, not established equivalents
 
@@ -52,9 +55,10 @@ A useful contribution needs an explicit result that the nearest existing
 theorems do not already imply.
 
 The current audit derives an elementary general identification criterion and
-rejects identification alone as the planned central contribution. The next
-bounded question concerns computation of full-class regret; its novelty is
-still unestablished.
+rejects identification alone as the planned central contribution. The subsequent
+[sparse-tail derivation](sparse_scenarios.md) addresses computation of full-class
+regret. Its originality remains unestablished; the
+[computational comparison](computational_prior_art.md) records the remaining gate.
 
 For each proposed claim, compare the information model, admissible distributions,
 decision set, comparator, and exact theorem conclusion. Search citing papers and

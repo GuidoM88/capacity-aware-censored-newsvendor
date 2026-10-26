@@ -12,6 +12,9 @@
 - [x] Audit the proposed identification contribution against nearby theorems.
 - [x] Derive a general common-action characterization for the population model.
 - [x] Derive an exact endpoint reduction and check mixed-tail worst cases.
+- [x] Derive a rank-bounded upper-tail family, with `n+1` worlds for one resource.
+- [x] Implement a compact finite-atomic LP and compare it with full enumeration.
+- [x] Preserve an explicit counterexample when individual caps are ignored.
 
 ## Audit decision, 2026-10-26
 
@@ -19,16 +22,23 @@ The general identification argument is elementary. Keep it as background rather
 than treating it as the prospective central theorem. See
 [novelty_audit.md](novelty_audit.md) for the evidence and access limitations.
 
-## Next bounded investigation: computational substance
+## Computational investigation: current result and remaining gate
 
-1. Derive the adversarial allocation subproblem behind the exact `2^n` endpoint
-   reduction, with the distribution-aware, capacity-feasible comparator explicit.
-2. Compare it against older budget-constrained regret and network revenue
-   management formulations, including the relevant Roels thesis chapter.
-3. Seek a tractable special case, a meaningful complexity characterization, or
-   a certified approximation that is not already supplied by those methods.
-4. If the result is a routine reformulation, redirect the static model before
-   expanding experiments or writing a paper draft.
+The [sparse-tail note](sparse_scenarios.md) now supplies the adversarial reduction
+and a polynomial finite-atomic algorithm for fixed resource rank. This is a
+candidate structural result, not an established original contribution. The
+[prior-art follow-up](computational_prior_art.md) records the comparison so far.
+
+1. Obtain and compare the relevant Roels thesis chapter and closest
+   budget-constrained newsvendor theorems, including the exact comparator.
+2. Determine whether the rank-bounded family is already implied by those results.
+   Seek an independent review of both the mathematics and significance.
+3. If it is a routine specialization, retain the result as background and
+   redirect. One possible question is how useful restrictions on the unknown
+   tails change tractability; no hardness or new statistical claim is proved.
+4. Expand empirical work or start a manuscript only after this gate yields a
+   defensible contribution. A generic concentration bound is not automatically
+   enough to turn the population theorem into a paper.
 
 ## Conditional next stages
 

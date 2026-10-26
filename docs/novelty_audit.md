@@ -5,6 +5,11 @@ the central publication contribution**. This is a research judgment supported
 by the comparison and elementary derivation below, not a claim that every
 possible extension has already been published.
 
+**Subsequent update:** the bounded computational investigation below produced
+the [rank-bounded endpoint derivation](sparse_scenarios.md) and a compact LP.
+The [follow-up prior-art comparison](computational_prior_art.md) leaves its
+originality unresolved. The identification-only assessment remains unchanged.
+
 ## Question actually audited
 
 For separable newsvendor loss, fixed historical censoring levels, an exactly

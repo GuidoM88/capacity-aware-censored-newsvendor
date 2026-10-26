@@ -106,7 +106,9 @@ $$\sup_F\sup_{z\in Q_B}[C_F(q)-C_F(z)]
 Compactness and continuity ensure the scenario oracles exist. QED.
 
 There are at most `2^n` endpoint scenarios. This is an exact finite reduction,
-not a polynomial-time algorithm. It is distinct from the four A/B scenarios in
+not by itself a polynomial-time algorithm. The subsequent
+[sparse-tail note](sparse_scenarios.md) reduces the one-resource family to `n+1`
+worlds and treats general packing constraints. This is distinct from the four A/B scenarios in
 the original experiment, which are supplied complete distributions rather than
 extremal completions of all compatible tails.
 
