@@ -6,14 +6,18 @@ Historical sales reveal `min(demand, stock)`, not necessarily demand. This proje
 asks when a resource constraint makes the optimal allocation identifiable even
 though the unobserved demand tails remain unknown.
 
-**Status:** research foundation with reproducible population examples and
-elementary general reductions. The [originality audit](docs/novelty_audit.md)
-does not support identification plus capacity as a sufficient central paper
-contribution. A subsequent [working derivation](docs/sparse_scenarios.md) reduces
-full-class regret to `n+1` endpoint worlds for one shared resource, and to
-rank-bounded upper-tail subsets for a packing polytope. It includes an exact
-finite-atomic LP. **Originality, publication significance and finite-sample
-guarantees remain unresolved.**
+**Research decision, 2026-10-27:** retain this project as a reproducible foundation;
+**do not use its current population results alone as the central paper
+contribution**. The [completed computational assessment](docs/computational_prior_art.md)
+now includes the relevant Roels thesis section and distinguishes known mechanisms
+from the remaining formulation differences. No identical full theorem was
+established, but the evidence does not justify a substantial originality claim.
+
+The [working derivation](docs/sparse_scenarios.md) reduces full-class regret to
+`n+1` endpoint worlds for one shared resource, and to rank-bounded upper-tail
+subsets for a packing polytope. Its proof, exact finite-atomic LP and independent
+checks remain available as supporting material. Finite-sample guarantees and
+practical forecasting contributions are not yet established.
 
 ## Initial example
 
@@ -105,7 +109,7 @@ references. These checks validate this implementation within its supported scope
 - [Originality audit and research decision](docs/novelty_audit.md)
 - [General population reductions and full-class toy regret](docs/population_reduction.md)
 - [Sparse-tail theorem, proof and exact LP](docs/sparse_scenarios.md)
-- [Computational prior-art follow-up](docs/computational_prior_art.md)
+- [Computational prior art and publication decision](docs/computational_prior_art.md)
 - [Claim register](docs/claims.md)
 - [Research protocol and failure controls](docs/research_protocol.md)
 - [Next milestones](docs/roadmap.md)

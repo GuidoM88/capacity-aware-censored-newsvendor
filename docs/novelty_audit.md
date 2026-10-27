@@ -5,10 +5,12 @@ the central publication contribution**. This is a research judgment supported
 by the comparison and elementary derivation below, not a claim that every
 possible extension has already been published.
 
-**Subsequent update:** the bounded computational investigation below produced
-the [rank-bounded endpoint derivation](sparse_scenarios.md) and a compact LP.
-The [follow-up prior-art comparison](computational_prior_art.md) leaves its
-originality unresolved. The identification-only assessment remains unchanged.
+**Subsequent update, 2026-10-27:** the bounded computational investigation below
+produced the [rank-bounded endpoint derivation](sparse_scenarios.md) and a compact
+LP. The [completed comparison](computational_prior_art.md) now includes the
+recovered Roels thesis and rejects that result alone as the central contribution.
+Exact duplication was not established. The identification-only assessment remains
+unchanged; access limitations below describe the original 2026-10-26 audit.
 
 ## Question actually audited
 

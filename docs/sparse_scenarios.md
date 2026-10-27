@@ -1,9 +1,10 @@
 # Sparse upper-tail scenarios under resource constraints
 
-Working derivation, **2026-10-26**. This note gives a proof for the stated
-population model and a reproducible computational check. **Originality and
-publication significance remain unestablished.** The vertex argument is standard;
-its application must still be compared with the closest full prior papers.
+Working derivation, **2026-10-26**; research status updated **2026-10-27**.
+This note gives a proof for the stated population model and a reproducible
+computational check. The [completed assessment](computational_prior_art.md)
+retains it as supporting material and rejects it as the sole central paper
+contribution. Exact duplication is not established; originality is not claimed.
 
 ## 1. Exact statement
 
@@ -200,17 +201,19 @@ Finite numerical checks can falsify the proposed theorem or expose coding
 errors. Its mathematical support is the argument above, which still merits
 independent review. Passing checks does not certify originality.
 
-## 6. Prior-art assessment and next decision
+## 6. Prior-art assessment and research decision
 
-The [follow-up comparison](computational_prior_art.md) records what was read and
-what remains inaccessible. In particular, neither extreme-point arguments nor
-small scenario reductions in regret optimization are new methods in themselves.
-We have not established that the theorem here is absent from the literature,
-or that it would constitute a substantial paper contribution if absent verbatim.
+The [completed comparison](computational_prior_art.md) records the recovered
+Roels thesis, the exact locations inspected, remaining access limitations and
+the differences between the models. The thesis-access gate is closed.
 
-The next gate is a direct theorem-by-theorem comparison with the older
-capacity-constrained newsvendor work, especially the Roels thesis chapter.
-If this is a routine specialization, retain it as background and redirect before
-expanding experiments. A possible later question is which additional, useful
-information assumptions change tractability; no hardness or statistical result
-for those extensions is claimed here.
+The current decision is to retain this theorem as a supporting lemma, without
+developing a manuscript around it alone. Its fixed-prefix and rank formulation
+was not found verbatim, but its extreme-point mechanism and LP construction do
+not support the intended substantial methodological contribution. This is a
+research judgment; it neither refutes the proof nor establishes full duplication.
+
+Any continuation needs a distinct question and result, such as a sharp
+statistical limit with an attaining method or a meaningful tractability boundary.
+Neither has been proved here. An empirical plug-in or a generic concentration
+bound alone does not resolve that gap.

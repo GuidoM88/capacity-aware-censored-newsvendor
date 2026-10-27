@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-10-27",
+  "scope": "Primary-source access and reading depth for the sparse-scenario publication assessment",
+  "decision_document": "docs/computational_prior_art.md",
+  "sources": [
+    {
+      "bibkey": "roels2006information",
+      "landing_url": "https://dspace.mit.edu/entities/publication/683dc5a1-2bc8-49c4-a19b-d6ab7e3273eb",
+      "retrieved_url": "https://dspace.mit.edu/server/api/core/bitstreams/c159b5e9-9e69-4605-ac0b-8d877a220027/content",
+      "access": "Official full PDF retrieved; relevant section and proofs inspected",
+      "bytes": 10030745,
+      "sha256": "3daddc3ef97fb3685f566c2e9bfbed723cdbd7b4e175ceedd983f5e989e8c9c3",
+      "md5": "ba2937d05c987f091a16f81f3396203c",
+      "md5_matches_mit_catalogue": true,
+      "printed_pages_read": [
+        "49-60",
+        "181-182 (Lemma 1 and Theorem 9 proofs)"
+      ],
+      "printed_pages_visually_inspected": [
+        56,
+        58
+      ],
+      "key_locations": [
+        "Section 1.6.2",
+        "Assumption 1 and Theorem 9",
+        "Page 58 single-resource special case"
+      ],
+      "coverage_limit": "Relevant chapter material, not every thesis chapter, audited",
+      "supersedes": "2026-10-26 report that the relevant chapter had not been obtained"
+    },
+    {
+      "bibkey": "averbakh2004resource",
+      "retrieved_url": "https://www.sciencedirect.com/science/article/abs/pii/S0167637703000919",
+      "access": "Publisher-indexed abstract and introduction",
+      "coverage_limit": "Full proofs not obtained; no full fixed-prefix equivalence established"
+    },
+    {
+      "bibkey": "conde2005knapsack",
+      "retrieved_url": "https://www.sciencedirect.com/science/article/abs/pii/S0167637704001506",
+      "access": "Publisher-indexed abstract and problem formulation",
+      "coverage_limit": "Full proofs not obtained; no full fixed-prefix equivalence established"
+    },
+    {
+      "bibkey": "park2021allocation",
+      "landing_url": "https://pubsonline.informs.org/doi/10.1287/ijoc.2020.0999",
+      "supplement_url": "https://pubsonline.informs.org/doi/suppl/10.1287/ijoc.2020.0999/suppl_file/ijoc.2020.0999.sm1.pdf",
+      "access": "Publisher abstract plus original six-page online supplement through web PDF reader",
+      "sections_read": [
+        "A.1",
+        "A.2",
+        "B (proof of Theorem 1)"
+      ],
+      "coverage_limit": "Main article not obtained; no fixed-prefix rank theorem identified in the inspected sections"
+    },
+    {
+      "bibkey": "vanderhaar2026censored",
+      "landing_url": "https://arxiv.org/abs/2610.17465v2",
+      "retrieved_url": "https://arxiv.org/pdf/2610.17465",
+      "version_verified_from_pdf": "2610.17465v2, 19 October 2026",
+      "access": "Primary full PDF retrieved",
+      "bytes": 894102,
+      "sha256": "45913b959b526dc2429203278b57e7eb6407dc313e96105a810f43273d578ebf",
+      "sections_read": [
+        "Abstract",
+        "Section 3.1, Assumptions A1-A3 and Theorem 1"
+      ],
+      "coverage_limit": "Finite-sample proofs and complete experiments not audited"
+    }
+  ],
+  "interpretation": {
+    "identical_full_theorem_established": false,
+    "standalone_direction_selected": false,
+    "reason": "Strong prior overlap in the central mechanism and insufficient demonstrated additional significance for the intended paper",
+    "limits": "Research-selection judgment, not a proof of global duplication or a publication outcome prediction"
+  },
+  "source_files_committed": false,
+  "numerical_results": "Unchanged; this assessment adds literature evidence, not new experiments"
+}
