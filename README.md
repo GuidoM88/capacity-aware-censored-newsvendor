@@ -6,12 +6,17 @@ Historical sales reveal `min(demand, stock)`, not necessarily demand. This proje
 asks when a resource constraint makes the optimal allocation identifiable even
 though the unobserved demand tails remain unknown.
 
-**Research decision, 2026-10-27:** retain this project as a reproducible foundation;
-**do not use its current population results alone as the central paper
-contribution**. The [completed computational assessment](docs/computational_prior_art.md)
-now includes the relevant Roels thesis section and distinguishes known mechanisms
-from the remaining formulation differences. No identical full theorem was
-established, but the evidence does not justify a substantial originality claim.
+**Research decision, 2026-10-28:** the [three-direction comparison](docs/research_directions.md)
+prioritizes a bounded investigation of **finite-data certificates for coalition
+stability after forecast reconciliation**. A checked three-producer example
+isolates a dependence-information failure. It is a diagnostic, not a novelty
+claim; robust cores and learning stable allocations already have close predecessors.
+
+Retain the censored-newsvendor work as a reproducible foundation. The earlier
+[computational assessment](docs/computational_prior_art.md) is a provisional
+project-priority judgment, not a proof of full duplication or unpublishability.
+The comparison now states the precise next hypothesis and the baselines it must
+exceed before a larger implementation.
 
 The [working derivation](docs/sparse_scenarios.md) reduces full-class regret to
 `n+1` endpoint worlds for one shared resource, and to rank-bounded upper-tail
@@ -104,6 +109,7 @@ references. These checks validate this implementation within its supported scope
 
 ## Research documents
 
+- [Current direction selection, closest papers and checked diagnostic](docs/research_directions.md)
 - [Formulation, elementary certificate, and exact toy threshold](docs/formulation.md)
 - [Closest literature and unresolved overlap](docs/literature.md)
 - [Originality audit and research decision](docs/novelty_audit.md)
@@ -129,6 +135,17 @@ the proofs; they do not establish originality or a general theorem by themselves
 The sparse-scenario script separately compares full enumeration, the selected
 worlds and a compact LP; its [generated report](results/audit/sparse_scenarios.md)
 also preserves a counterexample to ignoring individual order caps.
+
+The separate coalition-information diagnostic is reproduced with:
+
+```bash
+python scripts/check_coalition_information.py
+```
+
+Its [saved results](results/audit/coalition_information.json) check identical
+individual and aggregate distributions, a blocking coalition, and the exact
+common least-core tolerance `1/3`, using rational arithmetic and an independent LP.
+It does not implement the proposed statistical certificate.
 
 The initial scope is a single-period, separable expected-loss problem. Demand
 substitution, lead times, inventory carry-over, contextual forecasting, and time

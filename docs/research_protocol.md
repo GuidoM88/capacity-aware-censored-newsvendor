@@ -51,6 +51,12 @@ make correctness, information assumptions and evidential limits inspectable.
    capacity, heterogeneous costs and weights, and alternative tail completions.
    A finite grid is a counterexample search, not a proof. A formal proof checker,
    if introduced later, must verify the intended statement and assumptions.
+8. **Compare questions before building.** For each candidate, specify the
+   information, comparator, intended theorem, closest result and an early
+   falsification check. Distinguish exact implication by prior work from
+   thematic overlap and a provisional judgment of significance. Select one
+   bounded investigation; do not call it original merely because no duplicate
+   was found, or reject a whole field because a related theorem exists.
 
 ## Stop or redirect criteria
 

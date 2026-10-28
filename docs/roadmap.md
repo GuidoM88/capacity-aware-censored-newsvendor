@@ -17,15 +17,36 @@
 - [x] Retrieve and compare the relevant Roels thesis section and proofs.
 - [x] Decide whether the current computational result justifies the planned paper.
 
-## Decision, 2026-10-27
+## Current priority, 2026-10-28
 
-**Do not pursue the population identification or sparse-scenario results alone
+The [comparative selection](research_directions.md) gives the first investigation
+to finite-data certification of coalition stability after forecast reconciliation.
+It records three candidates, their closest work, and why the other two are held
+or retained as a backup.
+
+- [x] Compare the candidate questions before expanding implementation.
+- [x] Specify the forecast-based rule, true-law comparator and validation data.
+- [x] Prove and independently check the three-producer information diagnostic.
+- [x] Identify robust-game, core-learning and elementary duality baselines.
+- [ ] Derive the baseline certificate for frozen offers and signed cost shares.
+- [ ] Measure certificate slack against exact coalition checks on small cases.
+- [ ] Formulate and assess one sharper statistical or computational proposition.
+- [ ] Decide whether its precise difference warrants a larger study.
+
+There is no new statistical method or publication-ready theorem yet. The next
+cycle has a written proof/comparison deliverable; it does not start with a new
+neural model, dataset collection or manuscript claim.
+
+## Previous decision, 2026-10-27; clarified 2026-10-28
+
+**Deprioritize the population identification or sparse-scenario results alone
 as the central paper contribution.** Retain them as supporting material. The
 [completed assessment](computational_prior_art.md) records the evidence and
 distinguishes this significance judgment from an unproved claim of duplication.
+The judgment is provisional, not a conclusion that the results are unpublishable.
 The earlier [identification audit](novelty_audit.md) is preserved as history.
 
-## Gate for a continuation
+## Backup within censored demand
 
 A concrete candidate question is whether coupled capacity changes the sharp
 finite-sample cost of learning beyond the irreducible regret from hidden demand.

@@ -1,5 +1,12 @@
 # Computational prior art and publication decision
 
+**Clarification, 2026-10-28:** the assessment below records the previous project
+choice. Its significance judgment was too categorical and is now treated as
+provisional. No complete published equivalence was established. We retain the
+results and deprioritize them as the sole contribution; we do not infer that
+they cannot be published. The [comparative direction selection](research_directions.md)
+sets the current research priority and separates evidence from judgment.
+
 Updated **2026-10-27** after retrieving the Roels thesis. This supersedes the
 2026-10-26 access limitation and pending decision for the
 [sparse-tail derivation](sparse_scenarios.md).
@@ -57,8 +64,9 @@ We have **not** established a published theorem implying the complete
 fixed-prefix rank statement. Nevertheless, the current proof uses an established
 extreme-point mechanism, and the finite-atomic LP uses conventional epigraphs.
 The potential contribution is consequently a model-specific extension. Its
-standalone significance is insufficient for the project's intended scope,
+standalone significance was judged insufficient for the project's intended scope,
 without another substantive result or demonstrated operational consequence.
+This is the provisional assessment clarified above, not an established fact.
 The argument is not that short proofs cannot be publishable.
 
 ## 3. Other primary-source checks

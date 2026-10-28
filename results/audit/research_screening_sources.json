@@ -1,0 +1,83 @@
+{
+  "date": "2026-10-28",
+  "purpose": "Provenance for comparative research-direction selection; not a novelty certificate",
+  "sources": [
+    {
+      "id": "wen_pinson_pooling",
+      "url": "https://arxiv.org/pdf/2510.12382v1",
+      "version": "arXiv v1, 2025-10-14; submission to PSCC 2026",
+      "access": "full PDF retrieved; selected sections inspected",
+      "reading_depth": "Section III, Propositions 2-3 and proofs; case study/conclusion; PDF pages 4-5 visually inspected",
+      "bytes": 415496,
+      "sha256": "4c158a231454d4191073a0585a4efbe155a0543a29f603760ce2a5a0037a8152"
+    },
+    {
+      "id": "doan_nguyen_accepted",
+      "url": "https://wrap.warwick.ac.uk/id/eprint/118743/1/WRAP-robust-newsvendor-games-ambiguity-demand-distributions-Doan-2019.pdf",
+      "version": "Accepted manuscript for Operations Research 2020, DOI 10.1287/opre.2019.1955",
+      "access": "full PDF retrieved; selected sections inspected",
+      "reading_depth": "Sections 2.2 and 3.2, Theorem 2 and Appendix C.2 proof; Theorem 3 statement; remaining proofs not fully audited",
+      "bytes": 813690,
+      "sha256": "38ff6985bc881af68c5d2e6f761e4ea79789646fccdcd529c5d32eaa32531962"
+    },
+    {
+      "id": "doan_nguyen_robust_2016",
+      "url": "https://arxiv.org/pdf/1403.5906v3",
+      "version": "Older arXiv v3, 2016-01-28; not the accepted 2020 manuscript",
+      "access": "full PDF retrieved; selected sections inspected",
+      "reading_depth": "Definitions and assumptions, Frechet model, Example 1 and appendix calculation, core/least-core computational formulation",
+      "bytes": 537293,
+      "sha256": "67050e2b45e1b184bd0b7b5ca32a0309e9563835828a8bb24b10c0d89ae3b34c"
+    },
+    {
+      "id": "tran_core_2024",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2024/file/2844b1bec82dd4be201f68715c03ed1b-Paper-Conference.pdf",
+      "version": "NeurIPS 2024 proceedings",
+      "access": "full PDF retrieved; selected sections inspected",
+      "reading_depth": "Section 3 model and assumptions; section 5 Theorem 7 statement and explanatory argument; conclusion; full proofs not audited",
+      "bytes": 1150619,
+      "sha256": "ab548f9f94daf8b8ba63f68806402ec1a8e958e4c51c4926335d32cf5b781002"
+    },
+    {
+      "id": "tang_khalil_multitask",
+      "url": "https://arxiv.org/pdf/2212.05403v3",
+      "version": "arXiv v3, 2023-04-28",
+      "access": "full PDF retrieved; selected sections inspected",
+      "reading_depth": "Abstract, introduction and stated problem scope; no replication",
+      "bytes": 948993,
+      "sha256": "00419977436872d56838328ffcf36107e7ce02483707af32312625b3762d822d"
+    },
+    {
+      "id": "hssaine_sinclair_censored",
+      "url": "https://arxiv.org/pdf/2412.01763v3",
+      "version": "arXiv v3",
+      "access": "full PDF retrieved; selected sections inspected",
+      "reading_depth": "Model and scalar identification results in prior audit; literature discussion and conclusion revisited",
+      "bytes": 1309411,
+      "sha256": "83355360e8b34d96005a05f9e3783e11f8e97fed45ccf98a8d076fbf3712535c"
+    },
+    {
+      "id": "wan_2026_design",
+      "url": "https://arxiv.org/pdf/2602.05340v1",
+      "version": "arXiv v1, 2026-02-05",
+      "access": "full PDF retrieved; selected sections inspected",
+      "reading_depth": "Formulation, full-label observation step, assumptions and theorem statements; full proofs not audited",
+      "bytes": 2929133,
+      "sha256": "20d820708374f2e4d6b2d5b3f94b8efa2cb49255a8358ca0825a84f43c8073f5"
+    },
+    {
+      "id": "wang2026robust_cost",
+      "url": "https://www.sciencedirect.com/science/article/pii/S1366554525006556",
+      "doi": "10.1016/j.tre.2025.104633",
+      "version": "Published article, 2026",
+      "access": "publisher abstract, introduction and section excerpts via search retrieval; full PDF not obtained",
+      "reading_depth": "Robust-core objective, ambiguity sets and constraint-generation scope described in publisher excerpts; full formulation and proofs unverified"
+    }
+  ],
+  "notes": [
+    "Source PDFs are not redistributed in this repository.",
+    "The 2016 preprint is distinguished from the accepted 2020 manuscript.",
+    "The Southampton PDF was not accessible; the accepted manuscript was obtained from the public Warwick repository.",
+    "Small mathematical examples and a priority decision do not establish publication readiness."
+  ]
+}
