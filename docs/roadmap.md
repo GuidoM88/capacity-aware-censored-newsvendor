@@ -28,14 +28,19 @@ or retained as a backup.
 - [x] Specify the forecast-based rule, true-law comparator and validation data.
 - [x] Prove and independently check the three-producer information diagnostic.
 - [x] Identify robust-game, core-learning and elementary duality baselines.
-- [ ] Derive the baseline certificate for frozen offers and signed cost shares.
-- [ ] Measure certificate slack against exact coalition checks on small cases.
-- [ ] Formulate and assess one sharper statistical or computational proposition.
+- [x] Derive the baseline certificate for frozen offers and signed cost shares.
+- [x] Measure certificate slack against exact coalition checks on small cases.
+- [x] Characterize the best common-dual bound as a fractional-coalition relaxation.
+- [x] Prove an exact structural gap, separating it from sampling uncertainty.
+- [ ] Assess whether limited branching or structural restrictions can close that
+  gap with a useful statistical/computational guarantee beyond existing methods.
 - [ ] Decide whether its precise difference warrants a larger study.
 
-There is no new statistical method or publication-ready theorem yet. The next
-cycle has a written proof/comparison deliverable; it does not start with a new
-neural model, dataset collection or manuscript claim.
+The [completed first cycle](coalition_certificate.md) contains a proved standard
+certificate, an exact limitation, and a saved 100-case comparison. There is no
+established original statistical method or publication-ready theorem yet. The next
+cycle targets the fractional-membership gap; it does not start with a new neural
+model, dataset collection or manuscript claim.
 
 ## Previous decision, 2026-10-27; clarified 2026-10-28
 

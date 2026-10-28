@@ -8,9 +8,11 @@ though the unobserved demand tails remain unknown.
 
 **Research decision, 2026-10-28:** the [three-direction comparison](docs/research_directions.md)
 prioritizes a bounded investigation of **finite-data certificates for coalition
-stability after forecast reconciliation**. A checked three-producer example
-isolates a dependence-information failure. It is a diagnostic, not a novelty
-claim; robust cores and learning stable allocations already have close predecessors.
+stability after forecast reconciliation**. The [first certificate note](docs/coalition_certificate.md)
+now proves a baseline and identifies its fractional-coalition relaxation. A
+prespecified 100-case diagnostic and independent LP/MILP checks distinguish
+sampling uncertainty from structural conservatism. These results narrow the
+next research target; scientific novelty is not yet established.
 
 Retain the censored-newsvendor work as a reproducible foundation. The earlier
 [computational assessment](docs/computational_prior_art.md) is a provisional
@@ -109,6 +111,9 @@ references. These checks validate this implementation within its supported scope
 
 ## Research documents
 
+- [Baseline certificate, proofs and fractional-coalition obstruction](docs/coalition_certificate.md)
+- [Prespecified certificate diagnostic protocol](docs/coalition_certificate_protocol.md)
+- [Generated certificate comparison](results/certificates/summary.md)
 - [Current direction selection, closest papers and checked diagnostic](docs/research_directions.md)
 - [Formulation, elementary certificate, and exact toy threshold](docs/formulation.md)
 - [Closest literature and unresolved overlap](docs/literature.md)
@@ -145,7 +150,18 @@ python scripts/check_coalition_information.py
 Its [saved results](results/audit/coalition_information.json) check identical
 individual and aggregate distributions, a blocking coalition, and the exact
 common least-core tolerance `1/3`, using rational arithmetic and an independent LP.
-It does not implement the proposed statistical certificate.
+The subsequent certificate diagnostic is reproduced with:
+
+```bash
+python scripts/check_coalition_certificate.py
+```
+
+It compares the moment certificate with an enumeration-based confidence bound
+under identical validation samples. Population LP/MILP references separately
+measure structural slack and use the true finite law. The
+[complete outcomes](results/certificates/results.json) preserve all 100 cases,
+rules, input distributions and sampled-state counts. The mathematical confidence
+guarantees assume bounded iid observations independent of the frozen rule.
 
 The initial scope is a single-period, separable expected-loss problem. Demand
 substitution, lead times, inventory carry-over, contextual forecasting, and time

@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-28",
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": "serialization_failed",
+      "stage": "Writing results.json after completing all instance evaluations",
+      "error": "TypeError: Object of type bool is not JSON serializable",
+      "cause": "A NumPy scalar loss-range endpoint propagated to a NumPy boolean coverage flag.",
+      "fix": "Return a Python float from FrozenRule.loss_range.",
+      "scientific_change": "None: the grid, formulas, seeds and acceptance criteria are unchanged."
+    },
+    {
+      "attempt": 2,
+      "status": "completed",
+      "grid_changes": false,
+      "summary": "summary.json",
+      "population_checks": "All bound-ordering, primal/dual and selected MILP comparisons passed."
+    }
+  ],
+  "final_tests": {
+    "command": "python -m unittest discover -s tests -v",
+    "tests": 24,
+    "passed": 24,
+    "failures": 0,
+    "errors": 0
+  }
+}

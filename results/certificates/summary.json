@@ -1,0 +1,15 @@
+{
+  "instances": 100,
+  "population_coalitions_evaluated": 2728,
+  "independent_lp_equalities": 100,
+  "independent_milp_checks": 52,
+  "stable_instances": 36,
+  "strict_fixed_score_gaps": 48,
+  "strict_fractional_gaps": 5,
+  "maximum_fixed_score_gap": 1.0209424309042092,
+  "maximum_fractional_gap": 0.1875,
+  "maximum_lp_disagreement": 6.661338147750939e-16,
+  "finite_certificate_evaluations": 600,
+  "moment_coverage_failures": 0,
+  "enumeration_coverage_failures": 0
+}

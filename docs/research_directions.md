@@ -3,6 +3,12 @@
 Decision date: **2026-10-28**. This is a comparison of research questions, not a
 claim that any candidate is already original or publishable.
 
+**Progress later on 2026-10-28:** the [first certificate cycle](coalition_certificate.md)
+is complete. It proves a standard finite-sample bound, compares 100 synthetic
+instances, and identifies an exact fractional-coalition obstruction. The current
+target is reducing that structural gap; the original selection rationale remains
+below for traceability.
+
 ## Decision and correction to the earlier process
 
 Give the next bounded investigation to **finite-data certification of coalition
@@ -160,10 +166,11 @@ the three enumerated worlds. **Novelty of this example is not claimed.**
    statistical route under these assumptions. A new certificate must improve
    something explicit over this baseline, or establish a sharp limitation.
 
-## A bounded next investigation
+## The initial bounded investigation (completed)
 
-The next deliverable is **one proposition with a proof attempt and one small
-comparison**, not a full forecasting pipeline:
+The initial deliverable was **one proposition with a proof attempt and one small
+comparison**. The following scope was used; its proofs and outcomes are now in
+[coalition_certificate.md](coalition_certificate.md):
 
 1. Derive the baseline certificate for the frozen `(q_Q,w)` audit, including
    aggregate forecast error, signed weights, and bounded iid validation data.
