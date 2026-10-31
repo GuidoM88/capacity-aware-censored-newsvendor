@@ -2,6 +2,13 @@
 
 Research code for **identifiability and minimax regret under censored demand and shared capacity**.
 
+**Current investigation, 2026-10-31.** We audit the cost of leaving a coalition
+after producers submit a forecast-based offer. Excluding at least one whole producer
+closes the original four-producer relaxation gap. The new note proves exactness for
+exchangeable production and equal shares, and constructs a persistent gap at any
+fixed exclusion depth in the heterogeneous model.
+[Proofs and research decision](docs/exclusion.md) · [Reproducible comparison](results/exclusion/summary.md)
+
 Historical sales reveal `min(demand, stock)`, not necessarily demand. This project
 asks when a resource constraint makes the optimal allocation identifiable even
 though the unobserved demand tails remain unknown.
@@ -111,6 +118,8 @@ references. These checks validate this implementation within its supported scope
 
 ## Research documents
 
+- [Whole-producer exclusions, exactness and worst-case construction](docs/exclusion.md)
+
 - [Baseline certificate, proofs and fractional-coalition obstruction](docs/coalition_certificate.md)
 - [Prespecified certificate diagnostic protocol](docs/coalition_certificate_protocol.md)
 - [Generated certificate comparison](results/certificates/summary.md)
@@ -154,6 +163,13 @@ The subsequent certificate diagnostic is reproduced with:
 
 ```bash
 python scripts/check_coalition_certificate.py
+```
+
+To reproduce the subsequent exclusion comparison using the saved baseline outcomes:
+
+```bash
+python scripts/check_exclusion.py
+python scripts/check_exclusion_obstruction.py
 ```
 
 It compares the moment certificate with an enumeration-based confidence bound

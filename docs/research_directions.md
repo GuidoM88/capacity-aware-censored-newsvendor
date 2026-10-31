@@ -3,6 +3,10 @@
 Decision date: **2026-10-28**. This is a comparison of research questions, not a
 claim that any candidate is already original or publishable.
 
+**Progress on 2026-10-31.** Whole-producer exclusions tightened the certificate.
+The second cycle established an exact symmetric class, a heterogeneous worst case,
+and a measurable residual condition to investigate. [Results](exclusion.md)
+
 **Progress later on 2026-10-28:** the [first certificate cycle](coalition_certificate.md)
 is complete. It proves a standard finite-sample bound, compares 100 synthetic
 instances, and identifies an exact fractional-coalition obstruction. The current

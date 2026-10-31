@@ -17,7 +17,7 @@
 - [x] Retrieve and compare the relevant Roels thesis section and proofs.
 - [x] Decide whether the current computational result justifies the planned paper.
 
-## Current priority, 2026-10-28
+## Current priority, 2026-10-31
 
 The [comparative selection](research_directions.md) gives the first investigation
 to finite-data certification of coalition stability after forecast reconciliation.
@@ -32,15 +32,19 @@ or retained as a backup.
 - [x] Measure certificate slack against exact coalition checks on small cases.
 - [x] Characterize the best common-dual bound as a fractional-coalition relaxation.
 - [x] Prove an exact structural gap, separating it from sampling uncertainty.
-- [ ] Assess whether limited branching or structural restrictions can close that
-  gap with a useful statistical/computational guarantee beyond existing methods.
+- [x] Solve a hierarchy of whole-producer exclusions and compare with the exact
+  population and finite-sample optimization references.
+- [x] Prove an exact exchangeable case and a constant gap at every fixed depth
+  in a family with heterogeneous production.
+- [ ] Construct a validation bound using the dual residuals of leave-one-out
+  coalitions. Compare its statistical slack and computational work on held-out data.
 - [ ] Decide whether its precise difference warrants a larger study.
 
-The [completed first cycle](coalition_certificate.md) contains a proved standard
-certificate, an exact limitation, and a saved 100-case comparison. There is no
-established original statistical method or publication-ready theorem yet. The next
-cycle targets the fractional-membership gap; it does not start with a new neural
-model, dataset collection or manuscript claim.
+The first cycle gave a moment certificate and identified its fractional-membership
+gap. The second cycle established an exact class and a worst-case boundary for
+closing that gap. The comparison isolates the remaining statistical slack even
+when the integer optimization has been solved exactly.
+[First cycle](coalition_certificate.md) · [Second cycle](exclusion.md)
 
 ## Previous decision, 2026-10-27; clarified 2026-10-28
 

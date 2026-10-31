@@ -1,0 +1,62 @@
+{
+  "Population vs actual excess": [
+    {
+      "comparisons": 100,
+      "strict_gaps": 5,
+      "largest_gap": 0.1875,
+      "mean_gap": 0.003001984192721998,
+      "lp_calls": 100,
+      "witness_closes": 95
+    },
+    {
+      "comparisons": 100,
+      "strict_gaps": 1,
+      "largest_gap": 0.024150693369773976,
+      "mean_gap": 0.00024150693369787965,
+      "lp_calls": 446,
+      "witness_closes": 99
+    },
+    {
+      "comparisons": 100,
+      "strict_gaps": 0,
+      "largest_gap": 8.049116928532385e-16,
+      "mean_gap": 7.806255641895632e-17,
+      "lp_calls": 834,
+      "witness_closes": 100
+    }
+  ],
+  "Validation vs exhaustive confidence bound": [
+    {
+      "comparisons": 300,
+      "strict_gaps": 104,
+      "largest_gap": 0.27496152682627684,
+      "mean_gap": 0.02414218750332323,
+      "lp_calls": 600,
+      "witness_closes": 196
+    },
+    {
+      "comparisons": 300,
+      "strict_gaps": 1,
+      "largest_gap": 0.0063053126741914045,
+      "mean_gap": 2.101770891495197e-05,
+      "lp_calls": 2676,
+      "witness_closes": 299
+    },
+    {
+      "comparisons": 300,
+      "strict_gaps": 0,
+      "largest_gap": 2.220446049250313e-16,
+      "mean_gap": 4.438181593069413e-18,
+      "lp_calls": 5004,
+      "witness_closes": 300
+    }
+  ],
+  "symmetric_formula_checks": 12,
+  "population_milp_checks": 5,
+  "validation_milp_checks": 12,
+  "observed_coverage_failures": [
+    0,
+    0,
+    0
+  ]
+}

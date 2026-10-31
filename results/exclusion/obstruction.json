@@ -1,0 +1,89 @@
+{
+  "scope": "Follow-up construction derived after the fixed comparison, 2026-10-31",
+  "source_sha256": {
+    "scripts/check_exclusion_obstruction.py": "536630f983db7d7f2df1e2436422d79200fc6abe8f0821d0f9a8ceaf35911f99",
+    "src/censored_newsvendor/exclusion.py": "2501bd4710b8b4b504fdc11f2a58bc27a8fe51f2f9c7b58b6121f24814417cf4"
+  },
+  "instances": [
+    {
+      "k": 1,
+      "n": 3,
+      "integer_excess": 0.0,
+      "level_k": 0.14,
+      "terminal_level": 1.3877787807814457e-17,
+      "true_support_size": 2,
+      "offer": 0.85,
+      "weights": [
+        1.0,
+        0.3333333333333333,
+        -0.3333333333333332
+      ]
+    },
+    {
+      "k": 2,
+      "n": 4,
+      "integer_excess": 0.0,
+      "level_k": 0.14,
+      "terminal_level": 1.3877787807814457e-17,
+      "true_support_size": 4,
+      "offer": 1.35,
+      "weights": [
+        1.0,
+        0.3333333333333333,
+        -0.3333333333333332,
+        0.0
+      ]
+    },
+    {
+      "k": 3,
+      "n": 5,
+      "integer_excess": 1.1102230246251565e-16,
+      "level_k": 0.14000000000000004,
+      "terminal_level": 1.1102230246251565e-16,
+      "true_support_size": 8,
+      "offer": 1.85,
+      "weights": [
+        1.0000000000000007,
+        0.3333333333333335,
+        -0.33333333333333337,
+        0.0,
+        9.251858538542975e-17
+      ]
+    },
+    {
+      "k": 4,
+      "n": 6,
+      "integer_excess": 5.551115123125783e-17,
+      "level_k": 0.14,
+      "terminal_level": 5.551115123125783e-17,
+      "true_support_size": 16,
+      "offer": 2.3499999999999996,
+      "weights": [
+        1.0000000000000004,
+        0.3333333333333334,
+        -0.3333333333333333,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "k": 5,
+      "n": 7,
+      "integer_excess": 5.551115123125783e-17,
+      "level_k": 0.14,
+      "terminal_level": 1.3877787807814457e-16,
+      "true_support_size": 32,
+      "offer": 2.85,
+      "weights": [
+        1.0,
+        0.3333333333333333,
+        -0.3333333333333332,
+        0.0,
+        3.700743415417188e-16,
+        4.625929269271485e-17,
+        4.625929269271485e-17
+      ]
+    }
+  ]
+}
