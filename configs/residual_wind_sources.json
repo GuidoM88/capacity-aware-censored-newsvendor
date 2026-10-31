@@ -1,0 +1,40 @@
+{
+  "texas_manifest": "https://github.com/GuidoM88/value-oriented-energy-forecast-reconciliation/blob/08ddd25e2a31a08dd8827d93f9ee09184e30678e/reports/complete/wind_hourly.manifest.json",
+  "texas_sites": [
+    {
+      "site_id": 19612,
+      "capacity_mw": 2,
+      "url": "https://nrel-pds-wtk.s3.amazonaws.com/wtk-techno-economic/pywtk-data/met_data/39/19612.nc",
+      "sha256": "eea31ddc1b161e90f8169a206e86833f0d9b9704da965d70cdf60c07a802590f",
+      "bytes": 17681196
+    },
+    {
+      "site_id": 18831,
+      "capacity_mw": 16,
+      "url": "https://nrel-pds-wtk.s3.amazonaws.com/wtk-techno-economic/pywtk-data/met_data/37/18831.nc",
+      "sha256": "9b13b9aac0461cf1c6f401846f36aef268bee1dae8d6fbf86cb894da6334c9b6",
+      "bytes": 17681196
+    },
+    {
+      "site_id": 20178,
+      "capacity_mw": 10,
+      "url": "https://nrel-pds-wtk.s3.amazonaws.com/wtk-techno-economic/pywtk-data/met_data/40/20178.nc",
+      "sha256": "a6ff99826efb5fc89e1f1473305e935d11c307d7bb97b3e914bf0dcad22ed409",
+      "bytes": 17681196
+    },
+    {
+      "site_id": 20329,
+      "capacity_mw": 16,
+      "url": "https://nrel-pds-wtk.s3.amazonaws.com/wtk-techno-economic/pywtk-data/met_data/40/20329.nc",
+      "sha256": "8c30347db5dcc44369e142fbe760d1f304b505cbf5ff07a571b0ffe5f8fc4f14",
+      "bytes": 17681196
+    }
+  ],
+  "france": {
+    "url": "https://raw.githubusercontent.com/NatLabRockies/OpenOA/bf2dacd44e0a54ad818b1a7691988d0b004f4496/examples/data/la_haute_borne.zip",
+    "bytes": 36762939,
+    "git_blob": "dcf3e46e9cc078f02684934be3460111a5fcb1b1",
+    "source": "https://github.com/NatLabRockies/OpenOA/blob/bf2dacd44e0a54ad818b1a7691988d0b004f4496/examples/data/readme.md",
+    "license": "ENGIE Open Licence 2.0 (Etalab), as documented by OpenOA"
+  }
+}

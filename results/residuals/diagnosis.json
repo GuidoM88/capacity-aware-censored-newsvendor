@@ -1,0 +1,1459 @@
+{
+  "date": "2026-11-01",
+  "scope": "Post-run diagnosis. Prices remain fitted to the original pilot. Only validation moments are replaced by population moments.",
+  "sha256": {
+    "results/residuals/results.json": "3e2c0c59645e3575b50c1d7c8ae41595ee4b7ebf01d35cb7e8e171dcc2357ae4",
+    "scripts/analyze_residuals.py": "93b9c945c5dee231ff28af3837969212db88d9948622fcaa607b067acc77213c"
+  },
+  "groups": {
+    "original": {
+      "cases": 100,
+      "m": 4096,
+      "mean": {
+        "structural_gap": 8.050231123261367e-05,
+        "same_prices_population_gap_bound": 0.022144334382106494,
+        "finite_gap_bound": 0.13465460959981276,
+        "same_prices_population_upper_slack": 0.019877991835753166,
+        "statistical_upper_expansion": 0.1253540737870823,
+        "finite_upper_slack": 0.14523206562283547
+      },
+      "median": {
+        "structural_gap": 1.850371707708594e-17,
+        "same_prices_population_gap_bound": 0.013717751196859761,
+        "finite_gap_bound": 0.12740430128088953,
+        "same_prices_population_upper_slack": 0.013169335298849987,
+        "statistical_upper_expansion": 0.12756848150770267,
+        "finite_upper_slack": 0.14226027577809963
+      },
+      "at_most_five_percent": {
+        "structural_gap": 100,
+        "same_prices_population_gap_bound": 90,
+        "finite_gap_bound": 3
+      },
+      "instances": [
+        {
+          "id": "three_matched",
+          "structural_gap": 0.0,
+          "same_prices_population_gap_bound": 0.3333333333333333,
+          "finite_gap_bound": 0.3549853464967165,
+          "same_prices_population_upper_slack": 0.3333333333333333,
+          "statistical_upper_expansion": 0.021652013163383128,
+          "finite_upper_slack": 0.3549853464967165
+        },
+        {
+          "id": "three_dependence",
+          "structural_gap": 0.0,
+          "same_prices_population_gap_bound": 0.0,
+          "finite_gap_bound": 0.027557107662487645,
+          "same_prices_population_upper_slack": 0.0,
+          "statistical_upper_expansion": 0.011810188998209034,
+          "finite_upper_slack": 0.011810188998209034
+        },
+        {
+          "id": "four_fixed_score_gap",
+          "structural_gap": 0.0,
+          "same_prices_population_gap_bound": 0.0,
+          "finite_gap_bound": 0.14886635092512013,
+          "same_prices_population_upper_slack": 0.0,
+          "statistical_upper_expansion": 0.14886635092512013,
+          "finite_upper_slack": 0.14886635092512013
+        },
+        {
+          "id": "four_fractional_gap",
+          "structural_gap": 0.0,
+          "same_prices_population_gap_bound": 0.005028735632183908,
+          "finite_gap_bound": 0.14452968130025023,
+          "same_prices_population_upper_slack": 0.005028735632183944,
+          "statistical_upper_expansion": 0.1563757646079318,
+          "finite_upper_slack": 0.16140450024011574
+        },
+        {
+          "id": "n3_matched_seed104729_over1_under1",
+          "structural_gap": 2.0816681711721685e-17,
+          "same_prices_population_gap_bound": 0.024356022111655922,
+          "finite_gap_bound": 0.08143725851997724,
+          "same_prices_population_upper_slack": 0.024356022111655922,
+          "statistical_upper_expansion": 0.057081236408321315,
+          "finite_upper_slack": 0.08143725851997724
+        },
+        {
+          "id": "n3_matched_seed104729_over1_under3",
+          "structural_gap": 0.0,
+          "same_prices_population_gap_bound": 0.0,
+          "finite_gap_bound": 0.1220721830067893,
+          "same_prices_population_upper_slack": 0.0,
+          "statistical_upper_expansion": 0.1220721830067893,
+          "finite_upper_slack": 0.1220721830067893
+        },
+        {
+          "id": "n3_matched_seed104729_over3_under1",
+          "structural_gap": 3.932039878880763e-17,
+          "same_prices_population_gap_bound": 0.00846903199374305,
+          "finite_gap_bound": 0.10188414247226744,
+          "same_prices_population_upper_slack": 0.00846903199374305,
+          "statistical_upper_expansion": 0.0934151104785244,
+          "finite_upper_slack": 0.10188414247226744
+        },
+        {
+          "id": "n3_matched_seed130363_over1_under1",
+          "structural_gap": 6.938893903907228e-18,
+          "same_prices_population_gap_bound": 0.04132211314692441,
+          "finite_gap_bound": 0.10011089871018913,
+          "same_prices_population_upper_slack": 0.04132211314692441,
+          "statistical_upper_expansion": 0.06410750691204647,
+          "finite_upper_slack": 0.10542962005897089
+        },
+        {
+          "id": "n3_matched_seed130363_over1_under3",
+          "structural_gap": 0.0,
+          "same_prices_population_gap_bound": 0.0,
+          "finite_gap_bound": 0.10202576542098087,
+          "same_prices_population_upper_slack": 0.0,
+          "statistical_upper_expansion": 0.10202576542098087,
+          "finite_upper_slack": 0.10202576542098087
+        },
+        {
+          "id": "n3_matched_seed130363_over3_under1",
+          "structural_gap": 0.0,
+          "same_prices_population_gap_bound": 0.001977323833193869,
+          "finite_gap_bound": 0.10643728995670136,
+          "same_prices_population_upper_slack": 0.001977323833193869,
+          "statistical_upper_expansion": 0.1044599661235075,
+          "finite_upper_slack": 0.10643728995670136
+        },
+        {
+          "id": "n3_same_total_seed104729_over1_under1",
+          "structural_gap": 2.7755575615628914e-17,
+          "same_prices_population_gap_bound": 0.001741741381356271,
+          "finite_gap_bound": 0.10768314840779458,
+          "same_prices_population_upper_slack": 0.001741741381356271,
+          "statistical_upper_expansion": 0.09439190897673455,
+          "finite_upper_slack": 0.09613365035809082
+        },
+        {
+          "id": "n3_same_total_seed104729_over1_under3",
+          "structural_gap": 0.0,
+          "same_prices_population_gap_bound": 0.057972294397434045,
+          "finite_gap_bound": 0.1338248266889469,
+          "same_prices_population_upper_slack": 0.00989605015054503,
+          "statistical_upper_expansion": 0.07585253229151286,
+          "finite_upper_slack": 0.0857485824420579
+        },
+        {
+          "id": "n3_same_total_seed104729_over3_under1",
+          "structural_gap": -3.700743415417188e-17,
+          "same_prices_population_gap_bound": 0.002012566490513734,
+          "finite_gap_bound": 0.1176252173433635,
+          "same_prices_population_upper_slack": 0.0020125664905137155,
+          "statistical_upper_expansion": 0.10263496889912334,
+          "finite_upper_slack": 0.10464753538963706
+        },
+        {
+          "id": "n3_same_total_seed130363_over1_under1",
+          "structural_gap": 1.734723475976807e-17,
+          "same_prices_population_gap_bound": 0.0,
+          "finite_gap_bound": 0.06944578352483273,
+          "same_prices_population_upper_slack": 0.0,
+          "statistical_upper_expansion": 0.06944578352483273,
+          "finite_upper_slack": 0.06944578352483273
+        },
+        {
+          "id": "n3_same_total_seed130363_over1_under3",
+          "structural_gap": 1.850371707708594e-17,
+          "same_prices_population_gap_bound": 0.002566542045022361,
+          "finite_gap_bound": 0.09116368903622467,
+          "same_prices_population_upper_slack": 0.0025665420450223055,
+          "statistical_upper_expansion": 0.1015052978849363,
+          "finite_upper_slack": 0.10407183992995861
+        },
+        {
+          "id": "n3_same_total_seed130363_over3_under1",
+          "structural_gap": 1.850371707708594e-17,
+          "same_prices_population_gap_bound": 0.0,
+          "finite_gap_bound": 0.04123673495727865,
+          "same_prices_population_upper_slack": 0.0,
+          "statistical_upper_expansion": 0.04123673495727865,
+          "finite_upper_slack": 0.04123673495727865
+        },
+        {
+          "id": "n3_independent_vs_comonotone_seed104729_over1_under1",
+          "structural_gap": 2.7755575615628914e-17,
+          "same_prices_population_gap_bound": 0.0,
+          "finite_gap_bound": 0.07184055926510756,
+          "same_prices_population_upper_slack": -2.7755575615628914e-17,
+          "statistical_upper_expansion": 0.10441370341049602,
+          "finite_upper_slack": 0.104413703410496
+        },
+        {
+          "id": "n3_independent_vs_comonotone_seed104729_over1_under3",
+          "structural_gap": 0.0,
+          "same_prices_population_gap_bound": 0.0,
+          "finite_gap_bound": 0.06818799801114503,
+          "same_prices_population_upper_slack": 0.0,
+          "statistical_upper_expansion": 0.06818799801114503,
+          "finite_upper_slack": 0.06818799801114503
+        },
+        {
+          "id": "n3_independent_vs_comonotone_seed104729_over3_under1",
+          "structural_gap": 1.850371707708594e-17,
+          "same_prices_population_gap_bound": 0.0,
+          "finite_gap_bound": 0.09186079709613885,
+          "same_prices_population_upper_slack": 0.0,
+          "statistical_upper_expansion": 0.12698887624962718,
+          "finite_upper_slack": 0.12698887624962718
+        },
+        {
+          "id": "n3_independent_vs_comonotone_seed130363_over1_under1",
+          "structural_gap": 1.3877787807814457e-17,
+          "same_prices_population_gap_bound": 0.0,
+          "finite_gap_bound": 0.0639780178348785,
+          "same_prices_population_upper_slack": -5.551115123125783e-17,
+          "statistical_upper_expansion": 0.10812848062146016,
+          "finite_upper_slack": 0.1081284806214601
+        },
+        {
+          "id": "n3_independent_vs_comonotone_seed130363_over1_under3",
+          "structural_gap": 0.0,
+          "same_prices_population_gap_bound": 0.007540229885057537,
+          "finite_gap_bound": 0.10093717671389497,
+          "same_prices_population_upper_slack": 0.007540229885057592,
+          "statistical_upper_expansion": 0.1364505628800913,
+          "finite_upper_slack": 0.1439907927651489
+        },
+        {
+          "id": "n3_independent_vs_comonotone_seed130363_over3_under1",
+          "structural_gap": 0.0,
+          "same_prices_population_gap_bound": 0.0,
+          "finite_gap_bound": 0.10744664792415326,
+          "same_prices_population_upper_slack": 0.0,
+          "statistical_upper_expansion": 0.1074466479241553,
+          "finite_upper_slack": 0.1074466479241553
+        },
+        {
+          "id": "n3_shifted_seed104729_over1_under1",
+          "structural_gap": 2.7755575615628914e-17,
+          "same_prices_population_gap_bound": 0.0016690068079282666,
+          "finite_gap_bound": 0.11784182753788128,
+          "same_prices_population_upper_slack": 0.0016690068079282666,
+          "statistical_upper_expansion": 0.11358079740129619,
+          "finite_upper_slack": 0.11524980420922445
+        },
+        {
+          "id": "n3_shifted_seed104729_over1_under3",
+          "structural_gap": 7.401486830834377e-17,
+          "same_prices_population_gap_bound": 0.007905689490630622,
+          "finite_gap_bound": 0.11645213016766941,
+          "same_prices_population_upper_slack": 0.00790568949063066,
+          "statistical_upper_expansion": 0.14808989842377343,
+          "finite_upper_slack": 0.15599558791440407
+        },
+        {
+          "id": "n3_shifted_seed104729_over3_under1",
+          "structural_gap": 1.850371707708594e-17,
+          "same_prices_population_gap_bound": 0.0029386334154289004,
+          "finite_gap_bound": 0.12055034087616774,
+          "same_prices_population_upper_slack": 0.0029386334154289004,
+          "statistical_upper_expansion": 0.12188990699196506,
+          "finite_upper_slack": 0.12482854040739395
+        },
+        {
+          "id": "n3_shifted_seed130363_over1_under1",
+          "structural_gap": -2.7755575615628914e-17,
+          "same_prices_population_gap_bound": 0.002403451842237045,
+          "finite_gap_bound": 0.10505337945755322,
+          "same_prices_population_upper_slack": 0.002403451842237031,
+          "statistical_upper_expansion": 0.08263584619652944,
+          "finite_upper_slack": 0.08503929803876648
+        },
+        {
+          "id": "n3_shifted_seed130363_over1_under3",
+          "structural_gap": -3.700743415417188e-17,
+          "same_prices_population_gap_bound": 1.295260195396016e-16,
+          "finite_gap_bound": 0.18942009927591305,
+          "same_prices_population_upper_slack": 9.251858538542972e-17,
+          "statistical_upper_expansion": 0.14112849410232906,
+          "finite_upper_slack": 0.14112849410232917
+        },
+        {
+          "id": "n3_shifted_seed130363_over3_under1",
+          "structural_gap": 0.0,
+          "same_prices_population_gap_bound": 0.0036225453516042596,
+          "finite_gap_bound": 0.11468456291007613,
+          "same_prices_population_upper_slack": 0.0036225453516042596,
+          "statistical_upper_expansion": 0.11106201755847188,
+          "finite_upper_slack": 0.11468456291007613
+        },
+        {
+          "id": "n4_matched_seed104729_over1_under1",
+          "structural_gap": 2.7755575615628914e-17,
+          "same_prices_population_gap_bound": 0.009690955787009209,
+          "finite_gap_bound": 0.16009410927402384,
+          "same_prices_population_upper_slack": 0.009690955787009209,
+          "statistical_upper_expansion": 0.15040315348701463,
+          "finite_upper_slack": 0.16009410927402384
+        },
+        {
+          "id": "n4_matched_seed104729_over1_under3",
+          "structural_gap": 0.0,
+          "same_prices_population_gap_bound": 0.03585436419159248,
+          "finite_gap_bound": 0.17667243638276678,
+          "same_prices_population_upper_slack": 0.03585436419159248,
+          "statistical_upper_expansion": 0.14081807219117431,
+          "finite_upper_slack": 0.17667243638276678
+        },
+        {
+          "id": "n4_matched_seed104729_over3_under1",
+          "structural_gap": 3.700743415417188e-17,
+          "same_prices_population_gap_bound": 0.013294670973873981,
+          "finite_gap_bound": 0.2042290925520377,
+          "same_prices_population_upper_slack": 0.013294670973873981,
+          "statistical_upper_expansion": 0.20085755784768278,
+          "finite_upper_slack": 0.21415222882155674
+        },
+        {
+          "id": "n4_matched_seed130363_over1_under1",
+          "structural_gap": 7.45931094670027e-17,
+          "same_prices_population_gap_bound": 0.033083326610604695,
+          "finite_gap_bound": 0.16453121589420527,
+          "same_prices_population_upper_slack": 0.033083326610604695,
+          "statistical_upper_expansion": 0.13144788928360057,
+          "finite_upper_slack": 0.16453121589420527
+        },
+        {
+          "id": "n4_matched_seed130363_over1_under3",
+          "structural_gap": 4.85722573273506e-17,
+          "same_prices_population_gap_bound": 0.029642601918494087,
+          "finite_gap_bound": 0.15880930975248705,
+          "same_prices_population_upper_slack": 0.029642601918494087,
+          "statistical_upper_expansion": 0.13960700488474967,
+          "finite_upper_slack": 0.16924960680324375
+        },
+        {
+          "id": "n4_matched_seed130363_over3_under1",
+          "structural_gap": 1.3877787807814457e-17,
+          "same_prices_population_gap_bound": 0.00880031474322652,
+          "finite_gap_bound": 0.0869597019617479,
+          "same_prices_population_upper_slack": 0.00880031474322652,
+          "statistical_upper_expansion": 0.07815938721852138,
+          "finite_upper_slack": 0.0869597019617479
+        },
+        {
+          "id": "n4_same_total_seed104729_over1_under1",
+          "structural_gap": 3.642919299551295e-17,
+          "same_prices_population_gap_bound": 0.07502042380737409,
+          "finite_gap_bound": 0.14432803662380253,
+          "same_prices_population_upper_slack": 0.07502042380737409,
+          "statistical_upper_expansion": 0.06930761281642844,
+          "finite_upper_slack": 0.14432803662380253
+        },
+        {
+          "id": "n4_same_total_seed104729_over1_under3",
+          "structural_gap": 3.122502256758253e-17,
+          "same_prices_population_gap_bound": 0.02912473375682613,
+          "finite_gap_bound": 0.07540574606088123,
+          "same_prices_population_upper_slack": 0.02912473375682613,
+          "statistical_upper_expansion": 0.04628101230405509,
+          "finite_upper_slack": 0.07540574606088123
+        },
+        {
+          "id": "n4_same_total_seed104729_over3_under1",
+          "structural_gap": 1.3877787807814457e-17,
+          "same_prices_population_gap_bound": 0.026119889474700463,
+          "finite_gap_bound": 0.08351159400234598,
+          "same_prices_population_upper_slack": 0.02611988947470047,
+          "statistical_upper_expansion": 0.06418598961625209,
+          "finite_upper_slack": 0.09030587909095256
+        },
+        {
+          "id": "n4_same_total_seed130363_over1_under1",
+          "structural_gap": 3.700743415417188e-17,
+          "same_prices_population_gap_bound": 0.02680571507724852,
+          "finite_gap_bound": 0.13239429992226318,
+          "same_prices_population_upper_slack": 0.02246140906970166,
+          "statistical_upper_expansion": 0.08746773042504441,
+          "finite_upper_slack": 0.10992913949474607
+        },
+        {
+          "id": "n4_same_total_seed130363_over1_under3",
+          "structural_gap": 9.25185853854297e-18,
+          "same_prices_population_gap_bound": 0.06296528226276184,
+          "finite_gap_bound": 0.11551981891681821,
+          "same_prices_population_upper_slack": 0.03988172796105371,
+          "statistical_upper_expansion": 0.05255453665405637,
+          "finite_upper_slack": 0.09243626461511008
+        },
+        {
+          "id": "n4_same_total_seed130363_over3_under1",
+          "structural_gap": 0.0,
+          "same_prices_population_gap_bound": 0.024845894037803157,
+          "finite_gap_bound": 0.21468863015389358,
+          "same_prices_population_upper_slack": 0.02484589403780313,
+          "statistical_upper_expansion": 0.17081680886336545,
+          "finite_upper_slack": 0.19566270290116858
+        },
+        {
+          "id": "n4_independent_vs_comonotone_seed104729_over1_under1",
+          "structural_gap": -3.700743415417188e-17,
+          "same_prices_population_gap_bound": 0.010628019323671375,
+          "finite_gap_bound": 0.06584425694234708,
+          "same_prices_population_upper_slack": 0.01062801932367143,
+          "statistical_upper_expansion": 0.09282789841846294,
+          "finite_upper_slack": 0.10345591774213436
+        },
+        {
+          "id": "n4_independent_vs_comonotone_seed104729_over1_under3",
+          "structural_gap": 1.4802973661668753e-16,
+          "same_prices_population_gap_bound": 0.0,
+          "finite_gap_bound": 0.07587920703250378,
+          "same_prices_population_upper_slack": 1.4802973661668753e-16,
+          "statistical_upper_expansion": 0.13643510885473323,
+          "finite_upper_slack": 0.1364351088547334
+        },
+        {
+          "id": "n4_independent_vs_comonotone_seed104729_over3_under1",
+          "structural_gap": -1.850371707708594e-17,
+          "same_prices_population_gap_bound": 0.012712440516655358,
+          "finite_gap_bound": 0.08401743962162683,
+          "same_prices_population_upper_slack": 0.012712440516655396,
+          "statistical_upper_expansion": 0.07075925259266247,
+          "finite_upper_slack": 0.08347169310931786
+        },
+        {
+          "id": "n4_independent_vs_comonotone_seed130363_over1_under1",
+          "structural_gap": -5.551115123125783e-17,
+          "same_prices_population_gap_bound": 0.0013503375843960108,
+          "finite_gap_bound": 0.07998662302543165,
+          "same_prices_population_upper_slack": 0.0013503375843960386,
+          "statistical_upper_expansion": 0.11396191764555348,
+          "finite_upper_slack": 0.11531225522994952
+        },
+        {
+          "id": "n4_independent_vs_comonotone_seed130363_over1_under3",
+          "structural_gap": 0.0,
+          "same_prices_population_gap_bound": 0.00013947001394704062,
+          "finite_gap_bound": 0.0644541154015247,
+          "same_prices_population_upper_slack": 0.00013947001394709613,
+          "statistical_upper_expansion": 0.11449416174574183,
+          "finite_upper_slack": 0.11463363175968892
+        },
+        {
+          "id": "n4_independent_vs_comonotone_seed130363_over3_under1",
+          "structural_gap": -1.4802973661668753e-16,
+          "same_prices_population_gap_bound": 0.013194959229058481,
+          "finite_gap_bound": 0.0746279777380092,
+          "same_prices_population_upper_slack": 0.013194959229058409,
+          "statistical_upper_expansion": 0.12177463800253145,
+          "finite_upper_slack": 0.13496959723158986
+        },
+        {
+          "id": "n4_shifted_seed104729_over1_under1",
+          "structural_gap": 1.249000902703301e-16,
+          "same_prices_population_gap_bound": 0.01389101274612628,
+          "finite_gap_bound": 0.16178529639751682,
+          "same_prices_population_upper_slack": 0.013891012746126322,
+          "statistical_upper_expansion": 0.16552864752876262,
+          "finite_upper_slack": 0.17941966027488893
+        },
+        {
+          "id": "n4_shifted_seed104729_over1_under3",
+          "structural_gap": 2.7755575615628914e-17,
+          "same_prices_population_gap_bound": 0.029403088314355248,
+          "finite_gap_bound": 0.08272994268221666,
+          "same_prices_population_upper_slack": 0.02940308831435524,
+          "statistical_upper_expansion": 0.09068735284068359,
+          "finite_upper_slack": 0.12009044115503882
+        },
+        {
+          "id": "n4_shifted_seed104729_over3_under1",
+          "structural_gap": -3.700743415417188e-17,
+          "same_prices_population_gap_bound": 0.0,
+          "finite_gap_bound": 0.0823121540778263,
+          "same_prices_population_upper_slack": 3.700743415417188e-17,
+          "statistical_upper_expansion": 0.10123952680240596,
+          "finite_upper_slack": 0.101239526802406
+        },
+        {
+          "id": "n4_shifted_seed130363_over1_under1",
+          "structural_gap": 6.938893903907228e-17,
+          "same_prices_population_gap_bound": 0.05295245372160555,
+          "finite_gap_bound": 0.2095755342829441,
+          "same_prices_population_upper_slack": 0.052952453721605564,
+          "statistical_upper_expansion": 0.13148887219501748,
+          "finite_upper_slack": 0.18444132591662304
+        },
+        {
+          "id": "n4_shifted_seed130363_over1_under3",
+          "structural_gap": 2.7755575615628914e-17,
+          "same_prices_population_gap_bound": 0.02925125438586997,
+          "finite_gap_bound": 0.10962896846524006,
+          "same_prices_population_upper_slack": 0.011043863333510881,
+          "statistical_upper_expansion": 0.08441897077074716,
+          "finite_upper_slack": 0.09546283410425803
+        },
+        {
+          "id": "n4_shifted_seed130363_over3_under1",
+          "structural_gap": -3.700743415417188e-17,
+          "same_prices_population_gap_bound": 0.028033858849026094,
+          "finite_gap_bound": 0.23945979063971912,
+          "same_prices_population_upper_slack": 0.017158638416359857,
+          "statistical_upper_expansion": 0.16617316464355217,
+          "finite_upper_slack": 0.18333180305991204
+        },
+        {
+          "id": "n5_matched_seed104729_over1_under1",
+          "structural_gap": 6.938893903907228e-17,
+          "same_prices_population_gap_bound": 0.05247396154346412,
+          "finite_gap_bound": 0.14231024242877557,
+          "same_prices_population_upper_slack": 0.05247396154346412,
+          "statistical_upper_expansion": 0.09273193056673236,
+          "finite_upper_slack": 0.1452058921101965
+        },
+        {
+          "id": "n5_matched_seed104729_over1_under3",
+          "structural_gap": 5.088522196198634e-17,
+          "same_prices_population_gap_bound": 0.02676679750548353,
+          "finite_gap_bound": 0.1289915060514538,
+          "same_prices_population_upper_slack": 0.02676679750548353,
+          "statistical_upper_expansion": 0.10222470854597025,
+          "finite_upper_slack": 0.1289915060514538
+        },
+        {
+          "id": "n5_matched_seed104729_over3_under1",
+          "structural_gap": 5.782411586589357e-17,
+          "same_prices_population_gap_bound": 0.024978763143927104,
+          "finite_gap_bound": 0.13445509641973405,
+          "same_prices_population_upper_slack": 0.024978763143927104,
+          "statistical_upper_expansion": 0.10947633327580696,
+          "finite_upper_slack": 0.13445509641973405
+        },
+        {
+          "id": "n5_matched_seed130363_over1_under1",
+          "structural_gap": 1.942890293094024e-16,
+          "same_prices_population_gap_bound": 0.017664457222688276,
+          "finite_gap_bound": 0.16087755687206773,
+          "same_prices_population_upper_slack": 0.017664457222688276,
+          "statistical_upper_expansion": 0.14603287506601717,
+          "finite_upper_slack": 0.16369733228870545
+        },
+        {
+          "id": "n5_matched_seed130363_over1_under3",
+          "structural_gap": 5.551115123125783e-17,
+          "same_prices_population_gap_bound": 0.054128526539753585,
+          "finite_gap_bound": 0.2243992550994848,
+          "same_prices_population_upper_slack": 0.054128526539753585,
+          "statistical_upper_expansion": 0.17628115535077324,
+          "finite_upper_slack": 0.23040968189052682
+        },
+        {
+          "id": "n5_matched_seed130363_over3_under1",
+          "structural_gap": 9.71445146547012e-17,
+          "same_prices_population_gap_bound": 0.01429202488976808,
+          "finite_gap_bound": 0.1459520852685831,
+          "same_prices_population_upper_slack": 0.01429202488976808,
+          "statistical_upper_expansion": 0.13166006037881503,
+          "finite_upper_slack": 0.1459520852685831
+        },
+        {
+          "id": "n5_same_total_seed104729_over1_under1",
+          "structural_gap": 9.25185853854297e-18,
+          "same_prices_population_gap_bound": 0.05545265093332972,
+          "finite_gap_bound": 0.19918021394889682,
+          "same_prices_population_upper_slack": 0.040964113198355245,
+          "statistical_upper_expansion": 0.1457277477365961,
+          "finite_upper_slack": 0.18669186093495135
+        },
+        {
+          "id": "n5_same_total_seed104729_over1_under3",
+          "structural_gap": 1.1564823173178714e-17,
+          "same_prices_population_gap_bound": 0.05048246445880539,
+          "finite_gap_bound": 0.1588868007209616,
+          "same_prices_population_upper_slack": 0.0383440936373462,
+          "statistical_upper_expansion": 0.109276780297711,
+          "finite_upper_slack": 0.1476208739350572
+        },
+        {
+          "id": "n5_same_total_seed104729_over3_under1",
+          "structural_gap": 6.245004513516506e-17,
+          "same_prices_population_gap_bound": 0.013143711368641578,
+          "finite_gap_bound": 0.22364293896044307,
+          "same_prices_population_upper_slack": 0.013143711368641564,
+          "statistical_upper_expansion": 0.1945541070018975,
+          "finite_upper_slack": 0.20769781837053908
+        },
+        {
+          "id": "n5_same_total_seed130363_over1_under1",
+          "structural_gap": 0.008050231123257992,
+          "same_prices_population_gap_bound": 0.06814484758895986,
+          "finite_gap_bound": 0.13954735077511202,
+          "same_prices_population_upper_slack": 0.04946402141260256,
+          "statistical_upper_expansion": 0.07140250318615217,
+          "finite_upper_slack": 0.12086652459875473
+        },
+        {
+          "id": "n5_same_total_seed130363_over1_under3",
+          "structural_gap": 7.632783294297951e-17,
+          "same_prices_population_gap_bound": 0.04749033132815039,
+          "finite_gap_bound": 0.19160459656752962,
+          "same_prices_population_upper_slack": 0.04749033132815035,
+          "statistical_upper_expansion": 0.12129415608310863,
+          "finite_upper_slack": 0.16878448741125898
+        },
+        {
+          "id": "n5_same_total_seed130363_over3_under1",
+          "structural_gap": 7.864079757761526e-17,
+          "same_prices_population_gap_bound": 0.024672923237881592,
+          "finite_gap_bound": 0.15546606053666445,
+          "same_prices_population_upper_slack": 0.019025631595094683,
+          "statistical_upper_expansion": 0.13854254959655452,
+          "finite_upper_slack": 0.1575681811916492
+        },
+        {
+          "id": "n5_independent_vs_comonotone_seed104729_over1_under1",
+          "structural_gap": 0.0,
+          "same_prices_population_gap_bound": 0.0,
+          "finite_gap_bound": 0.09956803327182905,
+          "same_prices_population_upper_slack": 1.1102230246251565e-16,
+          "statistical_upper_expansion": 0.14633501370787216,
+          "finite_upper_slack": 0.14633501370787227
+        },
+        {
+          "id": "n5_independent_vs_comonotone_seed104729_over1_under3",
+          "structural_gap": 0.0,
+          "same_prices_population_gap_bound": 0.0,
+          "finite_gap_bound": 0.09090562524469072,
+          "same_prices_population_upper_slack": 5.551115123125783e-17,
+          "statistical_upper_expansion": 0.14339205745387001,
+          "finite_upper_slack": 0.14339205745387007
+        },
+        {
+          "id": "n5_independent_vs_comonotone_seed104729_over3_under1",
+          "structural_gap": 2.4671622769447922e-17,
+          "same_prices_population_gap_bound": 0.01041477444747205,
+          "finite_gap_bound": 0.06301574703128891,
+          "same_prices_population_upper_slack": 0.01041477444747205,
+          "statistical_upper_expansion": 0.07022783831338003,
+          "finite_upper_slack": 0.08064261276085209
+        },
+        {
+          "id": "n5_independent_vs_comonotone_seed130363_over1_under1",
+          "structural_gap": 0.0,
+          "same_prices_population_gap_bound": 0.017105425781732686,
+          "finite_gap_bound": 0.099134633801442,
+          "same_prices_population_upper_slack": 0.017105425781732797,
+          "statistical_upper_expansion": 0.1313831013724004,
+          "finite_upper_slack": 0.1484885271541332
+        },
+        {
+          "id": "n5_independent_vs_comonotone_seed130363_over1_under3",
+          "structural_gap": 0.0,
+          "same_prices_population_gap_bound": 0.010118912368401171,
+          "finite_gap_bound": 0.07398689194111419,
+          "same_prices_population_upper_slack": 0.010118912368401123,
+          "statistical_upper_expansion": 0.11062826782540494,
+          "finite_upper_slack": 0.12074718019380606
+        },
+        {
+          "id": "n5_independent_vs_comonotone_seed130363_over3_under1",
+          "structural_gap": 0.0,
+          "same_prices_population_gap_bound": 0.00693770980977243,
+          "finite_gap_bound": 0.08277055913844653,
+          "same_prices_population_upper_slack": 0.006937709809772485,
+          "statistical_upper_expansion": 0.13156035985390324,
+          "finite_upper_slack": 0.13849806966367573
+        },
+        {
+          "id": "n5_shifted_seed104729_over1_under1",
+          "structural_gap": 1.6653345369377348e-16,
+          "same_prices_population_gap_bound": 0.027324008441860715,
+          "finite_gap_bound": 0.1670998908313317,
+          "same_prices_population_upper_slack": 0.02452761553859739,
+          "statistical_upper_expansion": 0.15563492084051042,
+          "finite_upper_slack": 0.1801625363791078
+        },
+        {
+          "id": "n5_shifted_seed104729_over1_under3",
+          "structural_gap": 1.5265566588595902e-16,
+          "same_prices_population_gap_bound": 0.04722518416226469,
+          "finite_gap_bound": 0.23771996121968578,
+          "same_prices_population_upper_slack": 0.04614715992037313,
+          "statistical_upper_expansion": 0.18752540689992384,
+          "finite_upper_slack": 0.23367256682029697
+        },
+        {
+          "id": "n5_shifted_seed104729_over3_under1",
+          "structural_gap": 7.401486830834377e-17,
+          "same_prices_population_gap_bound": 0.020439362433595915,
+          "finite_gap_bound": 0.14434451736255013,
+          "same_prices_population_upper_slack": 0.020439362433595898,
+          "statistical_upper_expansion": 0.12043694004320893,
+          "finite_upper_slack": 0.14087630247680483
+        },
+        {
+          "id": "n5_shifted_seed130363_over1_under1",
+          "structural_gap": 6.47630097698008e-17,
+          "same_prices_population_gap_bound": 0.03690376585142912,
+          "finite_gap_bound": 0.17568310931682693,
+          "same_prices_population_upper_slack": 0.01945401717113533,
+          "statistical_upper_expansion": 0.1491580002167984,
+          "finite_upper_slack": 0.16861201738793374
+        },
+        {
+          "id": "n5_shifted_seed130363_over1_under3",
+          "structural_gap": 9.25185853854297e-18,
+          "same_prices_population_gap_bound": 0.025296219416259508,
+          "finite_gap_bound": 0.1467144569771632,
+          "same_prices_population_upper_slack": 0.019400299727253583,
+          "statistical_upper_expansion": 0.14596753219683514,
+          "finite_upper_slack": 0.16536783192408874
+        },
+        {
+          "id": "n5_shifted_seed130363_over3_under1",
+          "structural_gap": 5.551115123125783e-17,
+          "same_prices_population_gap_bound": 0.029180169608794743,
+          "finite_gap_bound": 0.27234216520200494,
+          "same_prices_population_upper_slack": 9.71445146547012e-17,
+          "statistical_upper_expansion": 0.21804535325251034,
+          "finite_upper_slack": 0.21804535325251043
+        },
+        {
+          "id": "n6_matched_seed104729_over1_under1",
+          "structural_gap": 1.1564823173178715e-16,
+          "same_prices_population_gap_bound": 0.013544489647593244,
+          "finite_gap_bound": 0.18627884398365954,
+          "same_prices_population_upper_slack": 0.013544489647593244,
+          "statistical_upper_expansion": 0.1727343543360663,
+          "finite_upper_slack": 0.18627884398365954
+        },
+        {
+          "id": "n6_matched_seed104729_over1_under3",
+          "structural_gap": 1.6190752442450199e-16,
+          "same_prices_population_gap_bound": 0.023421249822493995,
+          "finite_gap_bound": 0.22424083546038096,
+          "same_prices_population_upper_slack": 0.023421249822493995,
+          "statistical_upper_expansion": 0.20081958563788693,
+          "finite_upper_slack": 0.22424083546038096
+        },
+        {
+          "id": "n6_matched_seed104729_over3_under1",
+          "structural_gap": 5.551115123125783e-17,
+          "same_prices_population_gap_bound": 0.03041873839222667,
+          "finite_gap_bound": 0.1758018472336457,
+          "same_prices_population_upper_slack": 0.03041873839222667,
+          "statistical_upper_expansion": 0.14538310884141903,
+          "finite_upper_slack": 0.1758018472336457
+        },
+        {
+          "id": "n6_matched_seed130363_over1_under1",
+          "structural_gap": 1.6190752442450199e-16,
+          "same_prices_population_gap_bound": 0.008891639324538297,
+          "finite_gap_bound": 0.209384828380755,
+          "same_prices_population_upper_slack": 0.008891639324538297,
+          "statistical_upper_expansion": 0.20049318905621671,
+          "finite_upper_slack": 0.209384828380755
+        },
+        {
+          "id": "n6_matched_seed130363_over1_under3",
+          "structural_gap": 9.251858538542972e-17,
+          "same_prices_population_gap_bound": 0.018994495026591538,
+          "finite_gap_bound": 0.1751318094712843,
+          "same_prices_population_upper_slack": 0.018994495026591538,
+          "statistical_upper_expansion": 0.15613731444469275,
+          "finite_upper_slack": 0.1751318094712843
+        },
+        {
+          "id": "n6_matched_seed130363_over3_under1",
+          "structural_gap": 9.251858538542972e-17,
+          "same_prices_population_gap_bound": 0.011546894054952865,
+          "finite_gap_bound": 0.22084940982564505,
+          "same_prices_population_upper_slack": 0.011546894054952865,
+          "statistical_upper_expansion": 0.21285990428663684,
+          "finite_upper_slack": 0.22440679834158972
+        },
+        {
+          "id": "n6_same_total_seed104729_over1_under1",
+          "structural_gap": 9.251858538542972e-17,
+          "same_prices_population_gap_bound": 0.017412660617858445,
+          "finite_gap_bound": 0.18465783388004542,
+          "same_prices_population_upper_slack": 0.017412660617858445,
+          "statistical_upper_expansion": 0.167245173262187,
+          "finite_upper_slack": 0.18465783388004542
+        },
+        {
+          "id": "n6_same_total_seed104729_over1_under3",
+          "structural_gap": -1.850371707708594e-17,
+          "same_prices_population_gap_bound": 0.024415991027773015,
+          "finite_gap_bound": 0.12581709651032524,
+          "same_prices_population_upper_slack": 0.024415991027772994,
+          "statistical_upper_expansion": 0.1117947057424263,
+          "finite_upper_slack": 0.1362106967701993
+        },
+        {
+          "id": "n6_same_total_seed104729_over3_under1",
+          "structural_gap": 9.25185853854297e-18,
+          "same_prices_population_gap_bound": 0.026710235705196584,
+          "finite_gap_bound": 0.1890717859489329,
+          "same_prices_population_upper_slack": 0.026710235705196584,
+          "statistical_upper_expansion": 0.18194394872456007,
+          "finite_upper_slack": 0.20865418442975667
+        },
+        {
+          "id": "n6_same_total_seed130363_over1_under1",
+          "structural_gap": 3.700743415417188e-17,
+          "same_prices_population_gap_bound": 0.04429310749281251,
+          "finite_gap_bound": 0.2342281639214949,
+          "same_prices_population_upper_slack": 0.04429310749281249,
+          "statistical_upper_expansion": 0.15874794408695095,
+          "finite_upper_slack": 0.20304105157976346
+        },
+        {
+          "id": "n6_same_total_seed130363_over1_under3",
+          "structural_gap": 7.401486830834377e-17,
+          "same_prices_population_gap_bound": 0.03455568496789722,
+          "finite_gap_bound": 0.16101135278704384,
+          "same_prices_population_upper_slack": 0.03455568496789724,
+          "statistical_upper_expansion": 0.1300022165643953,
+          "finite_upper_slack": 0.16455790153229255
+        },
+        {
+          "id": "n6_same_total_seed130363_over3_under1",
+          "structural_gap": -1.2335811384723961e-17,
+          "same_prices_population_gap_bound": 0.027190018837471755,
+          "finite_gap_bound": 0.1381294643158495,
+          "same_prices_population_upper_slack": 0.027190018837471748,
+          "statistical_upper_expansion": 0.11372646286594823,
+          "finite_upper_slack": 0.14091648170341997
+        },
+        {
+          "id": "n6_independent_vs_comonotone_seed104729_over1_under1",
+          "structural_gap": 1.1102230246251565e-16,
+          "same_prices_population_gap_bound": 0.00959746552366754,
+          "finite_gap_bound": 0.09309810883264642,
+          "same_prices_population_upper_slack": 0.009597465523667609,
+          "statistical_upper_expansion": 0.1362989060883362,
+          "finite_upper_slack": 0.1458963716120038
+        },
+        {
+          "id": "n6_independent_vs_comonotone_seed104729_over1_under3",
+          "structural_gap": 8.881784197001253e-17,
+          "same_prices_population_gap_bound": 0.0,
+          "finite_gap_bound": 0.05571916544283796,
+          "same_prices_population_upper_slack": 4.4408920985006264e-17,
+          "statistical_upper_expansion": 0.11090026268030355,
+          "finite_upper_slack": 0.11090026268030359
+        },
+        {
+          "id": "n6_independent_vs_comonotone_seed104729_over3_under1",
+          "structural_gap": 0.0,
+          "same_prices_population_gap_bound": 0.00015496668216331678,
+          "finite_gap_bound": 0.07711118624290518,
+          "same_prices_population_upper_slack": 0.00015496668216336614,
+          "statistical_upper_expansion": 0.10518500058628039,
+          "finite_upper_slack": 0.10533996726844376
+        },
+        {
+          "id": "n6_independent_vs_comonotone_seed130363_over1_under1",
+          "structural_gap": 0.0,
+          "same_prices_population_gap_bound": 0.0,
+          "finite_gap_bound": 0.030709158597625047,
+          "same_prices_population_upper_slack": -2.7755575615628914e-17,
+          "statistical_upper_expansion": 0.1623481227966649,
+          "finite_upper_slack": 0.16234812279666488
+        },
+        {
+          "id": "n6_independent_vs_comonotone_seed130363_over1_under3",
+          "structural_gap": 0.0,
+          "same_prices_population_gap_bound": 0.008547008547008565,
+          "finite_gap_bound": 0.08381854554623881,
+          "same_prices_population_upper_slack": 0.008547008547008616,
+          "statistical_upper_expansion": 0.13228055684566165,
+          "finite_upper_slack": 0.14082756539267027
+        },
+        {
+          "id": "n6_independent_vs_comonotone_seed130363_over3_under1",
+          "structural_gap": 8.881784197001253e-17,
+          "same_prices_population_gap_bound": 0.010260223048327077,
+          "finite_gap_bound": 0.106160674308696,
+          "same_prices_population_upper_slack": 0.010260223048327077,
+          "statistical_upper_expansion": 0.12814808676577813,
+          "finite_upper_slack": 0.1384083098141052
+        },
+        {
+          "id": "n6_shifted_seed104729_over1_under1",
+          "structural_gap": -9.25185853854297e-18,
+          "same_prices_population_gap_bound": 0.035685497921253605,
+          "finite_gap_bound": 0.17644525935417218,
+          "same_prices_population_upper_slack": 0.035685497921253605,
+          "statistical_upper_expansion": 0.16786846306041822,
+          "finite_upper_slack": 0.2035539609816718
+        },
+        {
+          "id": "n6_shifted_seed104729_over1_under3",
+          "structural_gap": -1.850371707708594e-17,
+          "same_prices_population_gap_bound": 0.019984760214060825,
+          "finite_gap_bound": 0.14870133841480435,
+          "same_prices_population_upper_slack": 0.0161984267046373,
+          "statistical_upper_expansion": 0.1889652476277891,
+          "finite_upper_slack": 0.2051636743324264
+        },
+        {
+          "id": "n6_shifted_seed104729_over3_under1",
+          "structural_gap": -7.401486830834377e-17,
+          "same_prices_population_gap_bound": 0.023548802386280248,
+          "finite_gap_bound": 0.13598308794023736,
+          "same_prices_population_upper_slack": 0.023548802386280248,
+          "statistical_upper_expansion": 0.20846588075136227,
+          "finite_upper_slack": 0.2320146831376425
+        },
+        {
+          "id": "n6_shifted_seed130363_over1_under1",
+          "structural_gap": 7.401486830834377e-17,
+          "same_prices_population_gap_bound": 0.04102882721523852,
+          "finite_gap_bound": 0.20255337683782437,
+          "same_prices_population_upper_slack": 0.03012290362932518,
+          "statistical_upper_expansion": 0.17817433898974908,
+          "finite_upper_slack": 0.20829724261907426
+        },
+        {
+          "id": "n6_shifted_seed130363_over1_under3",
+          "structural_gap": 9.71445146547012e-17,
+          "same_prices_population_gap_bound": 0.03192936118833314,
+          "finite_gap_bound": 0.18563752687578353,
+          "same_prices_population_upper_slack": 0.03192936118833312,
+          "statistical_upper_expansion": 0.1479648063529859,
+          "finite_upper_slack": 0.179894167541319
+        },
+        {
+          "id": "n6_shifted_seed130363_over3_under1",
+          "structural_gap": 2.220446049250313e-16,
+          "same_prices_population_gap_bound": 0.0,
+          "finite_gap_bound": 0.1197367055756819,
+          "same_prices_population_upper_slack": 1.850371707708594e-17,
+          "statistical_upper_expansion": 0.20878728926738951,
+          "finite_upper_slack": 0.20878728926738951
+        }
+      ]
+    },
+    "heterogeneous": {
+      "cases": 48,
+      "m": 4096,
+      "mean": {
+        "structural_gap": 0.0001677131484012423,
+        "same_prices_population_gap_bound": 0.02611993050125004,
+        "finite_gap_bound": 0.1498026376498028,
+        "same_prices_population_upper_slack": 0.021398383529680598,
+        "statistical_upper_expansion": 0.12822618515244008,
+        "finite_upper_slack": 0.14962456868212065
+      },
+      "median": {
+        "structural_gap": 2.7755575615628914e-17,
+        "same_prices_population_gap_bound": 0.026415062589948524,
+        "finite_gap_bound": 0.14433627699317633,
+        "same_prices_population_upper_slack": 0.019946689802365615,
+        "statistical_upper_expansion": 0.12594606177818018,
+        "finite_upper_slack": 0.15180823092473064
+      },
+      "at_most_five_percent": {
+        "structural_gap": 48,
+        "same_prices_population_gap_bound": 41,
+        "finite_gap_bound": 1
+      },
+      "instances": [
+        {
+          "id": "n3_same_total_seed104729_over1_under1",
+          "structural_gap": 2.7755575615628914e-17,
+          "same_prices_population_gap_bound": 0.001741741381356271,
+          "finite_gap_bound": 0.10768314840779458,
+          "same_prices_population_upper_slack": 0.001741741381356271,
+          "statistical_upper_expansion": 0.09439190897673455,
+          "finite_upper_slack": 0.09613365035809082
+        },
+        {
+          "id": "n3_same_total_seed104729_over1_under3",
+          "structural_gap": 0.0,
+          "same_prices_population_gap_bound": 0.057972294397434045,
+          "finite_gap_bound": 0.1338248266889469,
+          "same_prices_population_upper_slack": 0.00989605015054503,
+          "statistical_upper_expansion": 0.07585253229151286,
+          "finite_upper_slack": 0.0857485824420579
+        },
+        {
+          "id": "n3_same_total_seed104729_over3_under1",
+          "structural_gap": -3.700743415417188e-17,
+          "same_prices_population_gap_bound": 0.002012566490513734,
+          "finite_gap_bound": 0.1176252173433635,
+          "same_prices_population_upper_slack": 0.0020125664905137155,
+          "statistical_upper_expansion": 0.10263496889912334,
+          "finite_upper_slack": 0.10464753538963706
+        },
+        {
+          "id": "n3_same_total_seed130363_over1_under1",
+          "structural_gap": 1.734723475976807e-17,
+          "same_prices_population_gap_bound": 0.0,
+          "finite_gap_bound": 0.06944578352483273,
+          "same_prices_population_upper_slack": 0.0,
+          "statistical_upper_expansion": 0.06944578352483273,
+          "finite_upper_slack": 0.06944578352483273
+        },
+        {
+          "id": "n3_same_total_seed130363_over1_under3",
+          "structural_gap": 1.850371707708594e-17,
+          "same_prices_population_gap_bound": 0.002566542045022361,
+          "finite_gap_bound": 0.09116368903622467,
+          "same_prices_population_upper_slack": 0.0025665420450223055,
+          "statistical_upper_expansion": 0.1015052978849363,
+          "finite_upper_slack": 0.10407183992995861
+        },
+        {
+          "id": "n3_same_total_seed130363_over3_under1",
+          "structural_gap": 1.850371707708594e-17,
+          "same_prices_population_gap_bound": 0.0,
+          "finite_gap_bound": 0.04123673495727865,
+          "same_prices_population_upper_slack": 0.0,
+          "statistical_upper_expansion": 0.04123673495727865,
+          "finite_upper_slack": 0.04123673495727865
+        },
+        {
+          "id": "n3_shifted_seed104729_over1_under1",
+          "structural_gap": 2.7755575615628914e-17,
+          "same_prices_population_gap_bound": 0.0016690068079282666,
+          "finite_gap_bound": 0.11784182753788128,
+          "same_prices_population_upper_slack": 0.0016690068079282666,
+          "statistical_upper_expansion": 0.11358079740129619,
+          "finite_upper_slack": 0.11524980420922445
+        },
+        {
+          "id": "n3_shifted_seed104729_over1_under3",
+          "structural_gap": 7.401486830834377e-17,
+          "same_prices_population_gap_bound": 0.007905689490630622,
+          "finite_gap_bound": 0.11645213016766941,
+          "same_prices_population_upper_slack": 0.00790568949063066,
+          "statistical_upper_expansion": 0.14808989842377343,
+          "finite_upper_slack": 0.15599558791440407
+        },
+        {
+          "id": "n3_shifted_seed104729_over3_under1",
+          "structural_gap": 1.850371707708594e-17,
+          "same_prices_population_gap_bound": 0.0029386334154289004,
+          "finite_gap_bound": 0.12055034087616774,
+          "same_prices_population_upper_slack": 0.0029386334154289004,
+          "statistical_upper_expansion": 0.12188990699196506,
+          "finite_upper_slack": 0.12482854040739395
+        },
+        {
+          "id": "n3_shifted_seed130363_over1_under1",
+          "structural_gap": -2.7755575615628914e-17,
+          "same_prices_population_gap_bound": 0.002403451842237045,
+          "finite_gap_bound": 0.10505337945755322,
+          "same_prices_population_upper_slack": 0.002403451842237031,
+          "statistical_upper_expansion": 0.08263584619652944,
+          "finite_upper_slack": 0.08503929803876648
+        },
+        {
+          "id": "n3_shifted_seed130363_over1_under3",
+          "structural_gap": -3.700743415417188e-17,
+          "same_prices_population_gap_bound": 1.295260195396016e-16,
+          "finite_gap_bound": 0.18942009927591305,
+          "same_prices_population_upper_slack": 9.251858538542972e-17,
+          "statistical_upper_expansion": 0.14112849410232906,
+          "finite_upper_slack": 0.14112849410232917
+        },
+        {
+          "id": "n3_shifted_seed130363_over3_under1",
+          "structural_gap": 0.0,
+          "same_prices_population_gap_bound": 0.0036225453516042596,
+          "finite_gap_bound": 0.11468456291007613,
+          "same_prices_population_upper_slack": 0.0036225453516042596,
+          "statistical_upper_expansion": 0.11106201755847188,
+          "finite_upper_slack": 0.11468456291007613
+        },
+        {
+          "id": "n4_same_total_seed104729_over1_under1",
+          "structural_gap": 3.642919299551295e-17,
+          "same_prices_population_gap_bound": 0.07502042380737409,
+          "finite_gap_bound": 0.14432803662380253,
+          "same_prices_population_upper_slack": 0.07502042380737409,
+          "statistical_upper_expansion": 0.06930761281642844,
+          "finite_upper_slack": 0.14432803662380253
+        },
+        {
+          "id": "n4_same_total_seed104729_over1_under3",
+          "structural_gap": 3.122502256758253e-17,
+          "same_prices_population_gap_bound": 0.02912473375682613,
+          "finite_gap_bound": 0.07540574606088123,
+          "same_prices_population_upper_slack": 0.02912473375682613,
+          "statistical_upper_expansion": 0.04628101230405509,
+          "finite_upper_slack": 0.07540574606088123
+        },
+        {
+          "id": "n4_same_total_seed104729_over3_under1",
+          "structural_gap": 1.3877787807814457e-17,
+          "same_prices_population_gap_bound": 0.026119889474700463,
+          "finite_gap_bound": 0.08351159400234598,
+          "same_prices_population_upper_slack": 0.02611988947470047,
+          "statistical_upper_expansion": 0.06418598961625209,
+          "finite_upper_slack": 0.09030587909095256
+        },
+        {
+          "id": "n4_same_total_seed130363_over1_under1",
+          "structural_gap": 3.700743415417188e-17,
+          "same_prices_population_gap_bound": 0.02680571507724852,
+          "finite_gap_bound": 0.13239429992226318,
+          "same_prices_population_upper_slack": 0.02246140906970166,
+          "statistical_upper_expansion": 0.08746773042504441,
+          "finite_upper_slack": 0.10992913949474607
+        },
+        {
+          "id": "n4_same_total_seed130363_over1_under3",
+          "structural_gap": 9.25185853854297e-18,
+          "same_prices_population_gap_bound": 0.06296528226276184,
+          "finite_gap_bound": 0.11551981891681821,
+          "same_prices_population_upper_slack": 0.03988172796105371,
+          "statistical_upper_expansion": 0.05255453665405637,
+          "finite_upper_slack": 0.09243626461511008
+        },
+        {
+          "id": "n4_same_total_seed130363_over3_under1",
+          "structural_gap": 0.0,
+          "same_prices_population_gap_bound": 0.024845894037803157,
+          "finite_gap_bound": 0.21468863015389358,
+          "same_prices_population_upper_slack": 0.02484589403780313,
+          "statistical_upper_expansion": 0.17081680886336545,
+          "finite_upper_slack": 0.19566270290116858
+        },
+        {
+          "id": "n4_shifted_seed104729_over1_under1",
+          "structural_gap": 1.249000902703301e-16,
+          "same_prices_population_gap_bound": 0.01389101274612628,
+          "finite_gap_bound": 0.16178529639751682,
+          "same_prices_population_upper_slack": 0.013891012746126322,
+          "statistical_upper_expansion": 0.16552864752876262,
+          "finite_upper_slack": 0.17941966027488893
+        },
+        {
+          "id": "n4_shifted_seed104729_over1_under3",
+          "structural_gap": 2.7755575615628914e-17,
+          "same_prices_population_gap_bound": 0.029403088314355248,
+          "finite_gap_bound": 0.08272994268221666,
+          "same_prices_population_upper_slack": 0.02940308831435524,
+          "statistical_upper_expansion": 0.09068735284068359,
+          "finite_upper_slack": 0.12009044115503882
+        },
+        {
+          "id": "n4_shifted_seed104729_over3_under1",
+          "structural_gap": -3.700743415417188e-17,
+          "same_prices_population_gap_bound": 0.0,
+          "finite_gap_bound": 0.0823121540778263,
+          "same_prices_population_upper_slack": 3.700743415417188e-17,
+          "statistical_upper_expansion": 0.10123952680240596,
+          "finite_upper_slack": 0.101239526802406
+        },
+        {
+          "id": "n4_shifted_seed130363_over1_under1",
+          "structural_gap": 6.938893903907228e-17,
+          "same_prices_population_gap_bound": 0.05295245372160555,
+          "finite_gap_bound": 0.2095755342829441,
+          "same_prices_population_upper_slack": 0.052952453721605564,
+          "statistical_upper_expansion": 0.13148887219501748,
+          "finite_upper_slack": 0.18444132591662304
+        },
+        {
+          "id": "n4_shifted_seed130363_over1_under3",
+          "structural_gap": 2.7755575615628914e-17,
+          "same_prices_population_gap_bound": 0.02925125438586997,
+          "finite_gap_bound": 0.10962896846524006,
+          "same_prices_population_upper_slack": 0.011043863333510881,
+          "statistical_upper_expansion": 0.08441897077074716,
+          "finite_upper_slack": 0.09546283410425803
+        },
+        {
+          "id": "n4_shifted_seed130363_over3_under1",
+          "structural_gap": -3.700743415417188e-17,
+          "same_prices_population_gap_bound": 0.028033858849026094,
+          "finite_gap_bound": 0.23945979063971912,
+          "same_prices_population_upper_slack": 0.017158638416359857,
+          "statistical_upper_expansion": 0.16617316464355217,
+          "finite_upper_slack": 0.18333180305991204
+        },
+        {
+          "id": "n5_same_total_seed104729_over1_under1",
+          "structural_gap": 9.25185853854297e-18,
+          "same_prices_population_gap_bound": 0.05545265093332972,
+          "finite_gap_bound": 0.19918021394889682,
+          "same_prices_population_upper_slack": 0.040964113198355245,
+          "statistical_upper_expansion": 0.1457277477365961,
+          "finite_upper_slack": 0.18669186093495135
+        },
+        {
+          "id": "n5_same_total_seed104729_over1_under3",
+          "structural_gap": 1.1564823173178714e-17,
+          "same_prices_population_gap_bound": 0.05048246445880539,
+          "finite_gap_bound": 0.1588868007209616,
+          "same_prices_population_upper_slack": 0.0383440936373462,
+          "statistical_upper_expansion": 0.109276780297711,
+          "finite_upper_slack": 0.1476208739350572
+        },
+        {
+          "id": "n5_same_total_seed104729_over3_under1",
+          "structural_gap": 6.245004513516506e-17,
+          "same_prices_population_gap_bound": 0.013143711368641578,
+          "finite_gap_bound": 0.22364293896044307,
+          "same_prices_population_upper_slack": 0.013143711368641564,
+          "statistical_upper_expansion": 0.1945541070018975,
+          "finite_upper_slack": 0.20769781837053908
+        },
+        {
+          "id": "n5_same_total_seed130363_over1_under1",
+          "structural_gap": 0.008050231123257992,
+          "same_prices_population_gap_bound": 0.06814484758895986,
+          "finite_gap_bound": 0.13954735077511202,
+          "same_prices_population_upper_slack": 0.04946402141260256,
+          "statistical_upper_expansion": 0.07140250318615217,
+          "finite_upper_slack": 0.12086652459875473
+        },
+        {
+          "id": "n5_same_total_seed130363_over1_under3",
+          "structural_gap": 7.632783294297951e-17,
+          "same_prices_population_gap_bound": 0.04749033132815039,
+          "finite_gap_bound": 0.19160459656752962,
+          "same_prices_population_upper_slack": 0.04749033132815035,
+          "statistical_upper_expansion": 0.12129415608310863,
+          "finite_upper_slack": 0.16878448741125898
+        },
+        {
+          "id": "n5_same_total_seed130363_over3_under1",
+          "structural_gap": 7.864079757761526e-17,
+          "same_prices_population_gap_bound": 0.024672923237881592,
+          "finite_gap_bound": 0.15546606053666445,
+          "same_prices_population_upper_slack": 0.019025631595094683,
+          "statistical_upper_expansion": 0.13854254959655452,
+          "finite_upper_slack": 0.1575681811916492
+        },
+        {
+          "id": "n5_shifted_seed104729_over1_under1",
+          "structural_gap": 1.6653345369377348e-16,
+          "same_prices_population_gap_bound": 0.027324008441860715,
+          "finite_gap_bound": 0.1670998908313317,
+          "same_prices_population_upper_slack": 0.02452761553859739,
+          "statistical_upper_expansion": 0.15563492084051042,
+          "finite_upper_slack": 0.1801625363791078
+        },
+        {
+          "id": "n5_shifted_seed104729_over1_under3",
+          "structural_gap": 1.5265566588595902e-16,
+          "same_prices_population_gap_bound": 0.04722518416226469,
+          "finite_gap_bound": 0.23771996121968578,
+          "same_prices_population_upper_slack": 0.04614715992037313,
+          "statistical_upper_expansion": 0.18752540689992384,
+          "finite_upper_slack": 0.23367256682029697
+        },
+        {
+          "id": "n5_shifted_seed104729_over3_under1",
+          "structural_gap": 7.401486830834377e-17,
+          "same_prices_population_gap_bound": 0.020439362433595915,
+          "finite_gap_bound": 0.14434451736255013,
+          "same_prices_population_upper_slack": 0.020439362433595898,
+          "statistical_upper_expansion": 0.12043694004320893,
+          "finite_upper_slack": 0.14087630247680483
+        },
+        {
+          "id": "n5_shifted_seed130363_over1_under1",
+          "structural_gap": 6.47630097698008e-17,
+          "same_prices_population_gap_bound": 0.03690376585142912,
+          "finite_gap_bound": 0.17568310931682693,
+          "same_prices_population_upper_slack": 0.01945401717113533,
+          "statistical_upper_expansion": 0.1491580002167984,
+          "finite_upper_slack": 0.16861201738793374
+        },
+        {
+          "id": "n5_shifted_seed130363_over1_under3",
+          "structural_gap": 9.25185853854297e-18,
+          "same_prices_population_gap_bound": 0.025296219416259508,
+          "finite_gap_bound": 0.1467144569771632,
+          "same_prices_population_upper_slack": 0.019400299727253583,
+          "statistical_upper_expansion": 0.14596753219683514,
+          "finite_upper_slack": 0.16536783192408874
+        },
+        {
+          "id": "n5_shifted_seed130363_over3_under1",
+          "structural_gap": 5.551115123125783e-17,
+          "same_prices_population_gap_bound": 0.029180169608794743,
+          "finite_gap_bound": 0.27234216520200494,
+          "same_prices_population_upper_slack": 9.71445146547012e-17,
+          "statistical_upper_expansion": 0.21804535325251034,
+          "finite_upper_slack": 0.21804535325251043
+        },
+        {
+          "id": "n6_same_total_seed104729_over1_under1",
+          "structural_gap": 9.251858538542972e-17,
+          "same_prices_population_gap_bound": 0.017412660617858445,
+          "finite_gap_bound": 0.18465783388004542,
+          "same_prices_population_upper_slack": 0.017412660617858445,
+          "statistical_upper_expansion": 0.167245173262187,
+          "finite_upper_slack": 0.18465783388004542
+        },
+        {
+          "id": "n6_same_total_seed104729_over1_under3",
+          "structural_gap": -1.850371707708594e-17,
+          "same_prices_population_gap_bound": 0.024415991027773015,
+          "finite_gap_bound": 0.12581709651032524,
+          "same_prices_population_upper_slack": 0.024415991027772994,
+          "statistical_upper_expansion": 0.1117947057424263,
+          "finite_upper_slack": 0.1362106967701993
+        },
+        {
+          "id": "n6_same_total_seed104729_over3_under1",
+          "structural_gap": 9.25185853854297e-18,
+          "same_prices_population_gap_bound": 0.026710235705196584,
+          "finite_gap_bound": 0.1890717859489329,
+          "same_prices_population_upper_slack": 0.026710235705196584,
+          "statistical_upper_expansion": 0.18194394872456007,
+          "finite_upper_slack": 0.20865418442975667
+        },
+        {
+          "id": "n6_same_total_seed130363_over1_under1",
+          "structural_gap": 3.700743415417188e-17,
+          "same_prices_population_gap_bound": 0.04429310749281251,
+          "finite_gap_bound": 0.2342281639214949,
+          "same_prices_population_upper_slack": 0.04429310749281249,
+          "statistical_upper_expansion": 0.15874794408695095,
+          "finite_upper_slack": 0.20304105157976346
+        },
+        {
+          "id": "n6_same_total_seed130363_over1_under3",
+          "structural_gap": 7.401486830834377e-17,
+          "same_prices_population_gap_bound": 0.03455568496789722,
+          "finite_gap_bound": 0.16101135278704384,
+          "same_prices_population_upper_slack": 0.03455568496789724,
+          "statistical_upper_expansion": 0.1300022165643953,
+          "finite_upper_slack": 0.16455790153229255
+        },
+        {
+          "id": "n6_same_total_seed130363_over3_under1",
+          "structural_gap": -1.2335811384723961e-17,
+          "same_prices_population_gap_bound": 0.027190018837471755,
+          "finite_gap_bound": 0.1381294643158495,
+          "same_prices_population_upper_slack": 0.027190018837471748,
+          "statistical_upper_expansion": 0.11372646286594823,
+          "finite_upper_slack": 0.14091648170341997
+        },
+        {
+          "id": "n6_shifted_seed104729_over1_under1",
+          "structural_gap": -9.25185853854297e-18,
+          "same_prices_population_gap_bound": 0.035685497921253605,
+          "finite_gap_bound": 0.17644525935417218,
+          "same_prices_population_upper_slack": 0.035685497921253605,
+          "statistical_upper_expansion": 0.16786846306041822,
+          "finite_upper_slack": 0.2035539609816718
+        },
+        {
+          "id": "n6_shifted_seed104729_over1_under3",
+          "structural_gap": -1.850371707708594e-17,
+          "same_prices_population_gap_bound": 0.019984760214060825,
+          "finite_gap_bound": 0.14870133841480435,
+          "same_prices_population_upper_slack": 0.0161984267046373,
+          "statistical_upper_expansion": 0.1889652476277891,
+          "finite_upper_slack": 0.2051636743324264
+        },
+        {
+          "id": "n6_shifted_seed104729_over3_under1",
+          "structural_gap": -7.401486830834377e-17,
+          "same_prices_population_gap_bound": 0.023548802386280248,
+          "finite_gap_bound": 0.13598308794023736,
+          "same_prices_population_upper_slack": 0.023548802386280248,
+          "statistical_upper_expansion": 0.20846588075136227,
+          "finite_upper_slack": 0.2320146831376425
+        },
+        {
+          "id": "n6_shifted_seed130363_over1_under1",
+          "structural_gap": 7.401486830834377e-17,
+          "same_prices_population_gap_bound": 0.04102882721523852,
+          "finite_gap_bound": 0.20255337683782437,
+          "same_prices_population_upper_slack": 0.03012290362932518,
+          "statistical_upper_expansion": 0.17817433898974908,
+          "finite_upper_slack": 0.20829724261907426
+        },
+        {
+          "id": "n6_shifted_seed130363_over1_under3",
+          "structural_gap": 9.71445146547012e-17,
+          "same_prices_population_gap_bound": 0.03192936118833314,
+          "finite_gap_bound": 0.18563752687578353,
+          "same_prices_population_upper_slack": 0.03192936118833312,
+          "statistical_upper_expansion": 0.1479648063529859,
+          "finite_upper_slack": 0.179894167541319
+        },
+        {
+          "id": "n6_shifted_seed130363_over3_under1",
+          "structural_gap": 2.220446049250313e-16,
+          "same_prices_population_gap_bound": 0.0,
+          "finite_gap_bound": 0.1197367055756819,
+          "same_prices_population_upper_slack": 1.850371707708594e-17,
+          "statistical_upper_expansion": 0.20878728926738951,
+          "finite_upper_slack": 0.20878728926738951
+        }
+      ]
+    },
+    "mixtures": {
+      "cases": 4,
+      "m": 4096,
+      "mean": {
+        "structural_gap": 3.0068540250264654e-17,
+        "same_prices_population_gap_bound": 0.011347722013587518,
+        "finite_gap_bound": 0.09891432720023882,
+        "same_prices_population_upper_slack": 0.011347722013587516,
+        "statistical_upper_expansion": 0.14119369346771446,
+        "finite_upper_slack": 0.15254141548130198
+      },
+      "median": {
+        "structural_gap": 2.312964634635743e-17,
+        "same_prices_population_gap_bound": 0.012676702197109757,
+        "finite_gap_bound": 0.1114418530385691,
+        "same_prices_population_upper_slack": 0.012676702197109768,
+        "statistical_upper_expansion": 0.17468224835306034,
+        "finite_upper_slack": 0.1873589505501701
+      },
+      "at_most_five_percent": {
+        "structural_gap": 4,
+        "same_prices_population_gap_bound": 4,
+        "finite_gap_bound": 1
+      },
+      "instances": [
+        {
+          "id": "mixture_0",
+          "structural_gap": 4.625929269271486e-17,
+          "same_prices_population_gap_bound": 0.020037483660130556,
+          "finite_gap_bound": 0.12380324638652603,
+          "same_prices_population_upper_slack": 0.02003748366013053,
+          "statistical_upper_expansion": 0.2098823349781099,
+          "finite_upper_slack": 0.2299198186382404
+        },
+        {
+          "id": "mixture_0.25",
+          "structural_gap": 7.401486830834377e-17,
+          "same_prices_population_gap_bound": 0.007856423334990018,
+          "finite_gap_bound": 0.15508418772660984,
+          "same_prices_population_upper_slack": 0.007856423334990018,
+          "statistical_upper_expansion": 0.20753335074202295,
+          "finite_upper_slack": 0.21538977407701296
+        },
+        {
+          "id": "mixture_0.5",
+          "structural_gap": 0.0,
+          "same_prices_population_gap_bound": 0.017496981059229495,
+          "finite_gap_bound": 0.09908045969061219,
+          "same_prices_population_upper_slack": 0.017496981059229515,
+          "statistical_upper_expansion": 0.14183114596409774,
+          "finite_upper_slack": 0.15932812702332724
+        },
+        {
+          "id": "mixture_1",
+          "structural_gap": 0.0,
+          "same_prices_population_gap_bound": 0.0,
+          "finite_gap_bound": 0.01768941499720726,
+          "same_prices_population_upper_slack": 0.0,
+          "statistical_upper_expansion": 0.005527942186627295,
+          "finite_upper_slack": 0.005527942186627295
+        }
+      ]
+    }
+  }
+}

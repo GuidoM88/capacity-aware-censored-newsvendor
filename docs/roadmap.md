@@ -17,7 +17,7 @@
 - [x] Retrieve and compare the relevant Roels thesis section and proofs.
 - [x] Decide whether the current computational result justifies the planned paper.
 
-## Current priority, 2026-10-31
+## Current priority, 2026-11-01
 
 The [comparative selection](research_directions.md) gives the first investigation
 to finite-data certification of coalition stability after forecast reconciliation.
@@ -36,15 +36,33 @@ or retained as a backup.
   population and finite-sample optimization references.
 - [x] Prove an exact exchangeable case and a constant gap at every fixed depth
   in a family with heterogeneous production.
-- [ ] Construct a validation bound using the dual residuals of leave-one-out
-  coalitions. Compare its statistical slack and computational work on held-out data.
-- [ ] Decide whether its precise difference warrants a larger study.
+- [x] Construct and prove a validation bound using separately learned face prices,
+  including score-mean drift. Record statistical slack and operation counts.
+- [x] Compare six methods on fresh samples with equal-total-budget references.
+- [x] Execute chronological measured and modeled wind checks and report all outcomes.
+- [x] Decide whether the face-price method warrants scaling as the main result.
+  It fails the prespecified precision gate. Retain the negative result.
+- [x] Isolate the statistical expansion while keeping learned prices unchanged.
+- [ ] Complete the closest-proof comparison for paired optimization-gap estimates,
+  starting with Mak, Morton and Wood (1999).
+- [ ] Prespecify a fixed-budget comparison of paired aggregate-gap estimation,
+  including block-size bias, a frozen feasible witness, fresh streams and strong
+  equal-budget references. Keep the current cases as development data.
+- [ ] Derive and test a sharper finite-sample or computational tradeoff. Decide
+  whether it goes beyond the standard sample-average optimization baseline.
 
 The first cycle gave a moment certificate and identified its fractional-membership
 gap. The second cycle established an exact class and a worst-case boundary for
 closing that gap. The comparison isolates the remaining statistical slack even
 when the integer optimization has been solved exactly.
-[First cycle](coalition_certificate.md) · [Second cycle](exclusion.md)
+[First cycle](coalition_certificate.md) · [Second cycle](exclusion.md) ·
+[Third cycle and decision](face_residuals.md)
+
+The third cycle has a valid learned-price certificate but insufficient precision.
+The same learned prices satisfy the gap target in 41/48 heterogeneous cases with
+exact moments and 1/48 with estimated intervals. The next investigation targets
+that statistical expansion. The research question remains unchanged. Runtime
+superiority and guarantees under temporal dependence remain unresolved.
 
 ## Previous decision, 2026-10-27; clarified 2026-10-28
 

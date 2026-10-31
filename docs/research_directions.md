@@ -3,14 +3,22 @@
 Decision date: **2026-10-28**. This is a comparison of research questions, not a
 claim that any candidate is already original or publishable.
 
+**Progress on 2026-11-01.** The learned face-price certificate is proved and
+tested on fresh synthetic samples and chronological wind panels. It fails the
+prespecified precision gate. Holding the learned prices fixed identifies
+statistical interval expansion as the dominant source of slack on the tested
+heterogeneous cases. The next bounded question is a paired aggregate-gap
+estimate within the same coalition-stability investigation.
+[Proof, diagnosis and next comparison](face_residuals.md)
+
 **Progress on 2026-10-31.** Whole-producer exclusions tightened the certificate.
 The second cycle established an exact symmetric class, a heterogeneous worst case,
 and a measurable residual condition to investigate. [Results](exclusion.md)
 
 **Progress later on 2026-10-28:** the [first certificate cycle](coalition_certificate.md)
 is complete. It proves a standard finite-sample bound, compares 100 synthetic
-instances, and identifies an exact fractional-coalition obstruction. The current
-target is reducing that structural gap; the original selection rationale remains
+instances, and identifies an exact fractional-coalition obstruction. That cycle
+targeted reducing the structural gap. The original selection rationale remains
 below for traceability.
 
 ## Decision and correction to the earlier process

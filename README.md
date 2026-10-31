@@ -2,12 +2,20 @@
 
 Research code for **identifiability and minimax regret under censored demand and shared capacity**.
 
-**Current investigation, 2026-10-31.** We audit the cost of leaving a coalition
-after producers submit a forecast-based offer. Excluding at least one whole producer
-closes the original four-producer relaxation gap. The new note proves exactness for
-exchangeable production and equal shares, and constructs a persistent gap at any
-fixed exclusion depth in the heterogeneous model.
-[Proofs and research decision](docs/exclusion.md) · [Reproducible comparison](results/exclusion/summary.md)
+**Current investigation, 2026-11-01.** We audit the cost of leaving a coalition
+after producers submit a forecast-based offer. A new certificate uses separately
+fitted face prices and corrects their population mean drift. Its 104-case
+comparison fails the prespecified precision gate. In the heterogeneous subgroup,
+the same prices with exact moments meet the target in 41 of 48 cases, while the
+finite-data bounds do so in 1 of 48. This identifies statistical conservatism as
+the next target within the existing question. Chronological checks on measured
+and modeled wind output show no consistent advantage over the original bound.
+[Proof and decision](docs/face_residuals.md) · [Comparison](results/residuals/summary.md) ·
+[Error diagnosis](results/residuals/diagnosis.md) · [Wind check](results/residuals/wind.md)
+
+The preceding [exclusion analysis](docs/exclusion.md) establishes an exact
+exchangeable class and a persistent gap at every fixed exclusion depth in a
+heterogeneous family. Those structural results remain supporting material.
 
 Historical sales reveal `min(demand, stock)`, not necessarily demand. This project
 asks when a resource constraint makes the optimal allocation identifiable even
@@ -30,8 +38,9 @@ exceed before a larger implementation.
 The [working derivation](docs/sparse_scenarios.md) reduces full-class regret to
 `n+1` endpoint worlds for one shared resource, and to rank-bounded upper-tail
 subsets for a packing polytope. Its proof, exact finite-atomic LP and independent
-checks remain available as supporting material. Finite-sample guarantees and
-practical forecasting contributions are not yet established.
+checks remain available as supporting material. Finite-sample guarantees for
+that original censored-demand model and practical forecasting contributions are
+not yet established.
 
 ## Initial example
 
@@ -118,6 +127,11 @@ references. These checks validate this implementation within its supported scope
 
 ## Research documents
 
+- [Learned face prices, finite-sample proof and research decision](docs/face_residuals.md)
+- [Prespecified residual and wind protocol](docs/residual_protocol.md)
+- [Fresh-sample results and precision gate](results/residuals/summary.md)
+- [Post-run statistical error decomposition](results/residuals/diagnosis.md)
+- [Chronological measured and modeled wind comparison](results/residuals/wind.md)
 - [Whole-producer exclusions, exactness and worst-case construction](docs/exclusion.md)
 
 - [Baseline certificate, proofs and fractional-coalition obstruction](docs/coalition_certificate.md)
@@ -184,3 +198,18 @@ substitution, lead times, inventory carry-over, contextual forecasting, and time
 dependence are not represented in the current implementation. Independence across
 products is not needed for the separable expected-cost objective; the example can
 use independent products to construct identical joint observation laws.
+
+To reproduce the learned-price cycle from the saved baseline laws, run
+
+```bash
+python scripts/check_face_residuals.py
+python scripts/analyze_residuals.py
+python scripts/check_wind_residuals.py --cache /path/outside/repository/wind-cache
+```
+
+The wind script downloads missing archives from pinned public sources and checks
+their identities. Raw archives are not committed. The measured ENGIE panel is
+transformed to bounded export, with all clipping and missingness counts recorded.
+These chronological comparisons have temporal dependence and seasonal shifts.
+They carry no iid confidence guarantee and use one historical-scenario rule per
+year, rather than the original project's hourly forecast reconciler.
