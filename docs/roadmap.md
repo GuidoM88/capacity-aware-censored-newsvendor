@@ -43,8 +43,13 @@ or retained as a backup.
 - [x] Decide whether the face-price method warrants scaling as the main result.
   It fails the prespecified precision gate. Retain the negative result.
 - [x] Isolate the statistical expansion while keeping learned prices unchanged.
-- [ ] Complete the closest-proof comparison for paired optimization-gap estimates,
-  starting with Mak, Morton and Wood (1999).
+- [x] Match the paired block statistic to Mak, Morton and Wood (1999), Theorem 1
+  and §3.2. Use it as the statistical comparison.
+- [x] Compare core testing and fractional participation to Chen and Zhang,
+  Aubin and Denault, and derive the sharp worst-case exclusion error for each
+  positive cost split. [Publication assessment](publication_assessment.md)
+- [ ] Compare that precise extremal formula with further work and assess whether
+  the standalone-cost bound can yield useful finite-data precision.
 - [ ] Prespecify a fixed-budget comparison of paired aggregate-gap estimation,
   including block-size bias, a frozen feasible witness, fresh streams and strong
   equal-budget references. Keep the current cases as development data.

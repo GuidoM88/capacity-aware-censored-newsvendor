@@ -2,6 +2,15 @@
 
 Research code for **identifiability and minimax regret under censored demand and shared capacity**.
 
+**Publication assessment, 2026-11-01.** For any fixed positive cost shares, the
+largest possible overstatement by a depth-\(k\) exclusion bound, as a fraction
+of expected grand cost, is exactly the sum of the \(n-k\) largest shares for
+\(1\le k\le n-2\). This remains sharp under correct aggregate forecasts and
+strict stability of all actual coalitions. The note relates the construction to
+Chen and Zhang's two-state newsvendor game and identifies the paired estimator's
+direct precedent. Independent priority and practical precision remain open.
+[Proof, prior results and publication judgment](docs/publication_assessment.md)
+
 **Current investigation, 2026-11-01.** We audit the cost of leaving a coalition
 after producers submit a forecast-based offer. A new certificate uses separately
 fitted face prices and corrects their population mean drift. Its 104-case

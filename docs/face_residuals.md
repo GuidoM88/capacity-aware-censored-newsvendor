@@ -9,6 +9,10 @@ within the existing coalition-stability question.
 The results below establish a baseline and a diagnosis. Scientific originality,
 runtime superiority and publication readiness remain unestablished.
 
+The subsequent [publication assessment](publication_assessment.md) completes
+the comparison of the proposed paired statistic with Mak, Morton and Wood. It
+also derives a sharp worst-case bound for the population exclusion hierarchy.
+
 ## Model and quantities being certified
 
 Let \(0\le Y_i\le R_i\), \(n\ge2\), and
