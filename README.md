@@ -2,6 +2,20 @@
 
 Research code for **identifiability and minimax regret under censored demand and shared capacity**.
 
+**Finite-data result, 2026-11-04.** The standalone-cost condition can now be
+certified with a proved iid guarantee and no producer/grid multiplicity factor
+in its global ratio test. In a prespecified fresh-sample comparison, it detects
+all 35 original cases with a sufficient margin; Bonferroni and marginal DKW
+also detect all 35. It meets the small-gap target in 5/47 heterogeneous cases,
+versus 0/47 for the preceding face certificate on these same samples. The broad
+precision gate still fails: even the exact population corollary passes only
+8/47. The statistical tools are established methods; these results measure the
+scope of the condition and do not establish a new general-purpose estimator.
+[Proof](docs/standalone_certificate.md) ·
+[Fixed protocol](docs/standalone_protocol.md) ·
+[Results](results/standalone/summary.md) ·
+[Diagnosis and matched combinations](results/standalone/diagnosis.md)
+
 **Publication assessment, 2026-11-01.** For any fixed positive cost shares, the
 largest possible overstatement by a depth-\(k\) exclusion bound, as a fraction
 of expected grand cost, is exactly the sum of the \(n-k\) largest shares for
@@ -11,7 +25,7 @@ Chen and Zhang's two-state newsvendor game and identifies the paired estimator's
 direct precedent. Independent priority and practical precision remain open.
 [Proof, prior results and publication judgment](docs/publication_assessment.md)
 
-**Current investigation, 2026-11-01.** We audit the cost of leaving a coalition
+**Preceding investigation, 2026-11-01.** We audit the cost of leaving a coalition
 after producers submit a forecast-based offer. A new certificate uses separately
 fitted face prices and corrects their population mean drift. Its 104-case
 comparison fails the prespecified precision gate. In the heterogeneous subgroup,
@@ -222,3 +236,18 @@ transformed to bounded export, with all clipping and missingness counts recorded
 These chronological comparisons have temporal dependence and seasonal shifts.
 They carry no iid confidence guarantee and use one historical-scenario rule per
 year, rather than the original project's hourly forecast reconciler.
+
+To reproduce the finite-data standalone-cost cycle, run
+
+```bash
+python scripts/check_standalone_certificate.py
+python scripts/analyze_standalone.py
+```
+
+This comparison uses 96 eligible original laws and 12 exchangeable controls,
+three pilot/validation sizes and six methods, including the standard paired SAA
+block baseline. Four original laws have nonpositive shares and are explicitly
+excluded from this theorem. Every method-size pair receives delta=0.05/18, so
+the 18 confidence guarantees are simultaneous per instance, not over all laws.
+The target is the relaxation error D1-B; a small error alone does not establish
+coalition stability. The full test suite now contains 40 passing tests.

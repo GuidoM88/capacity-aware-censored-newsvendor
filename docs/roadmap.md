@@ -17,7 +17,7 @@
 - [x] Retrieve and compare the relevant Roels thesis section and proofs.
 - [x] Decide whether the current computational result justifies the planned paper.
 
-## Current priority, 2026-11-01
+## Current priority, 2026-11-04
 
 The [comparative selection](research_directions.md) gives the first investigation
 to finite-data certification of coalition stability after forecast reconciliation.
@@ -48,13 +48,21 @@ or retained as a backup.
 - [x] Compare core testing and fractional participation to Chen and Zhang,
   Aubin and Denault, and derive the sharp worst-case exclusion error for each
   positive cost split. [Publication assessment](publication_assessment.md)
-- [ ] Compare that precise extremal formula with further work and assess whether
-  the standalone-cost bound can yield useful finite-data precision.
-- [ ] Prespecify a fixed-budget comparison of paired aggregate-gap estimation,
-  including block-size bias, a frozen feasible witness, fresh streams and strong
-  equal-budget references. Keep the current cases as development data.
-- [ ] Derive and test a sharper finite-sample or computational tradeoff. Decide
-  whether it goes beyond the standard sample-average optimization baseline.
+- [x] Prove a finite-data standalone-cost certificate using IUT/fixed-sequence
+  testing and measure its conditional detection and broad precision separately.
+- [x] Prespecify and execute six fixed-budget comparisons on fresh iid draws,
+  including the paired SAA baseline with frozen witnesses and 64-observation
+  blocks. Record the limitation from block bias and the number of batches.
+- [x] Retain the conditional success (35/35) and broad precision failure (5/47).
+  Compare matched alternatives: Bonferroni and DKW also detect all 35 cases.
+- [x] Identify the population limitation before pursuing further interval tuning:
+  exact moments and exact B meet the standalone target in only 8/47 cases.
+- [ ] Compare the exact depth/share formula and its standalone-cost refinement
+  with further work on fractional cooperative games and quantitative core gaps.
+  Resolve exact implication or exhibit the specific statement not supplied by
+  the closest results. Keep significance separate from bibliographic priority.
+- [ ] Assess C30 as the theoretical center, with the finite-data condition as
+  supporting material. A general statistical-superiority claim is not supported.
 
 The first cycle gave a moment certificate and identified its fractional-membership
 gap. The second cycle established an exact class and a worst-case boundary for
@@ -66,8 +74,15 @@ when the integer optimization has been solved exactly.
 The third cycle has a valid learned-price certificate but insufficient precision.
 The same learned prices satisfy the gap target in 41/48 heterogeneous cases with
 exact moments and 1/48 with estimated intervals. The next investigation targets
-that statistical expansion. The research question remains unchanged. Runtime
-superiority and guarantees under temporal dependence remain unresolved.
+that statistical expansion. The fourth cycle makes a sufficient standalone-cost
+condition statistically verifiable, but its broad precision limitation remains
+even with population knowledge. Its [proof](standalone_certificate.md),
+[comparison](../results/standalone/summary.md) and
+[post-run diagnosis](../results/standalone/diagnosis.md) close that bounded
+investigation. The research question remains unchanged. The next step is the
+focused priority/significance check for the sharp theoretical result, rather
+than further tuning of this sufficient condition. Runtime superiority and
+guarantees under temporal dependence remain unresolved.
 
 ## Previous decision, 2026-10-27; clarified 2026-10-28
 

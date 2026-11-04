@@ -67,7 +67,7 @@ $$
 **Proof.** On a face $F$ put $x=\sum_{j\in F}a_j(1-z_j)$. Nonnegative cost gives $a^\top z-c_P(z)-B\le a(F)-B-x$. By subadditivity and homogeneity of optimized balancing cost,
 $c_P(F)\le c_P(z)+\sum_{j\in F}(1-z_j)c_j$. The whole face is an actual proper coalition, so $B\ge a(F)-c_P(F)$. Together these inequalities bound the same excess over $B$ by $(1/\rho-1)x$. The minimum of the two bounds is at most their weighted average with weights $1-\rho$ and $\rho$, which cancels $x$. Take the maximum over faces and the directly checked integer coalitions. QED.
 
-The ratio measures the smallest share of a producer's standalone cost covered by its assigned charge. For example, if every producer pays at least half its standalone cost, this bound halves the share-only ceiling. This is a population corollary based on subadditivity. How tightly a finite validation sample can certify the ratio is a separate question.
+The ratio measures the smallest share of a producer's standalone cost covered by its assigned charge. For example, if every producer pays at least half its standalone cost, this bound halves the share-only ceiling. This is a population corollary based on subadditivity. The [November 4 finite-data note](standalone_certificate.md) answers the next question of how tightly a validation sample can certify the ratio on the development grid. If rho=0, use the share-only bound directly; if L=0, every positive excess and relaxation value is zero.
 
 ## Checks, scale and publication judgment
 
@@ -78,3 +78,37 @@ Exact coalition enumeration and the existing face LP agree with the analytical v
 The experimental screening threshold in the [finite-data study](face_residuals.md) used $A$, the **maximum possible** loss of the frozen offer. In the rescaled construction $L=1/(2H)$ while $A$ is bounded away from zero. Thus $L/A$ tends to zero and the extremal construction has a vanishing gap relative to $A$. The formula answers the expected-cost question. Its near-worst-case behavior does not establish that an operational certificate misses the previous 5%-of-$A$ target. The examples specify only aggregate calibration, permitting individual forecast errors.
 
 **Publication judgment.** The sharp formula is a defensible candidate for a theoretical component of a paper. The broad fractional-membership distinction, the general hardness claim, and the paired block procedure all have direct precedents. The exact formula was not found in the inspected papers. Its short derivation from familiar two-state geometry and its scale limitation leave its standalone significance open. Submission would be premature on this evidence. The next discriminating result would identify from finite data when the fractional overstatement is small, with a meaningful accuracy or computation advantage against exhaustive checking and the standard paired-gap baseline. The earlier 1/48 precision result provides the benchmark for that claim.
+
+## Finite-data follow-up, November 4
+
+The standalone condition now has a proved iid certificate. An intersection-union
+test followed by a fixed increasing sequence avoids unnecessary producer/grid
+multiplicity penalties for the single global ratio. These are established
+statistical principles, explicitly credited in the proof. An independent
+pilot selects offers and one feasible coalition witness. Validation yields
+simultaneous bounds for the relaxation gap at all depths.
+
+The [prespecified comparison](../results/standalone/summary.md) uses 96 original
+positive-share laws, 12 exchangeable controls, six methods and three sample sizes.
+At 4,096 pilot plus 4,096 validation observations the conditional screen passes:
+35/35 original laws with rho >= 0.6 certify rho >= 0.5. The matched Bonferroni
+and full-budget DKW comparisons also pass 35/35. The broad precision target
+fails, with 5/47 heterogeneous laws certifying a gap below 5% of maximum loss;
+the face baseline passes 0/47 on these same fresh draws. Before drawing them,
+the population calculation already limited the corollary to 8/47.
+
+Combining paired and face bounds improves the heterogeneous mean normalized
+gap from 0.143603 for the face method to 0.128273. A matched DKW-plus-face
+combination gives 0.129887, so the candidate's advantage over this alternative
+is only about 1.24% in that mean. These additional combinations are labeled
+post-run diagnostics. The standard SAA block comparison was also implemented;
+its fixed block size does not pass the small-gap screen. This does not settle
+the block-size/concentration tradeoff.
+
+**Updated judgment.** This cycle adds a verifiable sufficient condition and a
+measured scope to the theoretical result. It does not establish a generally
+superior statistical algorithm. Preserve it as supporting material and focus
+the next priority check on the exact depth/share theorem and its refinement.
+Their originality and sufficient theoretical significance remain unresolved;
+the finite-data result neither certifies publication readiness nor disproves
+that the sharp theorem could support a paper.

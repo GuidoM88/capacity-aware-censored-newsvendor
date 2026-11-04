@@ -1,0 +1,187 @@
+{
+  "original": {
+    "cases": 96,
+    "combinations": {
+      "paired": {
+        "mean_gap_upper_over_A": 0.1021104224873675,
+        "small_gap_count": 29
+      },
+      "bonferroni": {
+        "mean_gap_upper_over_A": 0.10278585070898151,
+        "small_gap_count": 28
+      },
+      "dkw_full": {
+        "mean_gap_upper_over_A": 0.10366214614183178,
+        "small_gap_count": 23
+      },
+      "capacity_full": {
+        "mean_gap_upper_over_A": 0.11791386045367158,
+        "small_gap_count": 16
+      }
+    },
+    "oracle_mean_gap_upper_over_A": 0.11037866647784718,
+    "paired_mean_gap_upper_over_A": 0.13974455088033713,
+    "paired_expansion_over_population_bound": 0.029365884402489953,
+    "face_mean_gap_upper_over_A": 0.13013124149712638,
+    "conditional_margin_cases": [
+      "n3_matched_seed104729_over1_under3",
+      "n3_matched_seed130363_over1_under3",
+      "n3_independent_vs_comonotone_seed104729_over1_under1",
+      "n3_independent_vs_comonotone_seed104729_over1_under3",
+      "n3_independent_vs_comonotone_seed104729_over3_under1",
+      "n3_independent_vs_comonotone_seed130363_over1_under1",
+      "n3_independent_vs_comonotone_seed130363_over1_under3",
+      "n3_independent_vs_comonotone_seed130363_over3_under1",
+      "n3_shifted_seed104729_over1_under1",
+      "n3_shifted_seed104729_over1_under3",
+      "n3_shifted_seed104729_over3_under1",
+      "n3_shifted_seed130363_over1_under1",
+      "n3_shifted_seed130363_over3_under1",
+      "n4_independent_vs_comonotone_seed104729_over1_under1",
+      "n4_independent_vs_comonotone_seed104729_over1_under3",
+      "n4_independent_vs_comonotone_seed104729_over3_under1",
+      "n4_independent_vs_comonotone_seed130363_over1_under1",
+      "n4_independent_vs_comonotone_seed130363_over1_under3",
+      "n4_independent_vs_comonotone_seed130363_over3_under1",
+      "n4_shifted_seed104729_over3_under1",
+      "n5_independent_vs_comonotone_seed104729_over1_under1",
+      "n5_independent_vs_comonotone_seed104729_over1_under3",
+      "n5_independent_vs_comonotone_seed104729_over3_under1",
+      "n5_independent_vs_comonotone_seed130363_over1_under1",
+      "n5_independent_vs_comonotone_seed130363_over1_under3",
+      "n5_independent_vs_comonotone_seed130363_over3_under1",
+      "n5_shifted_seed104729_over3_under1",
+      "n6_independent_vs_comonotone_seed104729_over1_under1",
+      "n6_independent_vs_comonotone_seed104729_over1_under3",
+      "n6_independent_vs_comonotone_seed104729_over3_under1",
+      "n6_independent_vs_comonotone_seed130363_over1_under1",
+      "n6_independent_vs_comonotone_seed130363_over1_under3",
+      "n6_independent_vs_comonotone_seed130363_over3_under1",
+      "n6_shifted_seed104729_over3_under1",
+      "n6_shifted_seed130363_over3_under1"
+    ],
+    "paired_small_gap_cases": [
+      "n3_independent_vs_comonotone_seed104729_over1_under1",
+      "n3_independent_vs_comonotone_seed104729_over1_under3",
+      "n3_independent_vs_comonotone_seed104729_over3_under1",
+      "n3_independent_vs_comonotone_seed130363_over1_under1",
+      "n3_independent_vs_comonotone_seed130363_over1_under3",
+      "n3_independent_vs_comonotone_seed130363_over3_under1",
+      "n3_shifted_seed104729_over3_under1",
+      "n3_shifted_seed130363_over1_under1",
+      "n3_shifted_seed130363_over3_under1",
+      "n4_independent_vs_comonotone_seed104729_over1_under1",
+      "n4_independent_vs_comonotone_seed104729_over1_under3",
+      "n4_independent_vs_comonotone_seed104729_over3_under1",
+      "n4_independent_vs_comonotone_seed130363_over1_under1",
+      "n4_independent_vs_comonotone_seed130363_over1_under3",
+      "n4_independent_vs_comonotone_seed130363_over3_under1",
+      "n5_independent_vs_comonotone_seed104729_over1_under1",
+      "n5_independent_vs_comonotone_seed104729_over1_under3",
+      "n5_independent_vs_comonotone_seed104729_over3_under1",
+      "n5_independent_vs_comonotone_seed130363_over1_under1",
+      "n5_independent_vs_comonotone_seed130363_over1_under3",
+      "n5_independent_vs_comonotone_seed130363_over3_under1",
+      "n5_shifted_seed104729_over3_under1",
+      "n6_independent_vs_comonotone_seed104729_over1_under1",
+      "n6_independent_vs_comonotone_seed104729_over1_under3",
+      "n6_independent_vs_comonotone_seed104729_over3_under1",
+      "n6_independent_vs_comonotone_seed130363_over1_under1",
+      "n6_independent_vs_comonotone_seed130363_over1_under3",
+      "n6_independent_vs_comonotone_seed130363_over3_under1",
+      "n6_shifted_seed130363_over3_under1"
+    ]
+  },
+  "heterogeneous": {
+    "cases": 47,
+    "combinations": {
+      "paired": {
+        "mean_gap_upper_over_A": 0.12827337257812862,
+        "small_gap_count": 5
+      },
+      "bonferroni": {
+        "mean_gap_upper_over_A": 0.1292435870491862,
+        "small_gap_count": 4
+      },
+      "dkw_full": {
+        "mean_gap_upper_over_A": 0.12988702961187662,
+        "small_gap_count": 1
+      },
+      "capacity_full": {
+        "mean_gap_upper_over_A": 0.14222356411860917,
+        "small_gap_count": 0
+      }
+    },
+    "oracle_mean_gap_upper_over_A": 0.13191910100809123,
+    "paired_mean_gap_upper_over_A": 0.1764395276717397,
+    "paired_expansion_over_population_bound": 0.04452042666364847,
+    "face_mean_gap_upper_over_A": 0.14360290913394178,
+    "conditional_margin_cases": [
+      "n3_shifted_seed104729_over1_under1",
+      "n3_shifted_seed104729_over1_under3",
+      "n3_shifted_seed104729_over3_under1",
+      "n3_shifted_seed130363_over1_under1",
+      "n3_shifted_seed130363_over3_under1",
+      "n4_shifted_seed104729_over3_under1",
+      "n5_shifted_seed104729_over3_under1",
+      "n6_shifted_seed104729_over3_under1",
+      "n6_shifted_seed130363_over3_under1"
+    ],
+    "paired_small_gap_cases": [
+      "n3_shifted_seed104729_over3_under1",
+      "n3_shifted_seed130363_over1_under1",
+      "n3_shifted_seed130363_over3_under1",
+      "n5_shifted_seed104729_over3_under1",
+      "n6_shifted_seed130363_over3_under1"
+    ]
+  },
+  "controls": {
+    "cases": 12,
+    "combinations": {
+      "paired": {
+        "mean_gap_upper_over_A": 0.2070537564919589,
+        "small_gap_count": 0
+      },
+      "bonferroni": {
+        "mean_gap_upper_over_A": 0.2070537564919589,
+        "small_gap_count": 0
+      },
+      "dkw_full": {
+        "mean_gap_upper_over_A": 0.2037009381533764,
+        "small_gap_count": 0
+      },
+      "capacity_full": {
+        "mean_gap_upper_over_A": 0.2037009381533764,
+        "small_gap_count": 0
+      }
+    },
+    "oracle_mean_gap_upper_over_A": 0.20086805555555554,
+    "paired_mean_gap_upper_over_A": 0.22777675700094147,
+    "paired_expansion_over_population_bound": 0.02690870144538593,
+    "face_mean_gap_upper_over_A": 0.21834234220514548,
+    "conditional_margin_cases": [
+      "exchangeable_n6_rho0.6",
+      "exchangeable_n6_rho0.8",
+      "exchangeable_n12_rho0.6",
+      "exchangeable_n12_rho0.8",
+      "exchangeable_n24_rho0.6",
+      "exchangeable_n24_rho0.8"
+    ],
+    "paired_small_gap_cases": []
+  },
+  "execution": {
+    "joint_event_failures": {
+      "paired": 0,
+      "bonferroni": 0,
+      "dkw_full": 0,
+      "capacity_full": 0
+    },
+    "block_count": 9072,
+    "block_lp_calls": 50232,
+    "unit_tests_passed": 40
+  },
+  "sha256": {
+    "results": "61c300162f5efcd2375848bfca8df83b70fd0fba56fcfc24e1e98dc4a4ad9c69",
+    "script": "9fef0d8024f6497f86f4f49a1a03b59aa4af520abfeb29b54e7d8ed180657fdf"
+  }
+}
