@@ -17,7 +17,7 @@
 - [x] Retrieve and compare the relevant Roels thesis section and proofs.
 - [x] Decide whether the current computational result justifies the planned paper.
 
-## Current priority, 2026-11-04
+## Current priority, 2026-11-05
 
 The [comparative selection](research_directions.md) gives the first investigation
 to finite-data certification of coalition stability after forecast reconciliation.
@@ -57,12 +57,18 @@ or retained as a backup.
   Compare matched alternatives: Bonferroni and DKW also detect all 35 cases.
 - [x] Identify the population limitation before pursuing further interval tuning:
   exact moments and exact B meet the standalone target in only 8/47 cases.
-- [ ] Compare the exact depth/share formula and its standalone-cost refinement
+- [x] Compare the exact depth/share formula and its standalone-cost refinement
   with further work on fractional cooperative games and quantitative core gaps.
-  Resolve exact implication or exhibit the specific statement not supplied by
-  the closest results. Keep significance separate from bibliographic priority.
-- [ ] Assess C30 as the theoretical center, with the finite-data condition as
-  supporting material. A general statistical-superiority claim is not supported.
+  The [focused comparison](exclusion_prior_art.md) identifies the exact root
+  predecessor and the sharp quantitative statement absent from inspected results.
+- [x] Select C30 as the candidate theoretical center, with the finite-data
+  condition as support; prepare a [note outline](theory_note_outline.md).
+  A general statistical-superiority claim is not supported.
+- [x] Prove the root corollary and norm-cost correspondence, distinguish the
+  canonical extension, and complete 18 independent root comparisons.
+- [ ] Assemble the short note from the existing proofs and assess its significance
+  and possible hidden equivalence. Exact priority and submission readiness
+  remain open; do not restart an unrestricted topic search without new evidence.
 
 The first cycle gave a moment certificate and identified its fractional-membership
 gap. The second cycle established an exact class and a worst-case boundary for
@@ -79,10 +85,11 @@ condition statistically verifiable, but its broad precision limitation remains
 even with population knowledge. Its [proof](standalone_certificate.md),
 [comparison](../results/standalone/summary.md) and
 [post-run diagnosis](../results/standalone/diagnosis.md) close that bounded
-investigation. The research question remains unchanged. The next step is the
-focused priority/significance check for the sharp theoretical result, rather
-than further tuning of this sufficient condition. Runtime superiority and
-guarantees under temporal dependence remain unresolved.
+investigation. The research question remains unchanged. The fifth cycle closes
+the focused priority check and prepares the theoretical-note outline. Its
+decision is to assess the complete short argument for significance, rather than
+continue tuning the sufficient condition. Runtime superiority and guarantees
+under temporal dependence remain unresolved.
 
 ## Previous decision, 2026-10-27; clarified 2026-10-28
 

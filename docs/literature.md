@@ -1,9 +1,11 @@
 # Literature map
 
-Updated **2026-10-27**. See the [computational assessment](computational_prior_art.md)
-for the current decision and the [originality audit](novelty_audit.md) for its
-identification-only predecessor. This is a working map, not an exhaustive review
-or a certificate of novelty. Links point to primary sources; reading depth is explicit.
+The table below records the **2026-10-27** censored-demand investigation.
+For the current coalition-relaxation question, see the **2026-11-05**
+[focused comparison and reading-depth table](exclusion_prior_art.md).
+The [computational assessment](computational_prior_art.md) and
+[identification audit](novelty_audit.md) are retained as history. These are
+working maps, not exhaustive reviews or certificates of novelty.
 
 | Work | Relevant scope | Why it matters | Reading status |
 | --- | --- | --- | --- |

@@ -2,6 +2,17 @@
 
 Research code for **identifiability and minimax regret under censored demand and shared capacity**.
 
+**Focused priority check, 2026-11-05.** The fixed-allocation root relaxation has
+an exact predecessor in Burer and Dror's 2005 manuscript. The sharp
+depth/share formula was not found in the inspected results and remains the
+candidate center of a short theoretical note. The comparison now proves the
+root correspondence, its sharp corollary and the distinction between physical
+and canonical fractional costs. Eighteen independent root comparisons pass.
+This closes the focused search; it does not certify priority or significance.
+[Comparison and proofs](docs/exclusion_prior_art.md) ·
+[Theoretical-note outline](docs/theory_note_outline.md) ·
+[Observed checks and recovery status](results/exclusion/prior_art_checks.md)
+
 **Finite-data result, 2026-11-04.** The standalone-cost condition can now be
 certified with a proved iid guarantee and no producer/grid multiplicity factor
 in its global ratio test. In a prespecified fresh-sample comparison, it detects
