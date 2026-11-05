@@ -1,0 +1,38 @@
+{
+  "scope": "Manuscript assembly from saved outcomes; no new sampling",
+  "inputs_sha256": {
+    "results/exclusion/sharp_gap.json": "ad271fdae148f3fbed05853a509a323ec628f7b370701e54585d252a6087ad8a",
+    "results/standalone/summary.json": "25108ef5fcd735e51620c974880aaa1730b4baec62cfef0b1817ba640dc16648",
+    "results/standalone/diagnosis.json": "f3cb8fc577b3dc3b3ef1f84c962237ef6f93fd01a9c9b9cb39d62576de5f69ba",
+    "results/exclusion/prior_art_checks.json": "c5a7a06de16b647b7cc648093459dc646ae7e15d849627d45c8b193914ad26e6",
+    "references.bib": "9b2556e3b6c2f1343f99671276ca69f1112b6b64f7fd4f2df2649fb3e2f6ac15",
+    "paper/main.tex": "40a54326a8dd04cdf86d56aa120fb8904eb7a75c6e7cd758f14b8981ccbe5cb0",
+    "paper/build_tables.py": "4f06400585d79673955c5dff91109a068cb39d9ac151fd901351e2ea51d49997"
+  },
+  "outputs_sha256": {
+    "paper/tables/sharp_family.tex": "595ce9b6490693ab799ece51423dfe925d259e962b2327a6bf60237120450d44",
+    "paper/tables/validation.tex": "f85081ae1d78e15d4afd011fa3fd099dbc67dd5e6944c7b57450721b0c2f32de",
+    "paper/references.bib": "323d5f2c5917d6377a4d258c98ab4299c1c7275390227e03ae279caafbddefa0"
+  },
+  "deterministic_laws": 18,
+  "depth_values": 84,
+  "root_comparisons": 18,
+  "norm_identity_points": 1968,
+  "references": [
+    "aubin1981fuzzy",
+    "berger1996intersectionunion",
+    "bonnans2008leastcore",
+    "burer2005centralized",
+    "burer2012newsvendor",
+    "chenzhang2009inventorygames",
+    "denault2001coherent",
+    "hsu1999fixedsequence",
+    "mak1999montecarlo",
+    "maurer2009empiricalbernstein",
+    "samet1984dualcore",
+    "shellshear2009fuzzy"
+  ],
+  "heterogeneous_cases": 47,
+  "pilot_and_validation_size_each": 4096,
+  "broad_gate_passed": false
+}

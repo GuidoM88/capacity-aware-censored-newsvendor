@@ -3,6 +3,11 @@
 Internal theoretical-note outline, 2026-11-05. Not submitted. This title does
 not claim a new relaxation or a new general forecasting algorithm.
 
+**Assembly complete, 2026-11-05:** [full English manuscript](../paper/main.tex),
+[compiled PDF](../paper/main.pdf) and [Overleaf package](../paper/overleaf.zip).
+This outline is retained as the planning record. Assembly does not settle the
+open correctness, priority and significance review.
+
 ## Proposed abstract
 
 Fractional coalition optimization provides a tractable upper bound on the

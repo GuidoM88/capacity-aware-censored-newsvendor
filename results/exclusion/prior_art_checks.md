@@ -49,9 +49,18 @@ The four existing tests in `test_exclusion.py` also completed successfully:
 - test_one_exclusion_closes_the_known_three_sixteenths_gap
 
 The local environment subsequently became unavailable before the GitHub update.
-This table is recovered from the displayed, generated Markdown, retaining its
-nine-decimal precision. The script is recovered from the recorded source.
-No fresh execution after recovery is claimed. The complete new JSON and its
-SHA-256 manifest remained in the unavailable environment and are **not included
-in this commit**. Re-running the script generates them; no raw solver records
-or source hashes have been invented. Previous committed result files are unchanged.
+In commit `d3a96f6`, this table was recovered from the displayed, generated
+Markdown, retaining its nine-decimal precision, and the script from its recorded
+source. The full JSON was unavailable at that point.
+
+The environment was restored later on 2026-11-05. The original complete
+[JSON record](prior_art_checks.json), including all 18 cases and its source
+hashes, was recovered intact. All three recorded SHA-256 hashes match the
+current script and implementation files. The manuscript's table-building check
+also verifies those hashes, all 18 root comparisons, the 1,968 norm-cost
+identities, and the canonical-extension value against the stored record.
+
+This is recovery and consistency checking of the original completed run,
+not a fresh execution of its LPs. Earlier committed numerical results are
+unchanged. No raw solver records or source hashes have been reconstructed
+from rounded values.

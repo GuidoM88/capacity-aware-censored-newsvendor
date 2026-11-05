@@ -180,9 +180,11 @@ The [observed checks](../results/exclusion/prior_art_checks.md) compare two
 independent primal programs with the existing dual code and solve (3) separately.
 The earlier [84 level checks](../results/exclusion/sharp_gap.json) remain
 unchanged. None of these executions establishes priority. The check record
-also states the interruption and recovery limits.
+also documents the interruption and subsequent recovery of the full JSON,
+with the original source hashes verified; no fresh LP execution is claimed.
 
-**Publication scope:** proceed with the [theoretical-note outline](theory_note_outline.md).
+**Publication scope:** the [complete working draft](../paper/README.md) now
+assembles the [theoretical-note outline](theory_note_outline.md).
 The case for interest is that a familiar relaxation can report almost the
 entire retained share of expected cost as a saving while no actual coalition
 benefits. The case against a standalone paper is that the derivation is short,

@@ -1,0 +1,456 @@
+{
+  "date": "2026-11-05",
+  "scope": "Deterministic reductions, not a novelty test",
+  "sha256": {
+    "scripts/check_exclusion_prior_art.py": "41a2090e9fea6109d234f7eed3157bccdb3cc0cfa21626e6984e1cdbb313351c",
+    "src/censored_newsvendor/coalition_audit.py": "8783751bec56aa1743c71b07d53b9e86748a0bad0c10d8ad18feaabed5c41161",
+    "src/censored_newsvendor/exclusion.py": "2501bd4710b8b4b504fdc11f2a58bc27a8fe51f2f9c7b58b6121f24814417cf4"
+  },
+  "instances": [
+    {
+      "n": 3,
+      "size": 2,
+      "share_units": [
+        1,
+        1,
+        1
+      ],
+      "grand_loss": 0.125,
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": -0.041666666666666685,
+      "root_primal": 0.08333333333333331,
+      "root_dual": 0.08333333333333331,
+      "burer_fixed_allocation_minimum": -0.08333333333333331,
+      "burer_positive_negative_part": 0.08333333333333331,
+      "root_gap_over_L": 0.6666666666666665,
+      "depth_one_witness_ratio": "5/9",
+      "root_supremum": "2/3",
+      "cost_identity_points": 8
+    },
+    {
+      "n": 3,
+      "size": 20,
+      "share_units": [
+        1,
+        1,
+        1
+      ],
+      "grand_loss": 0.022727272727272728,
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": -0.0075757575757576245,
+      "root_primal": 0.015151515151515152,
+      "root_dual": 0.015151515151515138,
+      "burer_fixed_allocation_minimum": -0.01515151515151515,
+      "burer_positive_negative_part": 0.01515151515151515,
+      "root_gap_over_L": 0.6666666666666666,
+      "depth_one_witness_ratio": "41/63",
+      "root_supremum": "2/3",
+      "cost_identity_points": 8
+    },
+    {
+      "n": 3,
+      "size": 200,
+      "share_units": [
+        1,
+        1,
+        1
+      ],
+      "grand_loss": 0.0024752475247524753,
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": -0.0008250825082508444,
+      "root_primal": 0.0016501650165016502,
+      "root_dual": 0.0016501650165016333,
+      "burer_fixed_allocation_minimum": -0.0016501650165016502,
+      "burer_positive_negative_part": 0.0016501650165016502,
+      "root_gap_over_L": 0.6666666666666666,
+      "depth_one_witness_ratio": "401/603",
+      "root_supremum": "2/3",
+      "cost_identity_points": 8
+    },
+    {
+      "n": 3,
+      "size": 2,
+      "share_units": [
+        3,
+        1,
+        2
+      ],
+      "grand_loss": 0.125,
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": -0.020833333333333343,
+      "root_primal": 0.1,
+      "root_dual": 0.09999999999999999,
+      "burer_fixed_allocation_minimum": -0.09999999999999999,
+      "burer_positive_negative_part": 0.09999999999999999,
+      "root_gap_over_L": 0.8,
+      "depth_one_witness_ratio": "13/18",
+      "root_supremum": "5/6",
+      "cost_identity_points": 8
+    },
+    {
+      "n": 3,
+      "size": 20,
+      "share_units": [
+        3,
+        1,
+        2
+      ],
+      "grand_loss": 0.022727272727272728,
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": -0.00378787878787884,
+      "root_primal": 0.018774703557312252,
+      "root_dual": 0.018774703557312238,
+      "burer_fixed_allocation_minimum": -0.018774703557312252,
+      "burer_positive_negative_part": 0.018774703557312252,
+      "root_gap_over_L": 0.826086956521739,
+      "depth_one_witness_ratio": "103/126",
+      "root_supremum": "5/6",
+      "cost_identity_points": 8
+    },
+    {
+      "n": 3,
+      "size": 200,
+      "share_units": [
+        3,
+        1,
+        2
+      ],
+      "grand_loss": 0.0024752475247524753,
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": -0.00041254125412545006,
+      "root_primal": 0.0020606740477003365,
+      "root_dual": 0.0020606740477003014,
+      "burer_fixed_allocation_minimum": -0.0020606740477003365,
+      "burer_positive_negative_part": 0.0020606740477003365,
+      "root_gap_over_L": 0.8325123152709359,
+      "depth_one_witness_ratio": "1003/1206",
+      "root_supremum": "5/6",
+      "cost_identity_points": 8
+    },
+    {
+      "n": 6,
+      "size": 2,
+      "share_units": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "grand_loss": 0.05,
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": -0.008333333333333283,
+      "root_primal": 0.041666666666666664,
+      "root_dual": 0.0416666666666667,
+      "burer_fixed_allocation_minimum": -0.041666666666666664,
+      "burer_positive_negative_part": 0.041666666666666664,
+      "root_gap_over_L": 0.8333333333333333,
+      "depth_one_witness_ratio": "22/27",
+      "root_supremum": "5/6",
+      "cost_identity_points": 64
+    },
+    {
+      "n": 6,
+      "size": 20,
+      "share_units": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "grand_loss": 0.017857142857142856,
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": -0.0029761904761905784,
+      "root_primal": 0.01488095238095238,
+      "root_dual": 0.014880952380952328,
+      "burer_fixed_allocation_minimum": -0.01488095238095238,
+      "burer_positive_negative_part": 0.01488095238095238,
+      "root_gap_over_L": 0.8333333333333334,
+      "depth_one_witness_ratio": "67/81",
+      "root_supremum": "5/6",
+      "cost_identity_points": 64
+    },
+    {
+      "n": 6,
+      "size": 200,
+      "share_units": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "grand_loss": 0.002403846153846154,
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": -0.0004006410256411491,
+      "root_primal": 0.002003205128205128,
+      "root_dual": 0.0020032051282050517,
+      "burer_fixed_allocation_minimum": -0.002003205128205128,
+      "burer_positive_negative_part": 0.002003205128205128,
+      "root_gap_over_L": 0.8333333333333333,
+      "depth_one_witness_ratio": "517/621",
+      "root_supremum": "5/6",
+      "cost_identity_points": 64
+    },
+    {
+      "n": 6,
+      "size": 2,
+      "share_units": [
+        6,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "grand_loss": 0.05,
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": -0.0023809523809523725,
+      "root_primal": 0.046753246753246755,
+      "root_dual": 0.04675324675324674,
+      "burer_fixed_allocation_minimum": -0.046753246753246755,
+      "burer_positive_negative_part": 0.046753246753246755,
+      "root_gap_over_L": 0.935064935064935,
+      "depth_one_witness_ratio": "25/27",
+      "root_supremum": "20/21",
+      "cost_identity_points": 64
+    },
+    {
+      "n": 6,
+      "size": 20,
+      "share_units": [
+        6,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "grand_loss": 0.017857142857142856,
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": -0.0008503401360545268,
+      "root_primal": 0.016889514426460236,
+      "root_dual": 0.01688951442646018,
+      "burer_fixed_allocation_minimum": -0.016889514426460236,
+      "burer_positive_negative_part": 0.016889514426460236,
+      "root_gap_over_L": 0.9458128078817732,
+      "depth_one_witness_ratio": "535/567",
+      "root_supremum": "20/21",
+      "cost_identity_points": 64
+    },
+    {
+      "n": 6,
+      "size": 200,
+      "share_units": [
+        6,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "grand_loss": 0.002403846153846154,
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": -0.00011446886446894343,
+      "root_primal": 0.0022871864977128138,
+      "root_dual": 0.0022871864977127817,
+      "burer_fixed_allocation_minimum": -0.0022871864977128138,
+      "burer_positive_negative_part": 0.0022871864977128138,
+      "root_gap_over_L": 0.9514695830485305,
+      "depth_one_witness_ratio": "4135/4347",
+      "root_supremum": "20/21",
+      "cost_identity_points": 64
+    },
+    {
+      "n": 8,
+      "size": 2,
+      "share_units": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "grand_loss": 0.03571428571428571,
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": -0.004464285714285823,
+      "root_primal": 0.031249999999999993,
+      "root_dual": 0.031249999999999986,
+      "burer_fixed_allocation_minimum": -0.031249999999999993,
+      "burer_positive_negative_part": 0.031249999999999993,
+      "root_gap_over_L": 0.8749999999999999,
+      "depth_one_witness_ratio": "45/52",
+      "root_supremum": "7/8",
+      "cost_identity_points": 256
+    },
+    {
+      "n": 8,
+      "size": 20,
+      "share_units": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "grand_loss": 0.015625,
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": -0.001953125,
+      "root_primal": 0.013671875,
+      "root_dual": 0.013671875,
+      "burer_fixed_allocation_minimum": -0.013671875,
+      "burer_positive_negative_part": 0.013671875,
+      "root_gap_over_L": 0.875,
+      "depth_one_witness_ratio": "27/31",
+      "root_supremum": "7/8",
+      "cost_identity_points": 256
+    },
+    {
+      "n": 8,
+      "size": 200,
+      "share_units": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "grand_loss": 0.0023584905660377358,
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": -0.0002948113207546649,
+      "root_primal": 0.0020636792452830184,
+      "root_dual": 0.0020636792452830427,
+      "burer_fixed_allocation_minimum": -0.0020636792452830184,
+      "burer_positive_negative_part": 0.0020636792452830184,
+      "root_gap_over_L": 0.8749999999999999,
+      "depth_one_witness_ratio": "369/422",
+      "root_supremum": "7/8",
+      "cost_identity_points": 256
+    },
+    {
+      "n": 8,
+      "size": 2,
+      "share_units": [
+        8,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "grand_loss": 0.03571428571428571,
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": -0.0009920634920636481,
+      "root_primal": 0.03432539682539682,
+      "root_dual": 0.03432539682539676,
+      "burer_fixed_allocation_minimum": -0.03432539682539682,
+      "burer_positive_negative_part": 0.03432539682539682,
+      "root_gap_over_L": 0.961111111111111,
+      "depth_one_witness_ratio": "112/117",
+      "root_supremum": "35/36",
+      "cost_identity_points": 256
+    },
+    {
+      "n": 8,
+      "size": 20,
+      "share_units": [
+        8,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "grand_loss": 0.015625,
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": -0.00043402777777781266,
+      "root_primal": 0.015112058080808078,
+      "root_dual": 0.015112058080808047,
+      "burer_fixed_allocation_minimum": -0.015112058080808078,
+      "burer_positive_negative_part": 0.015112058080808078,
+      "root_gap_over_L": 0.967171717171717,
+      "depth_one_witness_ratio": "539/558",
+      "root_supremum": "35/36",
+      "cost_identity_points": 256
+    },
+    {
+      "n": 8,
+      "size": 200,
+      "share_units": [
+        8,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "grand_loss": 0.0023584905660377358,
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": -6.551362683437792e-05,
+      "root_primal": 0.002291131484926329,
+      "root_dual": 0.002291131484926305,
+      "burer_fixed_allocation_minimum": -0.002291131484926329,
+      "burer_positive_negative_part": 0.002291131484926329,
+      "root_gap_over_L": 0.9714397496087637,
+      "depth_one_witness_ratio": "3689/3798",
+      "root_supremum": "35/36",
+      "cost_identity_points": 256
+    }
+  ],
+  "canonical_example": {
+    "scope": "Unscaled exact three-producer illustration, not a Gaussian sample",
+    "membership": [
+      "1",
+      "0",
+      "2/3"
+    ],
+    "physical_cost": 5.551115123125783e-17,
+    "exact_physical_cost": "0",
+    "assigned_charge": 0.27777777777777773,
+    "exact_assigned_charge": "5/18",
+    "canonical_cost": 0.6666666666666667,
+    "exact_canonical_cost": "2/3",
+    "positive_physical_excess": 0.2777777777777777,
+    "positive_canonical_excess": 0.0,
+    "nonzero_cover": [
+      {
+        "coalition": [
+          1
+        ],
+        "coefficient": 0.33333333333333337
+      },
+      {
+        "coalition": [
+          1,
+          3
+        ],
+        "coefficient": 0.6666666666666666
+      }
+    ]
+  },
+  "clipping_example": {
+    "scope": "Homogeneous objective algebra only; charges are not budget balanced",
+    "root": 0.0,
+    "burer_raw_minimum": 0.5,
+    "clipped_negative_minimum": 0.0
+  }
+}

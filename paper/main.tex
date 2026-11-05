@@ -1,0 +1,662 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs,enumitem}
+\usepackage[round,authoryear]{natbib}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,allcolors=blue!45!black]{hyperref}
+\hypersetup{pdftitle={Sharp overstatement of coalition savings in newsvendor relaxations},
+  pdfauthor={Guido Morgante}}
+\setlist{nosep,leftmargin=*}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\one}{\mathbf 1}
+\newcommand{\pos}[1]{\left[#1\right]_+}
+\newcommand{\subsets}{\mathcal S}
+\newcommand{\gap}{\Delta}
+\DeclareMathOperator{\Var}{Var}
+\title{Sharp overstatement of coalition savings\\in newsvendor relaxations}
+\author{Guido Morgante}
+\date{Working draft --- 5 November 2026}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Fractional coalition optimization gives an upper bound on the largest saving
+available to a coalition under a fixed cost allocation. We characterize its
+worst-case overstatement in an exclusion hierarchy for a newsvendor cost
+game. For every prescribed positive share vector, the supremum of the gap
+divided by expected grand-offer cost is the sum of the largest retained
+shares at each nonterminal exclusion depth. A common sequence of bounded
+two-state instances approaches these values, has a correct forecast of total
+output, and leaves every actual proper coalition strictly stable. The
+construction also gives a sharp root bound and a rank-one norm-cost
+representation. A standalone-cost condition reduces the bound; an iid
+validation argument and a descriptive comparison delimit its practical scope.
+The results concern the error of fixed-allocation fractional certification.
+They do not establish general statistical or computational superiority.
+\end{abstract}
+
+\section{Introduction and relation to prior work}
+
+Suppose a group implements a common newsvendor decision and divides its
+expected cost according to fixed shares. A coalition can compare its assigned
+charge with the cost of acting independently. Assessing the largest saving
+requires a search over subsets, and allowing fractional memberships provides
+a continuous upper bound. A positive fractional value can nevertheless be a
+false indication of a profitable departure: the optimizing membership may
+not describe any actual coalition.
+
+This note asks a quantitative question. For a fixed positive cost split,
+how large can that overstatement be after requiring several participants to
+be completely absent? The answer is an exact worst-case constant, indexed
+by the exclusion depth and the shares. The upper estimate follows from the
+charge budget. The matching construction realizes that estimate
+asymptotically while retaining positive producer variances, bounded outputs,
+an aggregate-correct forecast and strict stability of every proper coalition.
+The same sequence works at all nonterminal depths.
+
+Fractional participation and comparisons between ordinary cores and dual
+allocations are established ideas. \citet{aubin1981fuzzy} develops cooperative
+fuzzy games; \citet{samet1984dualcore} studies LP-game cores, dual sets and
+replication. \citet{denault2001coherent} connects homogeneous fractional cost
+inequalities to subdifferentials. These results motivate the distinction
+between integer and fractional stability, rather than making that
+distinction a contribution of this note.
+
+The closest optimization formulation is the fixed-allocation subproblem in
+the 2005 manuscript of \citet[Sections 5.2--5.3, Eq.~19]{burer2005centralized}.
+Section~\ref{sec:root} gives its exact correspondence with our root problem
+for norm-valued costs. The manuscript subsequently optimizes the allocation;
+our result keeps it fixed. That relaxation should be cited to the 2005
+manuscript: the journal version \citep{burer2012newsvendor} instead develops
+fair allocations under optimized Gaussian correlations and does not retain
+the same Section~5.
+
+Partially continuous coalition searches also appear in
+\citet[Sections 4--6]{bonnans2008leastcore}. Their selected continuous
+classes differ from the union of zero-coordinate faces used here. The
+absolute-sum two-state cost in our example is a familiar device:
+\citet[Example 1 and Theorem 7]{chenzhang2009inventorygames} distinguish core
+and dual allocations and establish hardness of core membership testing.
+We do not claim a new hardness result, general relaxation scheme or
+two-state representation. The proposed increment is the exact extremal
+value for every prescribed positive split and exclusion depth under the
+stated realizability restrictions.
+
+\section{Model and exclusion hierarchy}\label{sec:model}
+
+Let $N=\{1,\ldots,n\}$, $n\ge3$, and let $Y=(Y_1,\ldots,Y_n)$ be jointly
+distributed with $0\le Y_j\le R_j<\infty$. Within-vector dependence is
+unrestricted. For positive penalties $\alpha,\beta$, use
+\begin{equation}\label{eq:loss}
+ \ell(q,t)=\alpha(t-q)_++\beta(q-t)_+.
+\end{equation}
+For memberships $z\in\R_+^n$, define the \emph{physical fractional cost}
+\begin{equation}\label{eq:cost}
+ c(z)=\min_{q\in\R}\E\ell(q,z^\top Y).
+\end{equation}
+An optimizer lies in $[0,R^\top z]$. Fix an implemented offer
+$q_0\in[0,\sum_jR_j]$ and positive shares $w_j$ summing to one. Set
+\[
+ L=\E\ell(q_0,\one^\top Y),\qquad a_j=Lw_j,\qquad
+ f(z)=a^\top z-c(z).
+\]
+Unless stated otherwise $L>0$. The choice $q_0$ need not be optimal under
+the true law. Charges are frozen before the coalition search; they are
+not reallocated after observing a candidate departure.
+
+Write $a(S)=\sum_{j\in S}a_j$ and
+$\subsets=\{S:\emptyset\ne S\subsetneq N\}$. The largest positive saving is
+\begin{equation}\label{eq:B}
+ B=\max\{0,\max_{S\in\subsets}f(\one_S)\}.
+\end{equation}
+We call a proper coalition strictly stable if $f(\one_S)<0$.
+If $L=c(\one)$, the additional efficiency condition holds and $B=0$
+means that $a$ is an ordinary-core allocation. Without this equality,
+we use the excess interpretation and do not assert ordinary-core membership.
+
+\begin{lemma}\label{lem:sublinear}
+The function $c$ is nonnegative, convex, positively homogeneous and
+subadditive on $\R_+^n$, with $c(0)=0$.
+\end{lemma}
+\begin{proof}
+Nonnegativity is immediate. Scaling both $q$ and $z$ in
+\eqref{eq:loss} proves positive homogeneity. Given two optimal offers,
+their convex combination is an admissible offer at the corresponding
+convex combination of memberships. Joint convexity of the loss therefore
+proves convexity of the optimized value. Convexity and homogeneity give
+$c(z+z')=2c((z+z')/2)\le c(z)+c(z')$.
+\end{proof}
+
+At the root, define
+\[
+ P_0=\{z\in[0,1]^n:\one^\top z\le n-1\},\qquad
+ D_0=\max_{z\in P_0}f(z).
+\]
+For a set $J$ of excluded participants, let
+$P_J=\{z\in[0,1]^n:z_j=0\ (j\in J)\}$. For $1\le k\le n-1$, put
+\begin{equation}\label{eq:Dk}
+ D_k=\max\left\{0,\
+    \max_{\substack{S\in\subsets\\|N\setminus S|<k}}f(\one_S),\
+    \max_{\substack{J\subset N\\|J|=k}}\max_{z\in P_J}f(z)\right\}.
+\end{equation}
+An empty maximum is ignored. The direct integer checks retain coalitions
+larger than a depth-$k$ face; omitting them would change the problem.
+
+\begin{proposition}\label{prop:hierarchy}
+$D_0\ge D_1\ge\cdots\ge D_{n-1}=B$.
+\end{proposition}
+\begin{proof}
+Every proper integer coalition is either checked directly or belongs to
+one of the faces at each depth. Every depth-$k+1$ face belongs to a
+depth-$k$ face, as do the extra integer coalitions introduced at depth
+$k+1$. All depth-one faces belong to $P_0$. At depth $n-1$, each face
+has one free coordinate, and homogeneity makes its objective linear along
+that segment. An endpoint attains the maximum. Together with the direct
+checks these endpoints recover all proper integer coalitions and zero.
+\end{proof}
+
+For an explicit finite distribution, the face search is a linear program:
+introduce an offer and positive/negative imbalance variables for each
+scenario in \eqref{eq:cost}. At depth $k$ it requires $\binom nk$
+face problems and $\sum_{j=1}^{k-1}\binom nj$ direct checks. This is a
+description of the hierarchy, not a polynomial-time claim when $k$ grows
+with $n$.
+
+\section{Sharp error for prescribed shares}\label{sec:sharp}
+
+Let $s_k(w)$ be the sum of the $n-k$ largest entries of $w$.
+
+\begin{theorem}\label{thm:sharp}
+Fix $n\ge3$ and $w>0$ with $\sum_jw_j=1$. For $1\le k\le n-2$,
+\begin{equation}\label{eq:sharp}
+ 0\le D_k-B\le\pos{Ls_k(w)-B},\qquad
+ \sup\frac{D_k-B}{L}=s_k(w).
+\end{equation}
+The supremum is over bounded instances with these shares and $L>0$.
+It is unchanged if one requires unit capacities, positive individual
+variances, two equiprobable states, unit absolute loss, an optimal true
+grand offer, a forecast with the correct aggregate law that induces the
+prescribed shares, and strict stability of every proper coalition.
+At $k=n-1$ the error is zero.
+\end{theorem}
+
+\begin{proof}
+\textit{Upper bound.}
+On a face with $n-k$ free coordinates, nonnegative cost gives
+$f(z)\le a^\top z\le Ls_k(w)$. Every direct integer candidate is at most
+$B$, so $D_k\le\max\{B,Ls_k(w)\}$. Proposition~\ref{prop:hierarchy}
+supplies the lower bound and terminal exactness.
+
+\textit{Bounded construction and forecast realization.}
+Relabel so that $w_1$ and $w_n$ are the two largest shares, with
+$w_1\ge w_n$; order the middle shares increasingly. For $m\ge2$ set
+$H=m+2(n-2)$. First work in unscaled units, with two equiprobable states
+\begin{equation}\label{eq:states}
+ y^+=(m,2,\ldots,2,0),\qquad
+ y^-=(0,\ldots,0,H-1).
+\end{equation}
+Their totals are $H$ and $H-1$. Under unit absolute loss take
+$q_0=H-\tfrac12$, an optimal true offer, giving $L=\tfrac12$.
+Define a forecast by $\widetilde Y_j=w_jT$, where $T$ has these same two
+total values. Its aggregate law is correct. With score $\nu=+1$ at $T=H$
+and $\nu=-1$ at $T=H-1$, one has $\E\nu=0$ and
+\[
+ \E[\widetilde Y_j\nu]=\frac{w_j}{2},\qquad
+ \sum_j\E[\widetilde Y_j\nu]=\frac12.
+\]
+Thus the forecast's optimal dual allocation, normalized by its total
+cost, gives exactly $w$. Dividing all states and offers by $H$ puts
+both true and forecast outputs in $[0,1]^n$, keeps every true variance
+positive, and changes $L$ to $1/(2H)$. All ratios of excess to $L$
+are unchanged.
+
+\textit{Strict stability of actual coalitions.}
+In unscaled units let
+$d=y^+-y^-=(m,2,\ldots,2,-(H-1))$. The cost is
+\begin{equation}\label{eq:absolute}
+ c(z)=\frac12|d^\top z|.
+\end{equation}
+Indeed, the minimum mean absolute deviation of two equiprobable
+values is half their distance. A nonempty coalition not containing
+$n$ has state difference at least two. A proper coalition containing
+$n$ omits positive differences of total at least two; since
+$d^\top\one=1$, its difference is at most $-1$.
+Consequently $c(\one_S)\ge\tfrac12=L>a(S)$ for all
+$S\in\subsets$. Therefore $B=0$, with strict inequalities.
+
+\textit{Fractional witness and sharpness.}
+Omit the $k$ smallest middle shares, include every other
+positive-difference participant fully, and give participant $n$
+membership
+\[
+ r=\frac{H-2k}{H-1}=1-\frac{2k-1}{H-1}.
+\]
+For $1\le k\le n-2$ this lies in $(0,1)$. The two weighted
+production totals coincide, so the membership has zero cost.
+Its objective divided by $L$ is
+\begin{equation}\label{eq:family}
+ s_k(w)-w_n\frac{2k-1}{H-1}.
+\end{equation}
+As $m\to\infty$, this tends to $s_k(w)$. The same sequence
+works for every nonterminal $k$, proving the claimed supremum.
+\end{proof}
+
+For equal shares the nonterminal supremum is $(n-k)/n$.
+In particular, for large $n$ a fixed number of exclusions need not give
+a small error relative to expected cost, even when all actual coalitions
+are strictly stable.
+
+\begin{proposition}\label{prop:finite}
+For every finite member of \eqref{eq:states}, expression
+\eqref{eq:family} equals $D_k/L$, not merely a feasible lower bound.
+\end{proposition}
+\begin{proof}
+Direct integer values are negative. On a face omitting $n$,
+$f(z)/L=\sum_{i<n}(w_i-d_i)z_i\le0$, since $d_i\ge2>w_i$.
+On a face containing $n$, fix the other memberships and write
+$u=\sum_{i<n}d_iz_i$. At least one positive-difference participant
+is absent, hence $0\le u\le H-2$. As a function of $z_n$, the
+normalized objective has slopes $w_n+(H-1)>0$ and
+$w_n-(H-1)<0$ on either side of $u/(H-1)$.
+It is therefore maximized by canceling the difference:
+$z_n=u/(H-1)\in[0,1]$.
+
+After cancellation, each free positive coordinate has coefficient
+$w_i+w_nd_i/(H-1)>0$ and is set to one. The best omissions minimize
+the sum of these coefficients. Participant 1 has a coefficient at
+least as large as every middle participant because $m\ge2$ and
+$w_1\ge w_i$. Among the middle participants the added coefficient
+is the same. Thus omitting the $k$ smallest middle shares is optimal,
+giving \eqref{eq:family}.
+\end{proof}
+
+\begin{remark}[Normalization]\label{rem:scale}
+The sharpness denominator is $L$, not the worst possible loss of the
+implemented offer over the declared box,
+\[
+ A=\max\{\beta q_0,\alpha(\textstyle\sum_jR_j-q_0)\}.
+\]
+In the unit-capacity version of \eqref{eq:states},
+$q_0=1-1/(2H)$ and $A=n-1+1/(2H)$. Hence
+\[
+ \frac{L}{A}=\frac{1}{2H(n-1)+1}\longrightarrow0.
+\]
+The limiting construction does not establish a large error relative to
+$A$ or explain a finite-data certificate's failure at a fixed
+percentage-of-$A$ precision target.
+\end{remark}
+
+\section{Root relaxation and the choice of extension}\label{sec:root}
+
+\subsection{Correspondence with the earlier norm-cost formulation}
+
+Put $P_1=\{z\in[0,1]^n:1\le\one^\top z\le n-1\}$.
+Positive homogeneity gives
+\begin{equation}\label{eq:rootmap}
+ D_0=\max\{0,\max_{z\in P_1}f(z)\}.
+\end{equation}
+To see this, a positive objective at a point of mass $s<1$ increases
+when $z$ is replaced by $z/s$. Each coordinate remains at most one
+because $z_j\le s$; the new mass is one. Nonpositive objectives do
+not improve on zero.
+
+For $c(z)=\|Mz\|_2$, Eq.~19 of \citet{burer2005centralized} has value
+$v(a)=\min_{z\in P_1}\{c(z)-a^\top z\}$. Thus
+$D_0=[-v(a)]_+$. The analogous binary program maps to $B$.
+This identity concerns a fixed $a$, and does not assess the quality
+of an allocation selected by an outer optimization.
+
+\begin{corollary}\label{cor:root}
+For the model and prescribed shares of Theorem~\ref{thm:sharp},
+\[
+ 0\le D_0-B\le\pos{L(1-\min_jw_j)-B},\qquad
+ \sup\frac{D_0-B}{L}=1-\min_jw_j.
+\]
+\end{corollary}
+\begin{proof}
+$D_0\le\max_{z\in P_0}a^\top z=L(1-\min_jw_j)$.
+Since $D_0\ge D_1$, the depth-one construction in
+Theorem~\ref{thm:sharp} proves the matching supremum.
+\end{proof}
+
+The same cost obstruction belongs to the rank-one norm class:
+\eqref{eq:absolute} is $\|Mz\|_2$ with $M=d^\top/2$.
+For a Gaussian realization, let $Z$ be standard normal,
+$\eta=\E|Z|=\sqrt{2/\pi}$, and $X=\mu+dZ/(2\eta)$.
+The optimized absolute-loss cost of $z^\top X$ is
+$|d^\top z|/2$. Taking $\mu\ge0$ also makes the optimal offer
+$\mu^\top z$ nonnegative. The covariance is singular and Gaussian
+outputs are not bounded or almost surely nonnegative. Those physical
+properties are supplied by the separate two-state realization, not by
+the Gaussian one.
+
+\subsection{Canonical and physical fractional costs}
+
+The canonical concave cover is an established construction
+\citep{samet1984dualcore,shellshear2009fuzzy}. In cost signs it reads
+\begin{equation}\label{eq:cover}
+ \bar c(z)=\min_{\lambda_S\ge0}
+ \left\{\sum_{\emptyset\ne S\subseteq N}\lambda_Sc(\one_S):
+       \sum_S\lambda_S\one_S=z\right\}.
+\end{equation}
+This is not generally the physical cost \eqref{eq:cost}.
+
+\begin{proposition}\label{prop:cover}
+For the sublinear cost $c$,
+$c(z)\le\bar c(z)$ and $\bar c(\one_S)=c(\one_S)$ for every
+actual coalition. If $a$ is an ordinary-core allocation, then
+$a^\top z\le\bar c(z)$ for every nonnegative membership.
+\end{proposition}
+\begin{proof}
+Subadditivity and homogeneity bound $c(z)$ by every feasible
+objective in \eqref{eq:cover}. At $z=\one_S$, using $S$ alone
+proves equality. For a core allocation, multiply
+$a(S)\le c(\one_S)$ by $\lambda_S$ and sum, then minimize.
+\end{proof}
+
+For example, use unscaled states $(2,2,0)$ and $(0,0,3)$ and equal
+charges $a_j=1/6$. Every actual proper coalition is strictly stable.
+At $z=(1,0,2/3)$, however,
+\[
+ c(z)=0,\qquad a^\top z=5/18,\qquad \bar c(z)=2/3.
+\]
+For the last equality, only $\{1\}$, $\{3\}$ and $\{1,3\}$ can be
+used in \eqref{eq:cover}. If the pair coefficient is $t\le2/3$,
+the cost is $2-2t$, minimized at $t=2/3$. Thus ordinary-core
+preservation for a canonical extension does not imply exactness
+of the physical fractional audit.
+
+\section{A condition that reduces the error}\label{sec:rho}
+
+Let $c_j=c(\one_{\{j\}})$ and define
+\[
+ \rho=\min\bigl(\{1\}\cup\{a_j/c_j:c_j>0\}\bigr).
+\]
+In particular, $\rho=1$ when all singleton costs vanish.
+
+\begin{proposition}\label{prop:rho}
+For $1\le k\le n-2$,
+\begin{equation}\label{eq:rho}
+ D_k-B\le(1-\rho)\pos{Ls_k(w)-B}.
+\end{equation}
+\end{proposition}
+\begin{proof}
+The case $\rho=0$ is Theorem~\ref{thm:sharp}.
+On a depth-$k$ face with free set $F$ put
+$x=\sum_{j\in F}a_j(1-z_j)$. Nonnegative cost gives
+$f(z)-B\le a(F)-B-x$. Also,
+\[
+ c(\one_F)\le c(z)+\sum_{j\in F}(1-z_j)c_j
+            \le c(z)+x/\rho.
+\]
+As $F$ is a proper actual coalition, $B\ge a(F)-c(\one_F)$.
+It follows that $f(z)-B\le(1/\rho-1)x$.
+The smaller of the two bounds is at most their weighted average
+with weights $1-\rho$ and $\rho$, which cancels $x$ and leaves
+$(1-\rho)(a(F)-B)$. Take the maximum over faces, zero and the
+direct integer candidates, all of whose excess above $B$ is
+nonpositive. Use $a(F)\le Ls_k(w)$.
+\end{proof}
+
+For example, covering at least half of every singleton's optimized
+cost halves the share-only ceiling. This is an elementary sufficient
+condition from subadditivity, not an independent priority claim.
+The root is not included in \eqref{eq:rho}; its maximizer can have
+all coordinates positive. If $L=0$, all positive excesses and
+all $D_k$ are zero directly.
+
+Another sufficient condition is symmetry. Under exchangeable
+production and equal charges $a_j=a_0$, fix a face $F$ with
+$|F|=n-1$. Averaging memberships over its permutations, then
+using convexity and homogeneity, gives
+$c(z)\ge(\sum_{j\in F}z_j)c(\one_F)/(n-1)$.
+Its maximum excess is therefore attained at zero or $\one_F$,
+so $D_1=B=[(n-1)a_0-c(\one_F)]_+$. Equal marginal laws alone
+do not imply this exchangeability assumption.
+
+\section{Numerical checks and scope of validation}\label{sec:evidence}
+
+The calculations support implementation checks, not proof or
+bibliographic priority. The complete deterministic grid uses
+$n\in\{3,6,8\}$, $m\in\{2,20,200\}$ and two share vectors:
+uniform shares and shares proportional to
+$(n,1,2,\ldots,n-2,n-1)$. All 18 laws have strictly stable actual
+proper coalitions. Exact enumeration and the face implementation
+agree with \eqref{eq:family} at all 84 depth values, including
+the terminal levels. Table~\ref{tab:sharp} shows the uniform
+six-participant slice.
+
+\begin{table}[htbp]
+\centering
+\input{tables/sharp_family.tex}
+\caption{Checked values of $D_k/L$ with $B=0$, six uniform shares
+and $H=m+8$. The last row is the proved supremum; terminal depth
+is exact. Values are generated from the saved deterministic results.}
+\label{tab:sharp}
+\end{table}
+
+Two separate primal LPs also agree with the existing root dual
+implementation on the same 18 laws. The rank-one and physical costs
+agree at 1,968 checked membership points, and a separate cover LP
+verifies the three-participant example in
+Section~\ref{sec:root}. These checks do not assess a reoptimized
+allocation or claim coverage from a finite test count.
+
+Appendix~\ref{app:validation} turns \eqref{eq:rho} into an iid
+validation bound using established statistical tools. A prespecified
+development comparison used 96 positive-share laws and 12
+exchangeable controls. Four original cases with nonpositive
+shares were excluded before sampling. One independent pilot and
+validation stream per law supplied prefixes of
+$M\in\{256,1024,4096\}$ observations each. The fixed rule was
+independent of both streams. Each of the 18 method--size combinations
+used $\delta=0.05/18$, yielding simultaneous validity across
+the 18 comparisons within a law, not joint coverage across all
+108 laws.
+
+The alternatives are a Bonferroni-calibrated version of the
+paired ratio procedure; a marginal DKW bound using both halves
+for fixed-rule moments; a capacity bound using both halves;
+a preceding bound from pilot-fitted dual prices on faces; and
+paired SAA blocks of 64 observations. The latter specialize the
+optimality-gap construction of \citet{mak1999montecarlo}, with
+bounded finite-sample calibration. Each candidate-dependent
+witness is evaluated only on validation data. Averages and
+counts describe this development grid, not repeated-sampling
+power or a controlled runtime comparison.
+
+\begin{table}[htbp]
+\centering
+\input{tables/validation.tex}
+\caption{The 47 heterogeneous positive-share laws at
+$M=4096$ pilot plus $M=4096$ validation observations.
+The estimand is $D_1-B$. Here $G$ is its upper confidence bound
+and $A$ is the maximum declared grand-offer loss.
+All six prespecified methods are shown.}
+\label{tab:validation}
+\end{table}
+
+Among the 35 original laws with true $\rho\ge0.6$, the paired,
+Bonferroni and DKW procedures all certified $\rho\ge0.5$.
+The broader target, a certified gap at most $0.05A$ in at least
+half the heterogeneous laws, failed: the paired procedure passed
+5 of 47. Even exact population values in \eqref{eq:rho} meet
+that target in only 8 of 47. Thus improving scalar estimation
+alone cannot eliminate this corollary's population limitation.
+
+Post-run combinations of the paired and face bounds yield a
+mean normalized upper gap of $0.128273$, versus $0.129887$
+for DKW plus face, a descriptive difference of about $1.24\%$.
+These combinations do not establish general superiority.
+The observed run had no gap-coverage failures, but the probability
+guarantees depend on the assumptions and proof. The SAA baseline
+used 9,072 blocks and 50,232 LP solves across the study; its
+fixed block choice does not settle the bias--concentration tradeoff.
+
+\section{Discussion}
+
+The exact error constant depends only on the retained shares,
+but its sharpness is realized by a specialized dependence
+structure. The result warns against interpreting a large
+fractional objective as evidence of a profitable actual departure,
+even with an aggregate-correct forecast. Whole-participant
+exclusions reduce the ceiling but need not make it small relative
+to expected cost.
+
+Several limits remain essential. The scale issue in
+Remark~\ref{rem:scale} prevents an interpretation as a
+fixed maximum-loss error. Correct aggregate forecasting permits
+individual forecast errors. The bound concerns this particular
+physical relaxation hierarchy and does not exclude better
+certificates or algorithms. The standalone condition is useful
+only on a restricted part of the tested grid. No guarantee for
+dependent time-series validation, real-data forecasting advantage
+or general runtime superiority follows.
+
+The focused source comparison did not locate the exact
+depth/share formula among the inspected results. This is not
+a certificate of global priority. The intended contribution
+is the quantitative extremal calculation with its realizability
+properties; established optimization and statistical ingredients
+are credited explicitly. The present document is a working
+draft for assessment of that contribution's significance.
+
+\appendix
+\section{A finite-data conversion of the standalone condition}
+\label{app:validation}
+
+Assume bounded iid validation observations independent of a pilot
+and of the fixed rule $(q_0,w)$. Within-vector dependence remains
+arbitrary. Condition on the pilot and fit offers $q_j\in[0,R_j]$.
+For a predetermined threshold $t\in(0,1]$, use paired variables
+\[
+ X_{j,t}=w_j\ell(q_0,Y(N))-t\ell(q_j,Y_j).
+\]
+Write $b_j=\E\ell(q_j,Y_j)\ge c_j$.
+Let $\ell_{j,t}$ be a scalar lower confidence bound satisfying
+\begin{equation}\label{eq:scalar}
+ \Pr\{\ell_{j,t}>\E X_{j,t}\mid\text{pilot}\}\le\eta.
+\end{equation}
+These pointwise bounds need not hold jointly.
+
+\begin{lemma}\label{lem:iut}
+For a fixed increasing grid $0<t_1<\cdots<t_K\le1$, test a
+threshold only if all $\ell_{j,t}>0$. Stop at the first failed
+threshold and let $\widehat\rho_{\rm grid}$ be the last passed
+threshold, or zero. Then
+$\Pr\{\widehat\rho_{\rm grid}>\rho\mid\text{pilot}\}\le\eta$.
+\end{lemma}
+\begin{proof}
+If $t>\rho$, some $j$ has $c_j>0$ and
+$a_j<t c_j\le t b_j$. Hence $\E X_{j,t}<0$, and passing
+the threshold implies the event in \eqref{eq:scalar} for this
+one index. For the sequential procedure, overstatement of
+$\rho$ requires passing the first fixed grid point above
+$\rho$, if any. Its failure probability is at most $\eta$.
+\end{proof}
+
+The reasoning is the intersection--union and fixed-sequence
+principle \citep{berger1996intersectionunion,hsu1999fixedsequence}.
+It removes the need for producer/grid multiplicity factors
+for this single global claim. It does not give simultaneous
+coverage of all scalar intervals or dimension-independent power.
+
+For completeness, the implemented scalar bounds combine
+Hoeffding and empirical Bernstein inequalities
+\citep[Theorem 4]{maurer2009empiricalbernstein}. For a variable
+in an interval of width $W$, $M\ge2$ observations and unbiased
+sample variance $v$, use
+\[
+ r_\eta=\min\left\{
+ W\sqrt{\frac{\log(2/\eta)}{2M}},\
+ \sqrt{\frac{2v\log(4/\eta)}{M}}
+ +\frac{7W\log(4/\eta)}{3(M-1)}\right\}.
+\]
+Each inequality receives tail $\eta/2$; a union bound validates
+their minimum. The lower bound is the sample mean minus $r_\eta$,
+clipped to the known range. Here
+$X_{j,t}\in[-tA_j,w_jA]$, where
+$A_j=\max\{\beta q_j,\alpha(R_j-q_j)\}$.
+For a two-sided interval, split its budget again between tails.
+
+A pilot-selected coalition $S\in\subsets$, with offer
+$q_S\in[0,R(S)]$, has feasible excess
+\[
+ e_S=w(S)L-\E\ell(q_S,Y(S))\le B.
+\]
+A scalar lower confidence bound, clipped below at zero, gives
+$W_-\le B$. The empty witness instead gives $W_-=0$ exactly.
+Obtain a two-sided grand-cost interval $[L_-,L_+]$ and split
+the total budget $\delta$ into three equal parts: the grid,
+the grand interval and this witness.
+
+The deterministic bound
+$c_j\le C_j=\alpha\beta R_j/(\alpha+\beta)$ follows by
+using the offer $\alpha R_j/(\alpha+\beta)$ and comparing
+the two endpoint losses. Define
+\[
+ \widehat\rho_{\rm cap}
+ =\min\bigl(\{1\}\cup\{w_jL_-/C_j:C_j>0\}\bigr),\qquad
+ \widehat\rho=\max\{\widehat\rho_{\rm grid},
+                    \widehat\rho_{\rm cap}\}.
+\]
+The grand interval is clipped to $[0,A]$.
+
+\begin{proposition}\label{prop:validation}
+With probability at least $1-\delta$, simultaneously for
+$1\le k\le n-2$,
+\[
+ \widehat\rho\le\rho,\qquad
+ D_k-B\le (1-\widehat\rho)\pos{s_k(w)L_+-W_-}.
+\]
+The terminal-depth error is zero.
+\end{proposition}
+\begin{proof}
+Lemma~\ref{lem:iut}, the grand interval and witness bound
+hold together by a three-event union bound. On this event
+the cap bound also holds, as it uses only $L_-$.
+Apply Proposition~\ref{prop:rho} and monotonicity in
+$\rho,L,B$. The same event proves every depth bound.
+\end{proof}
+
+The implementation uses the grid $0.05,0.10,\ldots,1.00$.
+The pilot selects from leave-one-out coalitions and their
+fitted offers, or an empty witness. A numerical inconsistency
+triggers the safe fallback $\widehat\rho=0$, $W_-=0$,
+$L_+=A$. This fallback is recorded and did not occur in
+the saved comparison. This appendix is a conversion of an
+elementary population condition using established methods.
+
+\section{Reproducibility and review status}\label{app:reproduce}
+
+The accompanying repository contains the full proofs underlying
+earlier diagnostics, source-by-source reading depth, protocols,
+negative results and source hashes. The manuscript tables are
+generated from existing JSON outcomes by
+\texttt{paper/build\_tables.py}; no new sampling is used to
+assemble them. The deterministic exclusion family and root
+correspondence are regenerated by
+\texttt{scripts/check\_exclusion\_ceiling.py} and
+\texttt{scripts/check\_exclusion\_prior\_art.py}.
+
+The source comparison distinguishes the 2005 manuscript from
+the later journal version and records partial reading where
+full originals were not obtained. Tests and this draft's
+internal review are not independent mathematical review.
+No submission or external-review outcome is claimed.
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+\end{document}

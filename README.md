@@ -2,6 +2,15 @@
 
 Research code for **identifiability and minimax regret under censored demand and shared capacity**.
 
+**Complete working draft, 2026-11-05.** The theoretical note is now assembled
+in English, with the sharp depth/share theorem and full proof, the exact
+finite-family calculation, prior-formulation comparison, sufficient condition,
+and iid validation appendix. Tables are generated from stored results, including
+the negative precision result. This is a manuscript for review; independent
+correctness, priority and publication significance remain to be assessed.
+[Read the PDF](paper/main.pdf) · [Overleaf source archive](paper/overleaf.zip) ·
+[LaTeX and reproduction instructions](paper/README.md)
+
 **Focused priority check, 2026-11-05.** The fixed-allocation root relaxation has
 an exact predecessor in Burer and Dror's 2005 manuscript. The sharp
 depth/share formula was not found in the inspected results and remains the
@@ -11,7 +20,7 @@ and canonical fractional costs. Eighteen independent root comparisons pass.
 This closes the focused search; it does not certify priority or significance.
 [Comparison and proofs](docs/exclusion_prior_art.md) ·
 [Theoretical-note outline](docs/theory_note_outline.md) ·
-[Observed checks and recovery status](results/exclusion/prior_art_checks.md)
+[Observed checks and completed recovery record](results/exclusion/prior_art_checks.md)
 
 **Finite-data result, 2026-11-04.** The standalone-cost condition can now be
 certified with a proved iid guarantee and no producer/grid multiplicity factor

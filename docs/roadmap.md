@@ -66,9 +66,13 @@ or retained as a backup.
   A general statistical-superiority claim is not supported.
 - [x] Prove the root corollary and norm-cost correspondence, distinguish the
   canonical extension, and complete 18 independent root comparisons.
-- [ ] Assemble the short note from the existing proofs and assess its significance
-  and possible hidden equivalence. Exact priority and submission readiness
-  remain open; do not restart an unrestricted topic search without new evidence.
+- [x] Assemble the complete English note, with full proofs, generated tables,
+  bibliography, reproducibility instructions and a compiled reading copy.
+  [Manuscript and Overleaf source](../paper/README.md)
+- [ ] Obtain an independent assessment of the complete argument's correctness,
+  significance and possible hidden equivalence. Exact priority and submission
+  readiness remain open; do not restart an unrestricted topic search without
+  new evidence.
 
 The first cycle gave a moment certificate and identified its fractional-membership
 gap. The second cycle established an exact class and a worst-case boundary for
@@ -86,10 +90,11 @@ even with population knowledge. Its [proof](standalone_certificate.md),
 [comparison](../results/standalone/summary.md) and
 [post-run diagnosis](../results/standalone/diagnosis.md) close that bounded
 investigation. The research question remains unchanged. The fifth cycle closes
-the focused priority check and prepares the theoretical-note outline. Its
-decision is to assess the complete short argument for significance, rather than
-continue tuning the sufficient condition. Runtime superiority and guarantees
-under temporal dependence remain unresolved.
+the focused priority check and prepares the theoretical-note outline. The
+assembled manuscript now makes that argument available for assessment of
+correctness and significance. Further interval tuning is not the current
+priority. Runtime superiority and guarantees under temporal dependence remain
+unresolved.
 
 ## Previous decision, 2026-10-27; clarified 2026-10-28
 

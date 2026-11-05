@@ -47,6 +47,11 @@ The current research priority is recorded in
 dated clarification: a provisional significance judgment is not a proof of
 duplication or a prediction that every venue would reject a short extension.
 
+The [complete English manuscript](../paper/main.tex) assembles C30 as its central
+theorem, C35--C36 as explanatory comparisons, and C31--C34 as supporting results.
+Its tables are generated from saved outcomes. Assembly and compilation do not
+change C7's status or turn the internal proof review into independent review.
+
 Numerical tests support implementation correctness and can refute a conjecture.
 They cannot certify an unrestricted mathematical theorem or establish originality.
 Record counterexamples and failed checks next to the affected claim before
