@@ -11,24 +11,18 @@ it easy to compare them before deciding what goes into the paper.
 
 ## Where things stand
 
-* **Equal shares, any number of producers, any depth: settled except on
-  explicit "windows" of r** ([Theorem 1](docs/exact_envelopes.md)). The
-  elementary C31 ceiling (1-r)m/n is exact on a union of intervals, and for
-  r >= (m-1)/(m+1) the exact value is (m-1)(1-r^2)/(2nr); m = n-k is the
-  number of free producers at depth k. Every value comes with an explicit
-  finite demand law.
+* **Equal shares, any number of producers, any depth, any r: solved in
+  closed form** ([Theorems 1 and 4](docs/exact_envelopes.md)). With
+  m = n-k free producers at depth k, the elementary C31 ceiling (1-r)m/n is
+  exact on a union of intervals; above (m-1)/(m+1) the value is
+  (m-1)(1-r^2)/(2nr); in the "windows" between the intervals it is the larger
+  of two explicit families, and a quadratic in r says which. Every value comes
+  with an explicit finite demand law.
 * **Arbitrary shares at the last nonterminal depth n-2: settled for every r**
   ([Theorem 2](docs/exact_envelopes.md)). For three producers this extends
   C39 to unequal shares. The C39 argument by itself is not sharp there: at
   w = (3/5, 1/4, 3/20) and r = 1/5 it gives 0.68, while the true worst gap is
   17/28 = 0.607.
-* **Inside the windows: determined at every ratio tested, solved in closed
-  form for three free producers.** Two more families of explicit laws and a
-  certificate LP that bounds every law agree at all 324 window ratios checked
-  (up to twelve producers, depths 1 to 3). For three free producers the window
-  value is (2 - r + 3r^2)/(2(1+3r)) times 4/n, with a full proof, so the
-  four-producer depth-one curve is now known for every r
-  ([Theorem 3](docs/exact_envelopes.md)).
 * **Arbitrary shares, any depth: a two-LP method that determines the worst
   gap in every instance tried.** A certificate LP bounds every demand law; an
   LP over finite symmetric laws produces a law that meets it. On 68 random
@@ -40,10 +34,9 @@ it easy to compare them before deciding what goes into the paper.
   costs does not tame the gap beyond three producers. The windows are not a
   thin sliver: they cover 13 to 20 percent of the range of r for 4 to 30
   producers.
-* **Open.** A general proof for the windows (the algebra for one family and
-  the LP optimum); a closed form for unequal shares at depths 1 to n-3; a
-  proof that the seminorm relaxation is always attained by a demand law;
-  asymmetric imbalance penalties.
+* **Open.** A closed form for unequal shares at depths 1 to n-3; a proof
+  that the seminorm relaxation is always attained by a demand law; asymmetric
+  imbalance penalties.
 
 ## How to read the branch
 
@@ -267,14 +260,36 @@ the exact curve against the C31 ceiling for 4, 5, 6 and 8 producers, with the
 windows shaded. It also makes plain that the improvements over C31 are real
 but modest in size; the paper should say so.
 
+### 10. Closing the windows
+
+The certificate LP had told us the window values; we wanted a proof for all
+sizes. Reading the LP duals at a few window ratios showed that only a handful
+of certificates are ever active: nonnegative cost, the p+1 largest
+coordinates, and the whole face scaled either by the transitional coordinate
+or by one. They depend on the witness only through three sums (the p largest
+coordinates, the transitional one, and the rest), so the whole problem
+collapses to a three-variable LP whose duals can be written down.
+
+In the transitional regime the weights are explicit, and the weight on
+"nonnegative cost" is proportional to Q(r) = mr^2 + 2(p-1)r + 2 + 2p - m;
+in the positive-cost regime the feasibility condition for the weights
+rearranges to Q(r) <= 0. So the two regimes meet exactly where Q vanishes
+(for seven producers at depth one, at r = 1/sqrt(3), where both families
+equal 0.32991). On the construction side, the transitional law turned out to
+have tidy parameters (gamma = M(p+1)(1-r)/(2p) and so on), every free
+producer sits exactly at its standalone cap, and stability reduces to eight
+corner checks, all nonnegative on the window.
+
+That gives Theorem 4, and with Theorem 1 a closed form for equal shares at
+every size, depth and ratio. Before writing it up we checked the switching
+rule and the admissibility of the witnesses at 129,888 window ratios in exact
+arithmetic (up to 301 producers) and the closed form against the explicit
+laws at 9,360 ratios: no exceptions. The figure was regenerated from the
+closed form; the plotted values did not change.
+
 ### What we would do next
 
-1. Write the general window proof. The LP duals show which certificates are
-   active: three in the transitional regime (nonnegative cost, the p+1 largest
-   coordinates, the whole face scaled by the transitional coordinate) and two
-   in the positive-cost regime, plus order constraints. The three-producer
-   proof is the template.
-2. Look for structure in the unequal-share optimizers at depth one: which
+1. Look for structure in the unequal-share optimizers at depth one: which
    certificates are active, and whether a few regimes per producer pair, as
    in Theorem 2, describe them.
 3. Rewrite the paper. A possible outline: the audit and its exclusion
@@ -302,10 +317,11 @@ be numbered at merge time.
 | PF10 | Theorem 2: arbitrary positive shares at depth n-2, exact worst gap for every r, three regimes per ordered pair, explicit laws | exact_envelopes.md; 600 exact checks, independent re-evaluation | Proved |
 | PF11 | For equal shares at depth one, the windows not covered by Theorem 1 have total length 0.13 to 0.20 for 4 <= n <= 30, decaying like n^(-1/2) | exact_envelopes.md, windows table | Exact computation of the intervals |
 | PF12 | The seminorm relaxation was attained by an explicit finite symmetric law in 17 of 17 cases outside every theorem (n = 4, 5; depths 1, 2; equal and unequal shares) | realizability_conjecture.md | Evidence for the realizability conjecture; not a proof |
-| PF13 | Families H_p and V_p of explicit laws inside the windows | exact_envelopes.md Section 5; exact checks at 441 + 324 ratios | H_p proved in general; V_p verified exactly at all tested ratios, general algebra not yet written |
-| PF14 | A certificate LP bounds the equal-share worst gap for every law; it equals the best explicit law at all 324 tested window ratios | exact_envelopes.md Section 5; window_envelopes.md | Upper bound proved; equality is numerical (LP tolerance 1e-9) |
+| PF13 | Families H_p and V_p of explicit laws inside the windows | exact_envelopes.md Section 5 | Proved (both families verified algebraically; exact checks at 441 + 324 ratios) |
+| PF14 | A certificate LP bounds the equal-share worst gap for every law; it equals the best explicit law at all 324 tested window ratios | exact_envelopes.md Section 5; window_envelopes.md | Upper bound proved; equality now also follows from PF17 |
 | PF15 | Theorem 3: for three free producers and 1/5 <= r <= 1/3 the worst gap is 2(2-r+3r^2)/(n(1+3r)); the four-producer depth-one curve is complete | exact_envelopes.md Section 5 | Proved |
 | PF16 | For arbitrary shares, a certificate LP bounds the worst gap for every law; in 68 of 68 random instances (n = 4..6, depths 1..3) it equals the exact relaxation, and in 38 of 38 an explicit law reaches it | exact_envelopes.md Section 6; certificate_method.md | Upper bound proved; equality computational |
+| PF17 | Theorem 4: inside each equal-share window the worst gap is V_p(r) if Q(r) >= 0 and H_{p+1}(r) if Q(r) <= 0, with explicit laws; with Theorem 1 the equal-share case is solved for every n, depth and r | exact_envelopes.md Section 5; window_envelopes.md; 129,888 exact window checks | Proved |
 
 PF3 and PF6 of the earlier version (numerical windows, configuration
 heuristic) are superseded by PF9 and PF11.

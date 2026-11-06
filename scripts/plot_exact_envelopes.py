@@ -1,9 +1,8 @@
 """Figure: exact depth-one worst gap against the standalone floor r.
 
-One panel per number of producers (equal shares). The solid line is the worst
-gap: Theorem 1 outside the windows, and inside them the best explicit law,
-which equals the certificate bound at every ratio checked
-(results/exclusion/window_envelopes.md) and is proved for n = 4 (Theorem 3).
+One panel per number of producers (equal shares). The solid line is the exact
+worst gap: Theorem 1 outside the windows and Theorem 4 inside them
+(docs/exact_envelopes.md), each value attained by an explicit finite law.
 The dashed line is the C31 ceiling (1-r)(n-1)/n; shaded bands are windows.
 The plotted values are also written to a CSV next to the figure.
 """
@@ -17,9 +16,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 
-from censored_newsvendor.exact_envelopes import (  # noqa: E402
-    best_equal_share_construction, equal_share_value, windows,
-)
+from censored_newsvendor.exact_envelopes import equal_share_exact_value, windows  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 INK, MUTED, ACCENT, BAND, SURFACE = "#0b0b0b", "#52514e", "#2a78d6", "#e9e8e4", "#fcfcfb"
@@ -28,10 +25,7 @@ STEPS = 400
 
 
 def worst_gap(n, r):
-    value = equal_share_value(n, r)
-    if value is None:
-        value = best_equal_share_construction(n, r)["value"]
-    return value
+    return equal_share_exact_value(n, r)
 
 
 def main():
@@ -73,7 +67,7 @@ def main():
         ax.set_ylabel("(D1 - B) / L", color=INK, fontsize=9)
     handles, labels = axes[0, 0].get_legend_handles_labels()
     handles.append(plt.Rectangle((0, 0), 1, 1, color=BAND))
-    labels.append("window (value set by the families H_p, V_p)")
+    labels.append("window (Theorem 4: families H_p, V_p)")
     fig.legend(handles, labels, loc="upper center", ncol=3, frameon=False, fontsize=8.5,
                labelcolor=INK, bbox_to_anchor=(0.5, 0.995))
     fig.tight_layout(rect=(0, 0, 1, 0.95))

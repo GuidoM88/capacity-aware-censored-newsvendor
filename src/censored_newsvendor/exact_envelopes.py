@@ -281,3 +281,30 @@ def best_equal_share_construction(n, r, depth=1):
     found += [transitional_construction(n, r, depth, p) for p in range(1, free)]
     found = [c for c in found if c is not None]
     return max(found, key=lambda c: c["value"])
+
+
+def window_switch_polynomial(n, r, depth, p):
+    """Q(r) = m r^2 + 2(p-1) r + 2 + 2p - m; V_p wins where Q >= 0, H_{p+1} where Q <= 0."""
+    free = n - depth
+    r = F(r)
+    return free * r * r + 2 * (p - 1) * r + 2 + 2 * p - free
+
+
+def equal_share_exact_value(n, r, depth=1):
+    """Closed-form worst gap (D_depth - B)/L for equal shares, every 0 < r <= 1.
+
+    Theorem 1 outside the windows; inside the window between I_{p+1} and I_p
+    (Theorem 4) the value is V_p(r) when Q(r) >= 0 and H_{p+1}(r) otherwise.
+    """
+    r = F(r)
+    value = equal_share_value(n, r, depth)
+    if value is not None:
+        return value
+    free = n - depth
+    for p in range(1, free - 1):
+        lo, hi = F(free - p - 1, free + p + 1), F(free - 2 * p, free)
+        if lo <= r <= hi:
+            if window_switch_polynomial(n, r, depth, p) >= 0:
+                return transitional_construction(n, r, depth, p)["value"]
+            return positive_cost_construction(n, r, depth, p + 1)["value"]
+    raise AssertionError("ratio not covered")

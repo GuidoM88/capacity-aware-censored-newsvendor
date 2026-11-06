@@ -114,3 +114,27 @@ class WindowTests(unittest.TestCase):
         self.assertEqual(construction["value"], (1 - r) * m / n)
         self.assertTrue(attains(construction, [F(1, n)] * n, r))
         self.assertIsNone(positive_cost_construction(n, r - F(1, 100), depth, p))
+
+
+class Theorem4Tests(unittest.TestCase):
+    def test_closed_form_matches_best_law_everywhere(self):
+        from censored_newsvendor.exact_envelopes import (
+            best_equal_share_construction, equal_share_exact_value)
+        for n in (4, 5, 7, 9):
+            for depth in (1, 2):
+                for k in range(1, 41):
+                    r = F(k, 40)
+                    self.assertEqual(equal_share_exact_value(n, r, depth),
+                                     best_equal_share_construction(n, r, depth)["value"], (n, depth, r))
+
+    def test_switching_polynomial_marks_the_crossing(self):
+        from censored_newsvendor.exact_envelopes import (
+            positive_cost_construction, transitional_construction, window_switch_polynomial)
+        # n = 7, depth one (m = 6), p = 1: Q(r) = 6r^2 - 2 vanishes at 1/sqrt(3).
+        below, above = F(57, 100), F(58, 100)
+        self.assertLess(window_switch_polynomial(7, below, 1, 1), 0)
+        self.assertGreater(window_switch_polynomial(7, above, 1, 1), 0)
+        self.assertGreater(positive_cost_construction(7, below, 1, 2)["value"],
+                           transitional_construction(7, below, 1, 1)["value"])
+        self.assertLess(positive_cost_construction(7, above, 1, 2)["value"],
+                        transitional_construction(7, above, 1, 1)["value"])

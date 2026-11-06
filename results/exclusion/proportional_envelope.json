@@ -3,7 +3,7 @@
   "tolerance": 1e-06,
   "scope": "Seminorm relaxation with pinned equal standalone costs; realizability separate.",
   "sha256": {
-    "src/censored_newsvendor/seminorm_envelope.py": "b9824aa6c1395e0b90938b0e6f95e98eae454c11e940798bdaed534d5587078d",
+    "src/censored_newsvendor/seminorm_envelope.py": "48051c2ebb0d5af34c3c0cbe0dce3a220b2c63a5730a82e735281b9d4c4f49a6",
     "scripts/check_proportional_envelope.py": "d490d42de45d59093e8c0080cc8e85fd57c42d9a75deb0f134b1b6dff8dfdd5b"
   },
   "cases": [
