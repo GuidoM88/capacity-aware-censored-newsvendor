@@ -138,3 +138,28 @@ class Theorem4Tests(unittest.TestCase):
                            transitional_construction(7, below, 1, 1)["value"])
         self.assertLess(positive_cost_construction(7, above, 1, 2)["value"],
                         transitional_construction(7, above, 1, 1)["value"])
+
+
+class GeneralShareTests(unittest.TestCase):
+    def test_two_families_are_valid_laws_for_random_shares(self):
+        from censored_newsvendor.exact_envelopes import general_share_construction
+        rng = random.Random(21)
+        for _ in range(40):
+            n = rng.randint(3, 5)
+            raw = [rng.randint(1, 20) for _ in range(n)]
+            shares = [F(x, sum(raw)) for x in raw]
+            r = F(rng.randint(1, 30), 30)
+            construction = general_share_construction(shares, r, rng.randint(1, n - 2))
+            if construction is not None:
+                self.assertTrue(attains(construction, shares, r))
+                self.assertTrue(all(0 <= x <= 1 for x in construction["membership"]))
+
+    def test_reduces_to_theorem_2_and_to_equal_shares(self):
+        from censored_newsvendor.exact_envelopes import general_share_construction
+        # Three producers, the middle regime of Theorem 2 (no cap-binding regime).
+        shares, r = [F(1, 2), F(3, 10), F(1, 5)], F(3, 10)
+        self.assertEqual(general_share_construction(shares, r)["value"], last_depth_value(shares, r))
+        # Equal shares outside the windows: Theorem 1.
+        for r in (F(1, 10), F(2, 5), F(3, 5)):
+            self.assertEqual(general_share_construction([F(1, 4)] * 4, r)["value"],
+                             equal_share_value(4, r))

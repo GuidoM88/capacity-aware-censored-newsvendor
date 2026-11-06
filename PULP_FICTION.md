@@ -314,15 +314,34 @@ standalone caps exact. The suprema are unchanged for every r < 1
 (Proposition 5); they are approached rather than attained. Twelve mixed laws,
 evaluated with the original audit code, behave as the proof says.
 
+### 12. A formula for arbitrary shares
+
+The active certificates in the unequal-share instances pointed at the same two
+mechanisms as in the equal-share case, now with shares instead of counts. Split
+the free producers into units I and fractional producers J. The C31 value
+(1-r)a(F) is reached when A_J(1-r)/(1+r) <= a(I) <= A_J(1-r)/(2r), the exact
+analogue of the intervals I_p; and when a(I) >= A_J(1-r)/(2r) the positive-cost
+law gives A_J(1-r^2)/(2r). Both constructions work for any shares once the
+units' coefficients are proportional to their shares, and the stability check
+again comes down to the corners of a bilinear function (Theorem 5).
+
+The first attempt used a wrong condition for the second family (a slip in
+the algebra, (1+r) instead of 2r in the denominator) and overshot badly; with
+the right condition the larger of the two values equals the exact worst gap in
+67 of the 68 random instances. The one exception looks like the transitional
+case again, which for arbitrary shares has no formula yet. So for arbitrary
+shares at every depth we now have a proved lower bound that is almost always
+the answer, an LP that certifies the answer, and one missing family.
+
 ### What we would do next
 
 1. Rewrite the paper along [docs/paper_plan.md](docs/paper_plan.md): the
    exact equal-share curve and Theorem 2 as the core, the two-LP method as
    the computational counterpart, the first draft's statistics moved to a
    companion note.
-2. Look for structure in the unequal-share optimizers at depth one: which
-   certificates are active, and whether a few regimes per producer pair, as
-   in Theorem 2, describe them.
+2. Find the transitional family for arbitrary shares (the third regime of
+   Theorem 2 and the family V_p are the two known special cases), which
+   would turn Theorem 5 into a closed form at every depth.
 3. Check the literature on zonotopes and zonoids in cooperative games before
    claiming contributions 3 to 5 of the plan.
 
@@ -347,6 +366,7 @@ be numbered at merge time.
 | PF14 | A certificate LP bounds the equal-share worst gap for every law; it equals the best explicit law at all 324 tested window ratios | exact_envelopes.md Section 5; window_envelopes.md | Upper bound proved; equality now also follows from PF17 |
 | PF15 | Theorem 3: for three free producers and 1/5 <= r <= 1/3 the worst gap is 2(2-r+3r^2)/(n(1+3r)); the four-producer depth-one curve is complete | exact_envelopes.md Section 5 | Proved |
 | PF16 | For arbitrary shares, a certificate LP bounds the worst gap for every law; in 68 of 68 random instances (n = 4..6, depths 1..3) it equals the exact relaxation, and in 38 of 38 an explicit law reaches it | exact_envelopes.md Section 6; certificate_method.md | Upper bound proved; equality computational |
+| PF19 | Theorem 5: for arbitrary shares and any depth, two explicit families give the lower bound max over partitions of (1-r)a(F) or A_J(1-r^2)/(2r) under stated conditions | exact_envelopes.md Section 6; exact checks on 368 instances | Proved lower bound; equals the exact worst gap in 67 of 68 random instances |
 | PF18 | Proposition 5: for r < 1 the suprema of Theorems 1, 2 and 4 (and the values attained in the two-LP computations) are unchanged under strict stability and positive definite covariance | exact_envelopes.md Section 7; strict_mixtures.md (12 mixed laws) | Proved |
 | PF17 | Theorem 4: inside each equal-share window the worst gap is V_p(r) if Q(r) >= 0 and H_{p+1}(r) if Q(r) <= 0, with explicit laws; with Theorem 1 the equal-share case is solved for every n, depth and r | exact_envelopes.md Section 5; window_envelopes.md; 129,888 exact window checks | Proved |
 

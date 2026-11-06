@@ -308,3 +308,53 @@ def equal_share_exact_value(n, r, depth=1):
                 return transitional_construction(n, r, depth, p)["value"]
             return positive_cost_construction(n, r, depth, p + 1)["value"]
     raise AssertionError("ratio not covered")
+
+
+# ---------------------------------------------------------------------------
+# Arbitrary shares, any depth: the two main families
+# ---------------------------------------------------------------------------
+
+def general_share_construction(shares, r, depth=1):
+    """Best explicit law among the C31 and positive-cost families, any shares.
+
+    For an excluded set K, unit producers I and fractional producers J
+    (F = I + J), with a(I) and A_J their share totals:
+    * C31 family, when A_J(1-r)/(1+r) <= a(I) <= A_J(1-r)/(2r): value
+      (1-r)a(F), witness 1_I + t 1_J with t = (1-r) - r a(I)/A_J and c(z) = 0;
+    * positive-cost family, when a(I) >= A_J(1-r)/(2r): value
+      A_J(1-r^2)/(2r), witness 1_I + ((1-r)/2) 1_J.
+    Unit coefficients are proportional to the shares. Returns None if no
+    partition qualifies.
+    """
+    a = [F(x) for x in shares]
+    r = F(r)
+    n = len(a)
+    best = None
+    for excluded in itertools.combinations(range(n), depth):
+        face = [j for j in range(n) if j not in excluded]
+        base = [_vec(n, {k: a[k]}) for k in excluded]
+        for size in range(1, len(face)):
+            for units in itertools.combinations(face, size):
+                fractional = [j for j in face if j not in units]
+                a_units = sum(a[i] for i in units)
+                a_frac = sum(a[j] for j in fractional)
+                candidates = []
+                if a_frac * (1 - r) / (1 + r) <= a_units <= a_frac * (1 - r) / (2 * r):
+                    t = (1 - r) - r * a_units / a_frac
+                    gens = base + [_vec(n, {**{i: (a[j] / r) * t * a[i] / a_units for i in units},
+                                            j: -a[j] / r}) for j in fractional]
+                    z = _vec(n, {**{i: 1 for i in units}, **{j: t for j in fractional}})
+                    candidates.append(("C31", gens, z, (1 - r) * (a_units + a_frac)))
+                if a_units >= a_frac * (1 - r) / (2 * r):
+                    spread = a_frac * (1 - r) / (2 * r)
+                    kappa = 1 - spread / a_units
+                    gens = base + [_vec(n, {i: kappa * a[i]}) for i in units]
+                    gens += [_vec(n, {**{i: (a[j] / r) * (1 - r) / 2 * a[i] / a_units for i in units},
+                                      j: -a[j] / r}) for j in fractional]
+                    z = _vec(n, {**{i: 1 for i in units}, **{j: (1 - r) / 2 for j in fractional}})
+                    candidates.append(("H", gens, z, a_frac * (1 - r * r) / (2 * r)))
+                for regime, gens, z, value in candidates:
+                    if best is None or value > best["value"]:
+                        best = {"regime": regime, "excluded": excluded, "units": units,
+                                "generators": gens, "membership": z, "value": value}
+    return best

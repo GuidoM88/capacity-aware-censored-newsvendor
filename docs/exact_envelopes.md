@@ -476,6 +476,45 @@ at moderate r thus look like a feature of symmetric shares; with generic
 shares the elementary ceiling is the answer for small and moderate r, and the
 exact theory matters for large r.
 
+**Two explicit families for arbitrary shares.** The equal-share
+constructions generalize once the unit producers' coefficients are taken
+proportional to their shares. Fix an excluded set K, unit producers I and
+fractional producers J (so F = I + J), and write a(I), A_J for their share
+totals.
+
+**Theorem 5.** For arbitrary positive shares and any depth k, the worst gap
+is at least the largest of the following values over all K and partitions
+F = I + J with I and J nonempty:
+
+$$
+(1-r)\,a(F)\quad\text{if}\quad \frac{1-r}{1+r}A_J\le a(I)\le\frac{1-r}{2r}A_J,
+\qquad
+\frac{A_J(1-r^2)}{2r}\quad\text{if}\quad a(I)\ge\frac{1-r}{2r}A_J .
+$$
+
+*Proof.* For the first value take t = (1-r) - r a(I)/A_J, generators a_l e_l
+for l in K and, for each j in J, the vector with entries
+(a_j/r) t a_i/a(I) on the unit producers and -a_j/r at j; the witness is
+1_I + t 1_J and c(z) = 0. The unit caps reduce to t A_J <= a(I), the lower
+condition; the grand cost is a(K) + (1-t)A_J/r = 1. With sigma the unit share
+fraction of a coalition and a(T) its fractional share, c(1_S) - a(S) is
+bilinear in (sigma, a(T)) on [0,1] x [0, A_J], with corner values 0,
+A_J(1/r-1), A_J t/r - a(I) >= 0 (the upper condition) and 0. For the second
+value take Delta = A_J(1-r)/(2r), generators (1 - Delta/a(I)) a_i e_i on the
+units, a_l e_l on K and, for each j in J, entries (a_j/r)((1-r)/2) a_i/a(I)
+on the units and -a_j/r at j; the witness is 1_I + ((1-r)/2)1_J. The
+condition makes the unit coefficients nonnegative, every unit singleton costs
+exactly a_i, the grand cost is 1, and c(1_S) - a(S) = a(T)(1/r-1)(1-sigma)
+>= 0. QED.
+
+For equal shares these are the intervals I_p and the family H_p; at depth n-2
+they are the second and first regimes of Theorem 2. In the 68 random instances
+the larger of the two values equals the exact worst gap 67 times; the
+exception (five producers with shares 0.045, 0.409, 0.409, 0.091, 0.045 at
+r = 0.6, value 0.306 against 0.291) needs a transitional family like V_p or the
+third regime of Theorem 2. Every construction was checked in exact
+arithmetic, on those 68 instances and on 300 further random ones.
+
 The number of LPs grows like C(n,k)(n-k)!, so the method is practical up to
 six or seven producers. For larger n with structure, such as equal shares,
 the sorted version of Section 5 needs a single LP.
@@ -543,6 +582,10 @@ Determined computationally for arbitrary shares: every one of 68 random
 instances with up to six producers (relaxed worst gap), and the 38 of them
 where an explicit law was built (worst gap over demand laws).
 
-Open: a closed form for arbitrary shares at depths 1 to n-3; a proof of the
-realizability conjecture; asymmetric loss, where costs are no longer
-seminorms.
+Proved as a lower bound for arbitrary shares at every depth: the two
+families of Theorem 5, which give the exact value in 67 of the 68 random
+instances.
+
+Open: the transitional family for arbitrary shares, which would complete a
+closed form at depths 1 to n-3; a proof of the realizability conjecture;
+asymmetric loss, where costs are no longer seminorms.
