@@ -359,12 +359,22 @@ worst gap is the largest value of four explicit families. Every value is
 attained by a law, so what remains to prove is the upper bound. For equal
 shares Theorem 4 did exactly that, which suggests the route.
 
+### 14. A first draft of the new paper
+
+With the results settled, we wrote an eight-page draft that follows the plan:
+[paper_exact/main.pdf](paper_exact/main.pdf), source in `paper_exact/`. It
+states the elementary ceilings, the two tools (laws from generators and
+triangle certificates), the complete equal-share answer with the
+four-producer curve, the last-depth theorem, the four families with the
+conjecture and its evidence, and the mixture argument. Proofs are condensed
+from the notes; the corner checks are stated with their values. It compiles
+cleanly with pdflatex and bibtex. The original `paper/` folder is untouched.
+
 ### What we would do next
 
-1. Rewrite the paper along [docs/paper_plan.md](docs/paper_plan.md): the
-   exact equal-share curve and Theorem 2 as the core, the two-LP method as
-   the computational counterpart, the first draft's statistics moved to a
-   companion note.
+1. Revise the draft in `paper_exact/`: a careful read of every proof, an
+   example section with numbers a practitioner can use, and the literature
+   check of the plan.
 2. Prove Conjecture 6: an upper-bound argument for arbitrary shares, along
    the lines of Theorem 4 (few active certificates, explicit dual weights),
    and general conditions for the transitional family.
@@ -409,6 +419,7 @@ heuristic) are superseded by PF9 and PF11.
 * `docs/exact_envelopes.md`: Theorems 1 and 2 with proofs.
 * `docs/seminorm_envelope.md`: the oracle, upper bounds, numerical map and realizability check.
 * `docs/paper_plan.md`: proposed structure, abstract and contributions for the revised paper.
+* `paper_exact/`: the eight-page draft built from the plan (`main.tex`, `references.bib`, the figure and the compiled `main.pdf`).
 * `scripts/check_*envelope*.py` (including `check_window_envelopes.py`), `scripts/check_zonotope_realizability.py`, `scripts/check_realizability_conjecture.py`: generators of the summaries in `results/exclusion/`.
 * `tests/test_exact_envelopes.py`, `tests/test_seminorm_envelope.py`, `tests/test_certificates.py`: fast tests.
 
