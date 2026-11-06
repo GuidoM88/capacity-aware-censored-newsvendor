@@ -22,16 +22,25 @@ it easy to compare them before deciding what goes into the paper.
   C39 to unequal shares. The C39 argument by itself is not sharp there: at
   w = (3/5, 1/4, 3/20) and r = 1/5 it gives 0.68, while the true worst gap is
   17/28 = 0.607.
+* **Inside the windows: determined at every ratio tested, solved in closed
+  form for three free producers.** Two more families of explicit laws and a
+  certificate LP that bounds every law agree at all 324 window ratios checked
+  (up to twelve producers, depths 1 to 3). For three free producers the window
+  value is (2 - r + 3r^2)/(2(1+3r)) times 4/n, with a full proof, so the
+  four-producer depth-one curve is now known for every r
+  ([Theorem 3](docs/exact_envelopes.md)).
 * **A method that certifies values numerically.** An LP over all seminorms
   gives an upper bound for a fixed membership; an LP over finite symmetric
   laws produces a law that attains it. When the two meet, the value is exact.
-  So far they have met in every case tried (Section 7 of the log).
+  They have met in all 29 cases tried, including 17 chosen outside every
+  theorem (Section 7 of the log).
 * **Negative results kept on record.** Charging in proportion to standalone
   costs does not tame the gap beyond three producers. The windows are not a
   thin sliver: they cover 13 to 20 percent of the range of r for 4 to 30
   producers.
-* **Open.** The exact values inside the windows; unequal shares at depths
-  1 to n-3; asymmetric imbalance penalties.
+* **Open.** A general proof for the windows (the algebra for one family and
+  the LP optimum); unequal shares at depths 1 to n-3; asymmetric imbalance
+  penalties.
 
 ## How to read the branch
 
@@ -46,14 +55,16 @@ python -m pip install -r requirements.txt
 python -m pip install --no-deps -e .
 python -m unittest discover -s tests -v
 python scripts/check_exact_envelopes.py
+python scripts/check_window_envelopes.py
 python scripts/check_seminorm_envelope.py
 python scripts/check_zonotope_realizability.py
 python scripts/check_proportional_envelope.py
 python scripts/check_realizability_conjecture.py
 ```
 
-The first two scripts take about a minute and seven minutes on four cores;
-the realizability scripts a few minutes each.
+The first two scripts take under a minute each; the seminorm map and the
+proportional map about eight minutes on four cores; the conjecture test about
+fifteen.
 
 ## Log
 
@@ -179,7 +190,67 @@ So the window values are a real part of the answer, not a footnote.
 
 ### 7. Testing the realizability conjecture
 
-*In progress.*
+The theorems only use the explicit families, so they say nothing about
+whether the relaxation is attained elsewhere. We therefore picked 17 cases
+that no theorem covers: four producers with random unequal shares at depth
+one, the four- and five-producer equal-share windows, and five producers at
+depth two with equal and unequal shares. For each, the relaxation was
+maximized, the zonotope LP was solved at the maximizer (with sparse matrices,
+since five producers already give about 7200 sign chambers), and the
+resulting law was re-evaluated with the original audit code.
+
+All 17 were attained, by laws with 6 to 26 atoms. Together with the 12 cases
+of Section 4 that makes 29 out of 29. This is evidence, not a proof; but it
+means that, in everything we have computed, the worst case over demand laws
+and the worst case over seminorms coincide, and the second is a finite LP.
+Details: [results/exclusion/realizability_conjecture.md](results/exclusion/realizability_conjecture.md).
+
+### 8. Inside the windows
+
+Since the windows are not negligible, we went after them next. Two things
+turned out to be enough to pin them down numerically and, in the smallest
+case, to prove the answer.
+
+First, two more families of laws. One continues the C31 plateau of a
+configuration beyond its interval by letting the witness carry positive cost
+(family H_p; for p = 1 it is the high regime). The other has one producer in
+transition between "unit" and "fractional" (family V_p). Both were read off
+from LP solutions and then written in closed form; every constraint of both
+has been checked in exact arithmetic at hundreds of ratios.
+
+Second, an upper bound valid for every law: for a sorted witness, each
+coalition of the s largest coordinates, scaled by one of the coordinates,
+gives a triangle-inequality certificate that is linear on the sorted region.
+The best bound from all of them is one LP. At all 324 window ratios tested
+(n up to 12, depths 1 to 3) this bound equals the best explicit law, so the
+worst gap is determined there.
+
+For three free producers the LP collapses to three certificates whose
+multipliers can be written down, and the window value
+2(2 - r + 3r^2)/(n(1+3r)) is proved (Theorem 3). In plain terms: with four
+producers and every producer paying at least a quarter of its standalone
+cost, the audit can overstate the largest available saving by up to
+31/56 = 55.4 percent of the expected cost, against 56.25 percent for the C31
+ceiling.
+
+What is not done: a general proof that the LP optimum is always the larger of
+the two families inside each window, and a written algebraic check of the
+transitional family for general sizes. Details:
+[docs/exact_envelopes.md](docs/exact_envelopes.md), Section 5, and
+[results/exclusion/window_envelopes.md](results/exclusion/window_envelopes.md).
+
+### What we would do next
+
+1. Write the general window proof: extract the LP dual multipliers in each
+   regime (the three-producer case suggests they are simple) and finish the
+   algebra for the transitional family.
+2. Unequal shares at depth one: run the same certificate idea, now without
+   symmetry, starting from four producers, where the relaxation and the
+   explicit laws already agree in the six random cases tried.
+3. Rewrite the paper around the exact envelope: Theorems 1 to 3 as the core,
+   the two-LP method as the computational counterpart, the windows table as
+   the honest statement of what remains, and the renewable-pooling application
+   as the motivation.
 
 ## Proposed claim-register rows
 
@@ -196,7 +267,11 @@ be numbered at merge time.
 | PF8 | Proportional charges do not remove or halve the gap for n >= 4 | proportional_envelope.md | Negative result |
 | PF9 | Theorem 1: equal shares, any n and depth k, exact worst gap on the intervals I_p and for r >= (m-1)/(m+1), with explicit laws | exact_envelopes.md; 1910 exact checks, independent re-evaluation | Proved |
 | PF10 | Theorem 2: arbitrary positive shares at depth n-2, exact worst gap for every r, three regimes per ordered pair, explicit laws | exact_envelopes.md; 600 exact checks, independent re-evaluation | Proved |
-| PF11 | For equal shares at depth one, the windows where the value is open have total length 0.13 to 0.20 for 4 <= n <= 30, decaying like n^(-1/2) | exact_envelopes.md, windows table | Exact computation of the intervals; window values open |
+| PF11 | For equal shares at depth one, the windows not covered by Theorem 1 have total length 0.13 to 0.20 for 4 <= n <= 30, decaying like n^(-1/2) | exact_envelopes.md, windows table | Exact computation of the intervals |
+| PF12 | The seminorm relaxation was attained by an explicit finite symmetric law in 17 of 17 cases outside every theorem (n = 4, 5; depths 1, 2; equal and unequal shares) | realizability_conjecture.md | Evidence for the realizability conjecture; not a proof |
+| PF13 | Families H_p and V_p of explicit laws inside the windows | exact_envelopes.md Section 5; exact checks at 441 + 324 ratios | H_p proved in general; V_p verified exactly at all tested ratios, general algebra not yet written |
+| PF14 | A certificate LP bounds the equal-share worst gap for every law; it equals the best explicit law at all 324 tested window ratios | exact_envelopes.md Section 5; window_envelopes.md | Upper bound proved; equality is numerical (LP tolerance 1e-9) |
+| PF15 | Theorem 3: for three free producers and 1/5 <= r <= 1/3 the worst gap is 2(2-r+3r^2)/(n(1+3r)); the four-producer depth-one curve is complete | exact_envelopes.md Section 5 | Proved |
 
 PF3 and PF6 of the earlier version (numerical windows, configuration
 heuristic) are superseded by PF9 and PF11.
@@ -207,7 +282,7 @@ heuristic) are superseded by PF9 and PF11.
 * `src/censored_newsvendor/seminorm_envelope.py`: the seminorm oracle, the zonotope LP and the proved bounds.
 * `docs/exact_envelopes.md`: Theorems 1 and 2 with proofs.
 * `docs/seminorm_envelope.md`: the oracle, upper bounds, numerical map and realizability check.
-* `scripts/check_*envelope*.py`, `scripts/check_zonotope_realizability.py`, `scripts/check_realizability_conjecture.py`: generators of the summaries in `results/exclusion/`.
+* `scripts/check_*envelope*.py` (including `check_window_envelopes.py`), `scripts/check_zonotope_realizability.py`, `scripts/check_realizability_conjecture.py`: generators of the summaries in `results/exclusion/`.
 * `tests/test_exact_envelopes.py`, `tests/test_seminorm_envelope.py`: fast tests.
 
 ## Merging

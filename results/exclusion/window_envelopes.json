@@ -1,0 +1,4547 @@
+{
+  "date": "2026-11-06",
+  "tolerance": 1e-09,
+  "sha256": {
+    "src/censored_newsvendor/exact_envelopes.py": "8a701e9a13294587eafe3cbc73eaf5587638ec8d85a5f449156d8025b2d6a94c",
+    "src/censored_newsvendor/seminorm_envelope.py": "48051c2ebb0d5af34c3c0cbe0dce3a220b2c63a5730a82e735281b9d4c4f49a6",
+    "scripts/check_window_envelopes.py": "4caa337d8cf65ad70bdc295c81a38bb6b41cade3fb4ebfeed3da5d85bba724cb"
+  },
+  "cases": [
+    {
+      "n": 4,
+      "depth": 1,
+      "window": [
+        "1/5",
+        "1/3"
+      ],
+      "r": "1/5",
+      "family": "c31",
+      "value": "3/5",
+      "certificate_bound": 0.6,
+      "c31": 0.6000000000000001,
+      "pinned": true
+    },
+    {
+      "n": 4,
+      "depth": 1,
+      "window": [
+        "1/5",
+        "1/3"
+      ],
+      "r": "13/60",
+      "family": "V1",
+      "value": "2309/3960",
+      "certificate_bound": 0.5830808080808081,
+      "c31": 0.5875,
+      "pinned": true
+    },
+    {
+      "n": 4,
+      "depth": 1,
+      "window": [
+        "1/5",
+        "1/3"
+      ],
+      "r": "7/30",
+      "family": "V1",
+      "value": "193/340",
+      "certificate_bound": 0.5676470588235294,
+      "c31": 0.575,
+      "pinned": true
+    },
+    {
+      "n": 4,
+      "depth": 1,
+      "window": [
+        "1/5",
+        "1/3"
+      ],
+      "r": "1/4",
+      "family": "V1",
+      "value": "31/56",
+      "certificate_bound": 0.5535714285714286,
+      "c31": 0.5625,
+      "pinned": true
+    },
+    {
+      "n": 4,
+      "depth": 1,
+      "window": [
+        "1/5",
+        "1/3"
+      ],
+      "r": "4/15",
+      "family": "V1",
+      "value": "73/135",
+      "certificate_bound": 0.5407407407407407,
+      "c31": 0.55,
+      "pinned": true
+    },
+    {
+      "n": 4,
+      "depth": 1,
+      "window": [
+        "1/5",
+        "1/3"
+      ],
+      "r": "17/60",
+      "family": "V1",
+      "value": "783/1480",
+      "certificate_bound": 0.529054054054054,
+      "c31": 0.5375,
+      "pinned": true
+    },
+    {
+      "n": 4,
+      "depth": 1,
+      "window": [
+        "1/5",
+        "1/3"
+      ],
+      "r": "3/10",
+      "family": "V1",
+      "value": "197/380",
+      "certificate_bound": 0.518421052631579,
+      "c31": 0.5249999999999999,
+      "pinned": true
+    },
+    {
+      "n": 4,
+      "depth": 1,
+      "window": [
+        "1/5",
+        "1/3"
+      ],
+      "r": "19/60",
+      "family": "V1",
+      "value": "2381/4680",
+      "certificate_bound": 0.5087606837606838,
+      "c31": 0.5125,
+      "pinned": true
+    },
+    {
+      "n": 4,
+      "depth": 1,
+      "window": [
+        "1/5",
+        "1/3"
+      ],
+      "r": "1/3",
+      "family": "c31",
+      "value": "1/2",
+      "certificate_bound": 0.49999999999999994,
+      "c31": 0.5,
+      "pinned": true
+    },
+    {
+      "n": 5,
+      "depth": 1,
+      "window": [
+        "1/3",
+        "1/2"
+      ],
+      "r": "1/3",
+      "family": "c31",
+      "value": "8/15",
+      "certificate_bound": 0.5333333333333333,
+      "c31": 0.5333333333333334,
+      "pinned": true
+    },
+    {
+      "n": 5,
+      "depth": 1,
+      "window": [
+        "1/3",
+        "1/2"
+      ],
+      "r": "17/48",
+      "family": "V1",
+      "value": "1033/2040",
+      "certificate_bound": 0.5063725490196078,
+      "c31": 0.5166666666666666,
+      "pinned": true
+    },
+    {
+      "n": 5,
+      "depth": 1,
+      "window": [
+        "1/3",
+        "1/2"
+      ],
+      "r": "3/8",
+      "family": "V1",
+      "value": "29/60",
+      "certificate_bound": 0.4833333333333334,
+      "c31": 0.5,
+      "pinned": true
+    },
+    {
+      "n": 5,
+      "depth": 1,
+      "window": [
+        "1/3",
+        "1/2"
+      ],
+      "r": "19/48",
+      "family": "V1",
+      "value": "1057/2280",
+      "certificate_bound": 0.4635964912280702,
+      "c31": 0.4833333333333334,
+      "pinned": true
+    },
+    {
+      "n": 5,
+      "depth": 1,
+      "window": [
+        "1/3",
+        "1/2"
+      ],
+      "r": "5/12",
+      "family": "V1",
+      "value": "67/150",
+      "certificate_bound": 0.4466666666666666,
+      "c31": 0.4666666666666666,
+      "pinned": true
+    },
+    {
+      "n": 5,
+      "depth": 1,
+      "window": [
+        "1/3",
+        "1/2"
+      ],
+      "r": "7/16",
+      "family": "V1",
+      "value": "121/280",
+      "certificate_bound": 0.43214285714285716,
+      "c31": 0.45,
+      "pinned": true
+    },
+    {
+      "n": 5,
+      "depth": 1,
+      "window": [
+        "1/3",
+        "1/2"
+      ],
+      "r": "11/24",
+      "family": "V1",
+      "value": "277/660",
+      "certificate_bound": 0.41969696969696973,
+      "c31": 0.4333333333333334,
+      "pinned": true
+    },
+    {
+      "n": 5,
+      "depth": 1,
+      "window": [
+        "1/3",
+        "1/2"
+      ],
+      "r": "23/48",
+      "family": "V1",
+      "value": "1129/2760",
+      "certificate_bound": 0.40905797101449276,
+      "c31": 0.41666666666666663,
+      "pinned": true
+    },
+    {
+      "n": 5,
+      "depth": 1,
+      "window": [
+        "1/3",
+        "1/2"
+      ],
+      "r": "1/2",
+      "family": "c31",
+      "value": "2/5",
+      "certificate_bound": 0.4,
+      "c31": 0.4,
+      "pinned": true
+    },
+    {
+      "n": 5,
+      "depth": 2,
+      "window": [
+        "1/5",
+        "1/3"
+      ],
+      "r": "1/5",
+      "family": "c31",
+      "value": "12/25",
+      "certificate_bound": 0.48,
+      "c31": 0.4800000000000001,
+      "pinned": true
+    },
+    {
+      "n": 5,
+      "depth": 2,
+      "window": [
+        "1/5",
+        "1/3"
+      ],
+      "r": "13/60",
+      "family": "V1",
+      "value": "2309/4950",
+      "certificate_bound": 0.46646464646464647,
+      "c31": 0.47000000000000003,
+      "pinned": true
+    },
+    {
+      "n": 5,
+      "depth": 2,
+      "window": [
+        "1/5",
+        "1/3"
+      ],
+      "r": "7/30",
+      "family": "V1",
+      "value": "193/425",
+      "certificate_bound": 0.45411764705882357,
+      "c31": 0.45999999999999996,
+      "pinned": true
+    },
+    {
+      "n": 5,
+      "depth": 2,
+      "window": [
+        "1/5",
+        "1/3"
+      ],
+      "r": "1/4",
+      "family": "V1",
+      "value": "31/70",
+      "certificate_bound": 0.44285714285714284,
+      "c31": 0.45000000000000007,
+      "pinned": true
+    },
+    {
+      "n": 5,
+      "depth": 2,
+      "window": [
+        "1/5",
+        "1/3"
+      ],
+      "r": "4/15",
+      "family": "V1",
+      "value": "292/675",
+      "certificate_bound": 0.4325925925925926,
+      "c31": 0.44000000000000006,
+      "pinned": true
+    },
+    {
+      "n": 5,
+      "depth": 2,
+      "window": [
+        "1/5",
+        "1/3"
+      ],
+      "r": "17/60",
+      "family": "V1",
+      "value": "783/1850",
+      "certificate_bound": 0.42324324324324336,
+      "c31": 0.43000000000000005,
+      "pinned": true
+    },
+    {
+      "n": 5,
+      "depth": 2,
+      "window": [
+        "1/5",
+        "1/3"
+      ],
+      "r": "3/10",
+      "family": "V1",
+      "value": "197/475",
+      "certificate_bound": 0.4147368421052631,
+      "c31": 0.41999999999999993,
+      "pinned": true
+    },
+    {
+      "n": 5,
+      "depth": 2,
+      "window": [
+        "1/5",
+        "1/3"
+      ],
+      "r": "19/60",
+      "family": "V1",
+      "value": "2381/5850",
+      "certificate_bound": 0.40700854700854705,
+      "c31": 0.41000000000000003,
+      "pinned": true
+    },
+    {
+      "n": 5,
+      "depth": 2,
+      "window": [
+        "1/5",
+        "1/3"
+      ],
+      "r": "1/3",
+      "family": "c31",
+      "value": "2/5",
+      "certificate_bound": 0.4,
+      "c31": 0.4000000000000001,
+      "pinned": true
+    },
+    {
+      "n": 6,
+      "depth": 1,
+      "window": [
+        "3/7",
+        "3/5"
+      ],
+      "r": "3/7",
+      "family": "c31",
+      "value": "10/21",
+      "certificate_bound": 0.4761904761904763,
+      "c31": 0.4761904761904761,
+      "pinned": true
+    },
+    {
+      "n": 6,
+      "depth": 1,
+      "window": [
+        "3/7",
+        "3/5"
+      ],
+      "r": "9/20",
+      "family": "V1",
+      "value": "133/300",
+      "certificate_bound": 0.4433333333333333,
+      "c31": 0.4583333333333333,
+      "pinned": true
+    },
+    {
+      "n": 6,
+      "depth": 1,
+      "window": [
+        "3/7",
+        "3/5"
+      ],
+      "r": "33/70",
+      "family": "V1",
+      "value": "1663/3990",
+      "certificate_bound": 0.4167919799498746,
+      "c31": 0.4404761904761905,
+      "pinned": true
+    },
+    {
+      "n": 6,
+      "depth": 1,
+      "window": [
+        "3/7",
+        "3/5"
+      ],
+      "r": "69/140",
+      "family": "V1",
+      "value": "1361/3444",
+      "certificate_bound": 0.3951800232288037,
+      "c31": 0.42261904761904756,
+      "pinned": true
+    },
+    {
+      "n": 6,
+      "depth": 1,
+      "window": [
+        "3/7",
+        "3/5"
+      ],
+      "r": "18/35",
+      "family": "V1",
+      "value": "436/1155",
+      "certificate_bound": 0.37748917748917754,
+      "c31": 0.40476190476190477,
+      "pinned": true
+    },
+    {
+      "n": 6,
+      "depth": 1,
+      "window": [
+        "3/7",
+        "3/5"
+      ],
+      "r": "15/28",
+      "family": "V1",
+      "value": "1433/3948",
+      "certificate_bound": 0.3629685916919959,
+      "c31": 0.38690476190476186,
+      "pinned": true
+    },
+    {
+      "n": 6,
+      "depth": 1,
+      "window": [
+        "3/7",
+        "3/5"
+      ],
+      "r": "39/70",
+      "family": "V1",
+      "value": "1843/5250",
+      "certificate_bound": 0.3510476190476191,
+      "c31": 0.369047619047619,
+      "pinned": true
+    },
+    {
+      "n": 6,
+      "depth": 1,
+      "window": [
+        "3/7",
+        "3/5"
+      ],
+      "r": "81/140",
+      "family": "V1",
+      "value": "7597/22260",
+      "certificate_bound": 0.34128481581311776,
+      "c31": 0.3511904761904761,
+      "pinned": true
+    },
+    {
+      "n": 6,
+      "depth": 1,
+      "window": [
+        "3/7",
+        "3/5"
+      ],
+      "r": "3/5",
+      "family": "c31",
+      "value": "1/3",
+      "certificate_bound": 0.3333333333333333,
+      "c31": 0.3333333333333333,
+      "pinned": true
+    },
+    {
+      "n": 6,
+      "depth": 2,
+      "window": [
+        "1/3",
+        "1/2"
+      ],
+      "r": "1/3",
+      "family": "c31",
+      "value": "4/9",
+      "certificate_bound": 0.4444444444444444,
+      "c31": 0.4444444444444445,
+      "pinned": true
+    },
+    {
+      "n": 6,
+      "depth": 2,
+      "window": [
+        "1/3",
+        "1/2"
+      ],
+      "r": "17/48",
+      "family": "V1",
+      "value": "1033/2448",
+      "certificate_bound": 0.4219771241830065,
+      "c31": 0.43055555555555547,
+      "pinned": true
+    },
+    {
+      "n": 6,
+      "depth": 2,
+      "window": [
+        "1/3",
+        "1/2"
+      ],
+      "r": "3/8",
+      "family": "V1",
+      "value": "29/72",
+      "certificate_bound": 0.4027777777777778,
+      "c31": 0.41666666666666663,
+      "pinned": true
+    },
+    {
+      "n": 6,
+      "depth": 2,
+      "window": [
+        "1/3",
+        "1/2"
+      ],
+      "r": "19/48",
+      "family": "V1",
+      "value": "1057/2736",
+      "certificate_bound": 0.38633040935672514,
+      "c31": 0.4027777777777778,
+      "pinned": true
+    },
+    {
+      "n": 6,
+      "depth": 2,
+      "window": [
+        "1/3",
+        "1/2"
+      ],
+      "r": "5/12",
+      "family": "V1",
+      "value": "67/180",
+      "certificate_bound": 0.37222222222222223,
+      "c31": 0.3888888888888888,
+      "pinned": true
+    },
+    {
+      "n": 6,
+      "depth": 2,
+      "window": [
+        "1/3",
+        "1/2"
+      ],
+      "r": "7/16",
+      "family": "V1",
+      "value": "121/336",
+      "certificate_bound": 0.36011904761904767,
+      "c31": 0.37499999999999994,
+      "pinned": true
+    },
+    {
+      "n": 6,
+      "depth": 2,
+      "window": [
+        "1/3",
+        "1/2"
+      ],
+      "r": "11/24",
+      "family": "V1",
+      "value": "277/792",
+      "certificate_bound": 0.34974747474747475,
+      "c31": 0.3611111111111111,
+      "pinned": true
+    },
+    {
+      "n": 6,
+      "depth": 2,
+      "window": [
+        "1/3",
+        "1/2"
+      ],
+      "r": "23/48",
+      "family": "V1",
+      "value": "1129/3312",
+      "certificate_bound": 0.34088164251207737,
+      "c31": 0.34722222222222215,
+      "pinned": true
+    },
+    {
+      "n": 6,
+      "depth": 2,
+      "window": [
+        "1/3",
+        "1/2"
+      ],
+      "r": "1/2",
+      "family": "c31",
+      "value": "1/3",
+      "certificate_bound": 0.3333333333333333,
+      "c31": 0.3333333333333333,
+      "pinned": true
+    },
+    {
+      "n": 6,
+      "depth": 3,
+      "window": [
+        "1/5",
+        "1/3"
+      ],
+      "r": "1/5",
+      "family": "c31",
+      "value": "2/5",
+      "certificate_bound": 0.3999999999999999,
+      "c31": 0.4,
+      "pinned": true
+    },
+    {
+      "n": 6,
+      "depth": 3,
+      "window": [
+        "1/5",
+        "1/3"
+      ],
+      "r": "13/60",
+      "family": "V1",
+      "value": "2309/5940",
+      "certificate_bound": 0.3887205387205387,
+      "c31": 0.3916666666666666,
+      "pinned": true
+    },
+    {
+      "n": 6,
+      "depth": 3,
+      "window": [
+        "1/5",
+        "1/3"
+      ],
+      "r": "7/30",
+      "family": "V1",
+      "value": "193/510",
+      "certificate_bound": 0.3784313725490196,
+      "c31": 0.3833333333333332,
+      "pinned": true
+    },
+    {
+      "n": 6,
+      "depth": 3,
+      "window": [
+        "1/5",
+        "1/3"
+      ],
+      "r": "1/4",
+      "family": "V1",
+      "value": "31/84",
+      "certificate_bound": 0.36904761904761907,
+      "c31": 0.375,
+      "pinned": true
+    },
+    {
+      "n": 6,
+      "depth": 3,
+      "window": [
+        "1/5",
+        "1/3"
+      ],
+      "r": "4/15",
+      "family": "V1",
+      "value": "146/405",
+      "certificate_bound": 0.36049382716049383,
+      "c31": 0.3666666666666667,
+      "pinned": true
+    },
+    {
+      "n": 6,
+      "depth": 3,
+      "window": [
+        "1/5",
+        "1/3"
+      ],
+      "r": "17/60",
+      "family": "V1",
+      "value": "261/740",
+      "certificate_bound": 0.35270270270270265,
+      "c31": 0.3583333333333333,
+      "pinned": true
+    },
+    {
+      "n": 6,
+      "depth": 3,
+      "window": [
+        "1/5",
+        "1/3"
+      ],
+      "r": "3/10",
+      "family": "V1",
+      "value": "197/570",
+      "certificate_bound": 0.3456140350877193,
+      "c31": 0.35,
+      "pinned": true
+    },
+    {
+      "n": 6,
+      "depth": 3,
+      "window": [
+        "1/5",
+        "1/3"
+      ],
+      "r": "19/60",
+      "family": "V1",
+      "value": "2381/7020",
+      "certificate_bound": 0.3391737891737892,
+      "c31": 0.3416666666666667,
+      "pinned": true
+    },
+    {
+      "n": 6,
+      "depth": 3,
+      "window": [
+        "1/5",
+        "1/3"
+      ],
+      "r": "1/3",
+      "family": "c31",
+      "value": "1/3",
+      "certificate_bound": 0.3333333333333333,
+      "c31": 0.33333333333333337,
+      "pinned": true
+    },
+    {
+      "n": 7,
+      "depth": 1,
+      "window": [
+        "1/2",
+        "2/3"
+      ],
+      "r": "1/2",
+      "family": "c31",
+      "value": "3/7",
+      "certificate_bound": 0.42857142857142855,
+      "c31": 0.42857142857142855,
+      "pinned": true
+    },
+    {
+      "n": 7,
+      "depth": 1,
+      "window": [
+        "1/2",
+        "2/3"
+      ],
+      "r": "25/48",
+      "family": "H2",
+      "value": "1679/4200",
+      "certificate_bound": 0.3997619047619048,
+      "c31": 0.4107142857142856,
+      "pinned": true
+    },
+    {
+      "n": 7,
+      "depth": 1,
+      "window": [
+        "1/2",
+        "2/3"
+      ],
+      "r": "13/24",
+      "family": "H2",
+      "value": "407/1092",
+      "certificate_bound": 0.37271062271062283,
+      "c31": 0.3928571428571428,
+      "pinned": true
+    },
+    {
+      "n": 7,
+      "depth": 1,
+      "window": [
+        "1/2",
+        "2/3"
+      ],
+      "r": "9/16",
+      "family": "H2",
+      "value": "25/72",
+      "certificate_bound": 0.34722222222222227,
+      "c31": 0.37499999999999994,
+      "pinned": true
+    },
+    {
+      "n": 7,
+      "depth": 1,
+      "window": [
+        "1/2",
+        "2/3"
+      ],
+      "r": "7/12",
+      "family": "V1",
+      "value": "41/126",
+      "certificate_bound": 0.32539682539682535,
+      "c31": 0.35714285714285704,
+      "pinned": true
+    },
+    {
+      "n": 7,
+      "depth": 1,
+      "window": [
+        "1/2",
+        "2/3"
+      ],
+      "r": "29/48",
+      "family": "V1",
+      "value": "227/728",
+      "certificate_bound": 0.31181318681318687,
+      "c31": 0.33928571428571425,
+      "pinned": true
+    },
+    {
+      "n": 7,
+      "depth": 1,
+      "window": [
+        "1/2",
+        "2/3"
+      ],
+      "r": "5/8",
+      "family": "V1",
+      "value": "59/196",
+      "certificate_bound": 0.30102040816326525,
+      "c31": 0.3214285714285714,
+      "pinned": true
+    },
+    {
+      "n": 7,
+      "depth": 1,
+      "window": [
+        "1/2",
+        "2/3"
+      ],
+      "r": "31/48",
+      "family": "V1",
+      "value": "737/2520",
+      "certificate_bound": 0.2924603174603174,
+      "c31": 0.3035714285714285,
+      "pinned": true
+    },
+    {
+      "n": 7,
+      "depth": 1,
+      "window": [
+        "1/2",
+        "2/3"
+      ],
+      "r": "2/3",
+      "family": "c31",
+      "value": "2/7",
+      "certificate_bound": 0.2857142857142857,
+      "c31": 0.2857142857142857,
+      "pinned": true
+    },
+    {
+      "n": 7,
+      "depth": 2,
+      "window": [
+        "3/7",
+        "3/5"
+      ],
+      "r": "3/7",
+      "family": "c31",
+      "value": "20/49",
+      "certificate_bound": 0.4081632653061224,
+      "c31": 0.4081632653061223,
+      "pinned": true
+    },
+    {
+      "n": 7,
+      "depth": 2,
+      "window": [
+        "3/7",
+        "3/5"
+      ],
+      "r": "9/20",
+      "family": "V1",
+      "value": "19/50",
+      "certificate_bound": 0.38,
+      "c31": 0.3928571428571428,
+      "pinned": true
+    },
+    {
+      "n": 7,
+      "depth": 2,
+      "window": [
+        "3/7",
+        "3/5"
+      ],
+      "r": "33/70",
+      "family": "V1",
+      "value": "1663/4655",
+      "certificate_bound": 0.35725026852846403,
+      "c31": 0.3775510204081632,
+      "pinned": true
+    },
+    {
+      "n": 7,
+      "depth": 2,
+      "window": [
+        "3/7",
+        "3/5"
+      ],
+      "r": "69/140",
+      "family": "V1",
+      "value": "1361/4018",
+      "certificate_bound": 0.33872573419611746,
+      "c31": 0.36224489795918363,
+      "pinned": true
+    },
+    {
+      "n": 7,
+      "depth": 2,
+      "window": [
+        "3/7",
+        "3/5"
+      ],
+      "r": "18/35",
+      "family": "V1",
+      "value": "872/2695",
+      "certificate_bound": 0.3235621521335807,
+      "c31": 0.346938775510204,
+      "pinned": true
+    },
+    {
+      "n": 7,
+      "depth": 2,
+      "window": [
+        "3/7",
+        "3/5"
+      ],
+      "r": "15/28",
+      "family": "V1",
+      "value": "1433/4606",
+      "certificate_bound": 0.31111593573599655,
+      "c31": 0.3316326530612244,
+      "pinned": true
+    },
+    {
+      "n": 7,
+      "depth": 2,
+      "window": [
+        "3/7",
+        "3/5"
+      ],
+      "r": "39/70",
+      "family": "V1",
+      "value": "1843/6125",
+      "certificate_bound": 0.3008979591836734,
+      "c31": 0.3163265306122448,
+      "pinned": true
+    },
+    {
+      "n": 7,
+      "depth": 2,
+      "window": [
+        "3/7",
+        "3/5"
+      ],
+      "r": "81/140",
+      "family": "V1",
+      "value": "7597/25970",
+      "certificate_bound": 0.2925298421255294,
+      "c31": 0.3010204081632652,
+      "pinned": true
+    },
+    {
+      "n": 7,
+      "depth": 2,
+      "window": [
+        "3/7",
+        "3/5"
+      ],
+      "r": "3/5",
+      "family": "c31",
+      "value": "2/7",
+      "certificate_bound": 0.2857142857142857,
+      "c31": 0.28571428571428564,
+      "pinned": true
+    },
+    {
+      "n": 7,
+      "depth": 3,
+      "window": [
+        "1/3",
+        "1/2"
+      ],
+      "r": "1/3",
+      "family": "c31",
+      "value": "8/21",
+      "certificate_bound": 0.38095238095238093,
+      "c31": 0.38095238095238093,
+      "pinned": true
+    },
+    {
+      "n": 7,
+      "depth": 3,
+      "window": [
+        "1/3",
+        "1/2"
+      ],
+      "r": "17/48",
+      "family": "V1",
+      "value": "1033/2856",
+      "certificate_bound": 0.36169467787114845,
+      "c31": 0.3690476190476189,
+      "pinned": true
+    },
+    {
+      "n": 7,
+      "depth": 3,
+      "window": [
+        "1/3",
+        "1/2"
+      ],
+      "r": "3/8",
+      "family": "V1",
+      "value": "29/84",
+      "certificate_bound": 0.3452380952380952,
+      "c31": 0.35714285714285704,
+      "pinned": true
+    },
+    {
+      "n": 7,
+      "depth": 3,
+      "window": [
+        "1/3",
+        "1/2"
+      ],
+      "r": "19/48",
+      "family": "V1",
+      "value": "151/456",
+      "certificate_bound": 0.331140350877193,
+      "c31": 0.3452380952380952,
+      "pinned": true
+    },
+    {
+      "n": 7,
+      "depth": 3,
+      "window": [
+        "1/3",
+        "1/2"
+      ],
+      "r": "5/12",
+      "family": "V1",
+      "value": "67/210",
+      "certificate_bound": 0.319047619047619,
+      "c31": 0.3333333333333332,
+      "pinned": true
+    },
+    {
+      "n": 7,
+      "depth": 3,
+      "window": [
+        "1/3",
+        "1/2"
+      ],
+      "r": "7/16",
+      "family": "V1",
+      "value": "121/392",
+      "certificate_bound": 0.3086734693877551,
+      "c31": 0.32142857142857134,
+      "pinned": true
+    },
+    {
+      "n": 7,
+      "depth": 3,
+      "window": [
+        "1/3",
+        "1/2"
+      ],
+      "r": "11/24",
+      "family": "V1",
+      "value": "277/924",
+      "certificate_bound": 0.29978354978354976,
+      "c31": 0.3095238095238095,
+      "pinned": true
+    },
+    {
+      "n": 7,
+      "depth": 3,
+      "window": [
+        "1/3",
+        "1/2"
+      ],
+      "r": "23/48",
+      "family": "V1",
+      "value": "1129/3864",
+      "certificate_bound": 0.29218426501035194,
+      "c31": 0.2976190476190475,
+      "pinned": true
+    },
+    {
+      "n": 7,
+      "depth": 3,
+      "window": [
+        "1/3",
+        "1/2"
+      ],
+      "r": "1/2",
+      "family": "c31",
+      "value": "2/7",
+      "certificate_bound": 0.2857142857142857,
+      "c31": 0.28571428571428564,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 1,
+      "window": [
+        "2/5",
+        "3/7"
+      ],
+      "r": "2/5",
+      "family": "c31",
+      "value": "21/40",
+      "certificate_bound": 0.525,
+      "c31": 0.525,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 1,
+      "window": [
+        "2/5",
+        "3/7"
+      ],
+      "r": "113/280",
+      "family": "V2",
+      "value": "12181/23360",
+      "certificate_bound": 0.5214469178082192,
+      "c31": 0.521875,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 1,
+      "window": [
+        "2/5",
+        "3/7"
+      ],
+      "r": "57/140",
+      "family": "V2",
+      "value": "21467/41440",
+      "certificate_bound": 0.5180260617760618,
+      "c31": 0.51875,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 1,
+      "window": [
+        "2/5",
+        "3/7"
+      ],
+      "r": "23/56",
+      "family": "V2",
+      "value": "1153/2240",
+      "certificate_bound": 0.514732142857143,
+      "c31": 0.515625,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 1,
+      "window": [
+        "2/5",
+        "3/7"
+      ],
+      "r": "29/70",
+      "family": "V2",
+      "value": "5443/10640",
+      "certificate_bound": 0.5115601503759398,
+      "c31": 0.5125,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 1,
+      "window": [
+        "2/5",
+        "3/7"
+      ],
+      "r": "117/280",
+      "family": "V2",
+      "value": "87707/172480",
+      "certificate_bound": 0.5085053339517626,
+      "c31": 0.5093749999999999,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 1,
+      "window": [
+        "2/5",
+        "3/7"
+      ],
+      "r": "59/140",
+      "family": "V2",
+      "value": "7361/14560",
+      "certificate_bound": 0.5055631868131867,
+      "c31": 0.50625,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 1,
+      "window": [
+        "2/5",
+        "3/7"
+      ],
+      "r": "17/40",
+      "family": "V2",
+      "value": "12709/25280",
+      "certificate_bound": 0.5027294303797468,
+      "c31": 0.5031249999999999,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 1,
+      "window": [
+        "2/5",
+        "3/7"
+      ],
+      "r": "3/7",
+      "family": "c31",
+      "value": "1/2",
+      "certificate_bound": 0.4999999999999999,
+      "c31": 0.5,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 1,
+      "window": [
+        "5/9",
+        "5/7"
+      ],
+      "r": "5/9",
+      "family": "c31",
+      "value": "7/18",
+      "certificate_bound": 0.3888888888888889,
+      "c31": 0.38888888888888884,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 1,
+      "window": [
+        "5/9",
+        "5/7"
+      ],
+      "r": "145/252",
+      "family": "H2",
+      "value": "42479/116928",
+      "certificate_bound": 0.36329194033935414,
+      "c31": 0.3715277777777778,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 1,
+      "window": [
+        "5/9",
+        "5/7"
+      ],
+      "r": "25/42",
+      "family": "H2",
+      "value": "1139/3360",
+      "certificate_bound": 0.3389880952380951,
+      "c31": 0.3541666666666667,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 1,
+      "window": [
+        "5/9",
+        "5/7"
+      ],
+      "r": "155/252",
+      "family": "H2",
+      "value": "39479/124992",
+      "certificate_bound": 0.3158522145417308,
+      "c31": 0.3368055555555555,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 1,
+      "window": [
+        "5/9",
+        "5/7"
+      ],
+      "r": "40/63",
+      "family": "H2",
+      "value": "2369/8064",
+      "certificate_bound": 0.2937748015873016,
+      "c31": 0.3194444444444445,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 1,
+      "window": [
+        "5/9",
+        "5/7"
+      ],
+      "r": "55/84",
+      "family": "V1",
+      "value": "1741/6384",
+      "certificate_bound": 0.27271303258145363,
+      "c31": 0.3020833333333333,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 1,
+      "window": [
+        "5/9",
+        "5/7"
+      ],
+      "r": "85/126",
+      "family": "V1",
+      "value": "4111/15624",
+      "certificate_bound": 0.26312083973374295,
+      "c31": 0.2847222222222222,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 1,
+      "window": [
+        "5/9",
+        "5/7"
+      ],
+      "r": "25/36",
+      "family": "V1",
+      "value": "2467/9648",
+      "certificate_bound": 0.25570066334991703,
+      "c31": 0.26736111111111116,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 1,
+      "window": [
+        "5/9",
+        "5/7"
+      ],
+      "r": "5/7",
+      "family": "c31",
+      "value": "1/4",
+      "certificate_bound": 0.25,
+      "c31": 0.25,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 2,
+      "window": [
+        "1/2",
+        "2/3"
+      ],
+      "r": "1/2",
+      "family": "c31",
+      "value": "3/8",
+      "certificate_bound": 0.375,
+      "c31": 0.375,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 2,
+      "window": [
+        "1/2",
+        "2/3"
+      ],
+      "r": "25/48",
+      "family": "H2",
+      "value": "1679/4800",
+      "certificate_bound": 0.34979166666666667,
+      "c31": 0.359375,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 2,
+      "window": [
+        "1/2",
+        "2/3"
+      ],
+      "r": "13/24",
+      "family": "H2",
+      "value": "407/1248",
+      "certificate_bound": 0.32612179487179493,
+      "c31": 0.34375,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 2,
+      "window": [
+        "1/2",
+        "2/3"
+      ],
+      "r": "9/16",
+      "family": "H2",
+      "value": "175/576",
+      "certificate_bound": 0.3038194444444445,
+      "c31": 0.328125,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 2,
+      "window": [
+        "1/2",
+        "2/3"
+      ],
+      "r": "7/12",
+      "family": "V1",
+      "value": "41/144",
+      "certificate_bound": 0.2847222222222222,
+      "c31": 0.3125,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 2,
+      "window": [
+        "1/2",
+        "2/3"
+      ],
+      "r": "29/48",
+      "family": "V1",
+      "value": "227/832",
+      "certificate_bound": 0.27283653846153855,
+      "c31": 0.296875,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 2,
+      "window": [
+        "1/2",
+        "2/3"
+      ],
+      "r": "5/8",
+      "family": "V1",
+      "value": "59/224",
+      "certificate_bound": 0.26339285714285715,
+      "c31": 0.28125,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 2,
+      "window": [
+        "1/2",
+        "2/3"
+      ],
+      "r": "31/48",
+      "family": "V1",
+      "value": "737/2880",
+      "certificate_bound": 0.25590277777777776,
+      "c31": 0.265625,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 2,
+      "window": [
+        "1/2",
+        "2/3"
+      ],
+      "r": "2/3",
+      "family": "c31",
+      "value": "1/4",
+      "certificate_bound": 0.25,
+      "c31": 0.25,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 3,
+      "window": [
+        "3/7",
+        "3/5"
+      ],
+      "r": "3/7",
+      "family": "c31",
+      "value": "5/14",
+      "certificate_bound": 0.35714285714285715,
+      "c31": 0.35714285714285715,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 3,
+      "window": [
+        "3/7",
+        "3/5"
+      ],
+      "r": "9/20",
+      "family": "V1",
+      "value": "133/400",
+      "certificate_bound": 0.33249999999999996,
+      "c31": 0.34375000000000006,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 3,
+      "window": [
+        "3/7",
+        "3/5"
+      ],
+      "r": "33/70",
+      "family": "V1",
+      "value": "1663/5320",
+      "certificate_bound": 0.3125939849624059,
+      "c31": 0.33035714285714285,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 3,
+      "window": [
+        "3/7",
+        "3/5"
+      ],
+      "r": "69/140",
+      "family": "V1",
+      "value": "1361/4592",
+      "certificate_bound": 0.2963850174216028,
+      "c31": 0.3169642857142857,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 3,
+      "window": [
+        "3/7",
+        "3/5"
+      ],
+      "r": "18/35",
+      "family": "V1",
+      "value": "109/385",
+      "certificate_bound": 0.28311688311688316,
+      "c31": 0.30357142857142855,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 3,
+      "window": [
+        "3/7",
+        "3/5"
+      ],
+      "r": "15/28",
+      "family": "V1",
+      "value": "1433/5264",
+      "certificate_bound": 0.27222644376899696,
+      "c31": 0.29017857142857145,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 3,
+      "window": [
+        "3/7",
+        "3/5"
+      ],
+      "r": "39/70",
+      "family": "V1",
+      "value": "1843/7000",
+      "certificate_bound": 0.26328571428571423,
+      "c31": 0.27678571428571425,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 3,
+      "window": [
+        "3/7",
+        "3/5"
+      ],
+      "r": "81/140",
+      "family": "V1",
+      "value": "7597/29680",
+      "certificate_bound": 0.2559636118598383,
+      "c31": 0.2633928571428571,
+      "pinned": true
+    },
+    {
+      "n": 8,
+      "depth": 3,
+      "window": [
+        "3/7",
+        "3/5"
+      ],
+      "r": "3/5",
+      "family": "c31",
+      "value": "1/4",
+      "certificate_bound": 0.25,
+      "c31": 0.25000000000000006,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 1,
+      "window": [
+        "5/11",
+        "1/2"
+      ],
+      "r": "5/11",
+      "family": "c31",
+      "value": "16/33",
+      "certificate_bound": 0.4848484848484849,
+      "c31": 0.4848484848484848,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 1,
+      "window": [
+        "5/11",
+        "1/2"
+      ],
+      "r": "81/176",
+      "family": "V2",
+      "value": "28043/58608",
+      "certificate_bound": 0.4784841659841661,
+      "c31": 0.4797979797979798,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 1,
+      "window": [
+        "5/11",
+        "1/2"
+      ],
+      "r": "41/88",
+      "family": "V2",
+      "value": "7111/15048",
+      "certificate_bound": 0.4725544922913344,
+      "c31": 0.4747474747474748,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 1,
+      "window": [
+        "5/11",
+        "1/2"
+      ],
+      "r": "83/176",
+      "family": "V2",
+      "value": "9617/20592",
+      "certificate_bound": 0.4670260295260296,
+      "c31": 0.4696969696969696,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 1,
+      "window": [
+        "5/11",
+        "1/2"
+      ],
+      "r": "21/44",
+      "family": "V2",
+      "value": "1829/3960",
+      "certificate_bound": 0.4618686868686869,
+      "c31": 0.4646464646464646,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 1,
+      "window": [
+        "5/11",
+        "1/2"
+      ],
+      "r": "85/176",
+      "family": "V2",
+      "value": "29683/64944",
+      "certificate_bound": 0.4570553091894555,
+      "c31": 0.4595959595959596,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 1,
+      "window": [
+        "5/11",
+        "1/2"
+      ],
+      "r": "43/88",
+      "family": "V2",
+      "value": "2509/5544",
+      "certificate_bound": 0.4525613275613276,
+      "c31": 0.45454545454545453,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 1,
+      "window": [
+        "5/11",
+        "1/2"
+      ],
+      "r": "87/176",
+      "family": "V2",
+      "value": "30539/68112",
+      "certificate_bound": 0.44836445853887713,
+      "c31": 0.4494949494949494,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 1,
+      "window": [
+        "5/11",
+        "1/2"
+      ],
+      "r": "1/2",
+      "family": "c31",
+      "value": "4/9",
+      "certificate_bound": 0.44444444444444425,
+      "c31": 0.4444444444444444,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 1,
+      "window": [
+        "3/5",
+        "3/4"
+      ],
+      "r": "3/5",
+      "family": "c31",
+      "value": "16/45",
+      "certificate_bound": 0.3555555555555557,
+      "c31": 0.35555555555555557,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 1,
+      "window": [
+        "3/5",
+        "3/4"
+      ],
+      "r": "99/160",
+      "family": "H2",
+      "value": "15799/47520",
+      "certificate_bound": 0.3324705387205387,
+      "c31": 0.33888888888888885,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 1,
+      "window": [
+        "3/5",
+        "3/4"
+      ],
+      "r": "51/80",
+      "family": "H2",
+      "value": "3799/12240",
+      "certificate_bound": 0.31037581699346417,
+      "c31": 0.32222222222222224,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 1,
+      "window": [
+        "3/5",
+        "3/4"
+      ],
+      "r": "21/32",
+      "family": "H2",
+      "value": "583/2016",
+      "certificate_bound": 0.28918650793650796,
+      "c31": 0.3055555555555555,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 1,
+      "window": [
+        "3/5",
+        "3/4"
+      ],
+      "r": "27/40",
+      "family": "H2",
+      "value": "871/3240",
+      "certificate_bound": 0.2688271604938273,
+      "c31": 0.2888888888888888,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 1,
+      "window": [
+        "3/5",
+        "3/4"
+      ],
+      "r": "111/160",
+      "family": "H2",
+      "value": "13279/53280",
+      "certificate_bound": 0.24923048048048074,
+      "c31": 0.27222222222222225,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 1,
+      "window": [
+        "3/5",
+        "3/4"
+      ],
+      "r": "57/80",
+      "family": "V1",
+      "value": "1429/6120",
+      "certificate_bound": 0.2334967320261438,
+      "c31": 0.25555555555555554,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 1,
+      "window": [
+        "3/5",
+        "3/4"
+      ],
+      "r": "117/160",
+      "family": "V1",
+      "value": "6049/26640",
+      "certificate_bound": 0.22706456456456456,
+      "c31": 0.23888888888888893,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 1,
+      "window": [
+        "3/5",
+        "3/4"
+      ],
+      "r": "3/4",
+      "family": "c31",
+      "value": "2/9",
+      "certificate_bound": 0.2222222222222222,
+      "c31": 0.2222222222222222,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 2,
+      "window": [
+        "2/5",
+        "3/7"
+      ],
+      "r": "2/5",
+      "family": "c31",
+      "value": "7/15",
+      "certificate_bound": 0.4666666666666667,
+      "c31": 0.4666666666666667,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 2,
+      "window": [
+        "2/5",
+        "3/7"
+      ],
+      "r": "113/280",
+      "family": "V2",
+      "value": "12181/26280",
+      "certificate_bound": 0.4635083713850837,
+      "c31": 0.4638888888888889,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 2,
+      "window": [
+        "2/5",
+        "3/7"
+      ],
+      "r": "57/140",
+      "family": "V2",
+      "value": "21467/46620",
+      "certificate_bound": 0.4604676104676105,
+      "c31": 0.46111111111111114,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 2,
+      "window": [
+        "2/5",
+        "3/7"
+      ],
+      "r": "23/56",
+      "family": "V2",
+      "value": "1153/2520",
+      "certificate_bound": 0.4575396825396827,
+      "c31": 0.45833333333333337,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 2,
+      "window": [
+        "2/5",
+        "3/7"
+      ],
+      "r": "29/70",
+      "family": "V2",
+      "value": "5443/11970",
+      "certificate_bound": 0.45472013366750214,
+      "c31": 0.4555555555555555,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 2,
+      "window": [
+        "2/5",
+        "3/7"
+      ],
+      "r": "117/280",
+      "family": "V2",
+      "value": "87707/194040",
+      "certificate_bound": 0.45200474129045565,
+      "c31": 0.4527777777777777,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 2,
+      "window": [
+        "2/5",
+        "3/7"
+      ],
+      "r": "59/140",
+      "family": "V2",
+      "value": "7361/16380",
+      "certificate_bound": 0.4493894993894995,
+      "c31": 0.44999999999999996,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 2,
+      "window": [
+        "2/5",
+        "3/7"
+      ],
+      "r": "17/40",
+      "family": "V2",
+      "value": "12709/28440",
+      "certificate_bound": 0.4468706047819973,
+      "c31": 0.4472222222222222,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 2,
+      "window": [
+        "2/5",
+        "3/7"
+      ],
+      "r": "3/7",
+      "family": "c31",
+      "value": "4/9",
+      "certificate_bound": 0.44444444444444436,
+      "c31": 0.4444444444444444,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 2,
+      "window": [
+        "5/9",
+        "5/7"
+      ],
+      "r": "5/9",
+      "family": "c31",
+      "value": "28/81",
+      "certificate_bound": 0.34567901234567916,
+      "c31": 0.345679012345679,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 2,
+      "window": [
+        "5/9",
+        "5/7"
+      ],
+      "r": "145/252",
+      "family": "H2",
+      "value": "42479/131544",
+      "certificate_bound": 0.32292616919053724,
+      "c31": 0.33024691358024694,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 2,
+      "window": [
+        "5/9",
+        "5/7"
+      ],
+      "r": "25/42",
+      "family": "H2",
+      "value": "1139/3780",
+      "certificate_bound": 0.3013227513227514,
+      "c31": 0.31481481481481477,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 2,
+      "window": [
+        "5/9",
+        "5/7"
+      ],
+      "r": "155/252",
+      "family": "H2",
+      "value": "39479/140616",
+      "certificate_bound": 0.2807575240370939,
+      "c31": 0.29938271604938266,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 2,
+      "window": [
+        "5/9",
+        "5/7"
+      ],
+      "r": "40/63",
+      "family": "H2",
+      "value": "2369/9072",
+      "certificate_bound": 0.2611331569664905,
+      "c31": 0.28395061728395066,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 2,
+      "window": [
+        "5/9",
+        "5/7"
+      ],
+      "r": "55/84",
+      "family": "V1",
+      "value": "1741/7182",
+      "certificate_bound": 0.24241158451684766,
+      "c31": 0.2685185185185185,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 2,
+      "window": [
+        "5/9",
+        "5/7"
+      ],
+      "r": "85/126",
+      "family": "V1",
+      "value": "4111/17577",
+      "certificate_bound": 0.23388519087443818,
+      "c31": 0.2530864197530864,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 2,
+      "window": [
+        "5/9",
+        "5/7"
+      ],
+      "r": "25/36",
+      "family": "V1",
+      "value": "2467/10854",
+      "certificate_bound": 0.22728947853325965,
+      "c31": 0.23765432098765432,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 2,
+      "window": [
+        "5/9",
+        "5/7"
+      ],
+      "r": "5/7",
+      "family": "c31",
+      "value": "2/9",
+      "certificate_bound": 0.2222222222222222,
+      "c31": 0.2222222222222222,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 3,
+      "window": [
+        "1/2",
+        "2/3"
+      ],
+      "r": "1/2",
+      "family": "c31",
+      "value": "1/3",
+      "certificate_bound": 0.33333333333333326,
+      "c31": 0.3333333333333333,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 3,
+      "window": [
+        "1/2",
+        "2/3"
+      ],
+      "r": "25/48",
+      "family": "H2",
+      "value": "1679/5400",
+      "certificate_bound": 0.310925925925926,
+      "c31": 0.3194444444444444,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 3,
+      "window": [
+        "1/2",
+        "2/3"
+      ],
+      "r": "13/24",
+      "family": "H2",
+      "value": "407/1404",
+      "certificate_bound": 0.2898860398860397,
+      "c31": 0.3055555555555556,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 3,
+      "window": [
+        "1/2",
+        "2/3"
+      ],
+      "r": "9/16",
+      "family": "H2",
+      "value": "175/648",
+      "certificate_bound": 0.27006172839506165,
+      "c31": 0.29166666666666663,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 3,
+      "window": [
+        "1/2",
+        "2/3"
+      ],
+      "r": "7/12",
+      "family": "V1",
+      "value": "41/162",
+      "certificate_bound": 0.2530864197530864,
+      "c31": 0.27777777777777773,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 3,
+      "window": [
+        "1/2",
+        "2/3"
+      ],
+      "r": "29/48",
+      "family": "V1",
+      "value": "227/936",
+      "certificate_bound": 0.24252136752136752,
+      "c31": 0.2638888888888889,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 3,
+      "window": [
+        "1/2",
+        "2/3"
+      ],
+      "r": "5/8",
+      "family": "V1",
+      "value": "59/252",
+      "certificate_bound": 0.23412698412698413,
+      "c31": 0.25,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 3,
+      "window": [
+        "1/2",
+        "2/3"
+      ],
+      "r": "31/48",
+      "family": "V1",
+      "value": "737/3240",
+      "certificate_bound": 0.22746913580246916,
+      "c31": 0.23611111111111108,
+      "pinned": true
+    },
+    {
+      "n": 9,
+      "depth": 3,
+      "window": [
+        "1/2",
+        "2/3"
+      ],
+      "r": "2/3",
+      "family": "c31",
+      "value": "2/9",
+      "certificate_bound": 0.22222222222222218,
+      "c31": 0.22222222222222227,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 1,
+      "window": [
+        "1/2",
+        "5/9"
+      ],
+      "r": "1/2",
+      "family": "c31",
+      "value": "9/20",
+      "certificate_bound": 0.45000000000000007,
+      "c31": 0.44999999999999996,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 1,
+      "window": [
+        "1/2",
+        "5/9"
+      ],
+      "r": "73/144",
+      "family": "V2",
+      "value": "5297/12000",
+      "certificate_bound": 0.4414166666666667,
+      "c31": 0.44375000000000003,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 1,
+      "window": [
+        "1/2",
+        "5/9"
+      ],
+      "r": "37/72",
+      "family": "V2",
+      "value": "451/1040",
+      "certificate_bound": 0.43365384615384606,
+      "c31": 0.43750000000000006,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 1,
+      "window": [
+        "1/2",
+        "5/9"
+      ],
+      "r": "25/48",
+      "family": "V2",
+      "value": "1843/4320",
+      "certificate_bound": 0.4266203703703703,
+      "c31": 0.43124999999999997,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 1,
+      "window": [
+        "1/2",
+        "5/9"
+      ],
+      "r": "19/36",
+      "family": "V2",
+      "value": "353/840",
+      "certificate_bound": 0.4202380952380952,
+      "c31": 0.425,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 1,
+      "window": [
+        "1/2",
+        "5/9"
+      ],
+      "r": "77/144",
+      "family": "V2",
+      "value": "1923/4640",
+      "certificate_bound": 0.4144396551724139,
+      "c31": 0.41875,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 1,
+      "window": [
+        "1/2",
+        "5/9"
+      ],
+      "r": "13/24",
+      "family": "V2",
+      "value": "491/1200",
+      "certificate_bound": 0.40916666666666657,
+      "c31": 0.41250000000000003,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 1,
+      "window": [
+        "1/2",
+        "5/9"
+      ],
+      "r": "79/144",
+      "family": "V2",
+      "value": "6017/14880",
+      "certificate_bound": 0.4043682795698924,
+      "c31": 0.40624999999999994,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 1,
+      "window": [
+        "1/2",
+        "5/9"
+      ],
+      "r": "5/9",
+      "family": "c31",
+      "value": "2/5",
+      "certificate_bound": 0.4000000000000001,
+      "c31": 0.39999999999999997,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 1,
+      "window": [
+        "7/11",
+        "7/9"
+      ],
+      "r": "7/11",
+      "family": "c31",
+      "value": "18/55",
+      "certificate_bound": 0.3272727272727272,
+      "c31": 0.32727272727272727,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 1,
+      "window": [
+        "7/11",
+        "7/9"
+      ],
+      "r": "259/396",
+      "family": "H2",
+      "value": "17947/58608",
+      "certificate_bound": 0.30622099372099354,
+      "c31": 0.31136363636363634,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 1,
+      "window": [
+        "7/11",
+        "7/9"
+      ],
+      "r": "133/198",
+      "family": "H2",
+      "value": "4303/15048",
+      "certificate_bound": 0.28595162147793723,
+      "c31": 0.29545454545454547,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 1,
+      "window": [
+        "7/11",
+        "7/9"
+      ],
+      "r": "91/132",
+      "family": "H2",
+      "value": "9143/34320",
+      "certificate_bound": 0.26640442890442867,
+      "c31": 0.2795454545454545,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 1,
+      "window": [
+        "7/11",
+        "7/9"
+      ],
+      "r": "70/99",
+      "family": "H2",
+      "value": "4901/19800",
+      "certificate_bound": 0.2475252525252526,
+      "c31": 0.26363636363636367,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 1,
+      "window": [
+        "7/11",
+        "7/9"
+      ],
+      "r": "287/396",
+      "family": "H2",
+      "value": "74447/324720",
+      "certificate_bound": 0.22926521310667633,
+      "c31": 0.24772727272727277,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 1,
+      "window": [
+        "7/11",
+        "7/9"
+      ],
+      "r": "49/66",
+      "family": "H2",
+      "value": "391/1848",
+      "certificate_bound": 0.21158008658008665,
+      "c31": 0.2318181818181818,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 1,
+      "window": [
+        "7/11",
+        "7/9"
+      ],
+      "r": "301/396",
+      "family": "V1",
+      "value": "32741/160380",
+      "certificate_bound": 0.20414640229455047,
+      "c31": 0.21590909090909097,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 1,
+      "window": [
+        "7/11",
+        "7/9"
+      ],
+      "r": "7/9",
+      "family": "c31",
+      "value": "1/5",
+      "certificate_bound": 0.19999999999999998,
+      "c31": 0.19999999999999998,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 2,
+      "window": [
+        "5/11",
+        "1/2"
+      ],
+      "r": "5/11",
+      "family": "c31",
+      "value": "24/55",
+      "certificate_bound": 0.43636363636363634,
+      "c31": 0.43636363636363634,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 2,
+      "window": [
+        "5/11",
+        "1/2"
+      ],
+      "r": "81/176",
+      "family": "V2",
+      "value": "28043/65120",
+      "certificate_bound": 0.43063574938574956,
+      "c31": 0.4318181818181819,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 2,
+      "window": [
+        "5/11",
+        "1/2"
+      ],
+      "r": "41/88",
+      "family": "V2",
+      "value": "7111/16720",
+      "certificate_bound": 0.4252990430622009,
+      "c31": 0.42727272727272736,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 2,
+      "window": [
+        "5/11",
+        "1/2"
+      ],
+      "r": "83/176",
+      "family": "V2",
+      "value": "9617/22880",
+      "certificate_bound": 0.42032342657342664,
+      "c31": 0.4227272727272727,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 2,
+      "window": [
+        "5/11",
+        "1/2"
+      ],
+      "r": "21/44",
+      "family": "V2",
+      "value": "1829/4400",
+      "certificate_bound": 0.4156818181818181,
+      "c31": 0.4181818181818182,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 2,
+      "window": [
+        "5/11",
+        "1/2"
+      ],
+      "r": "85/176",
+      "family": "V2",
+      "value": "29683/72160",
+      "certificate_bound": 0.41134977827050984,
+      "c31": 0.4136363636363637,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 2,
+      "window": [
+        "5/11",
+        "1/2"
+      ],
+      "r": "43/88",
+      "family": "V2",
+      "value": "2509/6160",
+      "certificate_bound": 0.40730519480519484,
+      "c31": 0.40909090909090906,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 2,
+      "window": [
+        "5/11",
+        "1/2"
+      ],
+      "r": "87/176",
+      "family": "V2",
+      "value": "30539/75680",
+      "certificate_bound": 0.4035280126849894,
+      "c31": 0.40454545454545454,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 2,
+      "window": [
+        "5/11",
+        "1/2"
+      ],
+      "r": "1/2",
+      "family": "c31",
+      "value": "2/5",
+      "certificate_bound": 0.39999999999999997,
+      "c31": 0.4,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 2,
+      "window": [
+        "3/5",
+        "3/4"
+      ],
+      "r": "3/5",
+      "family": "c31",
+      "value": "8/25",
+      "certificate_bound": 0.31999999999999984,
+      "c31": 0.32000000000000006,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 2,
+      "window": [
+        "3/5",
+        "3/4"
+      ],
+      "r": "99/160",
+      "family": "H2",
+      "value": "15799/52800",
+      "certificate_bound": 0.2992234848484849,
+      "c31": 0.305,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 2,
+      "window": [
+        "3/5",
+        "3/4"
+      ],
+      "r": "51/80",
+      "family": "H2",
+      "value": "3799/13600",
+      "certificate_bound": 0.27933823529411755,
+      "c31": 0.29000000000000004,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 2,
+      "window": [
+        "3/5",
+        "3/4"
+      ],
+      "r": "21/32",
+      "family": "H2",
+      "value": "583/2240",
+      "certificate_bound": 0.26026785714285716,
+      "c31": 0.275,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 2,
+      "window": [
+        "3/5",
+        "3/4"
+      ],
+      "r": "27/40",
+      "family": "H2",
+      "value": "871/3600",
+      "certificate_bound": 0.24194444444444438,
+      "c31": 0.26,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 2,
+      "window": [
+        "3/5",
+        "3/4"
+      ],
+      "r": "111/160",
+      "family": "H2",
+      "value": "13279/59200",
+      "certificate_bound": 0.2243074324324323,
+      "c31": 0.245,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 2,
+      "window": [
+        "3/5",
+        "3/4"
+      ],
+      "r": "57/80",
+      "family": "V1",
+      "value": "1429/6800",
+      "certificate_bound": 0.21014705882352938,
+      "c31": 0.22999999999999998,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 2,
+      "window": [
+        "3/5",
+        "3/4"
+      ],
+      "r": "117/160",
+      "family": "V1",
+      "value": "6049/29600",
+      "certificate_bound": 0.20435810810810806,
+      "c31": 0.21500000000000002,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 2,
+      "window": [
+        "3/5",
+        "3/4"
+      ],
+      "r": "3/4",
+      "family": "c31",
+      "value": "1/5",
+      "certificate_bound": 0.20000000000000004,
+      "c31": 0.2,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 3,
+      "window": [
+        "2/5",
+        "3/7"
+      ],
+      "r": "2/5",
+      "family": "c31",
+      "value": "21/50",
+      "certificate_bound": 0.41999999999999993,
+      "c31": 0.42000000000000004,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 3,
+      "window": [
+        "2/5",
+        "3/7"
+      ],
+      "r": "113/280",
+      "family": "V2",
+      "value": "12181/29200",
+      "certificate_bound": 0.41715753424657526,
+      "c31": 0.41750000000000004,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 3,
+      "window": [
+        "2/5",
+        "3/7"
+      ],
+      "r": "57/140",
+      "family": "V2",
+      "value": "21467/51800",
+      "certificate_bound": 0.4144208494208495,
+      "c31": 0.41500000000000004,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 3,
+      "window": [
+        "2/5",
+        "3/7"
+      ],
+      "r": "23/56",
+      "family": "V2",
+      "value": "1153/2800",
+      "certificate_bound": 0.41178571428571425,
+      "c31": 0.4125,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 3,
+      "window": [
+        "2/5",
+        "3/7"
+      ],
+      "r": "29/70",
+      "family": "V2",
+      "value": "5443/13300",
+      "certificate_bound": 0.4092481203007518,
+      "c31": 0.41,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 3,
+      "window": [
+        "2/5",
+        "3/7"
+      ],
+      "r": "117/280",
+      "family": "V2",
+      "value": "87707/215600",
+      "certificate_bound": 0.40680426716141,
+      "c31": 0.4075,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 3,
+      "window": [
+        "2/5",
+        "3/7"
+      ],
+      "r": "59/140",
+      "family": "V2",
+      "value": "7361/18200",
+      "certificate_bound": 0.4044505494505495,
+      "c31": 0.40499999999999997,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 3,
+      "window": [
+        "2/5",
+        "3/7"
+      ],
+      "r": "17/40",
+      "family": "V2",
+      "value": "12709/31600",
+      "certificate_bound": 0.40218354430379755,
+      "c31": 0.40249999999999997,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 3,
+      "window": [
+        "2/5",
+        "3/7"
+      ],
+      "r": "3/7",
+      "family": "c31",
+      "value": "2/5",
+      "certificate_bound": 0.4000000000000001,
+      "c31": 0.39999999999999997,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 3,
+      "window": [
+        "5/9",
+        "5/7"
+      ],
+      "r": "5/9",
+      "family": "c31",
+      "value": "14/45",
+      "certificate_bound": 0.31111111111111106,
+      "c31": 0.3111111111111111,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 3,
+      "window": [
+        "5/9",
+        "5/7"
+      ],
+      "r": "145/252",
+      "family": "H2",
+      "value": "42479/146160",
+      "certificate_bound": 0.29063355227148335,
+      "c31": 0.2972222222222223,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 3,
+      "window": [
+        "5/9",
+        "5/7"
+      ],
+      "r": "25/42",
+      "family": "H2",
+      "value": "1139/4200",
+      "certificate_bound": 0.27119047619047604,
+      "c31": 0.2833333333333334,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 3,
+      "window": [
+        "5/9",
+        "5/7"
+      ],
+      "r": "155/252",
+      "family": "H2",
+      "value": "39479/156240",
+      "certificate_bound": 0.25268177163338446,
+      "c31": 0.26944444444444443,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 3,
+      "window": [
+        "5/9",
+        "5/7"
+      ],
+      "r": "40/63",
+      "family": "H2",
+      "value": "2369/10080",
+      "certificate_bound": 0.23501984126984118,
+      "c31": 0.2555555555555556,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 3,
+      "window": [
+        "5/9",
+        "5/7"
+      ],
+      "r": "55/84",
+      "family": "V1",
+      "value": "1741/7980",
+      "certificate_bound": 0.2181704260651629,
+      "c31": 0.24166666666666664,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 3,
+      "window": [
+        "5/9",
+        "5/7"
+      ],
+      "r": "85/126",
+      "family": "V1",
+      "value": "4111/19530",
+      "certificate_bound": 0.21049667178699435,
+      "c31": 0.22777777777777775,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 3,
+      "window": [
+        "5/9",
+        "5/7"
+      ],
+      "r": "25/36",
+      "family": "V1",
+      "value": "2467/12060",
+      "certificate_bound": 0.20456053067993368,
+      "c31": 0.2138888888888889,
+      "pinned": true
+    },
+    {
+      "n": 10,
+      "depth": 3,
+      "window": [
+        "5/9",
+        "5/7"
+      ],
+      "r": "5/7",
+      "family": "c31",
+      "value": "1/5",
+      "certificate_bound": 0.19999999999999996,
+      "c31": 0.19999999999999998,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 1,
+      "window": [
+        "7/13",
+        "3/5"
+      ],
+      "r": "7/13",
+      "family": "c31",
+      "value": "60/143",
+      "certificate_bound": 0.41958041958041975,
+      "c31": 0.4195804195804196,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 1,
+      "window": [
+        "7/13",
+        "3/5"
+      ],
+      "r": "71/130",
+      "family": "V2",
+      "value": "11119/27170",
+      "certificate_bound": 0.4092381302907621,
+      "c31": 0.4125874125874126,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 1,
+      "window": [
+        "7/13",
+        "3/5"
+      ],
+      "r": "36/65",
+      "family": "V2",
+      "value": "2861/7150",
+      "certificate_bound": 0.40013986013986014,
+      "c31": 0.40559440559440557,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 1,
+      "window": [
+        "7/13",
+        "3/5"
+      ],
+      "r": "73/130",
+      "family": "V2",
+      "value": "785/2002",
+      "certificate_bound": 0.39210789210789204,
+      "c31": 0.3986013986013986,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 1,
+      "window": [
+        "7/13",
+        "3/5"
+      ],
+      "r": "37/65",
+      "family": "V2",
+      "value": "3028/7865",
+      "certificate_bound": 0.3849968213604577,
+      "c31": 0.3916083916083916,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 1,
+      "window": [
+        "7/13",
+        "3/5"
+      ],
+      "r": "15/26",
+      "family": "V2",
+      "value": "2491/6578",
+      "certificate_bound": 0.378686530860444,
+      "c31": 0.38461538461538464,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 1,
+      "window": [
+        "7/13",
+        "3/5"
+      ],
+      "r": "38/65",
+      "family": "V2",
+      "value": "97/260",
+      "certificate_bound": 0.37307692307692303,
+      "c31": 0.3776223776223776,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 1,
+      "window": [
+        "7/13",
+        "3/5"
+      ],
+      "r": "77/130",
+      "family": "V2",
+      "value": "13159/35750",
+      "certificate_bound": 0.36808391608391605,
+      "c31": 0.3706293706293706,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 1,
+      "window": [
+        "7/13",
+        "3/5"
+      ],
+      "r": "3/5",
+      "family": "c31",
+      "value": "4/11",
+      "certificate_bound": 0.36363636363636365,
+      "c31": 0.36363636363636365,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 1,
+      "window": [
+        "2/3",
+        "4/5"
+      ],
+      "r": "2/3",
+      "family": "c31",
+      "value": "10/33",
+      "certificate_bound": 0.303030303030303,
+      "c31": 0.30303030303030304,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 1,
+      "window": [
+        "2/3",
+        "4/5"
+      ],
+      "r": "41/60",
+      "family": "H2",
+      "value": "1919/6765",
+      "certificate_bound": 0.2836659275683666,
+      "c31": 0.28787878787878785,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 1,
+      "window": [
+        "2/3",
+        "4/5"
+      ],
+      "r": "7/10",
+      "family": "H2",
+      "value": "102/385",
+      "certificate_bound": 0.26493506493506513,
+      "c31": 0.27272727272727276,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 1,
+      "window": [
+        "2/3",
+        "4/5"
+      ],
+      "r": "43/60",
+      "family": "H2",
+      "value": "1751/7095",
+      "certificate_bound": 0.24679351656095833,
+      "c31": 0.25757575757575757,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 1,
+      "window": [
+        "2/3",
+        "4/5"
+      ],
+      "r": "11/15",
+      "family": "H2",
+      "value": "416/1815",
+      "certificate_bound": 0.22920110192837473,
+      "c31": 0.2424242424242425,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 1,
+      "window": [
+        "2/3",
+        "4/5"
+      ],
+      "r": "3/4",
+      "family": "H2",
+      "value": "7/33",
+      "certificate_bound": 0.2121212121212121,
+      "c31": 0.22727272727272724,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 1,
+      "window": [
+        "2/3",
+        "4/5"
+      ],
+      "r": "23/30",
+      "family": "H2",
+      "value": "742/3795",
+      "certificate_bound": 0.19552042160737804,
+      "c31": 0.21212121212121207,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 1,
+      "window": [
+        "2/3",
+        "4/5"
+      ],
+      "r": "47/60",
+      "family": "V1",
+      "value": "673/3630",
+      "certificate_bound": 0.18539944903581268,
+      "c31": 0.19696969696969696,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 1,
+      "window": [
+        "2/3",
+        "4/5"
+      ],
+      "r": "4/5",
+      "family": "c31",
+      "value": "2/11",
+      "certificate_bound": 0.18181818181818182,
+      "c31": 0.18181818181818177,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 2,
+      "window": [
+        "1/2",
+        "5/9"
+      ],
+      "r": "1/2",
+      "family": "c31",
+      "value": "9/22",
+      "certificate_bound": 0.40909090909090906,
+      "c31": 0.40909090909090906,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 2,
+      "window": [
+        "1/2",
+        "5/9"
+      ],
+      "r": "73/144",
+      "family": "V2",
+      "value": "5297/13200",
+      "certificate_bound": 0.40128787878787886,
+      "c31": 0.40340909090909094,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 2,
+      "window": [
+        "1/2",
+        "5/9"
+      ],
+      "r": "37/72",
+      "family": "V2",
+      "value": "41/104",
+      "certificate_bound": 0.3942307692307694,
+      "c31": 0.39772727272727276,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 2,
+      "window": [
+        "1/2",
+        "5/9"
+      ],
+      "r": "25/48",
+      "family": "V2",
+      "value": "1843/4752",
+      "certificate_bound": 0.38783670033670037,
+      "c31": 0.3920454545454545,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 2,
+      "window": [
+        "1/2",
+        "5/9"
+      ],
+      "r": "19/36",
+      "family": "V2",
+      "value": "353/924",
+      "certificate_bound": 0.38203463203463217,
+      "c31": 0.38636363636363635,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 2,
+      "window": [
+        "1/2",
+        "5/9"
+      ],
+      "r": "77/144",
+      "family": "V2",
+      "value": "1923/5104",
+      "certificate_bound": 0.37676332288401243,
+      "c31": 0.3806818181818182,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 2,
+      "window": [
+        "1/2",
+        "5/9"
+      ],
+      "r": "13/24",
+      "family": "V2",
+      "value": "491/1320",
+      "certificate_bound": 0.371969696969697,
+      "c31": 0.375,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 2,
+      "window": [
+        "1/2",
+        "5/9"
+      ],
+      "r": "79/144",
+      "family": "V2",
+      "value": "547/1488",
+      "certificate_bound": 0.3676075268817203,
+      "c31": 0.36931818181818177,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 2,
+      "window": [
+        "1/2",
+        "5/9"
+      ],
+      "r": "5/9",
+      "family": "c31",
+      "value": "4/11",
+      "certificate_bound": 0.36363636363636354,
+      "c31": 0.3636363636363636,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 2,
+      "window": [
+        "7/11",
+        "7/9"
+      ],
+      "r": "7/11",
+      "family": "c31",
+      "value": "36/121",
+      "certificate_bound": 0.29752066115702475,
+      "c31": 0.2975206611570248,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 2,
+      "window": [
+        "7/11",
+        "7/9"
+      ],
+      "r": "259/396",
+      "family": "H2",
+      "value": "89735/322344",
+      "certificate_bound": 0.2783827215645397,
+      "c31": 0.28305785123966937,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 2,
+      "window": [
+        "7/11",
+        "7/9"
+      ],
+      "r": "133/198",
+      "family": "H2",
+      "value": "21515/82764",
+      "certificate_bound": 0.25995601952539743,
+      "c31": 0.26859504132231404,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 2,
+      "window": [
+        "7/11",
+        "7/9"
+      ],
+      "r": "91/132",
+      "family": "H2",
+      "value": "9143/37752",
+      "certificate_bound": 0.24218584445857164,
+      "c31": 0.25413223140495866,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 2,
+      "window": [
+        "7/11",
+        "7/9"
+      ],
+      "r": "70/99",
+      "family": "H2",
+      "value": "4901/21780",
+      "certificate_bound": 0.22502295684113865,
+      "c31": 0.2396694214876033,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 2,
+      "window": [
+        "7/11",
+        "7/9"
+      ],
+      "r": "287/396",
+      "family": "H2",
+      "value": "74447/357192",
+      "certificate_bound": 0.20842292100606974,
+      "c31": 0.22520661157024793,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 2,
+      "window": [
+        "7/11",
+        "7/9"
+      ],
+      "r": "49/66",
+      "family": "H2",
+      "value": "1955/10164",
+      "certificate_bound": 0.19234553325462428,
+      "c31": 0.21074380165289255,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 2,
+      "window": [
+        "7/11",
+        "7/9"
+      ],
+      "r": "301/396",
+      "family": "V1",
+      "value": "32741/176418",
+      "certificate_bound": 0.1855876384495913,
+      "c31": 0.1962809917355372,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 2,
+      "window": [
+        "7/11",
+        "7/9"
+      ],
+      "r": "7/9",
+      "family": "c31",
+      "value": "2/11",
+      "certificate_bound": 0.18181818181818188,
+      "c31": 0.1818181818181818,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 3,
+      "window": [
+        "5/11",
+        "1/2"
+      ],
+      "r": "5/11",
+      "family": "c31",
+      "value": "48/121",
+      "certificate_bound": 0.39669421487603307,
+      "c31": 0.396694214876033,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 3,
+      "window": [
+        "5/11",
+        "1/2"
+      ],
+      "r": "81/176",
+      "family": "V2",
+      "value": "28043/71632",
+      "certificate_bound": 0.39148704489613595,
+      "c31": 0.3925619834710744,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 3,
+      "window": [
+        "5/11",
+        "1/2"
+      ],
+      "r": "41/88",
+      "family": "V2",
+      "value": "7111/18392",
+      "certificate_bound": 0.38663549369290995,
+      "c31": 0.38842975206611574,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 3,
+      "window": [
+        "5/11",
+        "1/2"
+      ],
+      "r": "83/176",
+      "family": "V2",
+      "value": "9617/25168",
+      "certificate_bound": 0.38211220597584233,
+      "c31": 0.38429752066115697,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 3,
+      "window": [
+        "5/11",
+        "1/2"
+      ],
+      "r": "21/44",
+      "family": "V2",
+      "value": "1829/4840",
+      "certificate_bound": 0.3778925619834712,
+      "c31": 0.3801652892561983,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 3,
+      "window": [
+        "5/11",
+        "1/2"
+      ],
+      "r": "85/176",
+      "family": "V2",
+      "value": "29683/79376",
+      "certificate_bound": 0.3739543438822819,
+      "c31": 0.3760330578512397,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 3,
+      "window": [
+        "5/11",
+        "1/2"
+      ],
+      "r": "43/88",
+      "family": "V2",
+      "value": "2509/6776",
+      "certificate_bound": 0.37027744982290434,
+      "c31": 0.371900826446281,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 3,
+      "window": [
+        "5/11",
+        "1/2"
+      ],
+      "r": "87/176",
+      "family": "V2",
+      "value": "30539/83248",
+      "certificate_bound": 0.36684364789544505,
+      "c31": 0.36776859504132225,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 3,
+      "window": [
+        "5/11",
+        "1/2"
+      ],
+      "r": "1/2",
+      "family": "c31",
+      "value": "4/11",
+      "certificate_bound": 0.36363636363636365,
+      "c31": 0.36363636363636365,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 3,
+      "window": [
+        "3/5",
+        "3/4"
+      ],
+      "r": "3/5",
+      "family": "c31",
+      "value": "16/55",
+      "certificate_bound": 0.2909090909090909,
+      "c31": 0.2909090909090909,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 3,
+      "window": [
+        "3/5",
+        "3/4"
+      ],
+      "r": "99/160",
+      "family": "H2",
+      "value": "15799/58080",
+      "certificate_bound": 0.2720213498622589,
+      "c31": 0.2772727272727272,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 3,
+      "window": [
+        "3/5",
+        "3/4"
+      ],
+      "r": "51/80",
+      "family": "H2",
+      "value": "3799/14960",
+      "certificate_bound": 0.25394385026737964,
+      "c31": 0.26363636363636367,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 3,
+      "window": [
+        "3/5",
+        "3/4"
+      ],
+      "r": "21/32",
+      "family": "H2",
+      "value": "53/224",
+      "certificate_bound": 0.23660714285714282,
+      "c31": 0.25,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 3,
+      "window": [
+        "3/5",
+        "3/4"
+      ],
+      "r": "27/40",
+      "family": "H2",
+      "value": "871/3960",
+      "certificate_bound": 0.21994949494949503,
+      "c31": 0.23636363636363633,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 3,
+      "window": [
+        "3/5",
+        "3/4"
+      ],
+      "r": "111/160",
+      "family": "H2",
+      "value": "13279/65120",
+      "certificate_bound": 0.20391584766584764,
+      "c31": 0.22272727272727275,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 3,
+      "window": [
+        "3/5",
+        "3/4"
+      ],
+      "r": "57/80",
+      "family": "V1",
+      "value": "1429/7480",
+      "certificate_bound": 0.19104278074866307,
+      "c31": 0.20909090909090908,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 3,
+      "window": [
+        "3/5",
+        "3/4"
+      ],
+      "r": "117/160",
+      "family": "V1",
+      "value": "6049/32560",
+      "certificate_bound": 0.1857800982800983,
+      "c31": 0.1954545454545455,
+      "pinned": true
+    },
+    {
+      "n": 11,
+      "depth": 3,
+      "window": [
+        "3/5",
+        "3/4"
+      ],
+      "r": "3/4",
+      "family": "c31",
+      "value": "2/11",
+      "certificate_bound": 0.18181818181818185,
+      "c31": 0.18181818181818182,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 1,
+      "window": [
+        "4/7",
+        "7/11"
+      ],
+      "r": "4/7",
+      "family": "c31",
+      "value": "11/28",
+      "certificate_bound": 0.39285714285714296,
+      "c31": 0.39285714285714285,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 1,
+      "window": [
+        "4/7",
+        "7/11"
+      ],
+      "r": "51/88",
+      "family": "H3",
+      "value": "5143/13464",
+      "certificate_bound": 0.38198158051099207,
+      "c31": 0.38541666666666663,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 1,
+      "window": [
+        "4/7",
+        "7/11"
+      ],
+      "r": "181/308",
+      "family": "H3",
+      "value": "20701/55748",
+      "certificate_bound": 0.3713317069670661,
+      "c31": 0.37797619047619047,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 1,
+      "window": [
+        "4/7",
+        "7/11"
+      ],
+      "r": "367/616",
+      "family": "V2",
+      "value": "77681/214368",
+      "certificate_bound": 0.36237218241528596,
+      "c31": 0.37053571428571436,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 1,
+      "window": [
+        "4/7",
+        "7/11"
+      ],
+      "r": "93/154",
+      "family": "V2",
+      "value": "15083/42504",
+      "certificate_bound": 0.35486071899115385,
+      "c31": 0.363095238095238,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 1,
+      "window": [
+        "4/7",
+        "7/11"
+      ],
+      "r": "377/616",
+      "family": "V2",
+      "value": "249763/717024",
+      "certificate_bound": 0.3483328312580891,
+      "c31": 0.3556547619047619,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 1,
+      "window": [
+        "4/7",
+        "7/11"
+      ],
+      "r": "191/308",
+      "family": "V2",
+      "value": "21529/62832",
+      "certificate_bound": 0.34264387573211114,
+      "c31": 0.34821428571428575,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 1,
+      "window": [
+        "4/7",
+        "7/11"
+      ],
+      "r": "387/616",
+      "family": "V2",
+      "value": "267083/790944",
+      "certificate_bound": 0.33767624509446936,
+      "c31": 0.3407738095238095,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 1,
+      "window": [
+        "4/7",
+        "7/11"
+      ],
+      "r": "7/11",
+      "family": "c31",
+      "value": "1/3",
+      "certificate_bound": 0.33333333333333337,
+      "c31": 0.3333333333333333,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 1,
+      "window": [
+        "9/13",
+        "9/11"
+      ],
+      "r": "9/13",
+      "family": "c31",
+      "value": "11/39",
+      "certificate_bound": 0.2820512820512822,
+      "c31": 0.28205128205128205,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 1,
+      "window": [
+        "9/13",
+        "9/11"
+      ],
+      "r": "405/572",
+      "family": "H2",
+      "value": "163159/617760",
+      "certificate_bound": 0.2641138953638954,
+      "c31": 0.2676282051282051,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 1,
+      "window": [
+        "9/13",
+        "9/11"
+      ],
+      "r": "207/286",
+      "family": "H2",
+      "value": "38947/157872",
+      "certificate_bound": 0.2466998581129016,
+      "c31": 0.2532051282051282,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 1,
+      "window": [
+        "9/13",
+        "9/11"
+      ],
+      "r": "423/572",
+      "family": "H2",
+      "value": "148255/645216",
+      "certificate_bound": 0.22977576501512686,
+      "c31": 0.2387820512820513,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 1,
+      "window": [
+        "9/13",
+        "9/11"
+      ],
+      "r": "108/143",
+      "family": "H2",
+      "value": "8785/41184",
+      "certificate_bound": 0.21331099456099453,
+      "c31": 0.22435897435897442,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 1,
+      "window": [
+        "9/13",
+        "9/11"
+      ],
+      "r": "441/572",
+      "family": "H2",
+      "value": "132703/672672",
+      "certificate_bound": 0.19727742495599665,
+      "c31": 0.20993589743589747,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 1,
+      "window": [
+        "9/13",
+        "9/11"
+      ],
+      "r": "225/286",
+      "family": "H2",
+      "value": "31171/171600",
+      "certificate_bound": 0.18164918414918435,
+      "c31": 0.19551282051282054,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 1,
+      "window": [
+        "9/13",
+        "9/11"
+      ],
+      "r": "459/572",
+      "family": "V1",
+      "value": "55357/326040",
+      "certificate_bound": 0.16978591583854738,
+      "c31": 0.18108974358974364,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 1,
+      "window": [
+        "9/13",
+        "9/11"
+      ],
+      "r": "9/11",
+      "family": "c31",
+      "value": "1/6",
+      "certificate_bound": 0.16666666666666669,
+      "c31": 0.1666666666666666,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 2,
+      "window": [
+        "7/13",
+        "3/5"
+      ],
+      "r": "7/13",
+      "family": "c31",
+      "value": "5/13",
+      "certificate_bound": 0.3846153846153847,
+      "c31": 0.38461538461538464,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 2,
+      "window": [
+        "7/13",
+        "3/5"
+      ],
+      "r": "71/130",
+      "family": "V2",
+      "value": "11119/29640",
+      "certificate_bound": 0.37513495276653175,
+      "c31": 0.37820512820512825,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 2,
+      "window": [
+        "7/13",
+        "3/5"
+      ],
+      "r": "36/65",
+      "family": "V2",
+      "value": "2861/7800",
+      "certificate_bound": 0.3667948717948719,
+      "c31": 0.37179487179487175,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 2,
+      "window": [
+        "7/13",
+        "3/5"
+      ],
+      "r": "73/130",
+      "family": "V2",
+      "value": "785/2184",
+      "certificate_bound": 0.3594322344322344,
+      "c31": 0.36538461538461536,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 2,
+      "window": [
+        "7/13",
+        "3/5"
+      ],
+      "r": "37/65",
+      "family": "V2",
+      "value": "757/2145",
+      "certificate_bound": 0.3529137529137529,
+      "c31": 0.358974358974359,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 2,
+      "window": [
+        "7/13",
+        "3/5"
+      ],
+      "r": "15/26",
+      "family": "V2",
+      "value": "2491/7176",
+      "certificate_bound": 0.3471293199554071,
+      "c31": 0.3525641025641026,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 2,
+      "window": [
+        "7/13",
+        "3/5"
+      ],
+      "r": "38/65",
+      "family": "V2",
+      "value": "1067/3120",
+      "certificate_bound": 0.34198717948717955,
+      "c31": 0.34615384615384615,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 2,
+      "window": [
+        "7/13",
+        "3/5"
+      ],
+      "r": "77/130",
+      "family": "V2",
+      "value": "13159/39000",
+      "certificate_bound": 0.3374102564102565,
+      "c31": 0.33974358974358976,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 2,
+      "window": [
+        "7/13",
+        "3/5"
+      ],
+      "r": "3/5",
+      "family": "c31",
+      "value": "1/3",
+      "certificate_bound": 0.3333333333333335,
+      "c31": 0.33333333333333337,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 2,
+      "window": [
+        "2/3",
+        "4/5"
+      ],
+      "r": "2/3",
+      "family": "c31",
+      "value": "5/18",
+      "certificate_bound": 0.27777777777777785,
+      "c31": 0.2777777777777778,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 2,
+      "window": [
+        "2/3",
+        "4/5"
+      ],
+      "r": "41/60",
+      "family": "H2",
+      "value": "1919/7380",
+      "certificate_bound": 0.2600271002710028,
+      "c31": 0.2638888888888889,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 2,
+      "window": [
+        "2/3",
+        "4/5"
+      ],
+      "r": "7/10",
+      "family": "H2",
+      "value": "17/70",
+      "certificate_bound": 0.24285714285714305,
+      "c31": 0.25,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 2,
+      "window": [
+        "2/3",
+        "4/5"
+      ],
+      "r": "43/60",
+      "family": "H2",
+      "value": "1751/7740",
+      "certificate_bound": 0.2262273901808786,
+      "c31": 0.23611111111111108,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 2,
+      "window": [
+        "2/3",
+        "4/5"
+      ],
+      "r": "11/15",
+      "family": "H2",
+      "value": "104/495",
+      "certificate_bound": 0.21010101010101023,
+      "c31": 0.2222222222222223,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 2,
+      "window": [
+        "2/3",
+        "4/5"
+      ],
+      "r": "3/4",
+      "family": "H2",
+      "value": "7/36",
+      "certificate_bound": 0.19444444444444456,
+      "c31": 0.20833333333333331,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 2,
+      "window": [
+        "2/3",
+        "4/5"
+      ],
+      "r": "23/30",
+      "family": "H2",
+      "value": "371/2070",
+      "certificate_bound": 0.17922705314009676,
+      "c31": 0.1944444444444444,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 2,
+      "window": [
+        "2/3",
+        "4/5"
+      ],
+      "r": "47/60",
+      "family": "V1",
+      "value": "673/3960",
+      "certificate_bound": 0.169949494949495,
+      "c31": 0.18055555555555555,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 2,
+      "window": [
+        "2/3",
+        "4/5"
+      ],
+      "r": "4/5",
+      "family": "c31",
+      "value": "1/6",
+      "certificate_bound": 0.1666666666666666,
+      "c31": 0.16666666666666663,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 3,
+      "window": [
+        "1/2",
+        "5/9"
+      ],
+      "r": "1/2",
+      "family": "c31",
+      "value": "3/8",
+      "certificate_bound": 0.3749999999999999,
+      "c31": 0.375,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 3,
+      "window": [
+        "1/2",
+        "5/9"
+      ],
+      "r": "73/144",
+      "family": "V2",
+      "value": "5297/14400",
+      "certificate_bound": 0.36784722222222227,
+      "c31": 0.36979166666666674,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 3,
+      "window": [
+        "1/2",
+        "5/9"
+      ],
+      "r": "37/72",
+      "family": "V2",
+      "value": "451/1248",
+      "certificate_bound": 0.3613782051282052,
+      "c31": 0.36458333333333337,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 3,
+      "window": [
+        "1/2",
+        "5/9"
+      ],
+      "r": "25/48",
+      "family": "V2",
+      "value": "1843/5184",
+      "certificate_bound": 0.35551697530864207,
+      "c31": 0.35937499999999994,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 3,
+      "window": [
+        "1/2",
+        "5/9"
+      ],
+      "r": "19/36",
+      "family": "V2",
+      "value": "353/1008",
+      "certificate_bound": 0.35019841269841273,
+      "c31": 0.35416666666666663,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 3,
+      "window": [
+        "1/2",
+        "5/9"
+      ],
+      "r": "77/144",
+      "family": "V2",
+      "value": "641/1856",
+      "certificate_bound": 0.34536637931034486,
+      "c31": 0.34895833333333337,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 3,
+      "window": [
+        "1/2",
+        "5/9"
+      ],
+      "r": "13/24",
+      "family": "V2",
+      "value": "491/1440",
+      "certificate_bound": 0.3409722222222222,
+      "c31": 0.34375,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 3,
+      "window": [
+        "1/2",
+        "5/9"
+      ],
+      "r": "79/144",
+      "family": "V2",
+      "value": "6017/17856",
+      "certificate_bound": 0.3369735663082436,
+      "c31": 0.3385416666666666,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 3,
+      "window": [
+        "1/2",
+        "5/9"
+      ],
+      "r": "5/9",
+      "family": "c31",
+      "value": "1/3",
+      "certificate_bound": 0.33333333333333337,
+      "c31": 0.3333333333333333,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 3,
+      "window": [
+        "7/11",
+        "7/9"
+      ],
+      "r": "7/11",
+      "family": "c31",
+      "value": "3/11",
+      "certificate_bound": 0.27272727272727276,
+      "c31": 0.2727272727272727,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 3,
+      "window": [
+        "7/11",
+        "7/9"
+      ],
+      "r": "259/396",
+      "family": "H2",
+      "value": "89735/351648",
+      "certificate_bound": 0.2551841614341614,
+      "c31": 0.25946969696969696,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 3,
+      "window": [
+        "7/11",
+        "7/9"
+      ],
+      "r": "133/198",
+      "family": "H2",
+      "value": "21515/90288",
+      "certificate_bound": 0.23829301789828117,
+      "c31": 0.24621212121212122,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 3,
+      "window": [
+        "7/11",
+        "7/9"
+      ],
+      "r": "91/132",
+      "family": "H2",
+      "value": "9143/41184",
+      "certificate_bound": 0.2220036907536908,
+      "c31": 0.23295454545454541,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 3,
+      "window": [
+        "7/11",
+        "7/9"
+      ],
+      "r": "70/99",
+      "family": "H2",
+      "value": "4901/23760",
+      "certificate_bound": 0.20627104377104388,
+      "c31": 0.2196969696969697,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 3,
+      "window": [
+        "7/11",
+        "7/9"
+      ],
+      "r": "287/396",
+      "family": "H2",
+      "value": "74447/389664",
+      "certificate_bound": 0.19105434425556403,
+      "c31": 0.20643939393939395,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 3,
+      "window": [
+        "7/11",
+        "7/9"
+      ],
+      "r": "49/66",
+      "family": "H2",
+      "value": "1955/11088",
+      "certificate_bound": 0.17631673881673884,
+      "c31": 0.19318181818181818,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 3,
+      "window": [
+        "7/11",
+        "7/9"
+      ],
+      "r": "301/396",
+      "family": "V1",
+      "value": "32741/192456",
+      "certificate_bound": 0.17012200191212531,
+      "c31": 0.17992424242424246,
+      "pinned": true
+    },
+    {
+      "n": 12,
+      "depth": 3,
+      "window": [
+        "7/11",
+        "7/9"
+      ],
+      "r": "7/9",
+      "family": "c31",
+      "value": "1/6",
+      "certificate_bound": 0.16666666666666663,
+      "c31": 0.16666666666666666,
+      "pinned": true
+    }
+  ]
+}

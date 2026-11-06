@@ -379,3 +379,58 @@ def symmetric_unit_law(generators, shares, *, grand_cost=1.0):
     radius = float(np.abs(atoms).max())
     states = 0.5 + atoms / (2 * radius)
     return states, probabilities, n / 2 + offer / (2 * radius), 1 / (2 * radius)
+
+
+def equal_share_certificate_bound(n, r, depth=1):
+    """Upper bound on (D_depth - B)/L for equal shares from triangle certificates.
+
+    By homogeneity and symmetry a maximizer can be taken with a unit
+    coordinate and the other free coordinates sorted, 1 = z_1 >= ... >= z_m.
+    For every top-s coalition S and every scale nu = z_t the certificate
+    nu*c(1_S) <= c(z) + M * sum_i |z_i - nu 1_S(i)| holds, with
+    c(1_S) >= s a - B and M = a/r. On the sorted region each certificate
+    is linear, so the maximum of the minimum over all of them and nonnegative
+    cost is one LP. Returns (bound, maximizing sorted membership).
+    """
+    a, cap = 1.0 / n, 1.0 / (n * r)
+    m = n - depth
+    width = m  # z_2..z_m and w
+    rows, rhs = [], []
+    for i in range(m - 1):
+        row = np.zeros(width)
+        row[i] = 1.0
+        if i > 0:
+            row[i - 1] = -1.0
+        rows.append(row)
+        rhs.append(1.0 if i == 0 else 0.0)
+    row = np.zeros(width)
+    row[m - 2] = -1.0
+    rows.append(row)
+    rhs.append(0.0)
+    forms = [np.full(m, a)]
+    for s in range(1, m + 1):
+        for t in range(1, m + 1):
+            coef = np.full(m, a)
+            coef[t - 1] -= s * a
+            for i in range(1, m + 1):
+                if i <= s:
+                    if i < t:
+                        coef[i - 1] += cap
+                        coef[t - 1] -= cap
+                    elif i > t:
+                        coef[i - 1] -= cap
+                        coef[t - 1] += cap
+                else:
+                    coef[i - 1] += cap
+            forms.append(coef)
+    for coef in forms:
+        row = np.zeros(width)
+        row[:m - 1] = -coef[1:]
+        row[-1] = 1.0
+        rows.append(row)
+        rhs.append(coef[0])
+    objective = np.zeros(width)
+    objective[-1] = -1.0
+    result = linprog(objective, A_ub=np.array(rows), b_ub=np.array(rhs),
+                     bounds=[(None, None)] * width, method="highs")
+    return float(-result.fun), np.concatenate([[1.0], result.x[:-1]])

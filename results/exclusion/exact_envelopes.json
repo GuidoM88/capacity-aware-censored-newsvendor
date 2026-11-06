@@ -1,7 +1,7 @@
 {
   "date": "2026-11-06",
   "sha256": {
-    "src/censored_newsvendor/exact_envelopes.py": "b808894d7d32fea197913337d0974584643d8a17d5d6a0872f9d7c30db7279f3",
+    "src/censored_newsvendor/exact_envelopes.py": "8a701e9a13294587eafe3cbc73eaf5587638ec8d85a5f449156d8025b2d6a94c",
     "scripts/check_exact_envelopes.py": "f97d0885243d498fe254ac86d77baf4b9a25d1117d9389b0c0391198c59b6637"
   },
   "equal_shares": {

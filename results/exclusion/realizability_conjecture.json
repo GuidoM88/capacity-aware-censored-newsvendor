@@ -1,0 +1,657 @@
+{
+  "date": "2026-11-06",
+  "tolerance": 1e-06,
+  "sha256": {
+    "src/censored_newsvendor/seminorm_envelope.py": "35f8a6ac9826f4ca296504f6751ad389ebe2b0460873922fe9841c9ec153c65f",
+    "scripts/check_realizability_conjecture.py": "6ccaa23ad240922c10a2f88f3de102d008faf711fcbcad534720d4829f4a83a2"
+  },
+  "cases": [
+    {
+      "family": "four producers, unequal shares",
+      "shares": [
+        0.3103448275862069,
+        0.20689655172413793,
+        0.3793103448275862,
+        0.10344827586206896
+      ],
+      "r": 0.6,
+      "depth": 1,
+      "step": 0.05,
+      "samples": 2000000,
+      "relaxed_gap": 0.3586207496551724,
+      "relaxed_at_membership": 0.3586207496551724,
+      "membership": [
+        0.23483376211276458,
+        1.0,
+        0.2078634437259197,
+        0.0
+      ],
+      "excluded": [
+        3
+      ],
+      "c31": 0.35862068965517246,
+      "attempts": [
+        {
+          "samples": 2000000,
+          "chambers": 250,
+          "chambers_stable": false,
+          "verified_gap": 0.3586207496551725,
+          "integer_excess_over_L": 2.0298384102367745e-16,
+          "rho": 0.5999998940827657,
+          "atoms": 12
+        }
+      ],
+      "realized": true
+    },
+    {
+      "family": "four producers, unequal shares",
+      "shares": [
+        0.23076923076923078,
+        0.34615384615384615,
+        0.038461538461538464,
+        0.38461538461538464
+      ],
+      "r": 0.4,
+      "depth": 1,
+      "step": 0.05,
+      "samples": 2000000,
+      "relaxed_gap": 0.5769231048370462,
+      "relaxed_at_membership": 0.5769231048370462,
+      "membership": [
+        0.30000003501545314,
+        0.35555561285227566,
+        0.0,
+        1.0
+      ],
+      "excluded": [
+        2
+      ],
+      "c31": 0.5769230769230769,
+      "attempts": [
+        {
+          "samples": 2000000,
+          "chambers": 257,
+          "chambers_stable": false,
+          "verified_gap": 0.5769230747369563,
+          "integer_excess_over_L": 1.8358107592554572e-09,
+          "rho": 0.39999995879276157,
+          "atoms": 8
+        }
+      ],
+      "realized": true
+    },
+    {
+      "family": "four producers, unequal shares",
+      "shares": [
+        0.13333333333333333,
+        0.26666666666666666,
+        0.3,
+        0.3
+      ],
+      "r": 0.6,
+      "depth": 1,
+      "step": 0.05,
+      "samples": 2000000,
+      "relaxed_gap": 0.31999999999999995,
+      "relaxed_at_membership": 0.31999999999999995,
+      "membership": [
+        0.0,
+        1.0,
+        0.2,
+        0.2
+      ],
+      "excluded": [
+        0
+      ],
+      "c31": 0.3466666666666667,
+      "attempts": [
+        {
+          "samples": 2000000,
+          "chambers": 238,
+          "chambers_stable": true,
+          "verified_gap": 0.3200000000000002,
+          "integer_excess_over_L": 6.245004513516509e-17,
+          "rho": 0.5999999999999995,
+          "atoms": 6
+        }
+      ],
+      "realized": true
+    },
+    {
+      "family": "four producers, unequal shares",
+      "shares": [
+        0.37037037037037035,
+        0.1111111111111111,
+        0.14814814814814814,
+        0.37037037037037035
+      ],
+      "r": 0.2,
+      "depth": 1,
+      "step": 0.05,
+      "samples": 2000000,
+      "relaxed_gap": 0.711111131111111,
+      "relaxed_at_membership": 0.711111131111111,
+      "membership": [
+        1.0,
+        0.0,
+        0.7999306322780109,
+        0.6000278010887954
+      ],
+      "excluded": [
+        1
+      ],
+      "c31": 0.7111111111111111,
+      "attempts": [
+        {
+          "samples": 2000000,
+          "chambers": 255,
+          "chambers_stable": true,
+          "verified_gap": 0.7111110882511313,
+          "integer_excess_over_L": 1.918928235975629e-16,
+          "rho": 0.19999998457112358,
+          "atoms": 8
+        }
+      ],
+      "realized": true
+    },
+    {
+      "family": "four producers, unequal shares",
+      "shares": [
+        0.1,
+        0.2,
+        0.6,
+        0.1
+      ],
+      "r": 0.5,
+      "depth": 1,
+      "step": 0.05,
+      "samples": 2000000,
+      "relaxed_gap": 0.45000005,
+      "relaxed_at_membership": 0.45000005,
+      "membership": [
+        1.0,
+        1.0,
+        0.25000008333333323,
+        0.0
+      ],
+      "excluded": [
+        3
+      ],
+      "c31": 0.45,
+      "attempts": [
+        {
+          "samples": 2000000,
+          "chambers": 238,
+          "chambers_stable": true,
+          "verified_gap": 0.44999995,
+          "integer_excess_over_L": 1.11022265455094e-16,
+          "rho": 0.4999999999999998,
+          "atoms": 8
+        }
+      ],
+      "realized": true
+    },
+    {
+      "family": "four producers, unequal shares",
+      "shares": [
+        0.04,
+        0.04,
+        0.48,
+        0.44
+      ],
+      "r": 0.4,
+      "depth": 1,
+      "step": 0.05,
+      "samples": 2000000,
+      "relaxed_gap": 0.546,
+      "relaxed_at_membership": 0.546,
+      "membership": [
+        0.0,
+        0.30000000000000004,
+        0.30000000000000004,
+        1.0
+      ],
+      "excluded": [
+        0
+      ],
+      "c31": 0.576,
+      "attempts": [
+        {
+          "samples": 2000000,
+          "chambers": 238,
+          "chambers_stable": true,
+          "verified_gap": 0.5460000000000018,
+          "integer_excess_over_L": 3.33066907387547e-16,
+          "rho": 0.39999999999999847,
+          "atoms": 8
+        }
+      ],
+      "realized": true
+    },
+    {
+      "family": "four producers, equal-share window",
+      "shares": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "r": 0.21,
+      "depth": 1,
+      "step": 0.025,
+      "samples": 2000000,
+      "relaxed_gap": 0.5896626043027801,
+      "relaxed_at_membership": 0.5896626043027801,
+      "membership": [
+        1.0,
+        0.9693252249101774,
+        0.38932519230094276,
+        0.0
+      ],
+      "excluded": [
+        3
+      ],
+      "c31": 0.5925,
+      "attempts": [
+        {
+          "samples": 2000000,
+          "chambers": 249,
+          "chambers_stable": true,
+          "verified_gap": 0.5896625043095008,
+          "integer_excess_over_L": 0.0,
+          "rho": 0.20999996472237697,
+          "atoms": 10
+        }
+      ],
+      "realized": true
+    },
+    {
+      "family": "four producers, equal-share window",
+      "shares": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "r": 0.23,
+      "depth": 1,
+      "step": 0.025,
+      "samples": 2000000,
+      "relaxed_gap": 0.5706213305559311,
+      "relaxed_at_membership": 0.5706213305559311,
+      "membership": [
+        1.0,
+        0.9112426781826022,
+        0.37124264404112245,
+        0.0
+      ],
+      "excluded": [
+        3
+      ],
+      "c31": 0.5775,
+      "attempts": [
+        {
+          "samples": 2000000,
+          "chambers": 257,
+          "chambers_stable": true,
+          "verified_gap": 0.5706213305559323,
+          "integer_excess_over_L": 0.0,
+          "rho": 0.22999997099042602,
+          "atoms": 12
+        }
+      ],
+      "realized": true
+    },
+    {
+      "family": "four producers, equal-share window",
+      "shares": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "r": 0.27,
+      "depth": 1,
+      "step": 0.025,
+      "samples": 2000000,
+      "relaxed_gap": 0.5383149479296967,
+      "relaxed_at_membership": 0.5383149479296967,
+      "membership": [
+        1.0,
+        0.8066299143257447,
+        0.34662987739304196,
+        0.0
+      ],
+      "excluded": [
+        3
+      ],
+      "c31": 0.5475,
+      "attempts": [
+        {
+          "samples": 2000000,
+          "chambers": 257,
+          "chambers_stable": true,
+          "verified_gap": 0.5383148479325716,
+          "integer_excess_over_L": 0.0,
+          "rho": 0.2699999590521663,
+          "atoms": 12
+        }
+      ],
+      "realized": true
+    },
+    {
+      "family": "four producers, equal-share window",
+      "shares": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "r": 0.32,
+      "depth": 1,
+      "step": 0.025,
+      "samples": 2000000,
+      "relaxed_gap": 0.5069388083763963,
+      "relaxed_at_membership": 0.5069388083763963,
+      "membership": [
+        1.0,
+        0.6938776376453839,
+        0.3338775958602012,
+        0.0
+      ],
+      "excluded": [
+        3
+      ],
+      "c31": 0.51,
+      "attempts": [
+        {
+          "samples": 2000000,
+          "chambers": 255,
+          "chambers_stable": false,
+          "verified_gap": 0.506938708376576,
+          "integer_excess_over_L": 3.187553967159876e-16,
+          "rho": 0.31999992037361225,
+          "atoms": 10
+        }
+      ],
+      "realized": true
+    },
+    {
+      "family": "five producers, equal-share window",
+      "shares": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "r": 0.35,
+      "depth": 1,
+      "step": 0.05,
+      "samples": 4000000,
+      "relaxed_gap": 0.5114286026107371,
+      "relaxed_at_membership": 0.5114286026107371,
+      "membership": [
+        1.0,
+        0.9285715065254778,
+        0.3236498172007126,
+        0.30492168932749486,
+        0.0
+      ],
+      "excluded": [
+        4
+      ],
+      "c31": 0.52,
+      "attempts": [
+        {
+          "samples": 4000000,
+          "chambers": 7213,
+          "chambers_stable": false,
+          "verified_gap": 0.5114285928518074,
+          "integer_excess_over_L": 9.758930303776985e-09,
+          "rho": 0.3499999098513998,
+          "atoms": 26
+        }
+      ],
+      "realized": true
+    },
+    {
+      "family": "five producers, equal-share window",
+      "shares": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "r": 0.4,
+      "depth": 1,
+      "step": 0.05,
+      "samples": 4000000,
+      "relaxed_gap": 0.4600000249879336,
+      "relaxed_at_membership": 0.4600000249879336,
+      "membership": [
+        1.0,
+        0.7500000624407652,
+        0.2999999367894959,
+        0.2500001257094068,
+        0.0
+      ],
+      "excluded": [
+        4
+      ],
+      "c31": 0.48,
+      "attempts": [
+        {
+          "samples": 4000000,
+          "chambers": 7273,
+          "chambers_stable": false,
+          "verified_gap": 0.45999985836595303,
+          "integer_excess_over_L": 0.0,
+          "rho": 0.3999999616878478,
+          "atoms": 20
+        }
+      ],
+      "realized": true
+    },
+    {
+      "family": "five producers, equal-share window",
+      "shares": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "r": 0.45,
+      "depth": 1,
+      "step": 0.05,
+      "samples": 4000000,
+      "relaxed_gap": 0.42444446292454024,
+      "relaxed_at_membership": 0.42444446292454024,
+      "membership": [
+        1.0,
+        0.6111111573114111,
+        0.26960240635017685,
+        0.2415087509611134,
+        0.0
+      ],
+      "excluded": [
+        4
+      ],
+      "c31": 0.44000000000000006,
+      "attempts": [
+        {
+          "samples": 4000000,
+          "chambers": 7312,
+          "chambers_stable": false,
+          "verified_gap": 0.42444444444442025,
+          "integer_excess_over_L": 1.911634112309656e-16,
+          "rho": 0.44999985314655905,
+          "atoms": 16
+        }
+      ],
+      "realized": true
+    },
+    {
+      "family": "five producers, depth two, equal-share window",
+      "shares": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "r": 0.25,
+      "depth": 2,
+      "step": 0.025,
+      "samples": 4000000,
+      "relaxed_gap": 0.4428571749928411,
+      "relaxed_at_membership": 0.4428571749928411,
+      "membership": [
+        1.0,
+        0.8571429999343348,
+        0.35714287502987063,
+        0.0,
+        0.0
+      ],
+      "excluded": [
+        3,
+        4
+      ],
+      "c31": null,
+      "attempts": [
+        {
+          "samples": 4000000,
+          "chambers": 7310,
+          "chambers_stable": false,
+          "verified_gap": 0.44285720374141985,
+          "integer_excess_over_L": 1.848069872647404e-08,
+          "rho": 0.24999994103954795,
+          "atoms": 18
+        }
+      ],
+      "realized": true
+    },
+    {
+      "family": "five producers, depth two, equal-share window",
+      "shares": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "r": 0.3,
+      "depth": 2,
+      "step": 0.025,
+      "samples": 4000000,
+      "relaxed_gap": 0.4147368752607538,
+      "relaxed_at_membership": 0.4147368752607538,
+      "membership": [
+        1.0,
+        0.7368422630775116,
+        0.3368421132262576,
+        0.0,
+        0.0
+      ],
+      "excluded": [
+        3,
+        4
+      ],
+      "c31": null,
+      "attempts": [
+        {
+          "samples": 4000000,
+          "chambers": 7246,
+          "chambers_stable": false,
+          "verified_gap": 0.4147367751307075,
+          "integer_excess_over_L": 1.4325673121326294e-10,
+          "rho": 0.29999991007638177,
+          "atoms": 18
+        }
+      ],
+      "realized": true
+    },
+    {
+      "family": "five producers, depth two, unequal shares",
+      "shares": [
+        0.20512820512820512,
+        0.15384615384615385,
+        0.28205128205128205,
+        0.28205128205128205,
+        0.07692307692307693
+      ],
+      "r": 0.15,
+      "depth": 2,
+      "step": 0.05,
+      "samples": 4000000,
+      "relaxed_gap": 0.6538461688461538,
+      "relaxed_at_membership": 0.6538461688461538,
+      "membership": [
+        1.0,
+        0.0,
+        1.0,
+        0.5909091440909087,
+        0.0
+      ],
+      "excluded": [
+        1,
+        4
+      ],
+      "c31": null,
+      "attempts": [
+        {
+          "samples": 4000000,
+          "chambers": 6994,
+          "chambers_stable": false,
+          "verified_gap": 0.6538460688461547,
+          "integer_excess_over_L": 2.0875991315483322e-16,
+          "rho": 0.15000000000000005,
+          "atoms": 10
+        }
+      ],
+      "realized": true
+    },
+    {
+      "family": "five producers, depth two, unequal shares",
+      "shares": [
+        0.125,
+        0.375,
+        0.34375,
+        0.125,
+        0.03125
+      ],
+      "r": 0.15,
+      "depth": 2,
+      "step": 0.05,
+      "samples": 4000000,
+      "relaxed_gap": 0.717187515,
+      "relaxed_at_membership": 0.717187515,
+      "membership": [
+        0.0,
+        1.0,
+        0.6498759627328434,
+        0.9503412224846801,
+        0.0
+      ],
+      "excluded": [
+        0,
+        4
+      ],
+      "c31": null,
+      "attempts": [
+        {
+          "samples": 4000000,
+          "chambers": 7165,
+          "chambers_stable": false,
+          "verified_gap": 0.7171874612088872,
+          "integer_excess_over_L": 1.3930361325172734e-15,
+          "rho": 0.14999998993367342,
+          "atoms": 10
+        }
+      ],
+      "realized": true
+    }
+  ]
+}

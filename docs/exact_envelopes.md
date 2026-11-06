@@ -16,6 +16,11 @@ them. This note gives explicit laws, and with them two exact results:
 * **Theorem 2.** Arbitrary positive shares at the last nonterminal depth
   k = n-2 (for three producers, depth one): the worst gap is known in closed
   form for every r, with three regimes per ordered pair of producers.
+* **Inside the windows** (Section 5): two more families of explicit laws and
+  a certificate LP that bounds every demand law. At all 324 window ratios
+  tested (up to twelve producers) the bound equals the best law, and for
+  three free producers the window is solved in closed form (Theorem 3), so
+  the four-producer depth-one envelope is now known for every r.
 
 Loss is symmetric absolute loss, L is normalized to 1, so a = w, and
 rho >= r means c_j <= a_j/r for every producer.
@@ -225,12 +230,137 @@ the closed forms with the upper bounds, and re-evaluates 111 of the laws with
 the original audit code. `tests/test_exact_envelopes.py` contains fast
 versions of the same checks.
 
-## 5. What is settled and what is not
+## 5. Inside the windows
 
-Settled: the worst gap for equal shares at every depth outside the windows,
-and for arbitrary shares at depth n-2. In particular the elementary C31
-ceiling is exact on the intervals I_p, and the only general improvement over
-it for equal shares is the regime r >= (m-1)/(m+1) and the windows.
+Two further families of explicit laws, again for equal shares with m free
+producers, unit producers I (|I| = p), excluded producers K and M = a/r.
 
-Open: the window values; arbitrary shares at depths 1..n-3 (for n >= 4);
-asymmetric loss, where costs are no longer seminorms.
+**Family H_p (positive cost at the witness).** For q = m-p >= 1 and
+(m-p)/(m+p) <= r <= 1 put delta = M(1-r)/2 and
+beta = ((p+q)a - qM(1+r)/2)/p, and take the generators beta e_i (i in I),
+a e_l (l in K) and (delta/p)1_I - M e_j for the q fractional producers j, with
+witness z = 1_I + ((1-r)/2) 1_J. The fractional generators vanish at z, so
+c(z) = p beta and the witness value is
+
+$$
+a\Bigl(p+q\frac{1-r}2\Bigr)-p\beta=\frac{(m-p)(1-r^2)}{2nr}.
+$$
+
+The unit singletons cost exactly a, the fractional ones M, and the grand cost
+is 1. For a coalition with s unit, tau fractional and kappa excluded
+producers, c(1_S) - a|S| = s beta + tau(M-a) + (q-2tau) delta s/p - as, which
+is bilinear and nonnegative at the four corners (the corners (p,0) and (p,q)
+give exactly zero). beta >= 0 is the condition on r. At r = (m-p)/(m+p),
+the right end of I_p, beta = 0 and the value equals C31: H_p continues the
+C31 plateau of configuration p beyond I_p. For p = 1 it is the high-regime
+law of Theorem 1.
+
+**Family V_p (a producer in transition).** Suppose p^2+p < m, so that a
+window separates I_{p+1} from I_p, and let q' = m-p-1. For r in the closed
+window [(m-p-1)/(m+p+1), (m-2p)/m] put
+
+$$
+t_1=\frac{(p+1)(1-r)}{2(p+1)-m(1-r)},\qquad t_2=\frac{(p+1)r-1+t_1}{q'},
+$$
+
+$$
+\gamma=\frac{M(p+t_1-q't_2)}{2p},\quad \alpha=\frac{p(M-\gamma)}{q'},\quad
+\beta=\frac{M-\gamma p/t_1}{q'},
+$$
+
+with one unit-like producer * and generators (alpha/p)1_I + beta e_* - M e_j
+for each of the q' remaining fractional producers, gamma 1_I - (gamma p/t_1)e_*,
+and a e_l for the excluded producers. All of them vanish at the witness
+z = 1_I + t_1 e_* + t_2 1_{J'}, so c(z) = 0 and the value is
+
+$$
+V_p(r)=\frac1n\bigl(p-1+(p+1)r+2t_1\bigr).
+$$
+
+At the left end of the window t_1 = 1 and V_p joins the C31 value of
+configuration p+1; at the right end it joins the C31 value of configuration
+p. The coalition costs again reduce to bilinear functions of the counts, now
+separately for "* in S" and "* not in S". We have checked every constraint in
+exact arithmetic for every window with n <= 14 at depths 1 to 3 (441 ratios),
+and for the 324 ratios of `scripts/check_window_envelopes.py`; a written
+algebraic verification for general (m, p) is still to be done.
+
+**A certificate bound valid for every law.** Sort the free coordinates of a
+witness, 1 = z_1 >= ... >= z_m. For every top-s coalition S and every scale
+nu = z_t, the triangle inequality and the caps give
+
+$$
+\nu\,c(\mathbf 1_S)\le c(z)+M\sum_{i\le s}|z_i-\nu|+M\sum_{i>s}z_i ,
+\qquad c(\mathbf 1_S)\ge sa-B .
+$$
+
+Since nu <= 1, the integer excess B only weakens the resulting bound on
+(D_k - B)/L. On the sorted region each certificate is linear, so the maximum
+over z of the minimum over all of them is a single LP
+(`equal_share_certificate_bound`). Top-s coalitions and scales at the
+coordinates are the natural choices: for fixed |S| and nu they minimize the
+right-hand side.
+
+**What the computations show.** At all 324 window ratios (n = 4..12, depths
+1 to 3, nine per window including endpoints) the best explicit law, among
+C31, H_p and V_p, attains the certificate LP bound up to 1e-9
+([window checks](../results/exclusion/window_envelopes.md)). The attaining
+family is V_1 or V_2 on part of each window and H_2 or H_3 where the
+configuration p+1 can be pushed past its interval. So for these ratios the
+worst gap is determined; what is missing is a proof, valid for all r, that
+the LP optimum always equals the larger of H_{p+1} and V_p.
+
+**Theorem 3 (three free producers).** For equal shares with m = 3 free
+producers, i.e. depth n-3, and 1/5 <= r <= 1/3,
+
+$$
+\sup_{\rho\ge r}\frac{D_{n-3}-B}{L}=\frac{2(2-r+3r^2)}{n(1+3r)} .
+$$
+
+*Proof.* The lower bound is V_1. For m = 3 its law has generators
+g_2 = (u t_1, -u, 0) and g_1 = ((M-u)t_1 - Mt_2, -(M-u), M) on the free
+coordinates, with u = M(1+t_1-t_2)/(2t_1), plus a e_l on the excluded
+producers. Its constraints were also checked by hand: since c(z) = 0, the
+cost is a norm on the plane orthogonal to z, where every centrally symmetric
+polygon is a zonotope. For the upper bound take a sorted witness
+(1, t_1, t_2) and three certificates: nonnegative cost; the top-two coalition
+with nu = 1, giving gap <= a(t_1+t_2-1) + M(1-t_1+t_2); and the face
+coalition scaled by nu = t_1, giving gap <= a(1-2t_1+t_2) + M(1-t_2). Their
+gradients in (t_1, t_2) are (a,a), (a-M, a+M) and (-2a, a-M), and
+
+$$
+\lambda_A=\frac{M-3a}{2M}\lambda_B,\qquad
+\lambda_0=\frac{M^2+3a^2}{2aM}\lambda_B
+$$
+
+combine them to zero with nonnegative weights exactly when M >= 3a, i.e.
+r <= 1/3. So the maximum of the three-way minimum is the point where all
+three are equal, t_1 = 2(1-r)/(1+3r), t_2 = t_1-(1-2r), with value
+a(1+t_1+t_2). It lies in the sorted region when r >= 1/5. QED.
+
+With Theorem 1 this settles m = 3 completely. In particular, for four
+producers at depth one the exact worst gap is
+
+$$
+\frac{3(1-r)}{4}\ \ (0<r\le 1/5),\qquad
+\frac{2-r+3r^2}{2(1+3r)}\ \ (1/5\le r\le 1/3),
+$$
+
+$$
+\frac{3(1-r)}{4}\ \ (1/3\le r\le 1/2),\qquad
+\frac{1-r^2}{4r}\ \ (1/2\le r\le 1).
+$$
+
+## 6. What is settled and what is not
+
+Settled with proofs: equal shares at every depth outside the windows
+(Theorem 1); arbitrary shares at depth n-2 (Theorem 2); the windows when
+three producers are free (Theorem 3), hence the full four-producer depth-one
+curve. Determined numerically at every tested ratio: all other equal-share
+windows up to twelve producers, by an explicit law matching a certificate
+bound valid for every law.
+
+Open: a general proof for the windows (the algebra for V_p and the LP
+optimum); arbitrary shares at depths 1 to n-3 for n >= 4, where the
+relaxation and explicit laws agree in every case tried so far; asymmetric
+loss, where costs are no longer seminorms.

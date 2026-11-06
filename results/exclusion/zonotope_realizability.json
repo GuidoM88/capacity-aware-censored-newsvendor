@@ -2,7 +2,7 @@
   "date": "2026-11-06",
   "tolerance": 1e-06,
   "sha256": {
-    "src/censored_newsvendor/seminorm_envelope.py": "b9824aa6c1395e0b90938b0e6f95e98eae454c11e940798bdaed534d5587078d",
+    "src/censored_newsvendor/seminorm_envelope.py": "48051c2ebb0d5af34c3c0cbe0dce3a220b2c63a5730a82e735281b9d4c4f49a6",
     "scripts/check_zonotope_realizability.py": "89627cfe11e774ebf277a7e1a558f785d0081a33a68dbca7e493adb2acdd5c53"
   },
   "cases": [

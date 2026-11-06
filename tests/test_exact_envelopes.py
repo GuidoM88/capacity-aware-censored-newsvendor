@@ -85,3 +85,32 @@ class LastDepthTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class WindowTests(unittest.TestCase):
+    def test_four_producer_window_closed_form_and_law(self):
+        from censored_newsvendor.exact_envelopes import best_equal_share_construction
+        for r in (F(1, 5), F(1, 4), F(3, 10), F(1, 3)):
+            construction = best_equal_share_construction(4, r)
+            self.assertEqual(construction["value"], (2 - r + 3 * r * r) / (2 * (1 + 3 * r)))
+            self.assertTrue(attains(construction, [F(1, 4)] * 4, r))
+
+    def test_window_families_attain_the_certificate_bound(self):
+        from censored_newsvendor.exact_envelopes import best_equal_share_construction
+        from censored_newsvendor.seminorm_envelope import equal_share_certificate_bound
+        for n, depth, r in ((5, 1, F(2, 5)), (7, 1, F(13, 24)), (7, 1, F(7, 12)), (8, 2, F(3, 5))):
+            construction = best_equal_share_construction(n, r, depth)
+            self.assertTrue(attains(construction, [F(1, n)] * n, r), (n, depth, r))
+            bound, _ = equal_share_certificate_bound(n, float(r), depth)
+            self.assertAlmostEqual(float(construction["value"]), bound, places=9)
+
+    def test_positive_cost_family_extends_c31(self):
+        from censored_newsvendor.exact_envelopes import positive_cost_construction
+        # At the right end of I_p the family H_p meets the C31 value.
+        n, depth, p = 7, 1, 2
+        m, q = n - depth, n - depth - 2
+        r = F(q, q + 2 * p)
+        construction = positive_cost_construction(n, r, depth, p)
+        self.assertEqual(construction["value"], (1 - r) * m / n)
+        self.assertTrue(attains(construction, [F(1, n)] * n, r))
+        self.assertIsNone(positive_cost_construction(n, r - F(1, 100), depth, p))

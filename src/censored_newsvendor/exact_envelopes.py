@@ -216,3 +216,68 @@ def four_line_bound(shares, r):
                  (a_i * (1 + 1 / r), -a_i * (1 + 1 / r))]
         best = max(best, max_min_lines(lines))
     return best
+
+
+# ---------------------------------------------------------------------------
+# Inside the windows: two further families of explicit laws
+# ---------------------------------------------------------------------------
+
+def positive_cost_construction(n, r, depth, p):
+    """Family H_p: p unit producers, the other m-p at t = (1-r)/2, c(z) > 0.
+
+    Valid for (m-p)/(m+p) <= r <= 1; value (m-p)(1-r^2)/(2nr). For p = 1 this
+    is the high-regime law of Theorem 1.
+    """
+    r = F(r)
+    a, cap = F(1, n), F(1, n) / r
+    free = n - depth
+    q = free - p
+    if not (q >= 1 and F(q, q + 2 * p) <= r <= 1):
+        return None
+    delta = cap * (1 - r) / 2
+    beta = ((p + q) * a - q * cap * (1 + r) / 2) / p
+    generators = [_vec(n, {i: beta}) for i in range(p)]
+    generators += [_vec(n, {k: a}) for k in range(free, n)]
+    generators += [_vec(n, {**{i: delta / p for i in range(p)}, j: -cap})
+                   for j in range(p, free)]
+    z = _vec(n, {**{i: 1 for i in range(p)}, **{j: (1 - r) / 2 for j in range(p, free)}})
+    return {"regime": f"H{p}", "p": p, "generators": generators, "membership": z,
+            "value": q * (1 - r * r) / (2 * n * r)}
+
+
+def transitional_construction(n, r, depth, p):
+    """Family V_p: p unit producers, one producer at t1, the others at t2, c(z) = 0.
+
+    Defined on the window between I_{p+1} and I_p, i.e. for
+    (m-p-1)/(m+p+1) <= r <= (m-2p)/m, which is nonempty when p^2+p < m.
+    """
+    r = F(r)
+    free = n - depth
+    q2 = free - p - 1
+    if q2 < 1 or not F(q2, free + p + 1) <= r <= F(free - 2 * p, free):
+        return None
+    a, cap = F(1, n), F(1, n) / r
+    t1 = (p + 1) * (1 - r) / (2 * (p + 1) - free * (1 - r))
+    t2 = ((p + 1) * r - 1 + t1) / q2
+    gamma = cap * (p + t1 - q2 * t2) / (2 * p)
+    alpha = p * (cap - gamma) / q2
+    beta = (cap - gamma * p / t1) / q2
+    delta = -gamma * p / t1
+    units, star, fractional = range(p), p, range(p + 1, free)
+    generators = [_vec(n, {**{i: alpha / p for i in units}, star: beta, j: -cap})
+                  for j in fractional]
+    generators.append(_vec(n, {**{i: gamma for i in units}, star: delta}))
+    generators += [_vec(n, {k: a}) for k in range(free, n)]
+    z = _vec(n, {**{i: 1 for i in units}, star: t1, **{j: t2 for j in fractional}})
+    return {"regime": f"V{p}", "p": p, "generators": generators, "membership": z,
+            "value": a * (p - 1 + (p + 1) * r + 2 * t1)}
+
+
+def best_equal_share_construction(n, r, depth=1):
+    """Best explicit law among all families (C31, H_p, V_p) at this ratio."""
+    free = n - depth
+    found = [equal_share_construction(n, r, depth)]
+    found += [positive_cost_construction(n, r, depth, p) for p in range(1, free)]
+    found += [transitional_construction(n, r, depth, p) for p in range(1, free)]
+    found = [c for c in found if c is not None]
+    return max(found, key=lambda c: c["value"])
