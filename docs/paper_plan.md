@@ -54,9 +54,11 @@ instance we computed.
    alone is not sharp with unequal shares.
 3. Explicit worst-case demand laws: finite, centrally symmetric, with at most
    2n atoms, mapped into the unit box with an optimal grand offer.
-4. A two-LP method for arbitrary shares: a certificate LP that bounds every
-   law and a zonotope LP that produces a law; they agreed in all 68 random
-   instances computed (38 with an explicit law), and in 29 earlier cases.
+4. Arbitrary shares at every depth: four explicit families of worst-case
+   laws (Theorem 5 and the families G and V) and a certificate LP that bounds
+   every law. The best family met the bound in all 1068 random instances
+   computed, which supports a closed form for arbitrary shares
+   (Conjecture 6); the zonotope LP independently produced matching laws.
 5. The observation behind 3 and 4: for symmetric absolute loss, the worst case
    over demand laws coincided with the worst case over all seminorms in every
    case computed (the realizability conjecture).
@@ -81,8 +83,9 @@ instance we computed.
    (windows), the complete four-producer curve as a worked example, the
    window lengths, the figure.
 5. **Arbitrary shares at the deepest level.** Theorem 2 and its three regimes.
-6. **Arbitrary shares at any depth.** The two-LP method and the computational
-   results; the realizability conjecture stated as such.
+6. **Arbitrary shares at any depth.** The four families (proved as lower
+   bounds), the certificate LP, Conjecture 6 with the 1068-instance evidence,
+   and the realizability conjecture stated as such.
 7. **What the exact curves say.** When the audit can be trusted: the ceiling
    (1-r)(n-k)/n is the answer on most of the range, the improvements are
    real but modest, and the audit can still report large spurious savings
