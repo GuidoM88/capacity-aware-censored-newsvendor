@@ -5,7 +5,7 @@
     "results/standalone/summary.json": "25108ef5fcd735e51620c974880aaa1730b4baec62cfef0b1817ba640dc16648",
     "results/standalone/diagnosis.json": "f3cb8fc577b3dc3b3ef1f84c962237ef6f93fd01a9c9b9cb39d62576de5f69ba",
     "results/exclusion/prior_art_checks.json": "c5a7a06de16b647b7cc648093459dc646ae7e15d849627d45c8b193914ad26e6",
-    "references.bib": "9b2556e3b6c2f1343f99671276ca69f1112b6b64f7fd4f2df2649fb3e2f6ac15",
+    "references.bib": "c0874d7dc11ea08a32a3ebfc3f767e896a241a022b026c7785531cfd9340418a",
     "paper/main.tex": "40a54326a8dd04cdf86d56aa120fb8904eb7a75c6e7cd758f14b8981ccbe5cb0",
     "paper/build_tables.py": "4f06400585d79673955c5dff91109a068cb39d9ac151fd901351e2ea51d49997"
   },

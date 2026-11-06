@@ -1,0 +1,1950 @@
+{
+  "date": "2026-11-06",
+  "scope": "Deterministic proof checks, not a performance or priority result",
+  "versions": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.0"
+  },
+  "sha256": {
+    "scripts/check_three_player_rho.py": "c34ab4a50f511de9638950f14358668e465c620627c06e7cb565d3cfc98fe990",
+    "docs/three_player_rho.md": "f0d0c430b00a03299809be36df9e4ad05bcb53bfee46ce0ab3a4b81f8f3940f2",
+    "scripts/check_exclusion_robustness.py": "cabe3c51548844a07394d0be219c2d2735451346795afaa7d8e2d587604a9864",
+    "src/censored_newsvendor/coalition_audit.py": "8783751bec56aa1743c71b07d53b9e86748a0bad0c10d8ad18feaabed5c41161",
+    "src/censored_newsvendor/exclusion.py": "2501bd4710b8b4b504fdc11f2a58bc27a8fe51f2f9c7b58b6121f24814417cf4"
+  },
+  "attaining_instances": [
+    {
+      "category": "attainment",
+      "rho": 0.04999999999999997,
+      "grand_loss": 0.07499999999999996,
+      "grand_to_maximum_ratio": 0.04999999999999997,
+      "singleton_costs": [
+        0.44999999999999996,
+        0.07499999999999998,
+        0.5
+      ],
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": -8.326672684688674e-17,
+      "d1": 0.04749999999999996,
+      "gap_over_L": 0.6333333333333332,
+      "envelope": 0.6333333333333333,
+      "minimum_covariance_eigenvalue": 1.3877787807814457e-17,
+      "milp_excess": 0.0,
+      "faces": [
+        {
+          "excluded": 1,
+          "primal": 0.0,
+          "dual": 1.3877787807814457e-17,
+          "membership": [
+            0.0,
+            -0.0,
+            0.0
+          ]
+        },
+        {
+          "excluded": 2,
+          "primal": 0.04749999999999996,
+          "dual": 0.04749999999999996,
+          "membership": [
+            1.0,
+            0.0,
+            0.8999999999999999
+          ]
+        },
+        {
+          "excluded": 3,
+          "primal": 0.0,
+          "dual": 1.3877787807814457e-17,
+          "membership": [
+            0.0,
+            -0.0,
+            0.0
+          ]
+        }
+      ],
+      "r_exact": "1/20",
+      "gap_over_L_exact": "19/30",
+      "witness": [
+        "1",
+        "0",
+        "9/10"
+      ],
+      "witness_cost_before_scaling": "0",
+      "scaling_radius": "20/3"
+    },
+    {
+      "category": "attainment",
+      "rho": 0.09999999999999998,
+      "grand_loss": 0.14999999999999997,
+      "grand_to_maximum_ratio": 0.09999999999999998,
+      "singleton_costs": [
+        0.3999999999999999,
+        0.15000000000000002,
+        0.5
+      ],
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": -1.1102230246251565e-16,
+      "d1": 0.08999999999999996,
+      "gap_over_L": 0.5999999999999999,
+      "envelope": 0.6,
+      "minimum_covariance_eigenvalue": -1.214306433183765e-17,
+      "milp_excess": 0.0,
+      "faces": [
+        {
+          "excluded": 1,
+          "primal": 0.0,
+          "dual": 0.0,
+          "membership": [
+            0.0,
+            -0.0,
+            0.0
+          ]
+        },
+        {
+          "excluded": 2,
+          "primal": 0.08999999999999996,
+          "dual": 0.08999999999999997,
+          "membership": [
+            1.0,
+            0.0,
+            0.7999999999999998
+          ]
+        },
+        {
+          "excluded": 3,
+          "primal": 0.0,
+          "dual": 2.7755575615628914e-17,
+          "membership": [
+            0.0,
+            -0.0,
+            0.0
+          ]
+        }
+      ],
+      "r_exact": "1/10",
+      "gap_over_L_exact": "3/5",
+      "witness": [
+        "1",
+        "0",
+        "4/5"
+      ],
+      "witness_cost_before_scaling": "0",
+      "scaling_radius": "10/3"
+    },
+    {
+      "category": "attainment",
+      "rho": 0.20000000000000004,
+      "grand_loss": 0.30000000000000004,
+      "grand_to_maximum_ratio": 0.20000000000000004,
+      "singleton_costs": [
+        0.30000000000000004,
+        0.30000000000000004,
+        0.5
+      ],
+      "integer_excess": 5.551115123125783e-17,
+      "largest_unclipped_integer_excess": 5.551115123125783e-17,
+      "d1": 0.16000000000000003,
+      "gap_over_L": 0.5333333333333332,
+      "envelope": 0.5333333333333332,
+      "minimum_covariance_eigenvalue": -1.3877787807814457e-17,
+      "milp_excess": 0.0,
+      "faces": [
+        {
+          "excluded": 1,
+          "primal": 0.0,
+          "dual": 0.0,
+          "membership": [
+            0.0,
+            -0.0,
+            0.0
+          ]
+        },
+        {
+          "excluded": 2,
+          "primal": 0.16000000000000003,
+          "dual": 0.16000000000000003,
+          "membership": [
+            1.0,
+            0.0,
+            0.6000000000000001
+          ]
+        },
+        {
+          "excluded": 3,
+          "primal": 0.0,
+          "dual": 0.0,
+          "membership": [
+            -0.0,
+            -0.0,
+            0.0
+          ]
+        }
+      ],
+      "r_exact": "1/5",
+      "gap_over_L_exact": "8/15",
+      "witness": [
+        "1",
+        "0",
+        "3/5"
+      ],
+      "witness_cost_before_scaling": "0",
+      "scaling_radius": "5/3"
+    },
+    {
+      "category": "attainment",
+      "rho": 0.3333333333333333,
+      "grand_loss": 0.5,
+      "grand_to_maximum_ratio": 0.3333333333333333,
+      "singleton_costs": [
+        0.16666666666666663,
+        0.5,
+        0.5
+      ],
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": 0.0,
+      "d1": 0.22222222222222215,
+      "gap_over_L": 0.4444444444444443,
+      "envelope": 0.4444444444444445,
+      "minimum_covariance_eigenvalue": 0.0,
+      "milp_excess": 0.0,
+      "faces": [
+        {
+          "excluded": 1,
+          "primal": 0.0,
+          "dual": 0.0,
+          "membership": [
+            0.0,
+            -0.0,
+            0.0
+          ]
+        },
+        {
+          "excluded": 2,
+          "primal": 0.22222222222222215,
+          "dual": 0.22222222222222215,
+          "membership": [
+            1.0,
+            0.0,
+            0.33333333333333326
+          ]
+        },
+        {
+          "excluded": 3,
+          "primal": 0.055555555555555525,
+          "dual": 0.055555555555555525,
+          "membership": [
+            1.0,
+            0.33333333333333326,
+            0.0
+          ]
+        }
+      ],
+      "r_exact": "1/3",
+      "gap_over_L_exact": "4/9",
+      "witness": [
+        "1",
+        "0",
+        "1/3"
+      ],
+      "witness_cost_before_scaling": "0",
+      "scaling_radius": "1"
+    },
+    {
+      "category": "attainment",
+      "rho": 0.4000000000000001,
+      "grand_loss": 0.30000000000000004,
+      "grand_to_maximum_ratio": 0.20000000000000004,
+      "singleton_costs": [
+        0.10000000000000002,
+        0.09999999999999998,
+        0.25
+      ],
+      "integer_excess": 5.551115123125783e-17,
+      "largest_unclipped_integer_excess": 5.551115123125783e-17,
+      "d1": 0.10500000000000004,
+      "gap_over_L": 0.34999999999999987,
+      "envelope": 0.3499999999999999,
+      "minimum_covariance_eigenvalue": 2.453199826730968e-17,
+      "milp_excess": 0.0,
+      "faces": [
+        {
+          "excluded": 1,
+          "primal": 4.163336342344337e-17,
+          "dual": 4.163336342344337e-17,
+          "membership": [
+            0.0,
+            1.0,
+            -0.0
+          ]
+        },
+        {
+          "excluded": 2,
+          "primal": 0.10500000000000004,
+          "dual": 0.10500000000000005,
+          "membership": [
+            1.0,
+            0.0,
+            0.30000000000000004
+          ]
+        },
+        {
+          "excluded": 3,
+          "primal": 5.551115123125783e-17,
+          "dual": 4.163336342344337e-17,
+          "membership": [
+            1.0,
+            1.0,
+            0.0
+          ]
+        }
+      ],
+      "r_exact": "2/5",
+      "gap_over_L_exact": "7/20",
+      "witness": [
+        "1",
+        "0",
+        "3/10"
+      ],
+      "witness_cost_before_scaling": "1/12",
+      "scaling_radius": "5/3"
+    },
+    {
+      "category": "attainment",
+      "rho": 0.5,
+      "grand_loss": 0.375,
+      "grand_to_maximum_ratio": 0.25,
+      "singleton_costs": [
+        0.125,
+        0.125,
+        0.25
+      ],
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": 0.0,
+      "d1": 0.09375,
+      "gap_over_L": 0.25,
+      "envelope": 0.25,
+      "minimum_covariance_eigenvalue": -1.2683702801198869e-17,
+      "milp_excess": 0.0,
+      "faces": [
+        {
+          "excluded": 1,
+          "primal": 0.0,
+          "dual": 0.0,
+          "membership": [
+            0.0,
+            1.0,
+            -0.0
+          ]
+        },
+        {
+          "excluded": 2,
+          "primal": 0.09375,
+          "dual": 0.09375,
+          "membership": [
+            1.0,
+            0.0,
+            0.25
+          ]
+        },
+        {
+          "excluded": 3,
+          "primal": 0.0,
+          "dual": 0.0,
+          "membership": [
+            1.0,
+            1.0,
+            0.0
+          ]
+        }
+      ],
+      "r_exact": "1/2",
+      "gap_over_L_exact": "1/4",
+      "witness": [
+        "1",
+        "0",
+        "1/4"
+      ],
+      "witness_cost_before_scaling": "1/6",
+      "scaling_radius": "4/3"
+    },
+    {
+      "category": "attainment",
+      "rho": 0.7999999999999999,
+      "grand_loss": 0.6,
+      "grand_to_maximum_ratio": 0.39999999999999997,
+      "singleton_costs": [
+        0.20000000000000004,
+        0.19999999999999996,
+        0.25
+      ],
+      "integer_excess": 2.7755575615628914e-17,
+      "largest_unclipped_integer_excess": 2.7755575615628914e-17,
+      "d1": 0.04499999999999993,
+      "gap_over_L": 0.07499999999999984,
+      "envelope": 0.07500000000000002,
+      "minimum_covariance_eigenvalue": -1.6190555552628756e-18,
+      "milp_excess": 0.0,
+      "faces": [
+        {
+          "excluded": 1,
+          "primal": 0.0,
+          "dual": 2.7755575615628914e-17,
+          "membership": [
+            0.0,
+            -0.0,
+            0.0
+          ]
+        },
+        {
+          "excluded": 2,
+          "primal": 0.04499999999999993,
+          "dual": 0.044999999999999984,
+          "membership": [
+            1.0,
+            0.0,
+            0.10000000000000003
+          ]
+        },
+        {
+          "excluded": 3,
+          "primal": 0.0,
+          "dual": 5.551115123125783e-17,
+          "membership": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "r_exact": "4/5",
+      "gap_over_L_exact": "3/40",
+      "witness": [
+        "1",
+        "0",
+        "1/10"
+      ],
+      "witness_cost_before_scaling": "7/24",
+      "scaling_radius": "5/6"
+    },
+    {
+      "category": "attainment",
+      "rho": 0.9,
+      "grand_loss": 0.675,
+      "grand_to_maximum_ratio": 0.45,
+      "singleton_costs": [
+        0.22500000000000003,
+        0.22499999999999998,
+        0.25
+      ],
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": 0.0,
+      "d1": 0.023749999999999938,
+      "gap_over_L": 0.03518518518518509,
+      "envelope": 0.035185185185185174,
+      "minimum_covariance_eigenvalue": 4.244506759013311e-18,
+      "milp_excess": 0.0,
+      "faces": [
+        {
+          "excluded": 1,
+          "primal": 0.0,
+          "dual": 0.0,
+          "membership": [
+            0.0,
+            -0.0,
+            0.0
+          ]
+        },
+        {
+          "excluded": 2,
+          "primal": 0.023749999999999938,
+          "dual": 0.023749999999999938,
+          "membership": [
+            1.0,
+            0.0,
+            0.050000000000000044
+          ]
+        },
+        {
+          "excluded": 3,
+          "primal": 0.0,
+          "dual": 0.0,
+          "membership": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "r_exact": "9/10",
+      "gap_over_L_exact": "19/540",
+      "witness": [
+        "1",
+        "0",
+        "1/20"
+      ],
+      "witness_cost_before_scaling": "17/54",
+      "scaling_radius": "20/27"
+    },
+    {
+      "category": "attainment",
+      "rho": 1.0,
+      "grand_loss": 0.75,
+      "grand_to_maximum_ratio": 0.5,
+      "singleton_costs": [
+        0.25,
+        0.25,
+        0.25
+      ],
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": 0.0,
+      "d1": 0.0,
+      "gap_over_L": 0.0,
+      "envelope": 0.0,
+      "minimum_covariance_eigenvalue": 0.0,
+      "milp_excess": 0.0,
+      "faces": [
+        {
+          "excluded": 1,
+          "primal": 0.0,
+          "dual": 0.0,
+          "membership": [
+            0.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "excluded": 2,
+          "primal": 0.0,
+          "dual": 0.0,
+          "membership": [
+            1.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "excluded": 3,
+          "primal": 0.0,
+          "dual": 0.0,
+          "membership": [
+            0.0,
+            -0.0,
+            0.0
+          ]
+        }
+      ],
+      "r_exact": "1",
+      "gap_over_L_exact": "0",
+      "witness": [
+        "1",
+        "0",
+        "0"
+      ],
+      "witness_cost_before_scaling": "1/3",
+      "scaling_radius": "2/3"
+    }
+  ],
+  "strict_approximations": [
+    {
+      "category": "strict_approximation",
+      "rho": 0.09999999999999991,
+      "grand_loss": 0.14876778200761365,
+      "grand_to_maximum_ratio": 0.0991785213384091,
+      "singleton_costs": [
+        0.3977058705670209,
+        0.14817271087958314,
+        0.49589260669204593
+      ],
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": -0.0001983570426768999,
+      "d1": 0.08821101826204411,
+      "gap_over_L": 0.5929443665264139,
+      "envelope": 0.6000000000000001,
+      "minimum_covariance_eigenvalue": 0.00011951200600257561,
+      "milp_excess": 0.0,
+      "faces": [
+        {
+          "excluded": 1,
+          "primal": 0.0,
+          "dual": 2.7430314963883262e-17,
+          "membership": [
+            0.0,
+            -0.0,
+            0.0
+          ]
+        },
+        {
+          "excluded": 2,
+          "primal": 0.08821101826204411,
+          "dual": 0.088211018262044,
+          "membership": [
+            1.0,
+            0.0,
+            0.8016429573231818
+          ]
+        },
+        {
+          "excluded": 3,
+          "primal": 0.0,
+          "dual": 0.0,
+          "membership": [
+            0.0,
+            -0.0,
+            0.0
+          ]
+        }
+      ],
+      "r_exact": "1/10",
+      "epsilon": "1/100",
+      "base_r": "495/4991",
+      "limiting_supremum": "3/5",
+      "proved_approximation_lower": "726867/1247750",
+      "scaling_radius": "4991/1485"
+    },
+    {
+      "category": "strict_approximation",
+      "rho": 0.09999999999999992,
+      "grand_loss": 0.14987697785601406,
+      "grand_to_maximum_ratio": 0.0999179852373427,
+      "singleton_costs": [
+        0.3997718589346085,
+        0.14981702706487166,
+        0.4995899261867139
+      ],
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": -1.9983597047551482e-05,
+      "d1": 0.08982047004343241,
+      "gap_over_L": 0.5992946437025333,
+      "envelope": 0.6000000000000001,
+      "minimum_covariance_eigenvalue": 1.213007858507243e-05,
+      "milp_excess": 0.0,
+      "faces": [
+        {
+          "excluded": 1,
+          "primal": 0.0,
+          "dual": 0.0,
+          "membership": [
+            0.0,
+            -0.0,
+            0.0
+          ]
+        },
+        {
+          "excluded": 2,
+          "primal": 0.08982047004343241,
+          "dual": 0.08982047004343269,
+          "membership": [
+            1.0,
+            0.0,
+            0.8001640295253145
+          ]
+        },
+        {
+          "excluded": 3,
+          "primal": 0.0,
+          "dual": 4.790818349670323e-17,
+          "membership": [
+            0.0,
+            -0.0,
+            0.0
+          ]
+        }
+      ],
+      "r_exact": "1/10",
+      "epsilon": "1/1000",
+      "base_r": "4995/49991",
+      "limiting_supremum": "3/5",
+      "proved_approximation_lower": "74768367/124977500",
+      "scaling_radius": "49991/14985"
+    },
+    {
+      "category": "strict_approximation",
+      "rho": 0.3333333333333332,
+      "grand_loss": 0.49798792756539234,
+      "grand_to_maximum_ratio": 0.3319919517102616,
+      "singleton_costs": [
+        0.16931589537223324,
+        0.495995975855131,
+        0.49798792756539256
+      ],
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": -0.0006639839034205952,
+      "d1": 0.21845070422535212,
+      "gap_over_L": 0.4386666666666667,
+      "envelope": 0.4444444444444445,
+      "minimum_covariance_eigenvalue": 0.0013391566704046877,
+      "milp_excess": 0.0,
+      "faces": [
+        {
+          "excluded": 1,
+          "primal": 0.0,
+          "dual": 0.0,
+          "membership": [
+            0.0,
+            -0.0,
+            -0.0
+          ]
+        },
+        {
+          "excluded": 2,
+          "primal": 0.21845070422535212,
+          "dual": 0.21845070422535207,
+          "membership": [
+            1.0,
+            0.0,
+            0.3360160965794768
+          ]
+        },
+        {
+          "excluded": 3,
+          "primal": 0.05234674714956411,
+          "dual": 0.052346747149564055,
+          "membership": [
+            1.0,
+            0.3373737373737373,
+            0.0
+          ]
+        }
+      ],
+      "r_exact": "1/3",
+      "epsilon": "1/100",
+      "base_r": "165/497",
+      "limiting_supremum": "4/9",
+      "proved_approximation_lower": "53289/124250",
+      "scaling_radius": "497/495"
+    },
+    {
+      "category": "strict_approximation",
+      "rho": 0.3333333333333333,
+      "grand_loss": 0.49979987992795666,
+      "grand_to_maximum_ratio": 0.3331999199519711,
+      "singleton_costs": [
+        0.16693315989593754,
+        0.49959995997598555,
+        0.49979987992795666
+      ],
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": -6.663998399036863e-05,
+      "d1": 0.22184450670402237,
+      "gap_over_L": 0.4438666666666667,
+      "envelope": 0.4444444444444445,
+      "minimum_covariance_eigenvalue": 0.00013489195678700883,
+      "milp_excess": 0.0,
+      "faces": [
+        {
+          "excluded": 1,
+          "primal": 0.0,
+          "dual": 0.0,
+          "membership": [
+            0.0,
+            -0.0,
+            -0.0
+          ]
+        },
+        {
+          "excluded": 2,
+          "primal": 0.22184450670402237,
+          "dual": 0.22184450670402228,
+          "membership": [
+            1.0,
+            0.0,
+            0.33360016009605764
+          ]
+        },
+        {
+          "excluded": 3,
+          "primal": 0.05523346674671464,
+          "dual": 0.055233466746714546,
+          "membership": [
+            1.0,
+            0.3337337337337337,
+            0.0
+          ]
+        }
+      ],
+      "r_exact": "1/3",
+      "epsilon": "1/1000",
+      "base_r": "1665/4997",
+      "limiting_supremum": "4/9",
+      "proved_approximation_lower": "5532789/12492500",
+      "scaling_radius": "4997/4995"
+    },
+    {
+      "category": "strict_approximation",
+      "rho": 0.49999999999999983,
+      "grand_loss": 0.3746215943491422,
+      "grand_to_maximum_ratio": 0.2497477295660948,
+      "singleton_costs": [
+        0.1258728557013118,
+        0.1258728557013118,
+        0.24974772956609487
+      ],
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": -0.0004994954591321932,
+      "d1": 0.09200091438486233,
+      "gap_over_L": 0.24558358560376722,
+      "envelope": 0.25000000000000017,
+      "minimum_covariance_eigenvalue": 0.0007578432303445402,
+      "milp_excess": 0.0,
+      "faces": [
+        {
+          "excluded": 1,
+          "primal": 0.0,
+          "dual": 2.7755575615628914e-17,
+          "membership": [
+            0.0,
+            -0.0,
+            -0.0
+          ]
+        },
+        {
+          "excluded": 2,
+          "primal": 0.09200091438486233,
+          "dual": 0.09200091438486235,
+          "membership": [
+            1.0,
+            0.0,
+            0.2502522704339052
+          ]
+        },
+        {
+          "excluded": 3,
+          "primal": 0.0,
+          "dual": 0.0,
+          "membership": [
+            0.0,
+            -0.0,
+            0.0
+          ]
+        }
+      ],
+      "r_exact": "1/2",
+      "epsilon": "1/100",
+      "base_r": "495/991",
+      "limiting_supremum": "1/4",
+      "proved_approximation_lower": "35069/148650",
+      "scaling_radius": "1982/1485"
+    },
+    {
+      "category": "strict_approximation",
+      "rho": 0.49999999999999994,
+      "grand_loss": 0.37496246621959767,
+      "grand_to_maximum_ratio": 0.24997497747973177,
+      "singleton_costs": [
+        0.1250874787308578,
+        0.1250874787308578,
+        0.2499749774797318
+      ],
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": -4.9994995496127626e-05,
+      "d1": 0.0935750090705696,
+      "gap_over_L": 0.24955833583558515,
+      "envelope": 0.25000000000000006,
+      "minimum_covariance_eigenvalue": 7.592229957969816e-05,
+      "milp_excess": 0.0,
+      "faces": [
+        {
+          "excluded": 1,
+          "primal": 0.0,
+          "dual": 1.6653345369377348e-16,
+          "membership": [
+            0.0,
+            -0.0,
+            -0.0
+          ]
+        },
+        {
+          "excluded": 2,
+          "primal": 0.0935750090705696,
+          "dual": 0.0935750090705698,
+          "membership": [
+            1.0,
+            0.0,
+            0.25002502252026826
+          ]
+        },
+        {
+          "excluded": 3,
+          "primal": 0.0,
+          "dual": 9.63584680796492e-18,
+          "membership": [
+            -0.0,
+            -0.0,
+            0.0
+          ]
+        }
+      ],
+      "r_exact": "1/2",
+      "epsilon": "1/1000",
+      "base_r": "4995/9991",
+      "limiting_supremum": "1/4",
+      "proved_approximation_lower": "3725519/14986500",
+      "scaling_radius": "19982/14985"
+    },
+    {
+      "category": "strict_approximation",
+      "rho": 0.7999999999999998,
+      "grand_loss": 0.5555555555555552,
+      "grand_to_maximum_ratio": 0.3703703703703702,
+      "singleton_costs": [
+        0.18666666666666665,
+        0.1866666666666666,
+        0.2314814814814814
+      ],
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": -0.0007407407407405975,
+      "d1": 0.03900462962962972,
+      "gap_over_L": 0.07020833333333354,
+      "envelope": 0.07500000000000008,
+      "minimum_covariance_eigenvalue": 0.0016666666666666698,
+      "milp_excess": 0.0,
+      "faces": [
+        {
+          "excluded": 1,
+          "primal": 0.0,
+          "dual": 8.326672684688674e-17,
+          "membership": [
+            0.0,
+            -0.0,
+            -0.0
+          ]
+        },
+        {
+          "excluded": 2,
+          "primal": 0.03900462962962972,
+          "dual": 0.03900462962962972,
+          "membership": [
+            1.0,
+            0.0,
+            0.09821428571428577
+          ]
+        },
+        {
+          "excluded": 3,
+          "primal": 0.0,
+          "dual": 1.6653345369377348e-16,
+          "membership": [
+            -0.0,
+            -0.0,
+            0.0
+          ]
+        }
+      ],
+      "r_exact": "4/5",
+      "epsilon": "1/100",
+      "base_r": "45/56",
+      "limiting_supremum": "3/40",
+      "proved_approximation_lower": "2041/33600",
+      "scaling_radius": "9/10"
+    },
+    {
+      "category": "strict_approximation",
+      "rho": 0.8,
+      "grand_loss": 0.5555555555555558,
+      "grand_to_maximum_ratio": 0.3703703703703705,
+      "singleton_costs": [
+        0.18533333333333346,
+        0.1853333333333334,
+        0.2314814814814816
+      ],
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": -7.40740740743373e-05,
+      "d1": 0.041400713323482,
+      "gap_over_L": 0.07452128398226757,
+      "envelope": 0.07499999999999997,
+      "minimum_covariance_eigenvalue": 0.00016666666666666268,
+      "milp_excess": 0.0,
+      "faces": [
+        {
+          "excluded": 1,
+          "primal": 0.0,
+          "dual": 0.0,
+          "membership": [
+            0.0,
+            -0.0,
+            0.0
+          ]
+        },
+        {
+          "excluded": 2,
+          "primal": 0.041400713323482,
+          "dual": 0.04140071332348223,
+          "membership": [
+            1.0,
+            0.0,
+            0.09982374619452014
+          ]
+        },
+        {
+          "excluded": 3,
+          "primal": 0.0,
+          "dual": 1.3143240835955528e-16,
+          "membership": [
+            -0.0,
+            -0.0,
+            0.0
+          ]
+        }
+      ],
+      "r_exact": "4/5",
+      "epsilon": "1/1000",
+      "base_r": "4995/6241",
+      "limiting_supremum": "3/40",
+      "proved_approximation_lower": "688769/9361500",
+      "scaling_radius": "9/10"
+    },
+    {
+      "category": "strict_approximation",
+      "rho": 0.9500000000000003,
+      "grand_loss": 0.5555555555555555,
+      "grand_to_maximum_ratio": 0.3703703703703703,
+      "singleton_costs": [
+        0.1866666666666666,
+        0.1866666666666666,
+        0.19493177387914223
+      ],
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": -0.000740740740740542,
+      "d1": 0.006621333972727073,
+      "gap_over_L": 0.011918401150908732,
+      "envelope": 0.017105263157894637,
+      "minimum_covariance_eigenvalue": 0.001666666666666556,
+      "milp_excess": 0.0,
+      "faces": [
+        {
+          "excluded": 1,
+          "primal": 0.0,
+          "dual": 0.0,
+          "membership": [
+            0.0,
+            -0.0,
+            -0.0
+          ]
+        },
+        {
+          "excluded": 2,
+          "primal": 0.006621333972727073,
+          "dual": 0.006621333972727066,
+          "membership": [
+            1.0,
+            0.0,
+            0.021568826940685733
+          ]
+        },
+        {
+          "excluded": 3,
+          "primal": 0.0,
+          "dual": 5.551115123125783e-17,
+          "membership": [
+            -0.0,
+            -0.0,
+            0.0
+          ]
+        }
+      ],
+      "r_exact": "19/20",
+      "epsilon": "1/100",
+      "base_r": "9405/9829",
+      "limiting_supremum": "13/760",
+      "proved_approximation_lower": "71609/28012650",
+      "scaling_radius": "9/10"
+    },
+    {
+      "category": "strict_approximation",
+      "rho": 0.95,
+      "grand_loss": 0.5555555555555558,
+      "grand_to_maximum_ratio": 0.3703703703703705,
+      "singleton_costs": [
+        0.1853333333333334,
+        0.1853333333333334,
+        0.1949317738791424
+      ],
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": -7.407407407411526e-05,
+      "d1": 0.009215400830546866,
+      "gap_over_L": 0.016587721494984352,
+      "envelope": 0.017105263157894745,
+      "minimum_covariance_eigenvalue": 0.0001666666666667527,
+      "milp_excess": 0.0,
+      "faces": [
+        {
+          "excluded": 1,
+          "primal": 0.0,
+          "dual": 0.0,
+          "membership": [
+            0.0,
+            -0.0,
+            -0.0
+          ]
+        },
+        {
+          "excluded": 2,
+          "primal": 0.009215400830546866,
+          "dual": 0.009215400830547383,
+          "membership": [
+            1.0,
+            0.0,
+            0.024662172314658056
+          ]
+        },
+        {
+          "excluded": 3,
+          "primal": 0.0,
+          "dual": 1.0367683274392636e-16,
+          "membership": [
+            -0.0,
+            -0.0,
+            0.0
+          ]
+        }
+      ],
+      "r_exact": "19/20",
+      "epsilon": "1/1000",
+      "base_r": "94905/99829",
+      "limiting_supremum": "13/760",
+      "proved_approximation_lower": "44529359/2845126500",
+      "scaling_radius": "9/10"
+    }
+  ],
+  "off_family_checks": [
+    {
+      "category": "off_family_upper_bound",
+      "rho": 0.5429534288323861,
+      "grand_loss": 0.49223606044063106,
+      "grand_to_maximum_ratio": 0.30970348912833434,
+      "singleton_costs": [
+        0.3021966122700296,
+        0.07416597240593983,
+        0.16735166392240966
+      ],
+      "integer_excess": 0.09786663902390971,
+      "largest_unclipped_integer_excess": 0.09786663902390971,
+      "d1": 0.09833107172813796,
+      "gap_over_L": 0.0009435162141767983,
+      "envelope": 0.21647086001331686,
+      "minimum_covariance_eigenvalue": 0.01022244638224898,
+      "milp_excess": 0.09786663902390966,
+      "faces": [
+        {
+          "excluded": 1,
+          "primal": 0.09833107172813796,
+          "dual": 0.098331071728138,
+          "membership": [
+            0.0,
+            1.0,
+            0.7902083121668446
+          ]
+        },
+        {
+          "excluded": 2,
+          "primal": 0.0,
+          "dual": 0.0,
+          "membership": [
+            0.0,
+            0.0,
+            -0.0
+          ]
+        },
+        {
+          "excluded": 3,
+          "primal": 0.08991271440760384,
+          "dual": 0.08991271440760383,
+          "membership": [
+            0.0,
+            1.0,
+            0.0
+          ]
+        }
+      ],
+      "law_index": 0,
+      "offer": 1.589378478834829,
+      "states": [
+        [
+          0.08612288912492216,
+          0.6217735985655279,
+          0.24632848156595688
+        ],
+        [
+          0.6030830824474473,
+          0.77284746378603,
+          0.5464331407704461
+        ],
+        [
+          0.09150808461890136,
+          0.7085784944657519,
+          0.5980363870051879
+        ],
+        [
+          0.6258935945367239,
+          0.5261134109354874,
+          0.38540433129420726
+        ],
+        [
+          0.017874502274066395,
+          0.5537379846461911,
+          0.7939853632883782
+        ],
+        [
+          0.6890074121632435,
+          0.3198509509999967,
+          0.5805201156715888
+        ],
+        [
+          0.937135857307893,
+          0.6377131678817017,
+          0.8560905556506604
+        ],
+        [
+          0.8376184505570955,
+          0.33580505086919543,
+          0.7623667363722958
+        ]
+      ],
+      "probabilities": [
+        0.10104083576240477,
+        0.004729566428719846,
+        0.017350180780575424,
+        0.12361050650045753,
+        0.16473422328357554,
+        0.13532761567112728,
+        0.450131171758121,
+        0.003075899815018552
+      ]
+    },
+    {
+      "category": "off_family_upper_bound",
+      "rho": 0.9816467916509899,
+      "grand_loss": 0.8899510046480181,
+      "grand_to_maximum_ratio": 0.32361854714473387,
+      "singleton_costs": [
+        0.3021966122700296,
+        0.07416597240593983,
+        0.16735166392240966
+      ],
+      "integer_excess": 0.36300993516216773,
+      "largest_unclipped_integer_excess": 0.36300993516216773,
+      "d1": 0.36300993516216773,
+      "gap_over_L": 0.0,
+      "envelope": 0.006174925772800886,
+      "minimum_covariance_eigenvalue": 0.01022244638224898,
+      "milp_excess": 0.3630099351621677,
+      "faces": [
+        {
+          "excluded": 1,
+          "primal": 0.36300993516216773,
+          "dual": 0.36300993516216773,
+          "membership": [
+            0.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "excluded": 2,
+          "primal": 0.14770642257931385,
+          "dual": 0.14770642257931393,
+          "membership": [
+            0.3180670243872239,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "excluded": 3,
+          "primal": 0.23587937413678312,
+          "dual": 0.23587937413678317,
+          "membership": [
+            1.0,
+            1.0,
+            0.0
+          ]
+        }
+      ],
+      "law_index": 0,
+      "offer": 2.75,
+      "states": [
+        [
+          0.08612288912492216,
+          0.6217735985655279,
+          0.24632848156595688
+        ],
+        [
+          0.6030830824474473,
+          0.77284746378603,
+          0.5464331407704461
+        ],
+        [
+          0.09150808461890136,
+          0.7085784944657519,
+          0.5980363870051879
+        ],
+        [
+          0.6258935945367239,
+          0.5261134109354874,
+          0.38540433129420726
+        ],
+        [
+          0.017874502274066395,
+          0.5537379846461911,
+          0.7939853632883782
+        ],
+        [
+          0.6890074121632435,
+          0.3198509509999967,
+          0.5805201156715888
+        ],
+        [
+          0.937135857307893,
+          0.6377131678817017,
+          0.8560905556506604
+        ],
+        [
+          0.8376184505570955,
+          0.33580505086919543,
+          0.7623667363722958
+        ]
+      ],
+      "probabilities": [
+        0.10104083576240477,
+        0.004729566428719846,
+        0.017350180780575424,
+        0.12361050650045753,
+        0.16473422328357554,
+        0.13532761567112728,
+        0.450131171758121,
+        0.003075899815018552
+      ]
+    },
+    {
+      "category": "off_family_upper_bound",
+      "rho": 0.24260652352480963,
+      "grand_loss": 0.2448406867843817,
+      "grand_to_maximum_ratio": 0.12205984412026784,
+      "singleton_costs": [
+        0.19056428525948124,
+        0.10811218528020747,
+        0.3364029997038169
+      ],
+      "integer_excess": 0.0,
+      "largest_unclipped_integer_excess": -0.026498623018746906,
+      "d1": 0.00805469927597563,
+      "gap_over_L": 0.032897715578902045,
+      "envelope": 0.5049289843167936,
+      "minimum_covariance_eigenvalue": 0.025507282765170797,
+      "milp_excess": 0.0,
+      "faces": [
+        {
+          "excluded": 1,
+          "primal": 0.00805469927597563,
+          "dual": 0.008054699275975657,
+          "membership": [
+            0.0,
+            1.0,
+            0.26266883369727884
+          ]
+        },
+        {
+          "excluded": 2,
+          "primal": 0.0,
+          "dual": 3.469446951953614e-17,
+          "membership": [
+            -0.0,
+            0.0,
+            -0.0
+          ]
+        },
+        {
+          "excluded": 3,
+          "primal": 0.0,
+          "dual": 4.163336342344337e-17,
+          "membership": [
+            -0.0,
+            -0.0,
+            0.0
+          ]
+        }
+      ],
+      "law_index": 1,
+      "offer": 0.9940930733687025,
+      "states": [
+        [
+          0.06560320249231977,
+          0.35054318985179655,
+          0.5270523852643584
+        ],
+        [
+          0.6447556423470104,
+          0.12270362287437075,
+          0.7874602221505272
+        ],
+        [
+          0.12374105973629124,
+          0.13654943929964947,
+          0.8873804760638467
+        ],
+        [
+          0.5631180792073157,
+          0.17264242347644476,
+          0.9347223024353359
+        ],
+        [
+          0.5129786204196152,
+          0.3957395015866313,
+          0.08537495136245599
+        ],
+        [
+          0.07744583130736138,
+          0.7476128508315644,
+          0.9883198875401891
+        ],
+        [
+          0.9999812199227295,
+          0.37692267254801515,
+          0.631729041191186
+        ],
+        [
+          0.6660104378263841,
+          0.7771052965570988,
+          0.4653636357133172
+        ]
+      ],
+      "probabilities": [
+        0.15989815623610104,
+        0.039917343800377494,
+        0.10516098993717533,
+        0.08489179466060906,
+        0.44923420234832867,
+        0.10877156335016654,
+        0.039614378837637,
+        0.01251157082960494
+      ]
+    },
+    {
+      "category": "off_family_upper_bound",
+      "rho": 0.9637824800407666,
+      "grand_loss": 0.9726579520430937,
+      "grand_to_maximum_ratio": 0.35369380074294315,
+      "singleton_costs": [
+        0.19056428525948124,
+        0.10811218528020747,
+        0.3364029997038169
+      ],
+      "integer_excess": 0.4468338613992162,
+      "largest_unclipped_integer_excess": 0.4468338613992162,
+      "d1": 0.4468338613992162,
+      "gap_over_L": 0.0,
+      "envelope": 0.012299340124177688,
+      "minimum_covariance_eigenvalue": 0.025507282765170797,
+      "milp_excess": 0.44683386139921627,
+      "faces": [
+        {
+          "excluded": 1,
+          "primal": 0.3323427250206227,
+          "dual": 0.3323427250206227,
+          "membership": [
+            0.0,
+            1.0,
+            0.8749336030045075
+          ]
+        },
+        {
+          "excluded": 2,
+          "primal": 0.396029975369735,
+          "dual": 0.396029975369735,
+          "membership": [
+            1.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "excluded": 3,
+          "primal": 0.4468338613992162,
+          "dual": 0.44683386139921627,
+          "membership": [
+            1.0,
+            1.0,
+            0.0
+          ]
+        }
+      ],
+      "law_index": 1,
+      "offer": 0.25,
+      "states": [
+        [
+          0.06560320249231977,
+          0.35054318985179655,
+          0.5270523852643584
+        ],
+        [
+          0.6447556423470104,
+          0.12270362287437075,
+          0.7874602221505272
+        ],
+        [
+          0.12374105973629124,
+          0.13654943929964947,
+          0.8873804760638467
+        ],
+        [
+          0.5631180792073157,
+          0.17264242347644476,
+          0.9347223024353359
+        ],
+        [
+          0.5129786204196152,
+          0.3957395015866313,
+          0.08537495136245599
+        ],
+        [
+          0.07744583130736138,
+          0.7476128508315644,
+          0.9883198875401891
+        ],
+        [
+          0.9999812199227295,
+          0.37692267254801515,
+          0.631729041191186
+        ],
+        [
+          0.6660104378263841,
+          0.7771052965570988,
+          0.4653636357133172
+        ]
+      ],
+      "probabilities": [
+        0.15989815623610104,
+        0.039917343800377494,
+        0.10516098993717533,
+        0.08489179466060906,
+        0.44923420234832867,
+        0.10877156335016654,
+        0.039614378837637,
+        0.01251157082960494
+      ]
+    },
+    {
+      "category": "off_family_upper_bound",
+      "rho": 0.5090733659231172,
+      "grand_loss": 0.4225978743781174,
+      "grand_to_maximum_ratio": 0.2536269201600452,
+      "singleton_costs": [
+        0.10857136869687625,
+        0.1936511517278618,
+        0.2767105245637883
+      ],
+      "integer_excess": 0.10450027346810109,
+      "largest_unclipped_integer_excess": 0.10450027346810109,
+      "d1": 0.10450027346810109,
+      "gap_over_L": 0.0,
+      "envelope": 0.2425466732626753,
+      "minimum_covariance_eigenvalue": 0.017654212436037528,
+      "milp_excess": 0.10450027346810113,
+      "faces": [
+        {
+          "excluded": 1,
+          "primal": 0.0,
+          "dual": 0.0,
+          "membership": [
+            0.0,
+            -0.0,
+            0.0
+          ]
+        },
+        {
+          "excluded": 2,
+          "primal": 0.032294589429162884,
+          "dual": 0.03229458942916286,
+          "membership": [
+            1.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "excluded": 3,
+          "primal": 0.10450027346810109,
+          "dual": 0.10450027346810109,
+          "membership": [
+            1.0,
+            1.0,
+            0.0
+          ]
+        }
+      ],
+      "law_index": 2,
+      "offer": 1.3337814688147174,
+      "states": [
+        [
+          0.26477365824283206,
+          0.10608301500350703,
+          0.9380991161281693
+        ],
+        [
+          0.9718125761678078,
+          0.7613814169142918,
+          0.8709545678734809
+        ],
+        [
+          0.2739203028005087,
+          0.8475142536899679,
+          0.4883361461029243
+        ],
+        [
+          0.7383357793147706,
+          0.22105736051244806,
+          0.37438832898749885
+        ],
+        [
+          0.9593514713206478,
+          0.5141943092987884,
+          0.557311475917196
+        ],
+        [
+          0.7648921374418636,
+          0.8298139088800682,
+          0.8883369668783252
+        ],
+        [
+          0.7564018105198317,
+          0.3849722744935904,
+          0.11240980418037094
+        ],
+        [
+          0.827109437534098,
+          0.7059731304403053,
+          0.8622330340452987
+        ]
+      ],
+      "probabilities": [
+        0.021830202548118734,
+        0.0051633737039195726,
+        0.13511300948069688,
+        0.08986940760960466,
+        0.09469983458353612,
+        0.11716815768529801,
+        0.3989774190691542,
+        0.137178595319672
+      ]
+    },
+    {
+      "category": "off_family_upper_bound",
+      "rho": 1.0,
+      "grand_loss": 1.0585390117261855,
+      "grand_to_maximum_ratio": 0.38492327699134016,
+      "singleton_costs": [
+        0.10857136869687625,
+        0.1936511517278618,
+        0.2767105245637883
+      ],
+      "integer_excess": 0.5284610317001465,
+      "largest_unclipped_integer_excess": 0.5284610317001465,
+      "d1": 0.5284610317001465,
+      "gap_over_L": 0.0,
+      "envelope": 0.0,
+      "minimum_covariance_eigenvalue": 0.017654212436037528,
+      "milp_excess": 0.5284610317001465,
+      "faces": [
+        {
+          "excluded": 1,
+          "primal": 0.25131898445808476,
+          "dual": 0.25131898445808476,
+          "membership": [
+            0.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "excluded": 2,
+          "primal": 0.3912344583968756,
+          "dual": 0.39123445839687554,
+          "membership": [
+            1.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "excluded": 3,
+          "primal": 0.5284610317001465,
+          "dual": 0.5284610317001465,
+          "membership": [
+            1.0,
+            1.0,
+            0.0
+          ]
+        }
+      ],
+      "law_index": 2,
+      "offer": 2.75,
+      "states": [
+        [
+          0.26477365824283206,
+          0.10608301500350703,
+          0.9380991161281693
+        ],
+        [
+          0.9718125761678078,
+          0.7613814169142918,
+          0.8709545678734809
+        ],
+        [
+          0.2739203028005087,
+          0.8475142536899679,
+          0.4883361461029243
+        ],
+        [
+          0.7383357793147706,
+          0.22105736051244806,
+          0.37438832898749885
+        ],
+        [
+          0.9593514713206478,
+          0.5141943092987884,
+          0.557311475917196
+        ],
+        [
+          0.7648921374418636,
+          0.8298139088800682,
+          0.8883369668783252
+        ],
+        [
+          0.7564018105198317,
+          0.3849722744935904,
+          0.11240980418037094
+        ],
+        [
+          0.827109437534098,
+          0.7059731304403053,
+          0.8622330340452987
+        ]
+      ],
+      "probabilities": [
+        0.021830202548118734,
+        0.0051633737039195726,
+        0.13511300948069688,
+        0.08986940760960466,
+        0.09469983458353612,
+        0.11716815768529801,
+        0.3989774190691542,
+        0.137178595319672
+      ]
+    },
+    {
+      "category": "off_family_upper_bound",
+      "rho": 0.347353118082893,
+      "grand_loss": 0.25159224367562355,
+      "grand_to_maximum_ratio": 0.13499681007225997,
+      "singleton_costs": [
+        0.20675601578367886,
+        0.24143753678697186,
+        0.22557252967399957
+      ],
+      "integer_excess": 0.05556786737242536,
+      "largest_unclipped_integer_excess": 0.05556786737242536,
+      "d1": 0.059505059612592434,
+      "gap_over_L": 0.015649100237141143,
+      "envelope": 0.4219269314040643,
+      "minimum_covariance_eigenvalue": 0.013896698518765405,
+      "milp_excess": 0.055567867372425465,
+      "faces": [
+        {
+          "excluded": 1,
+          "primal": 0.032012032300705,
+          "dual": 0.03201203230070504,
+          "membership": [
+            0.0,
+            0.7294371875515129,
+            1.0
+          ]
+        },
+        {
+          "excluded": 2,
+          "primal": 0.059505059612592434,
+          "dual": 0.05950505961259246,
+          "membership": [
+            1.0,
+            0.0,
+            0.7881897023610098
+          ]
+        },
+        {
+          "excluded": 3,
+          "primal": 0.0,
+          "dual": 0.0,
+          "membership": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "law_index": 3,
+      "offer": 1.136309713237273,
+      "states": [
+        [
+          0.6971035075745172,
+          0.9739543184043757,
+          0.1493638978492986
+        ],
+        [
+          0.8437718566006809,
+          0.017940590418824565,
+          0.1071838190353227
+        ],
+        [
+          0.21685075764242434,
+          0.08272586309846297,
+          0.7994590757535228
+        ],
+        [
+          0.4218099233885447,
+          0.867448252997134,
+          0.5394212128733451
+        ],
+        [
+          0.5396882747436437,
+          0.2823817815434225,
+          0.31423965695020695
+        ],
+        [
+          0.7504545424386423,
+          0.8600318036862,
+          0.30871874153230805
+        ],
+        [
+          0.5251037659111442,
+          0.41598764872182814,
+          0.24281740983830535
+        ],
+        [
+          0.8079818786201678,
+          0.1699073768867313,
+          0.6499118962020684
+        ]
+      ],
+      "probabilities": [
+        0.07874380198904217,
+        0.002458571918222745,
+        0.40861341161932363,
+        0.04747031204307415,
+        0.20583882391249472,
+        0.1157628578845808,
+        0.02426772519384721,
+        0.11684449543941473
+      ]
+    },
+    {
+      "category": "off_family_upper_bound",
+      "rho": 1.0,
+      "grand_loss": 1.1066174346208315,
+      "grand_to_maximum_ratio": 0.40240633986212054,
+      "singleton_costs": [
+        0.20675601578367886,
+        0.24143753678697186,
+        0.22557252967399957
+      ],
+      "integer_excess": 0.6255846613358973,
+      "largest_unclipped_integer_excess": 0.6255846613358973,
+      "d1": 0.6255846613358973,
+      "gap_over_L": 0.0,
+      "envelope": 0.0,
+      "minimum_covariance_eigenvalue": 0.013896698518765405,
+      "milp_excess": 0.6255846613358973,
+      "faces": [
+        {
+          "excluded": 1,
+          "primal": 0.5873272644573717,
+          "dual": 0.5873272644573717,
+          "membership": [
+            0.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "excluded": 2,
+          "primal": 0.6255846613358973,
+          "dual": 0.6255846613358972,
+          "membership": [
+            1.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "excluded": 3,
+          "primal": 0.32275526058287535,
+          "dual": 0.3227552605828754,
+          "membership": [
+            1.0,
+            1.0,
+            0.0
+          ]
+        }
+      ],
+      "law_index": 3,
+      "offer": 0.25,
+      "states": [
+        [
+          0.6971035075745172,
+          0.9739543184043757,
+          0.1493638978492986
+        ],
+        [
+          0.8437718566006809,
+          0.017940590418824565,
+          0.1071838190353227
+        ],
+        [
+          0.21685075764242434,
+          0.08272586309846297,
+          0.7994590757535228
+        ],
+        [
+          0.4218099233885447,
+          0.867448252997134,
+          0.5394212128733451
+        ],
+        [
+          0.5396882747436437,
+          0.2823817815434225,
+          0.31423965695020695
+        ],
+        [
+          0.7504545424386423,
+          0.8600318036862,
+          0.30871874153230805
+        ],
+        [
+          0.5251037659111442,
+          0.41598764872182814,
+          0.24281740983830535
+        ],
+        [
+          0.8079818786201678,
+          0.1699073768867313,
+          0.6499118962020684
+        ]
+      ],
+      "probabilities": [
+        0.07874380198904217,
+        0.002458571918222745,
+        0.40861341161932363,
+        0.04747031204307415,
+        0.20583882391249472,
+        0.1157628578845808,
+        0.02426772519384721,
+        0.11684449543941473
+      ]
+    }
+  ],
+  "execution": {
+    "instances": 27,
+    "primal_dual_face_comparisons": 81,
+    "lp_solves": 162,
+    "milp_solves": 27
+  }
+}

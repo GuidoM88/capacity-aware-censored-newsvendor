@@ -19,6 +19,15 @@
 
 ## Current priority, 2026-11-06
 
+The [informal critique response](feedback_review.md) accepts that the first
+draft's correctness and robustness do not settle its significance. The current
+bounded mathematical target is a sharp structural-parameter characterization.
+The [three-player equal-share case](three_player_rho.md) is now solved, with
+two regimes, matching laws, and a strict-stability approximation. Next extend
+that case to arbitrary positive shares or prove an obstruction to the proposed
+face envelope. General n, bibliographic priority and publication significance
+remain open. Do not expand the manuscript merely by appending more material.
+
 The [comparative selection](research_directions.md) gives the first investigation
 to finite-data certification of coalition stability after forecast reconciliation.
 It records three candidates, their closest work, and why the other two are held
@@ -74,7 +83,19 @@ or retained as a backup.
 - [x] Construct and check a continuous example with L/A=1/10 and a proved gap
   above 5% of maximum loss, retaining positive shares and strict integer stability.
   [Robustness addendum](exclusion_robustness.md)
-- [ ] Integrate the robustness addendum into the next manuscript revision.
+- [x] Check the informal critique's pooling argument and four missing references.
+  Record which full proofs were and were not obtained.
+- [x] Derive the exact standalone-ratio envelope for three equal shares and
+  symmetric loss, including matching laws and a strict-stability supremum.
+- [x] Check nine attaining, ten strict and eight off-family cases with independent
+  primal/dual values and the exact MILP. These are not timing comparisons.
+- [ ] Derive the three-player envelope for arbitrary positive shares and either
+  prove attainability or identify a rigorous obstruction.
+- [ ] Compare that result with the closest full results and decide whether its
+  scope and consequences justify a larger theorem or a revised short note.
+- [ ] Refocus the next manuscript: retain only relevant robustness arguments,
+  move the statistical development to companion notes, add the missing related
+  work and make the MILP baseline explicit. Keep all negative results available.
 - [ ] Obtain an independent assessment of the complete argument's correctness,
   significance and possible hidden equivalence. Exact priority and submission
   readiness remain open; do not restart an unrestricted topic search without
@@ -89,18 +110,19 @@ when the integer optimization has been solved exactly.
 
 The third cycle has a valid learned-price certificate but insufficient precision.
 The same learned prices satisfy the gap target in 41/48 heterogeneous cases with
-exact moments and 1/48 with estimated intervals. The next investigation targets
-that statistical expansion. The fourth cycle makes a sufficient standalone-cost
+exact moments and 1/48 with estimated intervals. This motivated the fourth cycle,
+which makes a sufficient standalone-cost
 condition statistically verifiable, but its broad precision limitation remains
 even with population knowledge. Its [proof](standalone_certificate.md),
 [comparison](../results/standalone/summary.md) and
 [post-run diagnosis](../results/standalone/diagnosis.md) close that bounded
 investigation. The research question remains unchanged. The fifth cycle closes
 the focused priority check and prepares the theoretical-note outline. The
-assembled manuscript now makes that argument available for assessment of
-correctness and significance. Further interval tuning is not the current
-priority. Runtime superiority and guarantees under temporal dependence remain
-unresolved.
+assembled manuscript made that argument available for assessment of correctness
+and significance. The informal critique now redirects the next step toward a
+structural characterization, beginning with C39, rather than additional
+packaging or interval tuning. Runtime superiority and guarantees under temporal
+dependence remain unresolved.
 
 ## Previous decision, 2026-10-27; clarified 2026-10-28
 

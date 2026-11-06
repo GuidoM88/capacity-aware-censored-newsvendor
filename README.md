@@ -2,6 +2,20 @@
 
 Research code for **identifiability and minimax regret under censored demand and shared capacity**.
 
+**Structural-parameter result and review response, 2026-11-06.** For three equal
+shares and symmetric absolute loss, the exact worst normalized depth-one gap
+subject to rho >= r is (2/3)(1-r) up to r=1/3 and (1-r²)/(6r) above it.
+Four-state laws attain both regimes; for 0<r<1 the same supremum persists with
+strict integer stability and positive definite covariance. This improves the
+previous standalone-ratio ceiling in the high-ratio regime. It is limited to
+this three-player case; significance and priority remain open. The review
+response accepts the first draft's significance limitation, records four missing
+classical references, and separates the existing MILP and dual-error baselines
+from new claims. The next target is arbitrary positive shares in this same case.
+[Proof](docs/three_player_rho.md) ·
+[Checks](results/exclusion/three_player_rho.md) ·
+[Critique, bibliography and revision decision](docs/feedback_review.md)
+
 **Robustness extension, 2026-11-06.** The sharp expected-cost gap persists when
 the true law has a bounded joint density and positive definite covariance.
 A separate continuous three-producer example has L/A=1/10, a covariance
@@ -182,6 +196,9 @@ references. These checks validate this implementation within its supported scope
 
 ## Research documents
 
+- [Response to the manuscript critique and bounded next target](docs/feedback_review.md)
+- [Exact three-player standalone-ratio envelope](docs/three_player_rho.md)
+- [Three-player formula, primal/dual and MILP checks](results/exclusion/three_player_rho.md)
 - [Learned face prices, finite-sample proof and research decision](docs/face_residuals.md)
 - [Prespecified residual and wind protocol](docs/residual_protocol.md)
 - [Fresh-sample results and precision gate](results/residuals/summary.md)

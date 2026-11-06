@@ -7,12 +7,23 @@ the exact finite-family calculation, root and canonical-extension comparisons,
 the standalone-cost condition, numerical tables, and an iid validation appendix.
 It is not a submission or an independently reviewed publication.
 
+**Revision decision, November 6.** The [response to the informal critique](../docs/feedback_review.md)
+accepts the concern that the central share-only theorem is too small by itself
+to establish a substantial contribution. A new [three-player result](../docs/three_player_rho.md)
+gives the exact dependence on the standalone ratio for equal shares, with two
+regimes and matching laws. It is not yet integrated into this PDF or archive.
+The next research step is arbitrary positive shares in that case. The next
+manuscript revision should focus on the structural result, move the statistical
+development to the companion notes, add the four classical references recorded
+in the response, and state the existing exact MILP baseline. These changes have
+not yet been applied to the November 5 reading copy.
+
 The November 6 [mathematical addendum](../docs/exclusion_robustness.md) strengthens
 the construction to continuous true laws with positive definite covariance
 and supplies a separate fixed-scale example. Its
 [checks](../results/exclusion/robustness.md) are complete. The current PDF and
-Overleaf ZIP retain the November 5 draft; the addendum is to be integrated in
-the next revision. Review the addendum alongside this draft.
+Overleaf ZIP retain the November 5 draft. Only the robustness arguments relevant
+to the eventual central result should be integrated in the next revision.
 
 ## Open in Overleaf
 
