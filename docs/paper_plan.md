@@ -127,10 +127,29 @@ Mathematical Methods of Operations Research or the International Journal of
 Game Theory. A stronger outlet would need either a proof of the realizability
 conjecture or a closed form for arbitrary shares at depth one.
 
+## Literature check, first pass (November 6)
+
+A short web search, not a systematic review:
+
+* The identity behind the constructions is classical: the first absolute
+  moments E|<u, X>| of a random vector are the support function of a zonoid
+  (see for instance Molchanov, Schmutz and Stucki,
+  [arXiv:1203.6085](https://arxiv.org/abs/1203.6085), and the lift-zonoid
+  literature of Koshevoy and Mosler). The paper should credit it and present
+  only its use for the audit problem as new.
+* No source found uses zonoids or zonotopes for newsvendor pooling games or
+  cost allocation, or studies the worst-case gap of the fractional coalition
+  relaxation as a function of the standalone ratio. That is a statement about
+  this search, not a proof of priority.
+* Worth citing in the related work: Chen, Gao, Hu and Wang, *Population
+  monotonicity in newsvendor games*, Management Science 2019
+  ([SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2956165)), on
+  dual-based allocations and stability as coalitions grow.
+
 ## Before submission
 
-1. Literature check on zonotopes and zonoids in cooperative games and in
-   newsvendor pooling, to place contributions 3 to 5.
+1. A fuller literature check on zonoids in cooperative games and on
+   relaxations of core membership, starting from the pointers above.
 2. Independent reading of the proofs of Theorems 1 to 4 (the corner checks
    and the dual weights in particular).
 3. Rewrite of the manuscript along the structure above, with the figure in
