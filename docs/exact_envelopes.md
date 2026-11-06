@@ -463,6 +463,19 @@ gap is determined. In all 38 instances where an explicit law was built (every
 four-producer instance and two five-producer ones) the law reaches the bound,
 so there the worst gap over demand laws is determined.
 
+**When the elementary ceiling is the answer**
+([summary](../results/exclusion/c31_exactness.md)). Comparing the same 68
+values with C31, the ceiling (1-r) times the sum of the n-k largest shares, is
+exact in 45 of them. The pattern is sharp: all 39 instances with r <= 0.4 sit
+exactly at C31, 6 of 14 with r in {0.5, 0.6}, and none of the 15 with
+r >= 0.7, where the exact value is often far lower (0.187 against 0.26 for
+four producers at depth two and r = 0.6). At the optimum only two
+certificates are typically active in the C31 cases, nonnegative cost and the
+whole face, which is exactly the argument behind C31. The equal-share windows
+at moderate r thus look like a feature of symmetric shares; with generic
+shares the elementary ceiling is the answer for small and moderate r, and the
+exact theory matters for large r.
+
 The number of LPs grows like C(n,k)(n-k)!, so the method is practical up to
 six or seven producers. For larger n with structure, such as equal shares,
 the sorted version of Section 5 needs a single LP.

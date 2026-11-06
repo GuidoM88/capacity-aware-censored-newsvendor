@@ -54,6 +54,7 @@ python -m unittest discover -s tests -v
 python scripts/check_exact_envelopes.py
 python scripts/check_window_envelopes.py
 python scripts/check_certificate_method.py
+python scripts/summarize_c31_exactness.py
 python scripts/plot_exact_envelopes.py
 python scripts/check_strict_mixtures.py
 python scripts/check_seminorm_envelope.py
@@ -255,6 +256,15 @@ the law reaches it. The same LP reproduces Theorems 1 to 3 where they apply.
 So, as far as we have looked, the worst gap with arbitrary shares is the
 value of a finite LP, attained by an explicit finite law. What is missing is
 a proof that this always happens.
+
+Looking at which certificates are active gave a simple practical picture. In
+45 of the 68 instances the exact worst gap is just the elementary C31
+ceiling, and the dividing line is r: every instance with r <= 0.4 is at C31,
+none with r >= 0.7 is, and there the exact value can be much lower (0.187
+against 0.26 in one case). With generic shares, then, the elementary bound is
+the right answer when producers pay a small or moderate part of their
+standalone cost, and the exact theory matters when they pay most of it
+([summary](results/exclusion/c31_exactness.md)).
 
 The picture for equal shares is summarized in
 [results/exclusion/exact_envelopes.png](results/exclusion/exact_envelopes.png):
