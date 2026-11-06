@@ -3,7 +3,7 @@
   "scope": "Exploratory symmetric-loss seminorm relaxation; realizability not checked.",
   "tolerance": 1e-06,
   "sha256": {
-    "src/censored_newsvendor/seminorm_envelope.py": "3a26bd10ddfe882b20bab783bf11a0c48c1a327c59c10f264fca166be2f6892a",
+    "src/censored_newsvendor/seminorm_envelope.py": "b9824aa6c1395e0b90938b0e6f95e98eae454c11e940798bdaed534d5587078d",
     "scripts/check_seminorm_envelope.py": "de265e381e064b31af4ebd299a041bbd7819973de1d63903753c07dc6aa49c78"
   },
   "cases": [

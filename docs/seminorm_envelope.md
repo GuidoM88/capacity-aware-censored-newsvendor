@@ -2,10 +2,10 @@
 
 November 6, 2026, branch `pulp-fiction`. This note adds a computational tool
 for the structural-parameter question of [C39](three_player_rho.md) and
-records what it shows. It proves several upper bounds and maps where they
-are attained by a relaxation. It does **not** check whether demand laws
-realize the relaxed values, except where C39 already does. It is not a claim
-of a general theorem, bibliographic priority or publication significance.
+records what it shows. It proves several upper bounds, maps where a
+relaxation attains them, and checks at selected points whether explicit
+demand laws attain the relaxed values (Section 6). It is not a claim of a
+general theorem, bibliographic priority or publication significance.
 
 Use the notation of the manuscript: depth-one bound D_1, integer excess B,
 expected grand cost L of the implemented offer, charges a=Lw and
@@ -223,16 +223,70 @@ The second and third lines meet at t=1-r with value a(1-r); the fourth is
 not lower there iff r>=1/5. Otherwise the second and fourth meet at
 t=(M+1)/(2M) with the middle expression, positive iff 3r^2+6r-1>0. QED.
 
-The relaxation attains P(r) at all 13 tested ratios (saved map). Compared
-with C39, which allows arbitrary standalone costs, proportional charges
-remove the whole gap under strong pooling, and for rho>=1/5 halve the C31
-ceiling. The worst case, 4/15 of L, is at intermediate pooling rho=1/5.
-Whether demand laws realize P(r) is open.
+The relaxation attains P(r) at all 13 tested ratios (saved map), and
+explicit laws attain it at r=0.17 and r=0.3 (Section 6), so at those ratios
+P(r) is the exact worst gap. Compared with C39, which allows arbitrary
+standalone costs, proportional charges remove the whole three-player gap
+under strong pooling and halve the C31 ceiling for rho>=1/5.
+
+**Negative result: this shape does not persist for n>=4.** In the
+[proportional map](../results/exclusion/proportional_envelope.md), with equal
+shares and equal pinned standalone costs, the relaxed gap for n=4 is
+0.5+r for small r (0.54 at r=0.04, with zero cost at the membership
+(1,1,4r,0)) and peaks at 0.64 near r=0.14. An explicit eight-atom law
+attains 0.54 at r=0.04 (Section 6): with rho=L/sum_j c_j=0.04, the fractional
+audit reports a saving of 54% of L although no actual coalition gains. For
+n=5 the relaxed gap equals the C31 ceiling at five of nine sampled ratios
+(r from 0.12 to 0.5). Proportional charges therefore do not give a
+general-n mechanism that removes or halves the gap.
+
+## 6. Realizability by finite centrally symmetric laws
+
+**Lemma 5.** Let Y take the values mu+x_k and mu-x_k with probability
+p_k/2 each. Then, under absolute loss, c(x)=sum_k p_k|x_k'x| for every
+membership vector x.
+
+*Proof.* x'Y is symmetric about x'mu, which is therefore a median and an
+optimal offer; the expected absolute deviation is sum_k p_k|x_k'x|. QED.
+
+So costs of finite centrally symmetric laws are support functions of
+zonotopes. Fix the finite test set T of singletons, proper coalitions, the
+grand coalition and z. Generators in the same closed chamber of the
+hyperplane arrangement {x^perp : x in T} add linearly on T. Hence one
+generator per chamber suffices, and minimizing c(z) under the game
+constraints over this class is a single LP
+(`zonotope_minimal_cost`; chambers are found by sampling directions).
+The solution defines an explicit law: atoms plus and minus m g_k with mass
+1/(2m), mapped affinely into the unit box, with the frozen offer chosen so
+that its expected loss is L (`symmetric_unit_law`). Missing chambers could
+only make the LP more conservative; the decisive check is the independent
+evaluation of the explicit law with the original `ExclusionEnvelope` and
+`coalition_table` code.
+
+**Results.** In the [realizability check](../results/exclusion/zonotope_realizability.md)
+every one of 12 cases is attained by an explicit law with 6 to 14 atoms,
+zero integer excess and rho=r, both up to a normalized solver tolerance of 1e-6: three-player cases with equal
+and unequal shares and with proportional charges, and four-player cases in
+the C31 regime, in both windows, in the high regime and with proportional
+charges. Where the attained value equals a proved upper bound it is the
+exact worst gap at that ratio. This holds for the six three-player cases,
+including w=(0.6,0.25,0.15) at r=0.2 (gap 0.607143) and
+w=(0.7,0.2,0.1) at r=0.3 (gap 0.497872), and for n=4 at r=0.15 (C31) and
+r=0.6 (the U_4 formula). In the n=4 windows the attained values give
+lower bounds: the exact worst gap lies in [0.553571, 0.5625] at r=1/4 and
+in [0.518421, 0.525] at r=0.3.
+
+**Conjecture (realizability).** For symmetric absolute loss, every value
+of the seminorm relaxation in Lemma 1 is attained by a finite centrally
+symmetric demand law. If true, the exact worst gap is computable by LP and
+the proofs reduce to explicit gauges plus explicit zonotopes. The evidence
+is the 12 cases above; n>=5 was not tested because the chamber LP grows
+quickly.
 
 ## What this does not establish
 
-* Realizability: apart from C39 (three equal shares), no demand law is
-  constructed for the relaxed values above.
+* Realizability is verified only at the 12 listed points, not in general;
+  the conjecture above is open.
 * The n=4 and n=5 windows below C31 are not certified; they are the best
   values found by the search.
 * Positive integer excess was only sampled: in the ten sampled cases with
@@ -242,22 +296,24 @@ Whether demand laws realize P(r) is open.
 
 ## Suggested next steps
 
-1. **Realizability tests.** Search finite centrally symmetric laws (sums of
-   independent signs, as in C39) for: n=4 at r=0.15 (C31), r=0.25 (window)
-   and r=0.6 (high regime); three players with w=(0.6,0.25,0.15), r=0.2;
-   the proportional case at r=0.17 and r=0.3. If they attain the relaxed
-   values, Lemma 1 plus explicit constructions is a viable proof route for
-   a general statement. If not, realizability is the mathematical core.
-2. **Certify one window** (n=4, r=1/4) exactly, using the LP dual
-   certificates of Lemma 1 on a finite candidate set and a matching argument.
-3. **Choose the central question.** The proportional-charge envelope as a
-   function of the pooling ratio is economically interpretable and already
-   shows a non-monotone shape at n=3. The rho-floor envelope with arbitrary
-   charges risks reproducing C31 for larger n (Section 4).
+1. **Test the realizability conjecture systematically**: random shares and
+   ratios for n=3 and n=4, depth two, and the maximizing memberships rather
+   than only the oracle's points. Study the structure of the realized
+   generators (all found laws use at most seven) as a route to a proof.
+2. **If it holds, close the equal-share case for all n**: explicit laws for
+   the configuration intervals and the high regime would turn Proposition 2
+   and C31 into exact statements; then certify the windows.
+3. **Central question for a paper**: the exact worst-case error of the
+   fractional audit as a function of the standalone ratio, complete for
+   three players and on explicit intervals for all n, with the gauge and
+   zonotope LPs as a two-sided certificate. Proportional charges are no
+   longer a candidate center (negative result above).
 
 Reproduce:
 
 ```bash
 python -m unittest tests.test_seminorm_envelope -v
 python scripts/check_seminorm_envelope.py
+python scripts/check_zonotope_realizability.py
+python scripts/check_proportional_envelope.py
 ```

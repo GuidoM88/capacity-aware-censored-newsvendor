@@ -14,8 +14,11 @@ with standalone ratio rho >= r and integer excess B then satisfies
 For a fixed membership z, ``minimal_cost`` returns the smallest value of c(z)
 over *all* seminorms satisfying these constraints (gauge duality, see
 docs/seminorm_envelope.md). Hence ``depth_one_envelope`` computes an upper
-bound on the worst normalized depth-one gap over actual demand laws. Whether a
-demand law realizes that bound is a separate question and is not checked here.
+bound on the worst normalized depth-one gap over actual demand laws.
+``zonotope_minimal_cost`` searches the costs of finite centrally symmetric
+demand laws instead, and ``symmetric_unit_law`` turns its solution into an
+explicit law on the unit box, so that realizability can be checked
+independently with the coalition code.
 
 The maximization over z uses a grid and local refinement. Its value is a
 feasible point of the relaxation, so strict gaps below a proved bound are
@@ -237,3 +240,125 @@ def configuration_prediction(n, r):
         if (q - p) / (q + p) <= r <= q / (q + 2 * p):
             return "c31"
     return "below"
+
+
+# ---------------------------------------------------------------------------
+# Realizability by finite centrally symmetric demand laws
+# ---------------------------------------------------------------------------
+
+def _test_vectors(n, z):
+    """Singletons, larger proper coalitions, the grand coalition and z."""
+    rows = [np.eye(n)[j] for j in range(n)]
+    for coalition in proper_coalitions(n):
+        if len(coalition) >= 2:
+            row = np.zeros(n)
+            row[list(coalition)] = 1.0
+            rows.append(row)
+    rows.append(np.ones(n))
+    rows.append(np.asarray(z, dtype=float))
+    return np.array(rows)
+
+
+def sign_chambers(vectors, *, samples=400_000, seed=0, batch=100_000):
+    """Sign vectors of the open chambers of the central arrangement x^perp.
+
+    Chambers are found by sampling Gaussian directions, identifying g with
+    -g. Returns the sign matrix and whether the second half of the samples
+    found no new chamber (a heuristic completeness indicator).
+    """
+    rng = np.random.default_rng(seed)
+    found, count_at_half, done = {}, None, 0
+    while done < samples:
+        g = rng.standard_normal((batch, vectors.shape[1]))
+        values = g @ vectors.T
+        keep = np.all(np.abs(values) > 1e-9, axis=1)
+        signs = np.sign(values[keep]).astype(np.int8)
+        signs *= signs[:, :1]
+        for row in np.unique(signs, axis=0):
+            found.setdefault(row.tobytes(), row)
+        done += batch
+        if count_at_half is None and done >= samples / 2:
+            count_at_half = len(found)
+    return np.array(list(found.values())), len(found) == count_at_half
+
+
+def zonotope_minimal_cost(z, shares, r, *, integer_excess=0.0, grand_cost=1.0,
+                          pinned_singletons=False, samples=400_000, seed=0):
+    """Smallest c(z) found over costs of finite centrally symmetric laws.
+
+    A centrally symmetric law with atoms +-x_k of mass p_k/2 has absolute-loss
+    cost c(x) = sum_k p_k |x_k'x|. On the finite set T of test vectors,
+    generators in one closed chamber of the arrangement {x^perp : x in T} add
+    linearly, so one generator per chamber suffices and the constrained
+    minimization of c(z) is a single LP. With every chamber found the value
+    is exact for this class; missing chambers can only increase it.
+    """
+    a = np.asarray(shares, dtype=float)
+    n = len(a)
+    vectors = _test_vectors(n, z)
+    signs, stable = sign_chambers(vectors, samples=samples, seed=seed)
+    m, width = len(signs), len(signs) * n
+
+    def cost_row(t):
+        row = np.zeros(width)
+        for k in range(m):
+            row[k * n:(k + 1) * n] = signs[k, t] * vectors[t]
+        return row
+
+    rows, rhs = [], []
+    for k in range(m):
+        for t in range(len(vectors)):
+            row = np.zeros(width)
+            row[k * n:(k + 1) * n] = -signs[k, t] * vectors[t]
+            rows.append(row)
+            rhs.append(0.0)
+    larger = [c for c in proper_coalitions(n) if len(c) >= 2]
+    for j in range(n):
+        if r > 0:
+            rows.append(cost_row(j))
+            rhs.append(a[j] / r)
+    rows.append(cost_row(len(vectors) - 2))
+    rhs.append(grand_cost)
+    for coalition in proper_coalitions(n):
+        t = coalition[0] if len(coalition) == 1 else n + larger.index(coalition)
+        lower = a[list(coalition)].sum() - integer_excess
+        if pinned_singletons and len(coalition) == 1:
+            lower = max(lower, a[coalition[0]] / r)
+        rows.append(-cost_row(t))
+        rhs.append(-lower)
+    result = linprog(cost_row(len(vectors) - 1), A_ub=np.array(rows), b_ub=np.array(rhs),
+                     bounds=[(None, None)] * width, method="highs")
+    if result.status != 0:
+        return {"value": None, "generators": None, "chambers": m, "stable": stable}
+    generators = result.x.reshape(m, n)
+    generators = generators[np.linalg.norm(generators, axis=1) > 1e-9]
+    return {"value": float(result.fun), "generators": generators, "chambers": m,
+            "stable": stable}
+
+
+def symmetric_unit_law(generators, shares, *, grand_cost=1.0):
+    """Explicit demand law on [0,1]^n realizing sum_k |g_k'x|.
+
+    Returns (states, probabilities, offer, scale) where the frozen offer has
+    expected loss grand_cost before the common affine map; ``scale`` is the
+    factor 1/(2R) applied to all costs by that map.
+    """
+    g = np.asarray(generators, dtype=float)
+    m, n = g.shape
+    atoms = np.vstack([m * g, -m * g])
+    probabilities = np.full(2 * m, 1.0 / (2 * m))
+    totals = atoms.sum(axis=1)
+
+    def expected_loss(q):
+        return float(probabilities @ np.abs(q - totals))
+
+    offer = 0.0
+    if expected_loss(0.0) < grand_cost:
+        lo, hi = 0.0, float(np.abs(totals).max()) + 2 * grand_cost
+        for _ in range(200):
+            mid = (lo + hi) / 2
+            lo, hi = (mid, hi) if expected_loss(mid) < grand_cost else (lo, mid)
+        offer = (lo + hi) / 2
+    radius = float(np.abs(atoms).max())
+    states = 0.5 + atoms / (2 * radius)
+    return states, probabilities, n / 2 + offer / (2 * radius), 1 / (2 * radius)

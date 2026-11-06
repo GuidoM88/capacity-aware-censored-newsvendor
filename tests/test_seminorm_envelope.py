@@ -2,13 +2,37 @@ import unittest
 
 import numpy as np
 
+from censored_newsvendor.coalition_audit import FiniteLaw, FrozenRule, coalition_table
+from censored_newsvendor.exclusion import ExclusionEnvelope
 from censored_newsvendor.seminorm_envelope import (
     PROPORTIONAL_ZERO_THRESHOLD, c31_ceiling, c39_envelope, configuration_prediction,
     depth_one_envelope, face_gap, minimal_cost, proportional_three_player_bound,
-    proportional_three_player_closed_form, separable_bound, three_player_bound,
+    proportional_three_player_closed_form, separable_bound, symmetric_unit_law,
+    three_player_bound, zonotope_minimal_cost,
 )
 
 EQUAL3 = [1 / 3] * 3
+
+
+class RealizabilityTests(unittest.TestCase):
+    def test_four_inequality_bound_is_attained_by_an_explicit_law(self):
+        # Three unequal shares: the zonotope LP gives a finite symmetric law;
+        # the original audit code confirms gap 0.607143 with B=0 and rho=r.
+        shares, r = np.array([.6, .25, .15]), .2
+        z = [1.25 / 2.1, 1, 0]
+        found = zonotope_minimal_cost(z, shares, r, samples=100_000)
+        self.assertAlmostEqual(found["value"], 0, places=8)
+        states, probabilities, offer, scale = symmetric_unit_law(found["generators"], shares)
+        law, rule = FiniteLaw(states, probabilities), FrozenRule(offer, shares, np.ones(3))
+        grand = float(probabilities @ np.abs(offer - states.sum(axis=1)))
+        self.assertAlmostEqual(grand, scale, places=10)
+        d1 = ExclusionEnvelope.population(rule, law).level(1)["upper"]
+        table = coalition_table(rule, law)
+        integer = max(0., max(row["excess"] for row in table))
+        singles = [row["cost"] for row in table if len(row["coalition"]) == 1]
+        self.assertLess(integer / grand, 1e-9)
+        self.assertAlmostEqual(min(grand * w / c for w, c in zip(shares, singles)), r, places=8)
+        self.assertAlmostEqual((d1 - integer) / grand, three_player_bound(shares, r), places=6)
 
 
 class SeminormEnvelopeTests(unittest.TestCase):
