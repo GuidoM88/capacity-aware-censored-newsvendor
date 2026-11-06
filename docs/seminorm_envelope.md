@@ -1,5 +1,9 @@
 # A seminorm oracle for structural exclusion envelopes
 
+*Status, later the same day:* the explicit laws announced as open in
+Sections 4 and 6 are in [exact_envelopes.md](exact_envelopes.md), which turns
+the equal-share picture and the three-player bound into theorems.
+
 November 6, 2026, branch `pulp-fiction`. This note adds a computational tool
 for the structural-parameter question of [C39](three_player_rho.md) and
 records what it shows. It proves several upper bounds, maps where a
@@ -187,11 +191,12 @@ mislabeled r=1/5 for n=4, where the relaxation attains C31: at an endpoint
 the window has zero depth. With closed intervals the labels agree with the
 attained/not-attained pattern in all 16 saved equal-share cases.
 
-If the heuristic is right in general, consecutive windows exist only while
-p^2+p+1<n, each has width of order 2/n, and they lie near the top of
-[0,(n-2)/n]. The improvement over C31 would then survive mainly for
-r>=(n-2)/n. This is the main risk for a paper built on the rho envelope
-alone: for larger n it may largely reproduce the elementary C31 ceiling.
+*Later update.* The heuristic is now a theorem: on the intervals it
+describes, explicit laws attain C31 at every depth
+([exact_envelopes.md](exact_envelopes.md), Theorem 1). An earlier version of
+this paragraph guessed that the windows become negligible. They do not for
+moderate n: their total length is 0.13 to 0.20 for 4 <= n <= 30 and decays
+only like n^(-1/2).
 
 ## 5. Charges proportional to standalone costs
 

@@ -1,162 +1,216 @@
-# Branch `pulp-fiction`: handoff note
+# pulp-fiction
 
-November 6, 2026. Work done by Claude (Claude Code) in a separate session,
-in parallel with the work on `main`. The branch starts from `main` at
-`309977c`. **No existing file is modified**; everything here is a new file,
-so merging should not conflict with parallel work on `main`.
+This branch follows one question to the end: how badly can the fractional
+coalition audit overstate savings once every producer is known to pay at
+least a fraction r of its standalone cost? C39 answered it for three
+producers with equal shares. Here we try to answer it in general.
 
-## 1. What was done, in order
+The branch starts from `main` at `309977c` and only adds files, so merging
+is mechanical. Work on `main` went on in parallel; keeping the two apart made
+it easy to compare them before deciding what goes into the paper.
 
-1. Read the repository and the November 5 first-draft PDF (`paper/main.pdf`,
-   identical to the copy in the repository).
-2. Reviewed the draft for correctness, originality and presentation
-   (Section 2 below).
-3. Re-ran the existing checks at `309977c`. `scripts/check_three_player_rho.py`
-   passes: 9 attaining, 10 strict and 8 off-family cases, 81 primal/dual
-   and 27 MILP checks. The 40 unit tests pass after the README's editable
-   install (`python -m pip install --no-deps -e .`). An earlier remark that
-   the validation command in `AGENTS.md` fails was wrong: it failed only
-   because the package was not installed in a fresh container.
-4. Built a computational oracle for the structural envelope and mapped it
-   (Section 3), with proofs of the bounds it is compared against.
-5. Gave a recommendation for the next research step (Section 4).
+## Where things stand
 
-## 2. Review of the first draft (summary)
+* **Equal shares, any number of producers, any depth: settled except on
+  explicit "windows" of r** ([Theorem 1](docs/exact_envelopes.md)). The
+  elementary C31 ceiling (1-r)m/n is exact on a union of intervals, and for
+  r >= (m-1)/(m+1) the exact value is (m-1)(1-r^2)/(2nr); m = n-k is the
+  number of free producers at depth k. Every value comes with an explicit
+  finite demand law.
+* **Arbitrary shares at the last nonterminal depth n-2: settled for every r**
+  ([Theorem 2](docs/exact_envelopes.md)). For three producers this extends
+  C39 to unequal shares. The C39 argument by itself is not sharp there: at
+  w = (3/5, 1/4, 3/20) and r = 1/5 it gives 0.68, while the true worst gap is
+  17/28 = 0.607.
+* **A method that certifies values numerically.** An LP over all seminorms
+  gives an upper bound for a fixed membership; an LP over finite symmetric
+  laws produces a law that attains it. When the two meet, the value is exact.
+  So far they have met in every case tried (Section 7 of the log).
+* **Negative results kept on record.** Charging in proportion to standalone
+  costs does not tame the gap beyond three producers. The windows are not a
+  thin sliver: they cover 13 to 20 percent of the range of r for 4 to 30
+  producers.
+* **Open.** The exact values inside the windows; unequal shares at depths
+  1 to n-3; asymmetric imbalance penalties.
 
-The opinions here are a model review, not a guarantee of how referees will
-judge the work.
+## How to read the branch
 
-* **Correctness.** Lemma 1, Proposition 2, Theorem 3, Proposition 4,
-  Corollary 6, the example after Proposition 7, and Proposition 8 check out.
-  Minor point: Theorem 3 should say that alpha and beta are fixed; with two
-  equiprobable states the cost is min(alpha,beta)|d'z|/2, so the supremum
-  holds for every fixed pair.
-* **Why the draft is thin as a paper.** The upper bound follows in one line
-  from nonnegative cost, and the matching family uses the two-state device
-  of Chen and Zhang (2009). The extremal family has L tending to zero. Measured
-  against the cooperative surplus sum_j c_j - c(N), which equals H-1 in
-  unscaled units, its gap is below 1/(2(2n-3)) and tends to zero along the
-  sequence that attains the supremum. The closest precedent of the
-  relaxation is a section of the 2005 Burer-Dror manuscript that the journal
-  version dropped, so its audience is narrow.
-* **Presentation.** The tone is defensive; Section 6's statistical comparison,
-  Table 2 and Appendix B do not belong in a theory note; `main.tex` never
-  names the application (aggregated renewable producers with imbalance
-  penalties).
-* **Suggested improvements.** A stronger central theorem in a structural
-  parameter (this branch explores which one); an introduction built on the
-  application; references to add beyond the four already recorded in
-  `docs/feedback_review.md`: Baeyens, Bitar, Khargonekar and Poolla (2013),
-  *Coalitional aggregation of wind power*, IEEE Trans. Power Systems 28(4);
-  Chakraborty, Baeyens and Khargonekar (2018), *Cost causation based
-  allocations of costs for market integration of renewable energy*, IEEE
-  Trans. Power Systems 33(1); Montrucchio, Norde, Ozen, Scarsini and Slikker
-  (2012), *Cooperative newsvendor games: a review*, Handbook of Newsvendor
-  Problems; Caprara and Letchford (2010), *New techniques for cost sharing
-  in combinatorial optimization games*, Math. Programming 124. Also: move the
-  statistics to a companion note, write explicit contribution and limitation
-  paragraphs, promote Section 4.2 (physical versus canonical extension),
-  and publish the paper's code separately from the censored-demand history.
-* **Verdict.** In its November 5 form, not yet sufficient for a strong
-  journal; a short note would need a stronger central result.
+Start with [docs/exact_envelopes.md](docs/exact_envelopes.md): statements and
+complete proofs of the two theorems. [docs/seminorm_envelope.md](docs/seminorm_envelope.md)
+explains the oracle, the upper bounds and the numerical map that led there.
+The `results/exclusion/*.md` files are generated from saved JSON by the
+scripts listed at the end and should not be edited by hand.
 
-## 3. New on this branch
+```bash
+python -m pip install -r requirements.txt
+python -m pip install --no-deps -e .
+python -m unittest discover -s tests -v
+python scripts/check_exact_envelopes.py
+python scripts/check_seminorm_envelope.py
+python scripts/check_zonotope_realizability.py
+python scripts/check_proportional_envelope.py
+python scripts/check_realizability_conjecture.py
+```
 
-Full statements, proofs and scope: [docs/seminorm_envelope.md](docs/seminorm_envelope.md).
-Saved map: [results/exclusion/seminorm_envelope.md](results/exclusion/seminorm_envelope.md).
+The first two scripts take about a minute and seven minutes on four cores;
+the realizability scripts a few minutes each.
 
-* **Lemma 1 (gauge duality).** For a fixed membership, the smallest cost
-  over all symmetric-loss seminorms obeying the depth-one game constraints
-  is a max-min of small LPs. This gives an upper bound on the worst gap over
-  demand laws. It reproduces C39 at ten ratios and C30's value at r=0.
-* **Proposition 2.** Equal shares, any n: the C39 argument generalizes to a
-  bound U_n(r) that equals the C31 ceiling for r<=(n-2)/n.
-* **Numerical windows.** For n=4 and n=5 the relaxation is strictly below
-  C31 in windows below (n-2)/n (5 of 16 cases), e.g. n=4, r=1/4: 0.553571
-  against 0.5625. A configuration heuristic predicted the n=5 window from
-  n=4. The windows are numerical observations, not certified.
-* **Proposition 3 and a negative result.** For three players with unequal
-  shares the C39 proof is not sharp (7 of 24 cases, e.g. 0.68 against
-  0.607143). A fourth inequality, from the integral coordinate's standalone
-  cap, gives a bound that the relaxation attains in all 24 cases.
-* **Proposition 4 (proportional charges).** Three equal shares and equal
-  standalone costs: the worst gap is zero for rho<=0.1547, peaks at 4/15 of
-  L at rho=1/5, and equals (1-rho)/3, half of C31, above. The relaxation
-  attains this bound at 13 of 13 ratios.
+## Log
 
-At the time of the first push, realizability by demand laws was not checked
-for any new value; the update section below reports the later check.
+### 1. Reading the November 5 draft
 
-## 4. Recommendation for the next step
+The proofs in the draft hold up: Lemma 1, Proposition 2, Theorem 3,
+Proposition 4, Corollary 6, the example after Proposition 7 and
+Proposition 8 all check out. One small gap in the statement of Theorem 3:
+it should say that alpha and beta are fixed. With two equiprobable states
+the cost is min(alpha, beta)|d'z|/2, so the supremum holds for every fixed
+pair.
 
-* Do not switch to the fixed L/A question: A depends on declared capacities,
-  whereas rho is intrinsic. With charges proportional to standalone costs
-  and an optimal grand offer, rho equals the pooling ratio c(N)/sum_j c_j.
-* Before proving the three-player unequal-share case by hand:
-  1. test realizability of the relaxed values with finite centrally
-     symmetric laws (cases listed in `docs/seminorm_envelope.md`);
-  2. certify one window, for example n=4 and r=1/4;
-  3. choose the central question. The proportional-charge envelope as a
-     function of the pooling ratio is interpretable and non-monotone already
-     at n=3; the rho-floor envelope with arbitrary charges risks reproducing
-     C31 for larger n.
+The weakness is significance, not correctness. The upper bound of the main
+theorem is one line from nonnegative cost, and the matching family reuses
+the two-state device of Chen and Zhang (2009). Along that family L goes to
+zero, and measured against the cooperative surplus sum_j c_j - c(N) (which
+is H-1 in unscaled units) the gap stays below 1/(2(2n-3)) and tends to
+zero. The relaxation itself appears only in a section of the 2005
+Burer-Dror manuscript that the journal version dropped, so the audience is
+narrow. On presentation: the tone is defensive, the statistical comparison
+of Section 6, Table 2 and Appendix B belong in a companion note, and the
+draft never names its application, renewable producers pooling imbalance
+penalties.
 
-  Status after the update below: step 1 is done at 12 points (all realized).
-  The proportional-charge suggestion in step 3 is withdrawn (negative
-  result for n>=4).
+References worth adding, beyond the four already in `docs/feedback_review.md`:
+Baeyens, Bitar, Khargonekar and Poolla, *Coalitional aggregation of wind
+power*, IEEE Trans. Power Systems 28(4), 2013; Chakraborty, Baeyens and
+Khargonekar, *Cost causation based allocations of costs for market
+integration of renewable energy*, IEEE Trans. Power Systems 33(1), 2018;
+Montrucchio, Norde, Ozen, Scarsini and Slikker, *Cooperative newsvendor
+games: a review*, in Handbook of Newsvendor Problems, 2012; Caprara and
+Letchford, *New techniques for cost sharing in combinatorial optimization
+games*, Math. Programming 124, 2010.
 
-## Update: realizability and proportional charges
+The conclusion was that the draft needs a stronger central result before it
+is worth submitting anywhere demanding.
 
-Added after the first push, same day.
+### 2. Why the standalone ratio and not L/A
 
-* **Realizability check.** Costs of finite centrally symmetric demand laws
-  are zonotope support functions, and minimizing c(z) over them under the
-  game constraints is one LP once sign chambers are fixed. Each solution was
-  turned into an explicit law on the unit box and re-evaluated with the
-  original `ExclusionEnvelope` and `coalition_table` code. **All 12 tested
-  relaxed values are attained** (6 to 14 atoms, zero integer excess,
-  rho=r, up to a normalized solver tolerance of 1e-6). In 8 cases the value
-  equals a proved bound, so it is the **exact worst gap at that ratio**: for
-  example 0.607143 for w=(0.6,0.25,0.15) at r=0.2, and the U_4 formula at
-  r=0.6. Conjecture: the seminorm relaxation is always realizable for
-  symmetric loss; tested only at these 12 points.
-* **Negative result.** The proportional-charge shape at n=3 (zero gap under
-  strong pooling, half of C31 above rho=1/5) does not persist. For n=4 the
-  relaxed gap is 0.5+r for small r, and an explicit law attains 0.54 at
-  rho=0.04. For n=5 it equals C31 at five of nine sampled ratios. This
-  withdraws the earlier suggestion to center a paper on proportional charges.
-* New files: `scripts/check_zonotope_realizability.py`,
-  `scripts/check_proportional_envelope.py`, their results in
-  `results/exclusion/`, Section 6 of `docs/seminorm_envelope.md`, and one
-  realizability test.
+Two ways of escaping the vanishing-L problem were on the table: fix L/A, or
+parametrize by the standalone ratio rho. We chose rho. A depends on declared
+capacities, which can be inflated without changing anything in the economic
+problem, whereas rho is a property of the game. With charges proportional to
+standalone costs and an optimal grand offer, rho is exactly the pooling ratio
+c(N)/sum_j c_j.
 
-## 5. Proposed claim-register rows
+### 3. Mapping before proving
 
-`docs/claims.md` is edited on `main` in parallel, so it is not modified
-here. The rows below can be added when merging, with IDs assigned then.
+C39 was proved by hand for one case. Before trying to generalize by hand we
+wanted to see what the answer looks like. Under symmetric absolute loss the
+optimized cost is a seminorm, and for a fixed membership the smallest
+seminorm compatible with the game's constraints can be computed by small LPs
+(gauge duality, Lemma 1 of the seminorm note). Maximizing over memberships
+gives an upper bound on the worst gap for any n, shares and r.
+
+What the map showed:
+
+* it reproduces C39 at ten ratios and C30 at r = 0, which validated the tool;
+* for three producers with unequal shares the C39 argument is loose in 7 of
+  24 cases; adding the standalone cap of the integral producer as a fourth
+  inequality closes the gap in all 24;
+* for four and five producers with equal shares the bound sits strictly below
+  C31 on windows of r, and equals it elsewhere below (n-2)/n. A simple
+  heuristic in terms of "p unit and q fractional producers" predicted the
+  five-producer window from the four-producer one.
+
+### 4. Do real demand laws reach these values?
+
+A relaxation can be loose, so the map alone proves nothing about demand
+laws. The useful observation is that a finite centrally symmetric law has
+cost c(x) = sum_k p_k |x_k'x|, a zonotope support function. Once the signs
+of the generators on the finite set of test vectors are fixed, searching
+these laws is a single LP. Each solution was turned into an explicit law on
+the unit box and re-evaluated with the original audit code.
+
+All 12 values tested were attained (6 to 14 atoms, zero integer excess,
+rho = r up to a solver tolerance of 1e-6). In 8 of them the value equals a
+proved upper bound, so it is the exact worst gap at that ratio. This
+suggested the conjecture that the seminorm relaxation is always attained by
+symmetric laws.
+
+### 5. A dead end: proportional charges
+
+For three producers with equal shares and equal standalone costs, charging in
+proportion to standalone costs looked attractive: the worst gap vanishes when
+pooling is strong (rho below 0.1547), peaks at 4/15 of L at rho = 1/5, and
+is half the C31 ceiling above that. It does not survive at four producers.
+There the relaxed gap is about 0.5 + rho for small rho, and an explicit law
+attains 0.54 at rho = 0.04: with that much pooling the audit can still report
+a saving of 54 percent of L although no coalition gains anything. With five
+producers the gap equals C31 at five of nine sampled ratios. We dropped
+this line.
+
+### 6. From examples to theorems
+
+The laws returned by the LP had a recognizable shape: one generator per
+fractional producer, vanishing at the witness membership, plus one generator
+per excluded producer. Writing that shape down with free parameters and
+asking which constraints must be tight gave two families.
+
+For equal shares the necessary conditions behind the heuristic of Section 3
+turned out to be sufficient. On the configuration with p unit and q
+fractional producers, all coalition constraints reduce to a bilinear
+function of two counts, whose minimum sits at one of four corners. This
+gives C31 exactly on the intervals
+[max(0, (q-p)/(q+p)), q/(q+2p)], and a second family gives the exact value
+above (m-1)/(m+1). Nothing in the argument uses k = 1, so it covers every
+depth (Theorem 1).
+
+For arbitrary shares at the last depth, the same idea with two free
+producers gives three regimes per ordered pair, one for each way the lower
+envelope of the four lines can peak (Theorem 2).
+
+Checks: 1910 equal-share constructions (n = 3 to 10, all depths) and 600
+random rational instances of Theorem 2 pass an exact rational check of every
+constraint, and 111 of the laws reproduce their value in the original audit
+code.
+
+One earlier guess had to be corrected here. We had expected the windows to
+become negligible as n grows. They shrink only like n^(-1/2): their total
+length is 0.13 for n = 4, close to 0.2 around n = 10, still 0.16 at n = 30.
+So the window values are a real part of the answer, not a footnote.
+
+### 7. Testing the realizability conjecture
+
+*In progress.*
+
+## Proposed claim-register rows
+
+`docs/claims.md` is edited on `main`, so the rows are collected here and can
+be numbered at merge time.
 
 | ID | Statement | Evidence | Scientific status |
 | --- | --- | --- | --- |
-| PF1 | For a fixed membership, the smallest symmetric-loss seminorm cost compatible with the depth-one game constraints equals max_S min{abs(pi'z): pi in Pi_S}; the induced envelope bounds every demand law | Lemma 1 in seminorm_envelope.md; reproduces C39 at ten ratios and C30 at r=0 | Proved relaxation; realizability not addressed |
-| PF2 | Equal shares, n>=3: (D1-B)/L <= U_n(r), equal to C31 for r<=(n-2)/n and (n-2)(1-r^2)/(2nr) above | Proposition 2 | Proved upper bound; C39 for n=3; sharpness for n>=4 not established |
-| PF3 | For n=4,5 the relaxed envelope lies strictly below C31 in windows below (n-2)/n | 5 of 16 saved cases, e.g. n=4, r=1/4: 0.553571 against 0.5625 | Numerical observation from grid search and refinement; not certified; realizability unchecked |
-| PF4 | Three players, positive shares: four-inequality bound; the C39 three-inequality argument is not sharp for unequal shares | Proposition 3; attained by the relaxation in 24 of 24 cases and by explicit laws at w=(0.6,0.25,0.15), r=0.2 and w=(0.7,0.2,0.1), r=0.3; three-inequality bound loose in 7 | Proved bound, exact at the two realized points; preserved negative result; general attainment open |
-| PF5 | Proportional charges, three equal shares and equal standalone costs: (D1-B)/L <= P(r), zero for r<=0.1547, peak 4/15 at r=1/5, (1-r)/3 above | Proposition 4; attained by the relaxation at 13 of 13 ratios and by explicit laws at r=0.17 and 0.3 | Proved upper bound, exact at the two realized ratios; does not extend to n>=4 (PF8) |
-| PF6 | Configuration heuristic for the windows | Section 4; closed intervals agree with 16 of 16 saved labels; the first half-open version mislabeled one endpoint | Heuristic only |
-| PF7 | Every relaxed value tested is attained by an explicit finite centrally symmetric law; eight of these values equal a proved bound and are therefore exact worst gaps at their ratios | Section 6 of seminorm_envelope.md; 12 of 12 cases re-evaluated with ExclusionEnvelope and coalition_table | Verified at 12 points up to tolerance 1e-6; general realizability is a conjecture |
-| PF8 | Proportional charges do not remove or halve the gap for n>=4 | proportional_envelope.md: n=4 relaxed gap 0.5+r for small r, explicit law attaining 0.54 at rho=0.04; n=5 equals C31 at 5 of 9 sampled ratios | Negative result; withdraws the proportional-charge center |
+| PF1 | For a fixed membership, the smallest symmetric-loss seminorm cost compatible with the game constraints equals max_S min{abs(pi'z): pi in Pi_S}; the induced envelope bounds every demand law | Lemma 1 in seminorm_envelope.md; reproduces C39 at ten ratios and C30 at r=0 | Proved relaxation |
+| PF2 | Equal shares: (D_k-B)/L <= (m-1)(1-r^2)/(2nr) for r >= (m-1)/(m+1), m = n-k | Proposition 2 of seminorm_envelope.md, any depth | Proved; exact by PF9 |
+| PF4 | Three producers, positive shares: four-inequality bound; the C39 argument alone is not sharp for unequal shares | Proposition 3; loose in 7 of 24 mapped cases | Proved; exact by PF10; negative result preserved |
+| PF5 | Proportional charges, three equal shares and equal standalone costs: worst relaxed gap zero for rho <= 0.1547, peak 4/15 at rho = 1/5, (1-rho)/3 above | Proposition 4; explicit laws at rho = 0.17 and 0.3 | Proved bound, exact at the realized ratios; does not extend (PF8) |
+| PF7 | Every relaxed value tested so far is attained by an explicit finite symmetric law | seminorm_envelope.md Section 6 and the conjecture tests | Verified at the listed points up to 1e-6; general statement conjectural |
+| PF8 | Proportional charges do not remove or halve the gap for n >= 4 | proportional_envelope.md | Negative result |
+| PF9 | Theorem 1: equal shares, any n and depth k, exact worst gap on the intervals I_p and for r >= (m-1)/(m+1), with explicit laws | exact_envelopes.md; 1910 exact checks, independent re-evaluation | Proved |
+| PF10 | Theorem 2: arbitrary positive shares at depth n-2, exact worst gap for every r, three regimes per ordered pair, explicit laws | exact_envelopes.md; 600 exact checks, independent re-evaluation | Proved |
+| PF11 | For equal shares at depth one, the windows where the value is open have total length 0.13 to 0.20 for 4 <= n <= 30, decaying like n^(-1/2) | exact_envelopes.md, windows table | Exact computation of the intervals; window values open |
 
-## 6. Files on this branch
+PF3 and PF6 of the earlier version (numerical windows, configuration
+heuristic) are superseded by PF9 and PF11.
 
-* `src/censored_newsvendor/seminorm_envelope.py`: oracle, closed-form bounds and heuristic.
-* `tests/test_seminorm_envelope.py`: 8 fast tests.
-* `scripts/check_seminorm_envelope.py`: 77-case map, about 7.5 minutes on 4 cores.
-* `results/exclusion/seminorm_envelope.json` and `.md`: saved outcomes and the generated summary.
-* `docs/seminorm_envelope.md`: statements, proofs, scope and next steps.
-* `scripts/check_zonotope_realizability.py` and `scripts/check_proportional_envelope.py` with results in `results/exclusion/`: realizability and proportional checks (update section).
-* `PULP_FICTION.md`: this note.
+## Files
 
-## 7. Merging
+* `src/censored_newsvendor/exact_envelopes.py`: the explicit laws, closed forms, windows and exact verification.
+* `src/censored_newsvendor/seminorm_envelope.py`: the seminorm oracle, the zonotope LP and the proved bounds.
+* `docs/exact_envelopes.md`: Theorems 1 and 2 with proofs.
+* `docs/seminorm_envelope.md`: the oracle, upper bounds, numerical map and realizability check.
+* `scripts/check_*envelope*.py`, `scripts/check_zonotope_realizability.py`, `scripts/check_realizability_conjecture.py`: generators of the summaries in `results/exclusion/`.
+* `tests/test_exact_envelopes.py`, `tests/test_seminorm_envelope.py`: fast tests.
+
+## Merging
 
 ```bash
 git fetch origin
@@ -164,5 +218,5 @@ git checkout main
 git merge origin/pulp-fiction
 ```
 
-Then assign claim IDs to the rows above and, if wanted, link this work from
+Then number the claim rows above and, if wanted, link the two notes from
 the README.

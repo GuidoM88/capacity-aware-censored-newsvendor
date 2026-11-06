@@ -32,6 +32,7 @@ import itertools
 from math import inf, sqrt
 
 import numpy as np
+from scipy import sparse
 from scipy.optimize import linprog, minimize, minimize_scalar
 
 
@@ -91,33 +92,46 @@ def face_gap(z, shares, r, **kwargs):
     return float(np.dot(shares, z)) - excess - cost
 
 
-def _orientations(n, symmetric):
+def _orientations(n, symmetric, depth=1):
     if symmetric:
-        return [(n - 1, 0, list(range(1, n - 1)))]
+        excluded = tuple(range(n - depth, n))
+        return [(excluded, 0, list(range(1, n - depth)))]
     out = []
-    for excluded in range(n):
-        free = [j for j in range(n) if j != excluded]
+    for excluded in itertools.combinations(range(n), depth):
+        free = [j for j in range(n) if j not in excluded]
         for unit in free:
             out.append((excluded, unit, [j for j in free if j != unit]))
     return out
 
 
 def depth_one_envelope(shares, r, *, step=0.01, symmetric=None, starts=3, **kwargs):
-    """Best relaxed depth-one gap found over all one-exclusion faces.
+    """Best relaxed depth-one gap found over all one-exclusion faces."""
+    found = relaxed_envelope(shares, r, depth=1, step=step, symmetric=symmetric,
+                             starts=starts, **kwargs)
+    if found["excluded"] is not None:
+        found["excluded"] = found["excluded"][0]
+    return found
+
+
+def relaxed_envelope(shares, r, *, depth=1, step=0.01, symmetric=None, starts=3, **kwargs):
+    """Best relaxed gap (D_depth - B)/L found over the faces of one depth.
 
     By positive homogeneity a positive maximizer can be scaled until one free
     coordinate equals one, so each face is searched with a unit coordinate and
     the remaining free coordinates in [0, 1]. With equal shares the search uses
-    the permutation symmetry. Returns a dictionary with the value (clipped at
+    the permutation symmetry. Directly checked integer coalitions never exceed
+    B, so only faces matter. Returns a dictionary with the value (clipped at
     zero, the value of the empty membership), the membership and the face.
     """
     shares = np.asarray(shares, dtype=float)
     n = len(shares)
+    if not 1 <= depth <= n - 2:
+        raise ValueError("depth must lie in 1..n-2")
     if symmetric is None:
         symmetric = bool(np.allclose(shares, shares[0]))
     grid = np.arange(0.0, 1.0 + 1e-12, step)
     candidates = []
-    for excluded, unit, others in _orientations(n, symmetric):
+    for excluded, unit, others in _orientations(n, symmetric, depth):
         def membership(t, unit=unit, others=others):
             z = np.zeros(n)
             z[unit] = 1.0
@@ -135,7 +149,9 @@ def depth_one_envelope(shares, r, *, step=0.01, symmetric=None, starts=3, **kwar
                 "grid_points": len(candidates)}
     best_value, best_z, best_face = -inf, None, None
     for value, t, membership, excluded in candidates[:starts]:
-        if len(t) == 1:
+        if len(t) == 0:
+            refined, t_ref = value, t
+        elif len(t) == 1:
             result = minimize_scalar(
                 lambda s: -face_gap(membership(np.array([s])), shares, r, **kwargs),
                 bounds=(max(0.0, t[0] - step), min(1.0, t[0] + step)),
@@ -298,35 +314,36 @@ def zonotope_minimal_cost(z, shares, r, *, integer_excess=0.0, grand_cost=1.0,
     vectors = _test_vectors(n, z)
     signs, stable = sign_chambers(vectors, samples=samples, seed=seed)
     m, width = len(signs), len(signs) * n
+    # Coefficient of g_{k,d} in c(x_t) is signs[k,t] * vectors[t,d].
+    coefficients = signs[:, :, None] * vectors[None, :, :]          # m x |T| x n
 
     def cost_row(t):
-        row = np.zeros(width)
-        for k in range(m):
-            row[k * n:(k + 1) * n] = signs[k, t] * vectors[t]
-        return row
+        return sparse.csr_matrix(coefficients[:, t, :].reshape(1, width))
 
-    rows, rhs = [], []
-    for k in range(m):
-        for t in range(len(vectors)):
-            row = np.zeros(width)
-            row[k * n:(k + 1) * n] = -signs[k, t] * vectors[t]
-            rows.append(row)
-            rhs.append(0.0)
+    sign_rows = sparse.csr_matrix(
+        (-coefficients.reshape(-1),
+         (np.repeat(np.arange(m * len(vectors)), n),
+          (np.arange(m)[:, None, None] * n + np.arange(n)[None, None, :]
+           + np.zeros((1, len(vectors), 1), dtype=int)).reshape(-1))),
+        shape=(m * len(vectors), width))
+    rows, rhs = [sign_rows], [np.zeros(m * len(vectors))]
     larger = [c for c in proper_coalitions(n) if len(c) >= 2]
     for j in range(n):
         if r > 0:
             rows.append(cost_row(j))
-            rhs.append(a[j] / r)
+            rhs.append([a[j] / r])
     rows.append(cost_row(len(vectors) - 2))
-    rhs.append(grand_cost)
+    rhs.append([grand_cost])
     for coalition in proper_coalitions(n):
         t = coalition[0] if len(coalition) == 1 else n + larger.index(coalition)
         lower = a[list(coalition)].sum() - integer_excess
         if pinned_singletons and len(coalition) == 1:
             lower = max(lower, a[coalition[0]] / r)
         rows.append(-cost_row(t))
-        rhs.append(-lower)
-    result = linprog(cost_row(len(vectors) - 1), A_ub=np.array(rows), b_ub=np.array(rhs),
+        rhs.append([-lower])
+    objective = coefficients[:, len(vectors) - 1, :].reshape(width)
+    result = linprog(objective, A_ub=sparse.vstack(rows, format="csr"),
+                     b_ub=np.concatenate([np.asarray(x, dtype=float) for x in rhs]),
                      bounds=[(None, None)] * width, method="highs")
     if result.status != 0:
         return {"value": None, "generators": None, "chambers": m, "stable": stable}
