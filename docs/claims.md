@@ -38,6 +38,8 @@
 | C34 | The standalone certificate passes the broad small-gap precision screen. | False. At M=4096, 5/47 heterogeneous cases certify a gap <= 0.05 A; the target was at least half. The same-sample face baseline passes 0/47. Even the population corollary with exact rho, L and B passes only 8/47. | Retain as a conditionally useful supporting certificate. Tuning its scalar intervals cannot remove that population limitation. No rejection of the sharp theoretical candidate C30 follows. |
 | C35 | For norm costs and fixed allocation, D0 is the sign-reversed, positive-part value of Burer and Dror (2005), Eq. 19; its worst gap divided by L has supremum 1-min(w) for n>=3. | Homogeneity reduction and C30 corollary in exclusion_prior_art.md; 18 independent primal/dual comparisons. The two-state cost equals a rank-one norm at 1,968 checked points. | Direct prior formulation plus an immediate corollary. No claim about their outer allocation optimization or full nucleolus algorithm. The Gaussian realization does not retain bounded nonnegative outputs. |
 | C36 | The physical fractional cost can be strictly below the canonical cost extension even though they agree on every actual coalition. | General subadditivity comparison and exact three-producer example in exclusion_prior_art.md; independent canonical-cover LP. | Supporting explanation of an established core/dual distinction; no independent priority claim. |
+| C37 | C30's sharp supremum is unchanged if the true law has a bounded density per instance and positive definite covariance, retaining unit capacities, prescribed positive shares, correct aggregate forecasts and strict integer stability. | Regularization proof in exclusion_robustness.md; exact rational checks of 18 instances. | Supporting extension. No common density bound or covariance eigenvalue floor is imposed along the limiting sequence; L/A still tends to zero. Smoothing itself is not claimed as an original method. |
+| C38 | A continuous three-producer law with positive definite covariance, L/A=1/10 and strictly stable actual coalitions has (D1-B)/A >= 967/16200; its forecast has the correct aggregate law and individual means. | Exact costs and uniform-noise integral in exclusion_robustness.md; separate quadrature, covariance checks and nine primal/dual face comparisons on midpoint grids. | Constructed fixed-scale obstruction, with minimum covariance eigenvalue 1/1875. The fraction is a feasible lower bound, not the exact D1. This does not establish sharpness at fixed L/A for all shares/depths or practical statistical superiority. |
 
 The current research priority is recorded in
 [the November 5 comparison](exclusion_prior_art.md) and
@@ -51,6 +53,8 @@ The [complete English manuscript](../paper/main.tex) assembles C30 as its centra
 theorem, C35--C36 as explanatory comparisons, and C31--C34 as supporting results.
 Its tables are generated from saved outcomes. Assembly and compilation do not
 change C7's status or turn the internal proof review into independent review.
+The November 6 [robustness addendum](exclusion_robustness.md) adds C37--C38.
+They address specific restrictions of the construction; C7 remains open.
 
 Numerical tests support implementation correctness and can refute a conjecture.
 They cannot certify an unrestricted mathematical theorem or establish originality.

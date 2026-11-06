@@ -2,6 +2,18 @@
 
 Research code for **identifiability and minimax regret under censored demand and shared capacity**.
 
+**Robustness extension, 2026-11-06.** The sharp expected-cost gap persists when
+the true law has a bounded joint density and positive definite covariance.
+A separate continuous three-producer example has L/A=1/10, a covariance
+eigenvalue floor of 1/1875, correct aggregate forecasting and individual means,
+and strictly stable actual coalitions, yet its depth-one gap exceeds 5.96% of
+maximum declared loss. This is a proved feasible lower bound for a constructed
+example. It strengthens the theoretical case without changing the earlier
+statistical results or settling priority. The November 5 PDF remains the first
+draft; the new proofs are a dated addendum for its next revision.
+[Proofs and scope](docs/exclusion_robustness.md) ·
+[Deterministic checks](results/exclusion/robustness.md)
+
 **Complete working draft, 2026-11-05.** The theoretical note is now assembled
 in English, with the sharp depth/share theorem and full proof, the exact
 finite-family calculation, prior-formulation comparison, sufficient condition,

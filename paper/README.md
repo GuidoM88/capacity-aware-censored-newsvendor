@@ -7,6 +7,13 @@ the exact finite-family calculation, root and canonical-extension comparisons,
 the standalone-cost condition, numerical tables, and an iid validation appendix.
 It is not a submission or an independently reviewed publication.
 
+The November 6 [mathematical addendum](../docs/exclusion_robustness.md) strengthens
+the construction to continuous true laws with positive definite covariance
+and supplies a separate fixed-scale example. Its
+[checks](../results/exclusion/robustness.md) are complete. The current PDF and
+Overleaf ZIP retain the November 5 draft; the addendum is to be integrated in
+the next revision. Review the addendum alongside this draft.
+
 ## Open in Overleaf
 
 Upload `overleaf.zip` as a new project and select `main.tex` as the main document.

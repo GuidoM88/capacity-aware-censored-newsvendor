@@ -17,7 +17,7 @@
 - [x] Retrieve and compare the relevant Roels thesis section and proofs.
 - [x] Decide whether the current computational result justifies the planned paper.
 
-## Current priority, 2026-11-05
+## Current priority, 2026-11-06
 
 The [comparative selection](research_directions.md) gives the first investigation
 to finite-data certification of coalition stability after forecast reconciliation.
@@ -69,6 +69,12 @@ or retained as a backup.
 - [x] Assemble the complete English note, with full proofs, generated tables,
   bibliography, reproducibility instructions and a compiled reading copy.
   [Manuscript and Overleaf source](../paper/README.md)
+- [x] Address atomic and singular-law objections: prove that C30 remains sharp
+  for absolutely continuous true laws with positive definite covariance.
+- [x] Construct and check a continuous example with L/A=1/10 and a proved gap
+  above 5% of maximum loss, retaining positive shares and strict integer stability.
+  [Robustness addendum](exclusion_robustness.md)
+- [ ] Integrate the robustness addendum into the next manuscript revision.
 - [ ] Obtain an independent assessment of the complete argument's correctness,
   significance and possible hidden equivalence. Exact priority and submission
   readiness remain open; do not restart an unrestricted topic search without
