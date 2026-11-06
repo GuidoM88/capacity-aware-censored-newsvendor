@@ -351,7 +351,44 @@ $$
 \frac{1-r^2}{4r}\ \ (1/2\le r\le 1).
 $$
 
-## 6. What is settled and what is not
+## 6. Arbitrary shares at any depth: two LPs
+
+Without symmetry the certificate idea still works, at the price of
+enumerating orderings. Fix a face F (the producers not excluded at depth k),
+the producer u that carries the largest coordinate of the witness (scaled to
+one) and a decreasing order of the others. For every coalition S inside F and
+every scale nu = z_t with t in F,
+
+$$
+\nu\,c(\mathbf 1_S)\le c(z)+\sum_{i\in S}\frac{a_i}{r}\,|z_i-\nu|+\sum_{i\in F\setminus S}\frac{a_i}{r}\,z_i ,
+\qquad c(\mathbf 1_S)\ge a(S)-B ,
+$$
+
+and nu <= 1, so B only weakens the bound. With the order fixed every
+certificate is linear, and maximizing the minimum of all of them and of a'z
+is one LP; the largest value over faces, units and orders bounds
+(D_k - B)/L for every demand law (`censored_newsvendor.certificates`). For
+equal shares it reduces to the bound of Section 5, and it reproduces
+Theorems 1 to 3 wherever they apply (checked at 40 random last-depth
+instances and on the four-producer curve).
+
+The bound is useful because it can be matched from below. Evaluating the exact
+seminorm relaxation (Lemma 1 of the seminorm note) at the LP's maximizer shows
+whether the relaxed envelope reaches it; the zonotope LP then builds a finite
+symmetric law at that membership, which the original audit code evaluates.
+
+**Random instances** ([results](../results/exclusion/certificate_method.md)).
+In 68 of 68 instances with random shares (n = 4, 5, 6; depths 1 to 3) the
+certificate bound equals the relaxation at its maximizer, so the relaxed worst
+gap is determined. In all 38 instances where an explicit law was built (every
+four-producer instance and two five-producer ones) the law reaches the bound,
+so there the worst gap over demand laws is determined.
+
+The number of LPs grows like C(n,k)(n-k)!, so the method is practical up to
+six or seven producers. For larger n with structure, such as equal shares,
+the sorted version of Section 5 needs a single LP.
+
+## 7. What is settled and what is not
 
 Settled with proofs: equal shares at every depth outside the windows
 (Theorem 1); arbitrary shares at depth n-2 (Theorem 2); the windows when
@@ -360,7 +397,11 @@ curve. Determined numerically at every tested ratio: all other equal-share
 windows up to twelve producers, by an explicit law matching a certificate
 bound valid for every law.
 
+Determined computationally for arbitrary shares: every one of 68 random
+instances with up to six producers (relaxed worst gap), and the 38 of them
+where an explicit law was built (worst gap over demand laws).
+
 Open: a general proof for the windows (the algebra for V_p and the LP
-optimum); arbitrary shares at depths 1 to n-3 for n >= 4, where the
-relaxation and explicit laws agree in every case tried so far; asymmetric
-loss, where costs are no longer seminorms.
+optimum); a closed form for arbitrary shares at depths 1 to n-3; a proof of
+the realizability conjecture; asymmetric loss, where costs are no longer
+seminorms.
