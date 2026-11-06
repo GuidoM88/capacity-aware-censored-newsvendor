@@ -467,12 +467,64 @@ The number of LPs grows like C(n,k)(n-k)!, so the method is practical up to
 six or seven producers. For larger n with structure, such as equal shares,
 the sorted version of Section 5 needs a single LP.
 
-## 7. What is settled and what is not
+## 7. Strict stability and positive definite covariance
+
+The worst-case laws above make some coalition constraints hold with
+equality and have singular covariance. Neither is needed for the suprema.
+
+**Proposition 5.** For 0 < r < 1, every supremum in Theorems 1, 2 and 4 is
+unchanged if the demand law must in addition have positive definite
+covariance and strictly negative excess for every proper coalition. The same
+holds for every value attained by a finite symmetric law in Section 6. The
+supremum is then approached, not attained.
+
+*Proof.* Let X^s put mass 0.9/P on the atoms +-s(e_i - e_j), spread evenly
+over the P = n(n-1)/2 pairs, and mass 0.1 on +-zeta 1. Its cost is
+
+$$
+c^s(\mathbf 1_S)=\frac{0.9\,s}{P}\,|S|(n-|S|)+0.1\,\zeta|S| ,
+$$
+
+so with 1.8 s/n > 1 every proper coalition has c^s(1_S) > a(S) (because
+|S|(n-|S|) >= n-1 and a(S) < 1), while c^s(1) = 0.1 zeta n <= 1 for small
+zeta. Its covariance is positive definite: (e_i - e_j) span the complement of
+1, and the last atoms cover 1. Fix eps in (0,1), let kappa_j = c^s(e_j)/a_j and
+take the worst-case law X at the ratio
+
+$$
+r'=\frac{1-\varepsilon}{\min_j\,(1/r-\varepsilon\kappa_j)} ,
+$$
+
+which tends to r and lies in (0,1] for small eps since r < 1. Mix the two laws
+with weights 1-eps and eps. Both are centrally symmetric about the origin, so
+the mixture is too, and its cost is (1-eps)c_X + eps c^s at every
+membership. Hence
+
+* every proper coalition is strictly stable: (1-eps)(c_X(1_S)-a(S)) >= 0 and
+  eps(c^s(1_S)-a(S)) > 0;
+* the standalone caps hold at r, by the choice of r';
+* the grand cost is at most one, so L = 1 is kept by the frozen offer;
+* the covariance is at least eps times that of X^s;
+* at the witness z of X the excess is at least (1-eps)V(r') - eps c^s(z),
+  which tends to the worst gap V(r) because the closed forms are continuous.
+
+Mapping the mixture into the unit box changes none of these. QED.
+
+The [mixture checks](../results/exclusion/strict_mixtures.md) build such laws
+for a four- and a five-producer window, the four-producer high regime and the
+three-producer example of Theorem 2, at eps = 0.05, 0.01 and 0.002, and
+evaluate them with the original audit code: every mixed law has strictly
+negative excess, positive definite covariance and rho >= r, and its gap
+approaches the exact value (for four producers at r = 1/4: 0.4707, 0.5370,
+0.5503 against 31/56 = 0.5536).
+
+## 8. What is settled and what is not
 
 Settled with proofs: equal shares, every n, every depth and every r
 (Theorems 1 and 4, with Theorem 3 as the three-producer special case);
 arbitrary positive shares at depth n-2 (Theorem 2). Every value comes with an
-explicit finite demand law.
+explicit finite demand law, and for r < 1 the same suprema hold under strict
+stability and positive definite covariance (Proposition 5).
 
 Determined computationally for arbitrary shares: every one of 68 random
 instances with up to six producers (relaxed worst gap), and the 38 of them

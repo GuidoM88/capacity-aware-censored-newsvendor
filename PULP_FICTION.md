@@ -55,6 +55,7 @@ python scripts/check_exact_envelopes.py
 python scripts/check_window_envelopes.py
 python scripts/check_certificate_method.py
 python scripts/plot_exact_envelopes.py
+python scripts/check_strict_mixtures.py
 python scripts/check_seminorm_envelope.py
 python scripts/check_zonotope_realizability.py
 python scripts/check_proportional_envelope.py
@@ -288,6 +289,21 @@ arithmetic (up to 301 producers) and the closed form against the explicit
 laws at 9,360 ratios: no exceptions. The figure was regenerated from the
 closed form; the plotted values did not change.
 
+### 11. Removing the degeneracy
+
+A referee could object that the worst-case laws are degenerate: some
+coalitions are exactly indifferent and the covariance is singular. The C39
+note had handled this for its own family by mixing in a small amount of a
+well-behaved law. The same works for every law here, with one fixed
+ingredient: a symmetric law whose atoms are scaled differences e_i - e_j plus
+a small common component. It makes every proper coalition strictly stable on
+its own and has positive definite covariance, and since costs of symmetric
+laws mix linearly, a small dose of it carries both properties over to any
+mixture. Taking the worst-case law at a slightly shifted ratio keeps the
+standalone caps exact. The suprema are unchanged for every r < 1
+(Proposition 5); they are approached rather than attained. Twelve mixed laws,
+evaluated with the original audit code, behave as the proof says.
+
 ### What we would do next
 
 1. Rewrite the paper along [docs/paper_plan.md](docs/paper_plan.md): the
@@ -297,9 +313,7 @@ closed form; the plotted values did not change.
 2. Look for structure in the unequal-share optimizers at depth one: which
    certificates are active, and whether a few regimes per producer pair, as
    in Theorem 2, describe them.
-3. Write out the mixture argument that gives positive definite covariance
-   and strict stability for the new families, as C39 did for its own.
-4. Check the literature on zonotopes and zonoids in cooperative games before
+3. Check the literature on zonotopes and zonoids in cooperative games before
    claiming contributions 3 to 5 of the plan.
 
 ## Proposed claim-register rows
@@ -323,6 +337,7 @@ be numbered at merge time.
 | PF14 | A certificate LP bounds the equal-share worst gap for every law; it equals the best explicit law at all 324 tested window ratios | exact_envelopes.md Section 5; window_envelopes.md | Upper bound proved; equality now also follows from PF17 |
 | PF15 | Theorem 3: for three free producers and 1/5 <= r <= 1/3 the worst gap is 2(2-r+3r^2)/(n(1+3r)); the four-producer depth-one curve is complete | exact_envelopes.md Section 5 | Proved |
 | PF16 | For arbitrary shares, a certificate LP bounds the worst gap for every law; in 68 of 68 random instances (n = 4..6, depths 1..3) it equals the exact relaxation, and in 38 of 38 an explicit law reaches it | exact_envelopes.md Section 6; certificate_method.md | Upper bound proved; equality computational |
+| PF18 | Proposition 5: for r < 1 the suprema of Theorems 1, 2 and 4 (and the values attained in the two-LP computations) are unchanged under strict stability and positive definite covariance | exact_envelopes.md Section 7; strict_mixtures.md (12 mixed laws) | Proved |
 | PF17 | Theorem 4: inside each equal-share window the worst gap is V_p(r) if Q(r) >= 0 and H_{p+1}(r) if Q(r) <= 0, with explicit laws; with Theorem 1 the equal-share case is solved for every n, depth and r | exact_envelopes.md Section 5; window_envelopes.md; 129,888 exact window checks | Proved |
 
 PF3 and PF6 of the earlier version (numerical windows, configuration

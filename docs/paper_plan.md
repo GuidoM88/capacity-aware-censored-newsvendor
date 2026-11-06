@@ -108,11 +108,9 @@ Appendix B and the defensive phrasing.
   certificates, and the answer has a structure (intervals, windows, a
   switching quadratic) that the elementary bound does not predict.
 * *"The extremal examples are degenerate."* At fixed r the worst-case laws
-  have L bounded away from zero relative to their scale. The mixture argument
-  of C39 (blend with a small independent symmetric law, whose cost mixes
-  linearly) should give positive definite covariance and strict stability
-  with the same suprema for the new families too; that still has to be
-  written out.
+  have L bounded away from zero relative to their scale, and Proposition 5
+  shows that requiring positive definite covariance and strict stability of
+  every coalition does not change any of the suprema.
 * *"Who uses this relaxation?"* The paper should present it as the natural
   tractable certificate for core membership in pooled newsvendor games, cite
   where partial or fractional memberships appear (Burer and Dror 2005;
