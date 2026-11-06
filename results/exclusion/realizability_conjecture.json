@@ -2,7 +2,7 @@
   "date": "2026-11-06",
   "tolerance": 1e-06,
   "sha256": {
-    "src/censored_newsvendor/seminorm_envelope.py": "35f8a6ac9826f4ca296504f6751ad389ebe2b0460873922fe9841c9ec153c65f",
+    "src/censored_newsvendor/seminorm_envelope.py": "48051c2ebb0d5af34c3c0cbe0dce3a220b2c63a5730a82e735281b9d4c4f49a6",
     "scripts/check_realizability_conjecture.py": "6ccaa23ad240922c10a2f88f3de102d008faf711fcbcad534720d4829f4a83a2"
   },
   "cases": [
