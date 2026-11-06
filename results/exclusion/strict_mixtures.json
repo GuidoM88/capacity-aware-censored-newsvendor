@@ -2,7 +2,7 @@
   "date": "2026-11-06",
   "sha256": {
     "scripts/check_strict_mixtures.py": "2494195dc8d671c4944d15adf47d569f5b30c1032be877e92233fb30e294ef22",
-    "src/censored_newsvendor/exact_envelopes.py": "8ceca25e8077e7c3aa303c608ccf82a0e84e4d3f095e0eab03eebb123f0b771c"
+    "src/censored_newsvendor/exact_envelopes.py": "75982554cf95707448912c6e05e8618647a1b6962ed008265d32ca2f4352fee0"
   },
   "cases": [
     {

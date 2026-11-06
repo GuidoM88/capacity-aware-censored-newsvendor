@@ -34,9 +34,15 @@ it easy to compare them before deciding what goes into the paper.
   costs does not tame the gap beyond three producers. The windows are not a
   thin sliver: they cover 13 to 20 percent of the range of r for 4 to 30
   producers.
-* **Open.** A closed form for unequal shares at depths 1 to n-3; a proof
-  that the seminorm relaxation is always attained by a demand law; asymmetric
-  imbalance penalties.
+* **Arbitrary shares, any depth: a conjectured closed form that held in
+  1068 of 1068 random instances.** The worst gap is the largest value of four
+  explicit families of laws (Conjecture 6 in
+  [docs/exact_envelopes.md](docs/exact_envelopes.md)); every value is attained
+  by an explicit law, and the certificate LP matched it every time.
+* **Open.** A proof of the upper bound for arbitrary shares (Conjecture 6);
+  general conditions for one of the four families; a proof that the seminorm
+  relaxation is always attained by a demand law; asymmetric imbalance
+  penalties.
 
 ## How to read the branch
 
@@ -55,6 +61,7 @@ python scripts/check_exact_envelopes.py
 python scripts/check_window_envelopes.py
 python scripts/check_certificate_method.py
 python scripts/summarize_c31_exactness.py
+python scripts/check_general_formula.py
 python scripts/plot_exact_envelopes.py
 python scripts/check_strict_mixtures.py
 python scripts/check_seminorm_envelope.py
@@ -333,15 +340,34 @@ case again, which for arbitrary shares has no formula yet. So for arbitrary
 shares at every depth we now have a proved lower bound that is almost always
 the answer, an LP that certifies the answer, and one missing family.
 
+### 13. Four families for arbitrary shares
+
+The transitional family carried over to arbitrary shares with the same
+recipe (unit coefficients proportional to shares), and its formula reduces
+to V_p for equal shares. With it, the families matched the exact worst gap in
+all 68 earlier instances. A fresh run of 400 found five more exceptions, all
+on faces with only two free producers; there the missing piece was the third
+regime of Theorem 2, where the unit's cap binds. Writing that regime for any
+number of producers gave a fourth family, whose stability check again has
+four corners. A final run of 1000 new random instances, up to six producers
+and every depth: all 1000 laws valid in exact arithmetic, all 1000 values
+equal to the certificate bound. One of them, with a producer holding 21/29 of
+the shares, was solved only by the new family.
+
+So for arbitrary shares we now have a precise conjecture (Conjecture 6): the
+worst gap is the largest value of four explicit families. Every value is
+attained by a law, so what remains to prove is the upper bound. For equal
+shares Theorem 4 did exactly that, which suggests the route.
+
 ### What we would do next
 
 1. Rewrite the paper along [docs/paper_plan.md](docs/paper_plan.md): the
    exact equal-share curve and Theorem 2 as the core, the two-LP method as
    the computational counterpart, the first draft's statistics moved to a
    companion note.
-2. Find the transitional family for arbitrary shares (the third regime of
-   Theorem 2 and the family V_p are the two known special cases), which
-   would turn Theorem 5 into a closed form at every depth.
+2. Prove Conjecture 6: an upper-bound argument for arbitrary shares, along
+   the lines of Theorem 4 (few active certificates, explicit dual weights),
+   and general conditions for the transitional family.
 3. Check the literature on zonotopes and zonoids in cooperative games before
    claiming contributions 3 to 5 of the plan.
 
@@ -366,6 +392,7 @@ be numbered at merge time.
 | PF14 | A certificate LP bounds the equal-share worst gap for every law; it equals the best explicit law at all 324 tested window ratios | exact_envelopes.md Section 5; window_envelopes.md | Upper bound proved; equality now also follows from PF17 |
 | PF15 | Theorem 3: for three free producers and 1/5 <= r <= 1/3 the worst gap is 2(2-r+3r^2)/(n(1+3r)); the four-producer depth-one curve is complete | exact_envelopes.md Section 5 | Proved |
 | PF16 | For arbitrary shares, a certificate LP bounds the worst gap for every law; in 68 of 68 random instances (n = 4..6, depths 1..3) it equals the exact relaxation, and in 38 of 38 an explicit law reaches it | exact_envelopes.md Section 6; certificate_method.md | Upper bound proved; equality computational |
+| PF20 | Conjecture 6: for arbitrary shares and any depth the worst gap is the maximum over the four families C31, H, G, V | exact_envelopes.md Section 6; general_formula.md (1000 of 1000) and certificate_method.md (68 of 68) | Lower bound proved (V checked per instance); upper bound computational |
 | PF19 | Theorem 5: for arbitrary shares and any depth, two explicit families give the lower bound max over partitions of (1-r)a(F) or A_J(1-r^2)/(2r) under stated conditions | exact_envelopes.md Section 6; exact checks on 368 instances | Proved lower bound; equals the exact worst gap in 67 of 68 random instances |
 | PF18 | Proposition 5: for r < 1 the suprema of Theorems 1, 2 and 4 (and the values attained in the two-LP computations) are unchanged under strict stability and positive definite covariance | exact_envelopes.md Section 7; strict_mixtures.md (12 mixed laws) | Proved |
 | PF17 | Theorem 4: inside each equal-share window the worst gap is V_p(r) if Q(r) >= 0 and H_{p+1}(r) if Q(r) <= 0, with explicit laws; with Theorem 1 the equal-share case is solved for every n, depth and r | exact_envelopes.md Section 5; window_envelopes.md; 129,888 exact window checks | Proved |

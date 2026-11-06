@@ -358,3 +358,100 @@ def general_share_construction(shares, r, depth=1):
                         best = {"regime": regime, "excluded": excluded, "units": units,
                                 "generators": gens, "membership": z, "value": value}
     return best
+
+
+def general_transitional_candidates(shares, r, depth=1):
+    """Transitional family for arbitrary shares (faces with at least 3 free producers).
+
+    Units I, one producer * in transition, fractional producers J' at a common
+    level. With a(I), a_*, A_J' the share totals and a(F) their sum,
+    t1 = (1-r)(a(I)+a_*)/(r a(F) + a(I) + a_* - A_J'),
+    t2 = (r(a(I)+a_*) - (1-t1)a_*)/A_J', value a(I)(1+r) - a_*(1-r) + 2 t1 a_*;
+    unit coefficients proportional to the shares. A candidate is kept only if
+    every constraint holds in exact arithmetic.
+    """
+    a = [F(x) for x in shares]
+    r = F(r)
+    n = len(a)
+    out = []
+    for excluded in itertools.combinations(range(n), depth):
+        face = [j for j in range(n) if j not in excluded]
+        base = [_vec(n, {k: a[k]}) for k in excluded]
+        for size in range(1, len(face) - 1):
+            for units in itertools.combinations(face, size):
+                for star in face:
+                    if star in units:
+                        continue
+                    rest = [j for j in face if j not in units and j != star]
+                    a_u, a_s, a_r = sum(a[i] for i in units), a[star], sum(a[j] for j in rest)
+                    denominator = r * (a_u + a_s + a_r) + a_u + a_s - a_r
+                    if denominator <= 0:
+                        continue
+                    t1 = (1 - r) * (a_u + a_s) / denominator
+                    t2 = (r * (a_u + a_s) - (1 - t1) * a_s) / a_r
+                    if not (0 < t1 <= 1 and 0 <= t2 <= 1):
+                        continue
+                    gamma = (a_u + t1 * a_s - t2 * a_r) / (2 * r)
+                    alpha = (a_u / r - gamma) / (a_r / r)
+                    beta = (a_s / r - gamma / t1) / (a_r / r)
+                    if gamma < 0 or alpha < 0 or beta < 0:
+                        continue
+                    gens = list(base)
+                    for j in rest:
+                        cap = a[j] / r
+                        gens.append(_vec(n, {**{i: cap * alpha * a[i] / a_u for i in units},
+                                             star: cap * beta, j: -cap}))
+                    gens.append(_vec(n, {**{i: gamma * a[i] / a_u for i in units}, star: -gamma / t1}))
+                    z = _vec(n, {**{i: 1 for i in units}, star: t1, **{j: t2 for j in rest}})
+                    value = a_u * (1 + r) - a_s * (1 - r) + 2 * t1 * a_s
+                    check = verify_generators(gens, a, r, z, value)
+                    if (check["cap"] >= 0 and check["stability"] >= 0 and check["grand"] >= 0
+                            and check["witness"] == 0 and check["rho"] >= r):
+                        out.append({"regime": "V", "excluded": excluded, "units": units,
+                                    "transitional": star, "generators": gens, "membership": z,
+                                    "value": value})
+    return out
+
+
+def general_cap_binding_candidates(shares, r, depth=1):
+    """Cap-binding family for arbitrary shares, generalizing the third regime of Theorem 2.
+
+    Units I at their standalone caps, fractional producers J at a common level
+    t = a(I)/(r A_J + (1+r) a(I)), c(z) = 0, value a(I) + t A_J; valid when
+    a(I) <= A_J (1-r)/(1+r). One generator per fractional producer j, with
+    entries c_j t a_i/a(I) on the units and -c_j at j, where c_j = a_j a(I)/(r t A_J).
+    """
+    a = [F(x) for x in shares]
+    r = F(r)
+    n = len(a)
+    out = []
+    for excluded in itertools.combinations(range(n), depth):
+        face = [j for j in range(n) if j not in excluded]
+        base = [_vec(n, {k: a[k]}) for k in excluded]
+        for size in range(1, len(face)):
+            for units in itertools.combinations(face, size):
+                fractional = [j for j in face if j not in units]
+                a_u, a_f = sum(a[i] for i in units), sum(a[j] for j in fractional)
+                if a_u > a_f * (1 - r) / (1 + r):
+                    continue
+                t = a_u / (r * a_f + (1 + r) * a_u)
+                scale = a_u / (r * t * a_f)
+                gens = list(base)
+                for j in fractional:
+                    c_j = scale * a[j]
+                    gens.append(_vec(n, {**{i: c_j * t * a[i] / a_u for i in units}, j: -c_j}))
+                z = _vec(n, {**{i: 1 for i in units}, **{j: t for j in fractional}})
+                out.append({"regime": "G", "excluded": excluded, "units": units,
+                            "generators": gens, "membership": z, "value": a_u + t * a_f})
+    return out
+
+
+def best_general_construction(shares, r, depth=1):
+    """Best explicit law over the four known families, for any shares and depth."""
+    found = []
+    two = general_share_construction(shares, r, depth)
+    if two is not None:
+        found.append(two)
+    found += general_transitional_candidates(shares, r, depth)
+    found += general_cap_binding_candidates(shares, r, depth)
+    return max(found, key=lambda c: c["value"])

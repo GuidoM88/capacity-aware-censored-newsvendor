@@ -2,7 +2,7 @@
   "date": "2026-11-06",
   "tolerance": 1e-09,
   "sha256": {
-    "src/censored_newsvendor/exact_envelopes.py": "8ceca25e8077e7c3aa303c608ccf82a0e84e4d3f095e0eab03eebb123f0b771c",
+    "src/censored_newsvendor/exact_envelopes.py": "75982554cf95707448912c6e05e8618647a1b6962ed008265d32ca2f4352fee0",
     "src/censored_newsvendor/seminorm_envelope.py": "48051c2ebb0d5af34c3c0cbe0dce3a220b2c63a5730a82e735281b9d4c4f49a6",
     "scripts/check_window_envelopes.py": "4caa337d8cf65ad70bdc295c81a38bb6b41cade3fb4ebfeed3da5d85bba724cb"
   },

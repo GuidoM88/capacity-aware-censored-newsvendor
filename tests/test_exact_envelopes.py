@@ -163,3 +163,20 @@ class GeneralShareTests(unittest.TestCase):
         for r in (F(1, 10), F(2, 5), F(3, 5)):
             self.assertEqual(general_share_construction([F(1, 4)] * 4, r)["value"],
                              equal_share_value(4, r))
+
+
+class FourFamilyTests(unittest.TestCase):
+    def test_cap_binding_family_closes_a_dominant_producer_case(self):
+        from censored_newsvendor.exact_envelopes import best_general_construction
+        from censored_newsvendor.certificates import certificate_bound
+        shares, r = [F(21, 29), F(1, 29), F(2, 29), F(4, 29), F(1, 29)], F(17, 50)
+        best = best_general_construction(shares, r, 1)
+        self.assertEqual(best["regime"], "G")
+        self.assertTrue(attains(best, shares, r))
+        bound, _ = certificate_bound([float(x) for x in shares], float(r), 1)
+        self.assertAlmostEqual(float(best["value"]), bound, places=7)
+
+    def test_cap_binding_family_reduces_to_theorem_2(self):
+        from censored_newsvendor.exact_envelopes import best_general_construction
+        shares, r = [F(3, 5), F(1, 4), F(3, 20)], F(1, 5)
+        self.assertEqual(best_general_construction(shares, r, 1)["value"], F(17, 28))

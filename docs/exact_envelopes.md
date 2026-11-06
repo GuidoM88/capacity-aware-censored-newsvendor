@@ -515,6 +515,39 @@ r = 0.6, value 0.306 against 0.291) needs a transitional family like V_p or the
 third regime of Theorem 2. Every construction was checked in exact
 arithmetic, on those 68 instances and on 300 further random ones.
 
+**Two more families, and a conjectured closed form.** Two further mechanisms
+complete the picture; both reduce to known cases.
+
+* *Cap-binding family G* (the third regime of Theorem 2 when F has two
+  producers). If a(I) <= A_J(1-r)/(1+r), put t = a(I)/(rA_J + (1+r)a(I)) and,
+  for each j in J, c_j = a_j a(I)/(r t A_J) and the generator with entries
+  c_j t a_i/a(I) on the units and -c_j at j, plus a_l e_l on K. The witness
+  1_I + t 1_J has zero cost, the unit caps are tight, the grand cost is 1, and
+  with sigma and a(T) as above c(1_S) - a(S) is bilinear with corner values
+  0, A_J(lambda-1), a(I)(1/r-1) and 0, where lambda = a(I)/(r t A_J) >= 1.
+  The value is a(I) + t A_J.
+* *Transitional family V* (the family V_p when shares are equal). Units I,
+  one producer * in transition and fractional producers J' at a common level,
+  with t_1 = (1-r)(a(I)+a_*)/(r a(F) + a(I) + a_* - A_J'),
+  t_2 = (r(a(I)+a_*) - (1-t_1)a_*)/A_J' and value
+  a(I)(1+r) - a_*(1-r) + 2 t_1 a_*. The generators follow V_p with unit
+  coefficients proportional to shares (`general_transitional_candidates`).
+  Here we have not written general conditions; each candidate is kept only
+  after an exact check of every constraint.
+
+**Conjecture 6 (closed form for arbitrary shares).** For symmetric absolute
+loss, positive shares, any depth k and 0 < r <= 1, the worst gap
+(D_k - B)/L equals the largest value of the families C31, H, G and V over
+all excluded sets K and all splits of the remaining producers.
+
+Evidence ([results](../results/exclusion/general_formula.md)): in 1000 random
+instances (n = 3..6, random depth and r) the best explicit law is valid in
+exact arithmetic and its value equals the certificate bound, which holds for
+every demand law, in all 1000; the attaining families are C31 (482), H (467),
+V (27) and G (24). The same holds for the 68 instances above. Since every
+value is attained by an explicit law, the conjecture concerns only the upper
+bound: that the certificate LP never exceeds the best family.
+
 The number of LPs grows like C(n,k)(n-k)!, so the method is practical up to
 six or seven producers. For larger n with structure, such as equal shares,
 the sorted version of Section 5 needs a single LP.
@@ -582,10 +615,12 @@ Determined computationally for arbitrary shares: every one of 68 random
 instances with up to six producers (relaxed worst gap), and the 38 of them
 where an explicit law was built (worst gap over demand laws).
 
-Proved as a lower bound for arbitrary shares at every depth: the two
-families of Theorem 5, which give the exact value in 67 of the 68 random
-instances.
+Proved as a lower bound for arbitrary shares at every depth: the families
+of Theorem 5 and the cap-binding family G; the transitional family V is
+verified instance by instance. Conjecture 6 says their maximum is the exact
+worst gap; it held in all 1068 random instances computed.
 
-Open: the transitional family for arbitrary shares, which would complete a
-closed form at depths 1 to n-3; a proof of the realizability conjecture;
-asymmetric loss, where costs are no longer seminorms.
+Open: a proof of Conjecture 6 (an upper-bound argument for arbitrary shares,
+as Theorem 4 gives for equal shares) and general conditions for the family V;
+a proof of the realizability conjecture; asymmetric loss, where costs are no
+longer seminorms.
