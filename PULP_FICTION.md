@@ -41,7 +41,8 @@ it easy to compare them before deciding what goes into the paper.
 ## How to read the branch
 
 Start with [docs/exact_envelopes.md](docs/exact_envelopes.md): statements and
-complete proofs of the two theorems. [docs/seminorm_envelope.md](docs/seminorm_envelope.md)
+complete proofs of the theorems. [docs/paper_plan.md](docs/paper_plan.md)
+proposes how to rebuild the manuscript around them. [docs/seminorm_envelope.md](docs/seminorm_envelope.md)
 explains the oracle, the upper bounds and the numerical map that led there.
 The `results/exclusion/*.md` files are generated from saved JSON by the
 scripts listed at the end and should not be edited by hand.
@@ -289,16 +290,17 @@ closed form; the plotted values did not change.
 
 ### What we would do next
 
-1. Look for structure in the unequal-share optimizers at depth one: which
+1. Rewrite the paper along [docs/paper_plan.md](docs/paper_plan.md): the
+   exact equal-share curve and Theorem 2 as the core, the two-LP method as
+   the computational counterpart, the first draft's statistics moved to a
+   companion note.
+2. Look for structure in the unequal-share optimizers at depth one: which
    certificates are active, and whether a few regimes per producer pair, as
    in Theorem 2, describe them.
-3. Rewrite the paper. A possible outline: the audit and its exclusion
-   hierarchy in a renewable-pooling setting; the elementary ceilings (C30,
-   C31); Theorems 1 to 3 with their explicit laws; the two-LP method and the
-   computational results for arbitrary shares; what the exact curves say about
-   when the audit can be trusted; open questions (windows proof, realizability,
-   asymmetric penalties). The statistical material of the first draft would
-   move to a companion note.
+3. Write out the mixture argument that gives positive definite covariance
+   and strict stability for the new families, as C39 did for its own.
+4. Check the literature on zonotopes and zonoids in cooperative games before
+   claiming contributions 3 to 5 of the plan.
 
 ## Proposed claim-register rows
 
@@ -334,6 +336,7 @@ heuristic) are superseded by PF9 and PF11.
 * `results/exclusion/exact_envelopes.png` (with the plotted values in `exact_envelopes_curve.csv`): the exact equal-share curves.
 * `docs/exact_envelopes.md`: Theorems 1 and 2 with proofs.
 * `docs/seminorm_envelope.md`: the oracle, upper bounds, numerical map and realizability check.
+* `docs/paper_plan.md`: proposed structure, abstract and contributions for the revised paper.
 * `scripts/check_*envelope*.py` (including `check_window_envelopes.py`), `scripts/check_zonotope_realizability.py`, `scripts/check_realizability_conjecture.py`: generators of the summaries in `results/exclusion/`.
 * `tests/test_exact_envelopes.py`, `tests/test_seminorm_envelope.py`, `tests/test_certificates.py`: fast tests.
 
