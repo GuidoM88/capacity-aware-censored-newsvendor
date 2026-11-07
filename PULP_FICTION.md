@@ -563,6 +563,41 @@ pages, and seven items were seen only as abstracts; they are flagged in the
 review. A database search by someone with institutional access remains the
 last step before submission.
 
+### 20. What an audit finds on real wind data
+
+Every result so far is a worst case. A referee will ask what happens on
+actual production, so we audited real data
+([wind_audit.md](results/illustration/wind_audit.md)). There are three
+panels of four producers, using the public data the main branch already
+verifies by checksum. The first is four nearby WIND Toolkit sites in Texas,
+the second the four turbines of the ENGIE La Haute Borne farm, and the third
+four distant WIND Toolkit sites in Texas, Iowa, Wyoming and New York. We
+added the third panel when the first two turned out to be uninformative: on
+them pooling saves almost nothing (r between 0.95 and 0.99). The distant
+sites were chosen by a fixed rule from the toolkit's site metadata (the
+onshore 16 MW site with the highest capacity factor in each state), and their
+checksums are recorded in `configs/illustration_wind_sites.json`. For every
+year, two penalty ratios and two allocations (proportional to standalone
+costs, and the gradient allocation) we computed the integer and fractional
+excesses exactly, with one LP per face over all hours.
+
+The answer is clear. The observed overstatement never exceeds 0.0013 of the
+pooled cost. It is exactly zero for the gradient allocation, as the
+subgradient remark of Section 19 predicts, and zero for both allocations on
+the distant sites, where the worst case for the same shares and floor is as
+large as 0.41. Real production is far from the extremal laws, so the bounds
+are guarantees, not predictions. When r is close to one they certify the
+audit with no knowledge of the joint law. When r is low they say such a
+certificate is impossible from r alone. That is a weaker selling point than
+"audits are badly wrong in practice", but it is the honest one, and the paper
+now says so.
+
+Two practical notes. The first version built the LP with dense matrices
+(two blocks of 8760 by 8760, about 1.2 GB) and stalled; with sparse
+matrices one LP over a year takes about three seconds. Also, the first run
+was stopped and restarted to include the third panel, so the saved results
+come from a single complete run.
+
 ### What we would do next
 
 The list is kept up to date in [PROGRESS.md](PROGRESS.md).
@@ -632,6 +667,8 @@ heuristic) are superseded by PF9 and PF11.
 * `tests/test_exact_envelopes.py`, `tests/test_seminorm_envelope.py`, `tests/test_certificates.py`, `tests/test_symbolic.py`: fast tests.
 * `scripts/verify_symbolic.py`, `requirements-verify.txt` and `results/verification/`: symbolic verification of the proofs.
 * `PROGRESS.md`: one-page progress report with the current next steps.
+* `docs/literature_review.md` and `docs/proof_guide.md`: the systematic literature review and the guide for the expert reading.
+* `scripts/illustrate_wind_audit.py`, `scripts/table_wind_audit.py`, `configs/illustration_wind_sites.json`, `results/illustration/` and `tests/test_illustration.py`: the illustration on wind data.
 * `src/censored_newsvendor/asymmetric.py`, `docs/asymmetric_penalties.md`, `scripts/check_asymmetric_penalties.py`, `scripts/check_asymmetric_general.py`, `scripts/probe_general_laws.py`, `scripts/refute_conjecture_c.py`, `results/asymmetric/` and `tests/test_asymmetric.py`: asymmetric imbalance penalties.
 
 ## Merging

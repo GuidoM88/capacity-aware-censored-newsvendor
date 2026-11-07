@@ -48,7 +48,9 @@ bounds rest on triangle-inequality certificates. With asymmetric imbalance
 penalties the ceiling remains valid and every worst case persists; we give the
 exact worst case at the deepest level for every penalty ratio, and for equal
 shares show that the windows close once a shortfall costs at least $2(m-1)/m$
-times as much as a surplus.
+times as much as a surplus. On hourly wind production the observed
+overstatement is negligible, so the bounds act as guarantees rather than
+predictions.
 \end{abstract}
 
 \section{Introduction}
@@ -114,7 +116,11 @@ asymmetric imbalance penalties. Every worst case persists, the last depth is
 solved for every ratio of the two penalties, and for equal shares the windows
 close once a shortfall costs at least $2(m-1)/m$ times as much as a surplus;
 for arbitrary shares, two-block laws give a lower bound that is usually,
-but not always, exact.
+but not always, exact. On hourly production of three four-producer wind panels the
+observed overstatement is negligible, at most $0.0013$ of the pooled cost,
+while the worst case for the same shares and floor ranges from $0.005$ to
+$0.41$ (Section~\ref{sec:data}): the bounds are guarantees, useful on their
+own when $r$ is close to one.
 
 \paragraph{Method.} Every lower bound is attained by an explicit finite,
 centrally symmetric demand law. Such laws have costs $c(x)=\sum_k p_k|x_k^\top
@@ -633,6 +639,54 @@ the gaps that remain for $1<\kappa<2(m-1)/m$, the certificate bound equals
 the relaxation over all sublinear costs with $c(-x)\le\kappa c(x)$. The best
 $\kappa$-segment law we found stays up to $1.3\cdot10^{-3}$ below it, so these
 narrow windows remain open.
+
+\section{An illustration on wind data}\label{sec:data}
+
+The bounds above are worst cases. To see what an audit finds on actual
+production, we took three panels of four producers: four nearby sites of the
+NREL WIND Toolkit in Texas (modeled hourly production, 2007 and 2008,
+capacities 2, 16, 10 and 16~MW), the four 2.05~MW turbines of the ENGIE La
+Haute Borne farm in France (measured, 2014 and 2015), and four distant 16~MW
+WIND Toolkit sites in Texas, Iowa, Wyoming and New York (modeled, 2007 and
+2008). For each calendar year the empirical
+joint law of hourly production defines the costs, with symmetric penalties
+($\kappa=1$) and with a shortfall penalty twice the surplus penalty
+($\kappa=2$), and $L=c(\one)$. Two allocations are audited: charges
+proportional to standalone costs, which give every producer the same ratio
+$r=c(\one)/\sum_jc(e_j)$, and the gradient allocation $a_j\propto\E[Y_j\,
+\ell'(S-q^*)]$, with $S$ the pooled production and $q^*$ its optimal offer.
+The excesses $B$ and $D_k$ are computed exactly, by one linear program per
+face over all hours. Table~\ref{tab:wind} compares the observed overstatement
+$(D_k-B)/L$ with the worst case for the same shares and the same floor $r$.
+
+\begin{table}[t]
+\centering\small
+\input{wind_table.tex}
+\caption{Observed overstatement $(D_k-B)/L$ of the fractional audit on wind
+data (largest value over two years and $\kappa\in\{1,2\}$) and the worst case
+for the same shares and floor $r$ (range; depth one: best explicit family to
+certificate bound; depth two: exact, Theorems~\ref{thm:lastdepth}
+and~\ref{thm:asymlast}).}
+\label{tab:wind}
+\end{table}
+
+Three observations stand out. Within the first two panels the producers are
+close to each other and strongly correlated: pooling saves only 1 to
+3.5 percent of the standalone costs, the floor $r$ lies between 0.95 and 0.99,
+and the worst case is correspondingly small, at most 0.038 of the pooled cost
+at depth one. A floor this high is therefore a certificate on its own:
+whatever the demand law, the fractional audit cannot err by more than a few
+percent. The four distant sites pool far more (the pooled cost is about half
+the sum of the standalone costs), and the worst case for the same shares and
+floor rises to between 0.35 and 0.41 at depth one. Finally, on all three
+panels the observed overstatement is negligible: at most 0.0013 of the pooled
+cost, zero for the gradient allocation, as the introduction predicts, and zero
+for both allocations on the distant sites. Actual production is far from the
+extremal laws of the theorems. The bounds are guarantees, not predictions.
+When $r$ is close to one they certify the fractional audit without any
+knowledge of the joint law. When $r$ is low, as for a diverse portfolio, they
+show that no certificate can be obtained from $r$ alone, and the audit has to
+be checked against the joint law, as was done here.
 
 \section{Discussion}
 

@@ -41,6 +41,7 @@ but thin. Everything below is new since then.
 | 12 | Inside the windows that remain for 1 < kappa < 2(m-1)/m (and in 3 of 204 arbitrary-share instances with 1 < kappa < 2) | Open: relaxation known, best laws found within 1.8e-3 of it | Section 6 of the notes |
 | 13 | Asymmetric penalties, arbitrary shares, every depth: the two-producer formula applied to the best split of the free producers into two blocks is a lower bound for every kappa | Proved; algebra verified symbolically | Theorem C |
 | 14 | Conjecture C: for kappa >= 2 that lower bound is the exact worst case | **Refuted.** Exact counterexample at kappa = 10 (an explicit law reaches 0.2664, the best two-block law 0.2496); failures are rare in random samples (2 of 200 with one small share, 0 of 299 otherwise) | [conjecture_c.md](results/asymmetric/conjecture_c.md) |
+| 16 | On real hourly wind production (three panels of four producers, 24 audits) the observed overstatement is at most 0.0013 of the pooled cost, while the worst case for the same shares and floor ranges from 0.005 to 0.41 | Computed exactly on the empirical laws | [wind_audit.md](results/illustration/wind_audit.md), Section 8 of the paper |
 | 15 | Ceiling criterion, for every kappa (symmetric case included): the elementary ceiling is exact whenever a subset of a largest face has share in [(1-r)/(1+kappa), kappa(1-r)/(r+kappa)] a(F), in particular when every producer is small enough | Proved; algebra verified symbolically | Proposition D |
 
 In plain terms: with four producers each paying at least a quarter of their
@@ -120,8 +121,12 @@ the conjecture for arbitrary shares is supported by computation, not proved.
       Operations Research Letters; MMOR, TOP or IJGT fit as it is.
 - [ ] **Prove Conjecture 6** (the upper bound for arbitrary shares), along the
       lines of the equal-share proof.
-- [ ] **Illustration on real data**: compare the worst case with the gaps
-      observed on the project's wind production series.
+- [x] **Illustration on real data** (done 7 November: result 16). Texas
+      and French panels of nearby producers (r 0.95 to 0.99) and four
+      distant US sites (r about 0.5). The audit was essentially exact on all
+      of them. So the bounds are guarantees, not predictions: when r is high
+      they certify the audit on their own; when r is low the audit must be
+      checked against the joint law.
 
 ## Publication outlook
 
@@ -153,6 +158,7 @@ and a check of the chosen journal's policies.
 | 7 Nov | Asymmetric penalties, arbitrary shares: Theorem C and Conjecture C (299 of 299 for kappa >= 2; 194 symbolic checks) |
 | 7 Nov | Proof attempt for Conjecture C: counterexample found and verified exactly; ceiling criterion proved (Proposition D; 200 symbolic checks) |
 | 7 Nov | Systematic literature review; bibliography corrected and extended to 30 entries |
+| 7 Nov | Guide for the expert reading; illustration on real wind data (24 exact audits) |
 
 ## Reproducing everything
 
@@ -165,6 +171,7 @@ python scripts/check_asymmetric_penalties.py
 python scripts/check_asymmetric_general.py
 python scripts/probe_general_laws.py
 python scripts/refute_conjecture_c.py
+python scripts/illustrate_wind_audit.py   # downloads about 180 MB of public data
 ```
 
 The other scripts are listed in [PULP_FICTION.md](PULP_FICTION.md); each
