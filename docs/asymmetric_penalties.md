@@ -288,6 +288,23 @@ where the relaxation was attained in every case tested, with asymmetric
 penalties the relaxation may overstate the true worst case inside these
 narrow regions. A local search is evidence, not proof.
 
+**Where extra inequalities would come from.** For a law with mean mu,
+
+$$
+c(x)=\tau\bigl(x^\top\mu-\mathrm{LCVaR}_\tau(x^\top Y)\bigr)=h_{\tau(\mu-D_\tau)}(x),
+\qquad D_\tau=\{\mathbb E[Y\xi]:0\le\xi\le1/\tau,\ \mathbb E\xi=1\},
+$$
+
+where D_tau is the zonoid trimmed region of Koshevoy and Mosler, that is the
+section at height tau of the lift zonoid of Y (whose support function is
+E(t + x'Y)^+), divided by tau. So pinball costs are support functions of
+reflected sections of zonoids. Segment sums are the special case in which the
+section is itself a zonotope. Sections of zonoids are not zonoids in general,
+which is why general laws give more costs than segment sums. Any inequality
+that all such sections satisfy, beyond -K ⊆ kappa K, would tighten the
+relaxation and could settle the open regions. Finding one is the natural
+next step on this question.
+
 ## 7. Arbitrary shares at intermediate depths
 
 **Theorem C (two-block lower bound).** For positive shares, any depth

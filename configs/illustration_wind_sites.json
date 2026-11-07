@@ -1,0 +1,21 @@
+{
+  "description": "Four onshore 16 MW WIND Toolkit sites in distant states, chosen as the site with the highest capacity factor among onshore 16 MW sites of each state in wtk_site_metadata.csv. Used by scripts/illustrate_wind_audit.py.",
+  "metadata": {
+    "url": "https://nrel-pds-wtk.s3.amazonaws.com/wtk-techno-economic/pywtk-data/wtk_site_metadata.csv",
+    "sha256": "285b46161371974dc88b1f389ec623a5796f1075eb5576336fd951fd7aa82475"
+  },
+  "sites": [
+    {"state": "Texas", "site_id": 8451, "capacity_mw": 16, "longitude": -99.831238, "latitude": 31.082081,
+     "url": "https://nrel-pds-wtk.s3.amazonaws.com/wtk-techno-economic/pywtk-data/met_data/16/8451.nc",
+     "bytes": 17681120, "sha256": "63dcca1fc2cfeaeda842a4005a46ea6d7f78a9a4d27f9a4d2ae028a011ec8d84"},
+    {"state": "Iowa", "site_id": 77709, "capacity_mw": 16, "longitude": -91.002625, "latitude": 42.634445,
+     "url": "https://nrel-pds-wtk.s3.amazonaws.com/wtk-techno-economic/pywtk-data/met_data/155/77709.nc",
+     "bytes": 17681272, "sha256": "830886d1329ebd25d1997360deda750261dd72c57c2d38e5875547bdc36d4ff9"},
+    {"state": "Wyoming", "site_id": 75118, "capacity_mw": 16, "longitude": -107.319931, "latitude": 41.931419,
+     "url": "https://nrel-pds-wtk.s3.amazonaws.com/wtk-techno-economic/pywtk-data/met_data/150/75118.nc",
+     "bytes": 17681272, "sha256": "47bf2c304b0e65940011456b4524d17567920aca307c17185ed34f9294fa7687"},
+    {"state": "New York", "site_id": 114823, "capacity_mw": 16, "longitude": -73.843079, "latitude": 44.71883,
+     "url": "https://nrel-pds-wtk.s3.amazonaws.com/wtk-techno-economic/pywtk-data/met_data/229/114823.nc",
+     "bytes": 17681348, "sha256": "9941e04d4ba1c57fc450d8e33096895a8db0e1742ae828900dbc1d2facf53a44"}
+  ]
+}

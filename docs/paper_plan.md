@@ -90,7 +90,9 @@ instance we computed.
    (1-r)(n-k)/n is the answer on most of the range, the improvements are
    real but modest, and the audit can still report large spurious savings
    even when every producer pays a substantial part of its standalone cost.
-8. **Open questions.** Closed forms for arbitrary shares at intermediate
+8. **Asymmetric penalties** (added November 7) and **an illustration on wind
+   data**, before the open questions.
+9. **Open questions.** Closed forms for arbitrary shares at intermediate
    depths, a proof of realizability, asymmetric penalties.
 
 Appendix: proofs of the constructions (corner checks), the certificate LP,
@@ -122,8 +124,21 @@ Appendix B and the defensive phrasing.
 * *"Equal shares are special."* Theorem 2 and the two-LP results cover
   unequal shares; the paper should say plainly that a closed form at
   intermediate depths is open.
+* *"Real markets price surplus and shortfall differently."* Section 7 of the
+  draft (November 7): every result survives, the last depth is solved for
+  every penalty ratio, and for equal shares the windows close once the ratio
+  reaches 2(m-1)/m ([asymmetric_penalties.md](asymmetric_penalties.md)).
+* *"Does any of this matter on real data?"* Section 8 of the draft audits
+  two allocations on three panels of hourly wind production and compares
+  the observed overstatement with the worst case for the same shares and
+  floor (`scripts/illustrate_wind_audit.py`).
 
 ## Venue
+
+Update, November 7: with the asymmetric section and the data illustration
+the draft has grown beyond the usual length of Operations Research Letters.
+Either the letter keeps the symmetric theory and moves the rest to an online
+supplement, or the full version goes to MMOR, TOP or IJGT.
 
 A short theory paper of this kind fits Operations Research Letters, TOP,
 Mathematical Methods of Operations Research or the International Journal of

@@ -112,7 +112,12 @@ the conjecture for arbitrary shares is supported by computation, not proved.
       (Scopus, Web of Science) and full-text checks of seven items seen only
       as abstracts.
 - [ ] **Revise the paper draft** ([paper_exact/main.pdf](paper_exact/main.pdf),
-      8 pages) and have the proofs read by an expert.
+      now 11 pages) and have the proofs read by an expert. Prepared on
+      7 November: a [guide for the expert reading](docs/proof_guide.md) (which
+      half of each proof comes from where, what is machine-checked, and the
+      seven steps that rest on reasoning alone); the formal statements were
+      re-read for consistency. At 11 pages the draft is too long for
+      Operations Research Letters; MMOR, TOP or IJGT fit as it is.
 - [ ] **Prove Conjecture 6** (the upper bound for arbitrary shares), along the
       lines of the equal-share proof.
 - [ ] **Illustration on real data**: compare the worst case with the gaps
