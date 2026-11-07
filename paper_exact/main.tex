@@ -260,7 +260,8 @@ producers $J$, the excluded set $K$, $t=(1-r)-pr/q$, generators $a e_l$
 ($l\in K$) and $(Mt/p)\one_I-Me_j$ ($j\in J$), and $z=\one_I+t\one_J$. Every
 generator vanishes at $z$, so $c(z)=0$ and $a^\top z=(1-r)m/n$. The unit caps
 read $qt\le p$, i.e.\ $r\ge(q-p)/(q+p)$; $c(\one)=ka+qM(1-t)=1$. For a
-coalition with $s$ unit, $\tau$ fractional and $\kappa$ excluded members,
+coalition with $s$ unit and $\tau$ fractional members (excluded members add
+$a$ to both terms),
 $c(\one_S)-a|S|=\tau(M-a)+(q-2\tau)Mts/p-as$, bilinear in $(s,\tau)$, with
 corner values $0$, $q(M-a)$, $qMt-ap\ge0$ (i.e.\ $r\le q/(q+2p)$) and $0$.
 
@@ -377,11 +378,11 @@ a_i(1+r)(a_i+a_j)/(ra_j+(1+r)a_i), & x\le(1-r)/(1+r).
 
 \begin{proof}
 At depth $n-2$ a face has two free producers; scale the witness to
-$z=e_i+te_j$. Lemma~\ref{lem:certificates} with nonnegative cost, the singleton
-$\{i\}$, the pair $\{i,j\}$ and, through the triangle inequality
-$tc(e_j)\le c(z)+c(e_i)$, the cap of $i$, bounds the excess by the lower
-envelope of $a_i+ta_j$, $ta_j(1+1/r)$, $(1-t)a_j(1/r-1)$ and
-$(1-t)a_i(1+1/r)$, whose maximum over $t$ is $\Phi_{ij}$. The three regimes
+$z=e_i+te_j$. Nonnegative cost and Lemma~\ref{lem:certificates} with the
+singleton $\{i\}$ at $\nu=1$ and the pair $\{i,j\}$ at $\nu=1$ and at $\nu=t$
+bound the excess by $a_i+ta_j$, $ta_j(1+1/r)$, $(1-t)a_j(1/r-1)$ and
+$(1-t)a_i(1+1/r)$ respectively; the maximum over $t$ of their minimum is
+$\Phi_{ij}$. The three regimes
 are attained by the families C31, H and G of Theorem~\ref{thm:families} with
 $|I|=|J|=1$.
 \end{proof}
@@ -698,19 +699,32 @@ fractional audit, and the windows show that the correction is not confined to
 large $r$ when shares are symmetric. Even with a substantial standalone floor
 the audit can report savings of half the pooled cost while no coalition gains.
 
+These worst cases are attained by atomic, carefully correlated laws. On
+hourly wind production (Section~\ref{sec:data}) the audit was essentially
+exact, even where the worst case for the same floor exceeded a third of the
+pooled cost. The results are therefore best read as guarantees. A floor close
+to one certifies a fractional audit whatever the joint law; a low floor does
+not, and the audit must then be checked against the joint law, which is
+cheap once that law is available. Asymmetric penalties make the worst cases
+larger but do not change this picture.
+
 Three questions remain open. The upper bound in Conjecture~\ref{conj:closed};
 whether the relaxation over all seminorms, which the explicit laws met in every
 case we computed, always coincides with the worst case over demand laws; and
 the narrow windows that asymmetric penalties leave open in
 Section~\ref{sec:asym}, together with the exact worst case for arbitrary
 shares under asymmetric penalties, where transitional laws matter at every
-penalty ratio.
+penalty ratio. Pinball costs are support functions of reflected sections of
+lift zonoids (zonoid trimmed regions, \citealp{koshevoy1997zonoid}), and
+inequalities satisfied by all such sections would sharpen the relaxation
+there.
 
 \paragraph{Reproducibility.} Every construction, closed form and computational
 claim is checked by scripts that write their outcomes to JSON before any summary
 is generated; exact rational arithmetic is used for all constructions, and the
 algebra of every proof (identities, corner values, dual weights and the sign
-factorizations) is verified symbolically for general sizes.
+factorizations) is verified symbolically for general sizes. The wind data of
+Section~\ref{sec:data} are public and verified by checksums before use.
 
 \bibliographystyle{plainnat}
 \bibliography{references}
