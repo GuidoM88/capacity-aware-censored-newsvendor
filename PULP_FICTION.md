@@ -598,6 +598,26 @@ matrices one LP over a year takes about three seconds. Also, the first run
 was stopped and restarted to include the third panel, so the saved results
 come from a single complete run.
 
+### 21. A full re-reading, and one idea ruled out
+
+We re-read the paper from start to finish as a referee would. Two passages
+needed correcting. In the proof of the last-depth theorem the fourth bound
+was attributed to a triangle inequality through the cap of the unit
+producer; it actually comes from the certificate with the pair at level t
+(the four bounds themselves were right). In the equal-share proof the letter
+kappa counted excluded members, which clashes with the penalty ratio of the
+asymmetric section. Every number quoted in the paper was traced to a saved
+result, and the toy pipeline of the main branch still reproduces its saved
+numbers exactly.
+
+For the open asymmetric regions, the idea was to sharpen the relaxation with
+an inequality that every pinball cost satisfies. Hlawka's inequality was the
+obvious candidate: every sum of segments satisfies it. It fails for general
+laws, already with symmetric penalties, and we verified a violation exactly
+for each ratio ([hlawka.md](results/asymmetric/hlawka.md)). So that door is
+closed; an inequality would have to use the structure of sections of
+zonoids more specifically.
+
 ### What we would do next
 
 The list is kept up to date in [PROGRESS.md](PROGRESS.md).

@@ -128,7 +128,8 @@ the conjecture for arbitrary shares is supported by computation, not proved.
       1 < kappa < 2(m-1)/m and transitional laws for arbitrary shares
       (counterexample value between 0.2664 and 0.2787). The likely tool is an
       inequality satisfied by all pinball costs (sections of lift zonoids)
-      beyond quasi-symmetry.
+      beyond quasi-symmetry. Hlawka's inequality, the obvious candidate, is
+      ruled out: general laws violate it ([hlawka.md](results/asymmetric/hlawka.md)).
 
 ## Publication outlook
 

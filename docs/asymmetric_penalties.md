@@ -305,6 +305,18 @@ that all such sections satisfy, beyond -K ⊆ kappa K, would tighten the
 relaxation and could settle the open regions. Finding one is the natural
 next step on this question.
 
+The first candidate fails. Hlawka's inequality,
+c(x) + c(y) + c(z) + c(x+y+z) >= c(x+y) + c(y+z) + c(z+x), holds for every sum of
+segments, because each segment cost is a multiple of |d'x| plus a linear term
+that cancels. It does not hold for pinball costs of general laws, not even
+with symmetric penalties: random laws with at most eight integer atoms
+violate it in 54 to 505 of 24000 tests per ratio, and the worst violation
+for each ratio is verified in exact arithmetic
+([hlawka.md](../results/asymmetric/hlawka.md)). So the costs of general laws
+are not zonoid support functions, and Hlawka cannot be used to sharpen the
+relaxation. A useful inequality would have to hold for sections of zonoids
+specifically.
+
 ## 7. Arbitrary shares at intermediate depths
 
 **Theorem C (two-block lower bound).** For positive shares, any depth
