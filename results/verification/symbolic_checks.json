@@ -939,6 +939,293 @@
       "kind": "identity",
       "passed": true,
       "detail": "-(m - p - 1)/(m + p + 1) + (m - 2*p)/m = (2*m - 2*p**2 - 2*p)/(m*(m + p + 1))"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "pinball: l_{1-tau}(u) = kappa l_tau(u) for a surplus u > 0",
+      "kind": "identity",
+      "passed": true,
+      "detail": "1 - tau_pen = 1 - tau_pen"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "pinball: kappa l_{1-tau}(u) - l_tau(u) >= 0 for a shortfall",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "(1 - 2*tau_pen)/tau_pen; nonnegative for tau <= 1/2"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "three-point law: surplus-side cost",
+      "kind": "identity",
+      "passed": true,
+      "detail": "tau_pen*(alpha*tau_pen - beta*(1 - tau_pen))/(2*tau_pen - 1) + (1 - tau_pen)*(-alpha*(1 - tau_pen) + beta*tau_pen)/(2*tau_pen - 1) = alpha"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "three-point law: shortfall-side cost",
+      "kind": "identity",
+      "passed": true,
+      "detail": "tau_pen*(-alpha*(1 - tau_pen) + beta*tau_pen)/(2*tau_pen - 1) + (1 - tau_pen)*(alpha*tau_pen - beta*(1 - tau_pen))/(2*tau_pen - 1) = beta"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "three-point law: upper atom A >= 0",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "tau_pen*(-alpha + beta*(1 - tau_pen)/tau_pen)/(1 - 2*tau_pen); nonnegative iff alpha <= kappa beta (tau < 1/2)"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "three-point law: lower atom B >= 0",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "tau_pen*(alpha*(1 - tau_pen)/tau_pen - beta)/(1 - 2*tau_pen); nonnegative iff beta <= kappa alpha (tau < 1/2)"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "last depth: certificates A and C cross at t = (1-r)/(1+kappa)",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a_j*kappa_pen*(1 - r)/(r*(kappa_pen + 1)) + a_j - a_j*(-(1 - r)/(kappa_pen + 1) + 1)/r = 0"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "last depth: shortfall value",
+      "kind": "identity",
+      "passed": true,
+      "detail": "(-a_j + a_j/r)*(-(1 - r)/(kappa_pen + 1) + 1) = a_j*(1 - r)*(kappa_pen + r)/(r*(kappa_pen + 1))"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "last depth: shortfall law, grand pair cost",
+      "kind": "identity",
+      "passed": true,
+      "detail": "-a_j*kappa_pen*(1 - r)/(r*(kappa_pen + 1)) + a_j*(-(1 - r)/(kappa_pen + 1) + 1)/r + a_u = a_j + a_u"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "last depth: shortfall law, witness",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a_j*kappa_pen*(1 - r)/(r*(kappa_pen + 1)) + a_j*(1 - r)/(kappa_pen + 1) = a_j*(1 - r)*(kappa_pen + r)/(r*(kappa_pen + 1))"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "last depth: shortfall unit weight w >= 0",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "(-a_j*kappa_pen*(1 - r) + a_u*r*(kappa_pen + 1))/(r*(kappa_pen + 1)); nonnegative iff a_u/a_j >= kappa(1-r)/(r(1+kappa))"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "last depth: ceiling minus shortfall value",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "(1 - r)*(-a_j*kappa_pen*(1 - r) + a_u*r*(kappa_pen + 1))/(r*(kappa_pen + 1)); same factor: the shortfall regime is the smaller one exactly when its law exists"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "last depth: ceiling law, grand pair cost",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a_j*(r + a_u*r/a_j)/r = a_j + a_u"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "last depth: ceiling law, witness",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a_j*(-r + 1 - a_u*r/a_j) + a_u = (1 - r)*(a_j + a_u)"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "last depth: ceiling law, a_u/t <= kappa M_j",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "(a_j*kappa_pen*(1 - r) - a_u*r*(kappa_pen + 1))/r; nonnegative iff a_u/a_j <= kappa(1-r)/(r(1+kappa))"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "last depth: ceiling law, M_j/kappa <= M_u/t",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "(-a_j*(1 - r) + a_u*(kappa_pen + r))/r; nonnegative iff a_u/a_j >= (1-r)/(r+kappa)"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "last depth: unit-cap law, grand pair cost",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a_u*kappa_pen*(-1 + (a_j*r + a_u*(kappa_pen + r))/(a_u*kappa_pen))/r = a_j + a_u"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "last depth: unit-cap law, witness",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a_j*a_u*kappa_pen/(a_j*r + a_u*(kappa_pen + r)) + a_u = a_u*(a_j + a_u)*(kappa_pen + r)/(a_j*r + a_u*(kappa_pen + r))"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "last depth: unit-cap law, certificates B and 0 meet",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a_u*(kappa_pen + r)*(-a_u*kappa_pen/(a_j*r + a_u*(kappa_pen + r)) + 1)/r = a_j*a_u*kappa_pen/(a_j*r + a_u*(kappa_pen + r)) + a_u"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "last depth: unit-cap law, c(e_j) <= a_j/r",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "(a_j*(1 - r) - a_u*(kappa_pen + r))/r; nonnegative iff a_u/a_j <= (1-r)/(r+kappa)"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "last depth: unit-cap value below the shortfall branch",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "a_u**2*(kappa_pen + r)*(a_j*(kappa_pen - r) - a_u*r)/(r*(a_j + a_u)*(a_j*r + a_u*(kappa_pen + r))); nonnegative for a_u/a_j <= (1-r)/(r+kappa) <= (kappa-r)/r"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "last depth: kappa = 1 gives Theorem 2",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a_j*(1 - r)*(r + 1)/(2*r) = a_j*(1 - r**2)/(2*r)"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "equal shares: the two certificates cross at sigma*",
+      "kind": "identity",
+      "passed": true,
+      "detail": "(-a + a/r)*(m - (1 - r)*(m - 1)/(kappa_pen + 1) - 1) = (1 - r)*(m - 1)*(a*kappa_pen/r + a)/(kappa_pen + 1)"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "equal shares: upper bound value H_1",
+      "kind": "identity",
+      "passed": true,
+      "detail": "(1 - r)*(m - 1)*(a*kappa_pen/r + a)/(kappa_pen + 1) = a*(1 - r)*(kappa_pen + r)*(m - 1)/(r*(kappa_pen + 1))"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "equal shares: H_1 below the ceiling",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "a*(1 - r)*(-kappa_pen*(m - 1) + r*(kappa_pen*m + 1))/(r*(kappa_pen + 1)); nonnegative iff r >= kappa(m-1)/(kappa m+1)"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "ceiling family: grand cost of the free producers",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a*m = a*m"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "ceiling family: witness value",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a*(p + (m - p)*(-m*r/(m - p) + 1)) = a*m*(1 - r)"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "ceiling family: alpha range, upper end",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "a*(kappa_pen*(m - p) - r*(kappa_pen*m + p))/r; nonnegative iff r <= kappa(m-p)/(kappa m+p)"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "ceiling family: alpha range, lower end",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "kappa_pen*p + m*r - m + p; nonnegative iff r >= (m-(1+kappa)p)/m"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "ceiling family: certificate (units + fractional, nu = t) at the lower end",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "m*r*(-kappa_pen*p - m*r + m - p); nonpositive iff r >= (m-(1+kappa)p)/m"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "ceiling family: stability slack bilinear in (units, fractional)",
+      "kind": "bilinearity",
+      "passed": true,
+      "detail": "second derivatives in each variable vanish, so the minimum over a box is at a corner"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "ceiling family: slack at all free producers",
+      "kind": "identity",
+      "passed": true,
+      "detail": "0 = 0"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "family H_p: unit cost equals a",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a*kappa_pen*(1 - r)*(m - p)/(p*r*(kappa_pen + 1)) + (a*m - a*(m - p)*(-(1 - r)/(kappa_pen + 1) + 1)/r)/p = a"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "family H_p: unit weight w >= 0",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "a*(-kappa_pen*(m - p) + r*(kappa_pen*m + p))/(p*r*(kappa_pen + 1)); nonnegative iff r >= kappa(m-p)/(kappa m+p)"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "family H_p: witness value",
+      "kind": "identity",
+      "passed": true,
+      "detail": "-a*m + a*(p + (1 - r)*(m - p)/(kappa_pen + 1)) + a*(m - p)*(-(1 - r)/(kappa_pen + 1) + 1)/r = a*(1 - r)*(kappa_pen + r)*(m - p)/(r*(kappa_pen + 1))"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "family H_p: stability slack bilinear",
+      "kind": "bilinearity",
+      "passed": true,
+      "detail": "second derivatives in each variable vanish, so the minimum over a box is at a corner"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "family H_p: slack at the units alone",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a*kappa_pen*(1 - r)*(m - p)/(r*(kappa_pen + 1)) + a*m - a*p - a*(m - p)*(-(1 - r)/(kappa_pen + 1) + 1)/r = 0"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "family H_p: slack at all free producers",
+      "kind": "identity",
+      "passed": true,
+      "detail": "0 = 0"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "family H_p: slack at the fractional producers alone",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "a*(1 - r)*(m - p)/r; nonnegative"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "windows: nonempty iff kappa < (p+1)(m-p)/(pm)",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "(kappa_pen + 1)*(m*(-kappa_pen*p + p + 1) - p*(p + 1)); the window is nonempty iff this is positive"
+    },
+    {
+      "group": "K. asymmetric",
+      "check": "windows: the first window closes last",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "(m + p**2 + p)/(m*p*(p + 1)); positive, so the closing ratio decreases in p"
     }
   ]
 }

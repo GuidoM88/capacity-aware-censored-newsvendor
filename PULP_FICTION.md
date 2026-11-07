@@ -39,10 +39,18 @@ it easy to compare them before deciding what goes into the paper.
   explicit families of laws (Conjecture 6 in
   [docs/exact_envelopes.md](docs/exact_envelopes.md)); every value is attained
   by an explicit law, and the certificate LP matched it every time.
+* **Asymmetric imbalance penalties: the results survive and get stronger**
+  ([notes](docs/asymmetric_penalties.md)). The ceiling stays valid and every
+  symmetric worst case stays attainable, so pricing a shortfall differently
+  from a surplus can only increase the overstatement. The last depth is
+  solved for every penalty ratio kappa (Theorem A); for equal shares the
+  windows shrink and vanish once kappa >= 2(m-1)/m, which leaves a two-piece
+  formula (Theorem B).
 * **Open.** A proof of the upper bound for arbitrary shares (Conjecture 6);
   general conditions for one of the four families; a proof that the seminorm
-  relaxation is always attained by a demand law; asymmetric imbalance
-  penalties.
+  relaxation is always attained by a demand law; the asymmetric windows for
+  1 < kappa < 2(m-1)/m; asymmetric penalties with arbitrary shares at
+  intermediate depths.
 
 ## How to read the branch
 
@@ -395,18 +403,73 @@ is the larger of the two families is now an identity rather than an
 observation. Some counts quoted earlier came from interactive runs that were
 not saved; the notes now cite only saved results.
 
+### 16. Asymmetric penalties
+
+All results so far assumed that a surplus and a shortfall of the same size
+cost the same. Real balancing markets rarely work that way, and it is the
+first objection we would expect from a referee, so we redid the analysis
+with a pinball loss whose two slopes differ by a factor kappa
+([notes](docs/asymmetric_penalties.md)).
+
+The first question was what survives without new work. The optimized cost
+is still sublinear but no longer symmetric: c(-x) can be up to kappa times
+c(x). Two things follow at once. The C31 ceiling survives, because its proof
+only uses subadditivity along nonnegative differences. Every symmetric worst
+case survives too: a mixture of three-point components, each having zero as
+both a tau- and a (1-tau)-quantile, reproduces any sum of segments whose two
+sides differ by at most a factor kappa, symmetric generators included. So
+asymmetry can only make the audit's overstatement larger.
+
+The real question was how much larger. The certificate argument carries over
+with one change: lowering a coordinate is a shortfall direction and costs up
+to kappa times the cap. With that, the last-depth computation behind
+Theorem 2 can be redone by hand for every kappa. The three regimes survive,
+with (1+r)/2 replaced by (r+kappa)/(1+kappa), and each has an explicit law;
+two of them use the full ratio kappa on one segment (Theorem A). For equal
+shares the same two certificates give the upper bound min{C31, H_1}, and the
+symmetric ceiling and H_p laws generalize with the same bilinear-slack
+argument (Theorem B). As kappa grows the ceiling intervals widen on both
+sides and the windows close: the window between configurations p+1 and p is
+nonempty iff kappa < (p+1)(m-p)/(pm), so all of them are gone by
+kappa = 2(m-1)/m < 2. For practically relevant ratios the equal-share answer
+is a two-piece formula.
+
+Three things went wrong along the way, and they are worth keeping. Adding
+kappa to the certificate LP first broke two old tests: a new variable reused
+the name of the coalition weight inside the same loop. With the name fixed,
+everything at kappa = 1 is unchanged. Then a first sweep showed one case
+(five producers, depth one, kappa = 1.5, r = 0.4) where the certificate
+bound was 0.48 but the law found at the certificate's maximizer reached only
+0.467. This was not a counterexample. The exact relaxation is also 0.48, and
+an explicit law reaches 0.47999994 at the relaxation's own maximizer; the
+certificate LP had simply returned a maximizer that no law attains. Lesson:
+when comparing bounds, try more than one maximizer. Finally, inside the
+windows that survive for 1 < kappa < 2(m-1)/m the gap does not close. The
+certificate bound equals the exact relaxation, but the best explicit law we
+found stays 4e-4 to 1.3e-3 below it (nine cases, four producers). We record
+this as open; Section 6 of the notes gives the two possible explanations.
+
+Checks: 300 random last-depth instances and 5565 equal-share constructions
+verified in exact arithmetic, 1605 explicit laws evaluated directly under
+the asymmetric loss, 288 certificate cross-checks, and 41 new symbolic checks
+(175 in total, all passing).
+
 ### What we would do next
 
-1. Asymmetric imbalance penalties: extend the results or determine what
-   changes (tracked in [PROGRESS.md](PROGRESS.md), where the next steps are
-   kept up to date).
-2. Revise the draft in `paper_exact/`: a careful read of every proof, an
+The list is kept up to date in [PROGRESS.md](PROGRESS.md).
+
+1. Asymmetric penalties with arbitrary shares at intermediate depths: the
+   four families of Theorem 5 should generalize as the last-depth regimes
+   did; both LPs already accept kappa.
+2. The remaining asymmetric windows: an asymmetric analogue of V_p, or laws
+   outside the segment class.
+3. Revise the draft in `paper_exact/`: a careful read of every proof, an
    example section with numbers a practitioner can use, and the literature
    check of the plan.
-3. Prove Conjecture 6: an upper-bound argument for arbitrary shares, along
+4. Prove Conjecture 6: an upper-bound argument for arbitrary shares, along
    the lines of Theorem 4 (few active certificates, explicit dual weights),
    and general conditions for the transitional family.
-4. Check the literature on zonotopes and zonoids in cooperative games before
+5. Check the literature on zonotopes and zonoids in cooperative games before
    claiming contributions 3 to 5 of the plan.
 
 ## Proposed claim-register rows
@@ -435,6 +498,11 @@ be numbered at merge time.
 | PF18 | Proposition 5: for r < 1 the suprema of Theorems 1, 2 and 4 (and the values attained in the two-LP computations) are unchanged under strict stability and positive definite covariance | exact_envelopes.md Section 7; strict_mixtures.md (12 mixed laws) | Proved |
 | PF17 | Theorem 4: inside each equal-share window the worst gap is V_p(r) if Q(r) >= 0 and H_{p+1}(r) if Q(r) <= 0, with explicit laws; with Theorem 1 the equal-share case is solved for every n, depth and r | exact_envelopes.md Section 5; window_envelopes.md; 129,888 exact window checks | Proved |
 
+| PF21 | With asymmetric penalties of ratio kappa the cost is sublinear with c(-x) <= kappa c(x); every sum of kappa-segments is the cost of a finite three-point mixture; hence the C31 ceiling remains an upper bound and every symmetric lower bound remains attained | asymmetric_penalties.md Sections 1-2; symbolic group K | Proved |
+| PF22 | Theorem A: arbitrary shares at depth n-2, exact worst gap for every kappa, three regimes per ordered pair, explicit laws; kappa = 1 gives Theorem 2 | asymmetric_penalties.md Section 4; 300 of 300 random instances (construction, law, certificate) | Proved |
+| PF23 | Theorem B: equal shares, any depth, worst gap min{(1-r)m/n, H_1} outside windows that are nonempty iff kappa < (p+1)(m-p)/(pm); none for kappa >= 2(m-1)/m | asymmetric_penalties.md Section 5; 5565 exact constructions, 1305 laws, 288 certificate cross-checks | Proved |
+| PF24 | Inside the remaining windows (1 < kappa < 2(m-1)/m) the certificate bound equals the exact relaxation, but the best explicit law found is 4e-4 to 1.3e-3 below it (nine cases, four producers) | asymmetric_penalties.md Section 6; asymmetric_checks.md part D | Open; a gap between relaxation and laws is possible |
+
 PF3 and PF6 of the earlier version (numerical windows, configuration
 heuristic) are superseded by PF9 and PF11.
 
@@ -452,6 +520,7 @@ heuristic) are superseded by PF9 and PF11.
 * `tests/test_exact_envelopes.py`, `tests/test_seminorm_envelope.py`, `tests/test_certificates.py`, `tests/test_symbolic.py`: fast tests.
 * `scripts/verify_symbolic.py`, `requirements-verify.txt` and `results/verification/`: symbolic verification of the proofs.
 * `PROGRESS.md`: one-page progress report with the current next steps.
+* `src/censored_newsvendor/asymmetric.py`, `docs/asymmetric_penalties.md`, `scripts/check_asymmetric_penalties.py`, `results/asymmetric/` and `tests/test_asymmetric.py`: asymmetric imbalance penalties.
 
 ## Merging
 

@@ -345,6 +345,99 @@ identity("J. windows", "window length between I_{p+1} and I_p",
          (m - 2 * p) / m - (m - p - 1) / (m + p + 1), 2 * (m - p - p**2) / (m * (m + p + 1)))
 
 
+# ---------------------------------------------------------------------------
+# K. Asymmetric penalties (docs/asymmetric_penalties.md); kp is the ratio kappa >= 1
+# ---------------------------------------------------------------------------
+kp, au, aj, ta, al, be, ww = sp.symbols("kappa_pen a_u a_j tau_pen alpha beta w", positive=True)
+Mu, Mj = au / r, aj / r
+G = "K. asymmetric"
+identity(G, "pinball: l_{1-tau}(u) = kappa l_tau(u) for a surplus u > 0", ((1 - ta) / ta) * ta, 1 - ta)
+factorization(G, "pinball: kappa l_{1-tau}(u) - l_tau(u) >= 0 for a shortfall",
+              ((1 - ta) / ta) * (1 - ta) - ta, (1 - 2 * ta) / ta, "nonnegative for tau <= 1/2")
+Aup = (ta * al - (1 - ta) * be) / (2 * ta - 1)
+Bdn = (ta * be - (1 - ta) * al) / (2 * ta - 1)
+identity(G, "three-point law: surplus-side cost", ta * Aup + (1 - ta) * Bdn, al)
+identity(G, "three-point law: shortfall-side cost", (1 - ta) * Aup + ta * Bdn, be)
+factorization(G, "three-point law: upper atom A >= 0", Aup, ta * (((1 - ta) / ta) * be - al) / (1 - 2 * ta),
+              "nonnegative iff alpha <= kappa beta (tau < 1/2)")
+factorization(G, "three-point law: lower atom B >= 0", Bdn, ta * (((1 - ta) / ta) * al - be) / (1 - 2 * ta),
+              "nonnegative iff beta <= kappa alpha (tau < 1/2)")
+# Last depth: unit u, fractional j, certificates A (S=F, nu=1), C (S={u}, nu=1), B (S=F, nu=t).
+ts = (1 - r) / (1 + kp)
+identity(G, "last depth: certificates A and C cross at t = (1-r)/(1+kappa)",
+         (au + aj - Mj * (1 - ts)) - (au - kp * Mj * ts), 0)
+V1 = aj * (1 - r) * (r + kp) / (r * (1 + kp))
+identity(G, "last depth: shortfall value", (1 - ts) * (Mj - aj), V1)
+wsh = au - kp * Mj * ts
+identity(G, "last depth: shortfall law, grand pair cost", Mj * (1 - ts) + wsh, au + aj)
+identity(G, "last depth: shortfall law, witness", au + ts * aj - wsh, V1)
+factorization(G, "last depth: shortfall unit weight w >= 0", wsh,
+              (r * (1 + kp) * au - kp * (1 - r) * aj) / (r * (1 + kp)),
+              "nonnegative iff a_u/a_j >= kappa(1-r)/(r(1+kappa))")
+factorization(G, "last depth: ceiling minus shortfall value", (1 - r) * (au + aj) - V1,
+              (1 - r) * (r * (1 + kp) * au - kp * (1 - r) * aj) / (r * (1 + kp)),
+              "same factor: the shortfall regime is the smaller one exactly when its law exists")
+tc = 1 - r - r * au / aj
+identity(G, "last depth: ceiling law, grand pair cost", Mj * (1 - tc), au + aj)
+identity(G, "last depth: ceiling law, witness", au + tc * aj, (1 - r) * (au + aj))
+factorization(G, "last depth: ceiling law, a_u/t <= kappa M_j", kp * Mj * tc - au,
+              (kp * (1 - r) * aj - r * (1 + kp) * au) / r, "nonnegative iff a_u/a_j <= kappa(1-r)/(r(1+kappa))")
+factorization(G, "last depth: ceiling law, M_j/kappa <= M_u/t", (Mu - Mj * tc / kp) * kp,
+              ((r + kp) * au - (1 - r) * aj) / r, "nonnegative iff a_u/a_j >= (1-r)/(r+kappa)")
+tu = kp * au / (au * (r + kp) + r * aj)
+V2 = au * (r + kp) * (au + aj) / (au * (r + kp) + r * aj)
+identity(G, "last depth: unit-cap law, grand pair cost", kp * Mu * (1 / tu - 1), au + aj)
+identity(G, "last depth: unit-cap law, witness", au + tu * aj, V2)
+identity(G, "last depth: unit-cap law, certificates B and 0 meet", (1 - tu) * au * (r + kp) / r, au + tu * aj)
+factorization(G, "last depth: unit-cap law, c(e_j) <= a_j/r", Mj - kp * Mu / tu,
+              ((1 - r) * aj - (r + kp) * au) / r, "nonnegative iff a_u/a_j <= (1-r)/(r+kappa)")
+factorization(G, "last depth: unit-cap value below the shortfall branch", au * aj * (r + kp) / (r * (au + aj)) - V2,
+              au**2 * (r + kp) * ((kp - r) * aj - r * au) / (r * (au + aj) * (au * (r + kp) + r * aj)),
+              "nonnegative for a_u/a_j <= (1-r)/(r+kappa) <= (kappa-r)/r")
+identity(G, "last depth: kappa = 1 gives Theorem 2", V1.subs(kp, 1), aj * (1 - r**2) / (2 * r))
+# Equal shares: upper bound from two certificates, ceiling family, family H_p.
+sg = (1 - r) * (m - 1) / (1 + kp)
+H1 = (m - 1) * a * (1 - r) * (r + kp) / (r * (1 + kp))
+identity(G, "equal shares: the two certificates cross at sigma*", (M - a) * (m - 1 - sg), sg * (a + kp * M))
+identity(G, "equal shares: upper bound value H_1", sg * (a + kp * M), H1)
+factorization(G, "equal shares: H_1 below the ceiling", (1 - r) * m * a - H1,
+              a * (1 - r) * (r * (kp * m + 1) - kp * (m - 1)) / (r * (1 + kp)),
+              "nonnegative iff r >= kappa(m-1)/(kappa m+1)")
+qq = m - p
+tq = 1 - m * r / qq
+identity(G, "ceiling family: grand cost of the free producers", qq * M * (1 - tq), m * a)
+identity(G, "ceiling family: witness value", a * (p + qq * tq), (1 - r) * m * a)
+factorization(G, "ceiling family: alpha range, upper end", kp * M * qq * tq - a * p,
+              a * (kp * qq - r * (kp * m + p)) / r, "nonnegative iff r <= kappa(m-p)/(kappa m+p)")
+factorization(G, "ceiling family: alpha range, lower end", kp * p - qq * tq, kp * p - qq + m * r,
+              "nonnegative iff r >= (m-(1+kappa)p)/m")
+factorization(G, "ceiling family: certificate (units + fractional, nu = t) at the lower end",
+              ((1 - r) * m - p) * (m * r + kp * p) - kp * p * (m - p),
+              m * r * (m - p - kp * p - m * r), "nonpositive iff r >= (m-(1+kappa)p)/m")
+pp, ss = sp.symbols("p_prime s_frac", positive=True)
+slack_c = ss * M * (1 - pp * tq / p) + (qq - ss) * al * pp * tq / p - a * (pp + ss)
+bilinear(G, "ceiling family: stability slack bilinear in (units, fractional)", slack_c, pp, ss)
+identity(G, "ceiling family: slack at all free producers", slack_c.subs({pp: p, ss: qq}), 0)
+th = (1 - r) / (1 + kp)
+wh = (m * a - qq * M * (1 - th)) / p
+identity(G, "family H_p: unit cost equals a", qq * kp * M * th / p + wh, a)
+factorization(G, "family H_p: unit weight w >= 0", wh, a * (r * (kp * m + p) - kp * qq) / (p * r * (1 + kp)),
+              "nonnegative iff r >= kappa(m-p)/(kappa m+p)")
+identity(G, "family H_p: witness value", a * (p + qq * th) - p * wh, qq * a * (1 - r) * (r + kp) / (r * (1 + kp)))
+slack_h = ss * M * (1 - pp * th / p) + (qq - ss) * kp * M * pp * th / p + pp * wh - a * (pp + ss)
+bilinear(G, "family H_p: stability slack bilinear", slack_h, pp, ss)
+identity(G, "family H_p: slack at the units alone", slack_h.subs({pp: p, ss: 0}), 0)
+identity(G, "family H_p: slack at all free producers", slack_h.subs({pp: p, ss: qq}), 0)
+factorization(G, "family H_p: slack at the fractional producers alone", slack_h.subs({pp: 0, ss: qq}),
+              qq * a * (1 - r) / r, "nonnegative")
+factorization(G, "windows: nonempty iff kappa < (p+1)(m-p)/(pm)",
+              (m - (1 + kp) * p) * (kp * m + p + 1) - m * kp * (m - p - 1),
+              (1 + kp) * (m * (p + 1 - p * kp) - p * (p + 1)), "the window is nonempty iff this is positive")
+factorization(G, "windows: the first window closes last",
+              (p + 1) * (m - p) / (p * m) - (p + 2) * (m - p - 1) / ((p + 1) * m),
+              (m + p**2 + p) / (p * (p + 1) * m), "positive, so the closing ratio decreases in p")
+
+
 def main():
     failed = [c for c in CHECKS if not c["passed"]]
     output = ROOT / "results/verification/symbolic_checks.json"
@@ -368,7 +461,8 @@ def main():
     lines += ["", "## All checks", "", "| group | check | kind | result |", "| --- | --- | --- | :---: |"]
     for c in CHECKS:
         lines.append(f"| {c['group']} | {c['check']} | {c['kind']} | {'pass' if c['passed'] else 'FAIL'} |")
-    lines += ["", "Not covered here: the convex-analysis lemmas (gauge duality, triangle certificates) and the "
+    lines += ["", "Not covered here: the convex-analysis lemmas (gauge duality, triangle certificates, their "
+              "asymmetric versions) and the "
               "general validity conditions of the transitional family for arbitrary shares, which is checked "
               "instance by instance in exact arithmetic.", ""]
     output.with_suffix(".md").write_text("\n".join(lines))

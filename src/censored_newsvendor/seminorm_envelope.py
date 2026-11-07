@@ -42,13 +42,18 @@ def proper_coalitions(n):
 
 
 def minimal_cost(z, shares, r, *, integer_excess=0.0, grand_cost=1.0,
-                 pinned_singletons=False):
+                 pinned_singletons=False, kappa=1.0):
     """Smallest c(z) over seminorms obeying the depth-one game constraints.
 
     Constraints: c(e_j) <= a_j/r (none if r == 0), c(1) <= grand_cost and
     c(1_S) >= a(S) - integer_excess for every proper coalition S. With
     ``pinned_singletons`` the singleton costs are also bounded below by a_j/r,
     i.e. charges are proportional to standalone costs.
+
+    With ``kappa > 1`` the class is widened to sublinear costs with
+    c(-x) <= kappa c(x), the costs of asymmetric (pinball) penalties whose
+    two unit penalties differ by the factor kappa (docs/asymmetric_penalties.md).
+    The minimal set is then conv(P u -P/kappa) instead of conv(P u -P).
 
     Returns ``(value, coalition)``, where ``coalition`` attains the outer
     maximum. ``value`` is ``inf`` when no seminorm satisfies the constraints.
@@ -60,12 +65,15 @@ def minimal_cost(z, shares, r, *, integer_excess=0.0, grand_cost=1.0,
         raise ValueError("r must lie in [0, 1]")
     if pinned_singletons and r == 0:
         raise ValueError("pinned singletons need r > 0")
-    caps = [(None, None)] * n if r == 0 else [(-x / r, x / r) for x in a]
+    if kappa < 1:
+        raise ValueError("kappa must be at least 1")
+    caps = ([(None, None)] * n if r == 0
+            else [(-kappa * x / r, x / r) for x in a])
     objective = np.zeros(n + 1)
     objective[-1] = 1.0
-    base_rows = [np.r_[z, -1.0], np.r_[-z, -1.0],
+    base_rows = [np.r_[z, -1.0], np.r_[-z / kappa, -1.0],
                  np.r_[np.ones(n), 0.0], np.r_[-np.ones(n), 0.0]]
-    base_rhs = [0.0, 0.0, grand_cost, grand_cost]
+    base_rhs = [0.0, 0.0, grand_cost, kappa * grand_cost]
     best, argbest = 0.0, None
     for coalition in proper_coalitions(n):
         lower = a[list(coalition)].sum() - integer_excess

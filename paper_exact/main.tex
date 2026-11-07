@@ -23,7 +23,7 @@
 \title{How much can a fractional audit overstate coalition savings?\\
 Exact bounds for pooled newsvendor costs under a standalone-cost floor}
 \author{Guido Morgante}
-\date{Draft, 6 November 2026}
+\date{Draft, 7 November 2026}
 
 \begin{document}
 \maketitle
@@ -44,7 +44,11 @@ and four families of explicit worst-case laws at every depth, whose best value
 matched a certified upper bound in all 1068 random instances computed. Every
 bound is attained by a finite demand law. The constructions rest on the fact
 that costs of symmetric demand laws are zonotope support functions; the upper
-bounds rest on triangle-inequality certificates.
+bounds rest on triangle-inequality certificates. With asymmetric imbalance
+penalties the ceiling remains valid and every worst case persists; we give the
+exact worst case at the deepest level for every penalty ratio, and for equal
+shares show that the windows close once a shortfall costs at least $2(m-1)/m$
+times as much as a surplus.
 \end{abstract}
 
 \section{Introduction}
@@ -427,6 +431,139 @@ $X^s$, and its excess at the witness tends to the supremum as
 $\varepsilon\to0$, by continuity of the closed forms in $r$.
 \end{proof}
 
+\section{Asymmetric penalties}\label{sec:asym}
+
+In most balancing markets a shortfall is settled at a worse price than a
+surplus. With penalties $\lambda_+$ per unit of surplus and $\lambda_-$ per
+unit of shortfall the loss is, up to a constant factor, the pinball loss
+$\ell_\tau(u)=\tau u^++(1-\tau)u^-$ of level
+$\tau=\lambda_+/(\lambda_++\lambda_-)$, and the coalition cost becomes
+$c(x)=\min_q\E\,\ell_\tau(x^\top Y-q)$. Write
+$\kappa=\max(\tau,1-\tau)/\min(\tau,1-\tau)\ge1$ for the ratio of the two
+penalties and $\Gamma_k^\kappa(w,r)$ for the worst gap; $\kappa=1$ is the
+symmetric case.
+
+\begin{lemma}\label{lem:quasi}
+The cost $c$ is sublinear and nonnegative, and $c(-x)\le\kappa\,c(x)$ for
+every $x$.
+\end{lemma}
+
+\begin{proof}
+$\ell_\tau(-u)=\ell_{1-\tau}(u)\le\kappa\,\ell_\tau(u)$ pointwise.
+\end{proof}
+
+Call $(d,\alpha,\beta)$ with $\alpha,\beta\ge0$ and
+$\alpha/\beta\in[1/\kappa,\kappa]$ a $\kappa$-segment, with cost
+$\alpha(d^\top x)^++\beta(d^\top x)^-$.
+
+\begin{proposition}\label{prop:segments}
+Every finite sum of $\kappa$-segment costs is, up to a positive factor, the
+pinball cost of a finite demand law on $[0,1]^n$.
+\end{proposition}
+
+\begin{proof}
+Let $\tau\le1/2$. For a segment, solve $\alpha=\tau A+(1-\tau)B$,
+$\beta=(1-\tau)A+\tau B$; then $A,B\ge0$ exactly when
+$\alpha/\beta\in[1/\kappa,\kappa]$. A variable $V$ equal to $A/\tau$ and
+$-B/\tau$ with probability $\tau$ each and to $0$ otherwise has $0$ as a
+$\tau$- and a $(1-\tau)$-quantile, and $\E\,\ell_\tau(sV)=\alpha s^++\beta s^-$
+for every real $s$. Mixing such components along the directions $d$ keeps $0$
+optimal for each of them, so their costs add; an affine map puts the law in
+the box.
+\end{proof}
+
+\begin{corollary}\label{cor:asym}
+For every $\kappa\ge1$: (a) $\Gamma_k^\kappa(w,r)\le(1-r)s_k(w)$; (b) every
+explicit law of Sections~4--6 has a counterpart with the same normalized costs,
+so every lower bound proved for $\kappa=1$ holds for every $\kappa$.
+\end{corollary}
+
+\begin{proof}
+(a) The proof of the ceiling uses only subadditivity along the nonnegative
+difference $\one_F-z$. (b) Symmetric generators are $\kappa$-segments with
+$\alpha=\beta$.
+\end{proof}
+
+In the certificates of Lemma~\ref{lem:certificates} a coordinate that has to
+be lowered is a shortfall direction, so it is charged $\kappa a_i/r$ instead of
+$a_i/r$ per unit. With this one change the last-depth and equal-share
+arguments go through.
+
+\begin{theorem}\label{thm:asymlast}
+For positive shares, $0<r\le1$ and $\kappa\ge1$,
+$\Gamma_{n-2}^\kappa(w,r)=\max_{i\ne j}\Psi_{ij}(r)$, where, with $x=a_i/a_j$,
+\[
+\Psi_{ij}(r)=
+\begin{cases}
+a_j(1-r)(r+\kappa)/(r(1+\kappa)), & x\ge\kappa(1-r)/(r(1+\kappa)),\\
+(1-r)(a_i+a_j), & (1-r)/(r+\kappa)\le x\le\kappa(1-r)/(r(1+\kappa)),\\
+a_i(r+\kappa)(a_i+a_j)/(a_i(r+\kappa)+ra_j), & x\le(1-r)/(r+\kappa).
+\end{cases}
+\]
+For $\kappa=1$ this is Theorem~\ref{thm:lastdepth}.
+\end{theorem}
+
+\begin{proof}
+With $z=e_i+te_j$, the certificates for the pair at $\nu=1$ and $\nu=t$, for
+$\{i\}$ at $\nu=1$, and nonnegative cost bound the excess by
+$(1-t)a_j(1-r)/r$, $(1-t)a_i(r+\kappa)/r$, $ta_j(r+\kappa)/r$ and $a_i+ta_j$;
+the maximum over $t$ of their minimum is $\Psi_{ij}$. The other producers get
+the segments $(e_k,a_k,a_k)$, and one or two segments on the pair attain the
+three regimes. In the first, the segment along $te_i-e_j$ has
+$(\alpha,\beta)=(\kappa a_j/r,a_j/r)$ and $t=(1-r)/(1+\kappa)$, and a
+symmetric segment of weight $a_i-\kappa ta_j/r$ lies along $e_i$. In the
+second, the segment along $te_i-e_j$ has $\beta=a_j/r$, $t=1-r-rx$ and
+$\alpha$ in an interval that is nonempty exactly in that regime. In the
+third, the segment along $e_i-e_j/t$ has $(\alpha,\beta)=(a_i/r,\kappa a_i/r)$.
+\end{proof}
+
+For equal shares put $m=n-k$,
+$H_p^\kappa(r)=(m-p)(1-r)(r+\kappa)/(nr(1+\kappa))$ and
+\[
+I_p^\kappa=\Bigl[\max\Bigl(0,\tfrac{m-(1+\kappa)p}{m}\Bigr),\
+\tfrac{\kappa(m-p)}{\kappa m+p}\Bigr],
+\]
+which for $\kappa=1$ are $H_p$ and $I_p$.
+
+\begin{theorem}\label{thm:asymequal}
+For equal shares and $\kappa\ge1$,
+$\Gamma_k^\kappa(r)\le\min\{(1-r)m/n,\ H_1^\kappa(r)\}$ for every $r$, with
+equality on every $I_p^\kappa$ and for $r\ge\kappa(m-1)/(\kappa m+1)$. The gap
+between $I_{p+1}^\kappa$ and $I_p^\kappa$ is nonempty if and only if
+$\kappa<(p+1)(m-p)/(pm)$. In particular, if $\kappa\ge2(m-1)/m$, and so
+whenever a shortfall costs at least twice as much as a surplus,
+\[
+\Gamma_k^\kappa(r)=\min\Bigl\{(1-r)\frac mn,\
+\frac{(m-1)(1-r)(r+\kappa)}{nr(1+\kappa)}\Bigr\}\qquad(0<r\le1).
+\]
+\end{theorem}
+
+\begin{proof}
+With $1=z_1\ge z_2\ge\dots$ and $\sigma=z_2+\dots+z_m$, the certificates for
+the face at $\nu=1$ and for $\{1\}$ at $\nu=1$ bound the excess by
+$(1-r)(m-1-\sigma)/(nr)$ and $\sigma(r+\kappa)/(nr)$; their minimum is at most
+$H_1^\kappa$, with equality at $\sigma=(1-r)(m-1)/(1+\kappa)$. The ceiling law
+of Theorem~\ref{thm:equal}, with $p$ units and the others at
+$t=1-mr/(m-p)$, becomes one segment along $(t/p)\one_I-e_j$ per fractional
+producer with $\beta=1/(nr)$ and $\alpha$ in an interval that is nonempty
+exactly on $I_p^\kappa$. The law $H_p$ becomes the same directions with
+$(\alpha,\beta)=(\kappa,1)/(nr)$ and $t=(1-r)/(1+\kappa)$, plus a symmetric
+segment on each unit. In both, the stability slack is bilinear in the numbers
+of units and of fractional producers in a coalition, so the corners suffice.
+The window condition follows from
+$(m-(1+\kappa)p)(\kappa m+p+1)-m\kappa(m-p-1)
+=(1+\kappa)\bigl(m(p+1-p\kappa)-p(p+1)\bigr)$.
+\end{proof}
+
+For four producers at depth one and $r=1/4$ the worst gap rises from $31/56$
+with symmetric penalties to $9/16$ with $\kappa=2$. Asymmetry never helps:
+every exact value above is nondecreasing in $\kappa$, and as $\kappa\to\infty$
+the elementary ceiling becomes exact on $[0,(m-1)/m]$ for equal shares. Inside
+the gaps that remain for $1<\kappa<2(m-1)/m$, the certificate bound equals
+the relaxation over all sublinear costs with $c(-x)\le\kappa c(x)$. The best
+$\kappa$-segment law we found stays up to $1.3\cdot10^{-3}$ below it, so these
+narrow windows remain open.
+
 \section{Discussion}
 
 The elementary ceiling $(1-r)s_k(w)$ is the right answer more often than one
@@ -440,8 +577,9 @@ the audit can report savings of half the pooled cost while no coalition gains.
 Three questions remain open. The upper bound in Conjecture~\ref{conj:closed};
 whether the relaxation over all seminorms, which the explicit laws met in every
 case we computed, always coincides with the worst case over demand laws; and
-asymmetric penalties, for which costs are no longer seminorms and the tools of
-Section~3 need to be rebuilt.
+the narrow windows that asymmetric penalties leave open in
+Section~\ref{sec:asym}, together with arbitrary shares at intermediate depths
+under asymmetric penalties.
 
 \paragraph{Reproducibility.} Every construction, closed form and computational
 claim is checked by scripts that write their outcomes to JSON before any summary

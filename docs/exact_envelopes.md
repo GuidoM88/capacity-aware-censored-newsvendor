@@ -22,6 +22,10 @@ them. This note gives explicit laws, and with them the following exact results:
   closed form for every n, every depth and every r.
 * **Section 6.** For arbitrary shares at any depth, a certificate LP and an
   explicit-law LP meet in every instance tried.
+* **Asymmetric penalties.** [asymmetric_penalties.md](asymmetric_penalties.md)
+  extends Theorem 2 to every ratio between the shortfall and surplus
+  penalties (Theorem A) and Theorems 1 and 4 outside a set of windows that
+  closes once the ratio reaches 2(m-1)/m (Theorem B).
 
 Loss is symmetric absolute loss, L is normalized to 1, so a = w, and
 rho >= r means c_j <= a_j/r for every producer.

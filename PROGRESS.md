@@ -35,12 +35,19 @@ but thin. Everything below is new since then.
 | 6 | Arbitrary shares at every depth: the worst case equals the best of the four families | Conjecture; held in 1068 of 1068 random instances against a certified upper bound | Conjecture 6 |
 | 7 | Requiring positive definite covariance and strict stability of every coalition changes none of the worst cases | Proved; algebra verified symbolically | Proposition 5 |
 | 8 | Every worst case is attained by an explicit finite demand law (at most 2n atoms) | Proved for results 1 to 5 | Constructions |
+| 9 | Asymmetric penalties (surplus and shortfall priced differently, ratio kappa): the elementary ceiling stays valid and every symmetric worst case stays attainable, so asymmetry can only increase the overstatement | Proved | Lemma 1 to Corollary 3, [notes](docs/asymmetric_penalties.md) |
+| 10 | Asymmetric penalties, last depth, arbitrary shares: closed form for every kappa (three regimes) | Proved; algebra verified symbolically | Theorem A |
+| 11 | Asymmetric penalties, equal shares, every depth: closed form outside windows that shrink as kappa grows and vanish for kappa >= 2(m-1)/m; for kappa >= 2 always a two-piece formula | Proved; algebra verified symbolically | Theorem B |
+| 12 | Inside the windows that remain for 1 < kappa < 2(m-1)/m | Open: relaxation known, best laws found within 1.3e-3 of it | Section 6 of the notes |
 
 In plain terms: with four producers each paying at least a quarter of their
 standalone cost, the audit can still report a saving of 31/56, about 55%, of
 the expected pooled cost while no coalition actually gains anything. With
 generic shares the elementary ceiling (1-r)(n-k)/n turned out to be the exact
-answer whenever r <= 0.4 in our samples, and never when r >= 0.7.
+answer whenever r <= 0.4 in our samples, and never when r >= 0.7. If a
+shortfall costs twice as much as a surplus, the four-producer figure rises
+from 31/56 to 9/16 = 56.25%: asymmetric prices make the audit worse, not
+better.
 
 The figure [results/exclusion/exact_envelopes.png](results/exclusion/exact_envelopes.png)
 shows the exact curves for 4, 5, 6 and 8 producers against the elementary
@@ -51,16 +58,20 @@ ceiling.
 1. **Exact arithmetic on the constructions.** Every explicit law is checked
    with rational arithmetic on every coalition constraint: 1910 equal-share
    and 600 last-depth constructions, 324 window ratios and 1068 random
-   arbitrary-share instances (all saved under `results/exclusion/`).
+   arbitrary-share instances (all saved under `results/exclusion/`); for
+   asymmetric penalties 300 last-depth and 5565 equal-share constructions,
+   1605 of them also as explicit laws evaluated directly under the
+   asymmetric loss (`results/asymmetric/`).
 2. **Symbolic verification of the proofs.** The algebra of every proof
    (identities, corner values of the stability checks, dual weights, sign
-   factorizations) is checked with sympy for general sizes: **134 of 134
+   factorizations) is checked with sympy for general sizes: **175 of 175
    checks pass** ([report](results/verification/symbolic_checks.md)).
 3. **Independent evaluation.** Samples of the explicit laws are re-evaluated
    with the project's original audit code, which computes the relaxation and
    the coalition excesses from scratch.
 4. **Upper bounds by linear programming.** A certificate LP, valid for every
-   demand law, matches the explicit laws in every instance computed.
+   demand law, matches the explicit laws in every instance computed, except
+   inside the asymmetric windows of result 12.
 
 What this does not replace: the reading of the proofs by an expert. The
 convex-analysis lemmas are short arguments that are not machine-checked, and
@@ -71,10 +82,13 @@ the conjecture for arbitrary shares is supported by computation, not proved.
 - [x] **Symbolic verification of all proof algebra** (done 7 November: 134
       checks; it also turned the claim "the window value is the larger of the
       two families" into an identity, V_p - H_{p+1} = a(m+p+1)(r - r_L)Q(r)/(2rD)).
-- [ ] **Asymmetric imbalance penalties.** Real markets usually price surplus
-      and shortfall differently; all results so far assume equal penalties.
-      Extend the results, or at least determine what changes. This is the
-      first objection a referee would raise.
+- [x] **Asymmetric imbalance penalties** (done 7 November: results 9 to 12;
+      [notes](docs/asymmetric_penalties.md), [checks](results/asymmetric/asymmetric_checks.md)).
+      The results survive and get stronger; one narrow region is left open.
+- [ ] **Asymmetric penalties with arbitrary shares at intermediate depths**:
+      extend the four families of Theorem 5; both LPs already accept kappa.
+- [ ] **The remaining asymmetric windows** (1 < kappa < 2(m-1)/m): find an
+      asymmetric analogue of the family V_p, or laws outside the segment class.
 - [ ] **Systematic literature review** to confirm novelty, in particular risk
       capital allocation with homogeneous risk measures and relaxations of
       core membership. The zonoid identity used in the constructions is
@@ -92,8 +106,10 @@ The equal-share theory and the last-depth theorem form a complete, proved
 core with a non-obvious structure (intervals, windows, a switching
 quadratic), which seems sufficient for a short paper in a journal such as
 Operations Research Letters, TOP, Mathematical Methods of Operations Research
-or the International Journal of Game Theory. Asymmetric penalties, a proof of
-the conjecture and a data illustration would strengthen it considerably.
+or the International Journal of Game Theory. The extension to asymmetric
+penalties answers the most likely referee objection and adds a second
+non-obvious structure (windows that close at kappa = 2(m-1)/m). A proof of
+the conjecture and a data illustration would strengthen the paper further.
 Before submission: the expert reading of the proofs, the literature review,
 and a check of the chosen journal's policies.
 
@@ -108,6 +124,7 @@ and a check of the chosen journal's policies.
 | 6 Nov | Theorem 4: the windows; closed form for equal shares |
 | 6 Nov | Four families and the conjecture for arbitrary shares; first paper draft |
 | 7 Nov | Symbolic verification of all proof algebra (134 checks) |
+| 7 Nov | Asymmetric penalties: Theorems A and B, windows close for kappa >= 2(m-1)/m (175 symbolic checks) |
 
 ## Reproducing everything
 
@@ -116,6 +133,7 @@ python -m pip install -r requirements.txt -r requirements-verify.txt
 python -m pip install --no-deps -e .
 python -m unittest discover -s tests
 python scripts/verify_symbolic.py
+python scripts/check_asymmetric_penalties.py
 ```
 
 The other scripts are listed in [PULP_FICTION.md](PULP_FICTION.md); each

@@ -15,6 +15,11 @@ the excess. For a fixed ordering every certificate is linear in z, so
 "maximize the minimum of all certificates and of a'z" is one LP; the bound is
 the largest value over faces, units and orderings. It is valid for every
 demand law. Whether it is attained is checked separately (explicit laws).
+
+With asymmetric penalties (``kappa > 1``, see docs/asymmetric_penalties.md)
+the cost is sublinear with c(-e_i) <= kappa c(e_i), so a coordinate where
+z_i exceeds nu, and every coordinate outside S, is charged kappa a_i/r
+instead of a_i/r. Nothing else changes.
 """
 
 from __future__ import annotations
@@ -25,7 +30,7 @@ import numpy as np
 from scipy.optimize import linprog
 
 
-def certificate_bound(shares, r, depth=1):
+def certificate_bound(shares, r, depth=1, kappa=1.0):
     """Upper bound on sup (D_depth - B)/L; returns (bound, maximizing membership)."""
     a = np.asarray(shares, dtype=float)
     n = len(a)
@@ -33,6 +38,8 @@ def certificate_bound(shares, r, depth=1):
         raise ValueError("0 < r <= 1 required")
     if not 1 <= depth <= n - 2:
         raise ValueError("depth must lie in 1..n-2")
+    if kappa < 1:
+        raise ValueError("kappa must be at least 1")
     cap = a / r
     best, argbest = 0.0, np.zeros(n)
     for excluded in itertools.combinations(range(n), depth):
@@ -42,13 +49,13 @@ def certificate_bound(shares, r, depth=1):
         for unit in face:
             others = [j for j in face if j != unit]
             for order in itertools.permutations(others):
-                value, z = _ordered_lp(a, cap, face, subsets, unit, order)
+                value, z = _ordered_lp(a, cap, face, subsets, unit, order, kappa)
                 if value > best:
                     best, argbest = value, z
     return best, argbest
 
 
-def _ordered_lp(a, cap, face, subsets, unit, order):
+def _ordered_lp(a, cap, face, subsets, unit, order, kappa=1.0):
     n, k = len(a), len(order)
     width = k + 1                       # z of the ordered producers, then w
     position = {j: p for p, j in enumerate(order)}
@@ -89,12 +96,17 @@ def _ordered_lp(a, cap, face, subsets, unit, order):
             for i in face:
                 ic, iv = linear(i)
                 if i in s:
-                    sign = 1.0 if rank[i] <= rank[t] else -1.0
-                    const += cap[i] * sign * (ic - tc)
-                    coef = coef + cap[i] * sign * (iv - tv)
+                    # z_i >= nu: the difference nu - z_i is a shortfall
+                    # direction, charged at the larger cap kappa a_i/r.
+                    if rank[i] <= rank[t]:
+                        charge = kappa * cap[i]
+                    else:
+                        charge = -cap[i]
+                    const += charge * (ic - tc)
+                    coef = coef + charge * (iv - tv)
                 else:
-                    const += cap[i] * ic
-                    coef = coef + cap[i] * iv
+                    const += kappa * cap[i] * ic
+                    coef = coef + kappa * cap[i] * iv
             forms.append((const, coef))
     for const, coef in forms:
         row = -coef.copy()
