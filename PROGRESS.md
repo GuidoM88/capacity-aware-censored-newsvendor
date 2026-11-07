@@ -123,7 +123,11 @@ the conjecture for arbitrary shares is supported by computation, not proved.
 ### Research that would strengthen the paper (optional)
 
 - [ ] **Prove Conjecture 6** (the upper bound for arbitrary shares with
-      symmetric penalties), along the lines of the equal-share proof.
+      symmetric penalties), along the lines of the equal-share proof. First
+      step done: for three free producers the optimum of the certificate LP
+      uses at most three certificates of the window-proof types, with one
+      fixed pattern per family ([active_certificates.md](results/exclusion/active_certificates.md)),
+      so a dual-weight proof regime by regime looks feasible.
 - [ ] **The open asymmetric regions**: the remaining equal-share windows for
       1 < kappa < 2(m-1)/m and transitional laws for arbitrary shares
       (counterexample value between 0.2664 and 0.2787). The likely tool is an

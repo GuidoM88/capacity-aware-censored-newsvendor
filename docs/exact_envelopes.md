@@ -570,6 +570,24 @@ The number of LPs grows like C(n,k)(n-k)!, so the method is practical up to
 six or seven producers. For larger n with structure, such as equal shares,
 the sorted version of Section 5 needs a single LP.
 
+### Toward a proof of Conjecture 6 for three free producers
+
+For four producers at depth one (three free producers per face), the dual
+solution of the certificate LP at the optimum was recorded on 500 random
+instances ([active_certificates.md](../results/exclusion/active_certificates.md)).
+At most three certificates are ever active, and they are always of the types
+that prove the equal-share windows: zero cost, a top set at level one, and the
+whole face at level one or at the level of a fractional producer. Each family
+has its own pattern. The transitional family V uses zero cost, the top two at
+level one and the whole face at the level of the second producer, in 27 of 27
+instances. H mostly uses three top-type sets at level one, C31 uses zero cost
+and the whole face, and G uses zero cost and the whole face at the level of
+the third producer. This suggests that the proof of Theorem 4 (dual weights
+on four certificates, regime by regime) can be carried over to three free
+producers with arbitrary shares. The missing ingredient is the general
+validity condition of the transitional family, which is still checked
+instance by instance.
+
 ## 7. Strict stability and positive definite covariance
 
 The worst-case laws above make some coalition constraints hold with
