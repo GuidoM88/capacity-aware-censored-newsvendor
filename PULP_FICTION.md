@@ -46,13 +46,16 @@ it easy to compare them before deciding what goes into the paper.
   solved for every penalty ratio kappa (Theorem A); for equal shares the
   windows shrink and vanish once kappa >= 2(m-1)/m, which leaves a two-piece
   formula (Theorem B). For arbitrary shares the best split into two blocks
-  gives a lower bound at every depth (Theorem C); for kappa >= 2 it was the
-  exact answer in all 299 random instances tried (Conjecture C).
+  gives a lower bound at every depth (Theorem C). We conjectured that for
+  kappa >= 2 it is always the answer (Conjecture C). Trying to prove it
+  produced an exact counterexample instead, and a proved criterion for when
+  the ceiling is exact (Proposition D).
 * **Open.** A proof of the upper bound for arbitrary shares (Conjecture 6);
   general conditions for one of the four families; a proof that the seminorm
   relaxation is always attained by a demand law; the asymmetric windows for
   1 < kappa < 2(m-1)/m, where the relaxation may not be attained at all;
-  Conjecture C.
+  the exact worst case for arbitrary shares under asymmetric penalties,
+  where transitional laws matter at every ratio.
 
 ## How to read the branch
 
@@ -497,12 +500,52 @@ proof: with asymmetric penalties the relaxation can apparently overstate the
 true worst case inside these narrow regions, which never happened with
 symmetric loss.
 
+### 18. Trying to prove Conjecture C, and finding it false
+
+The proof started well. Every certificate bound can be written as an
+asymmetric weighted distance from z to the points nu 1_S. On a region where
+the coordinates of z are sorted, the certificate LP becomes a finite
+zero-sum game: one player mixes the top-set indicators, the other mixes
+certificates. Two-block laws are exactly the mixtures of two columns, so
+the conjecture said that two columns are always enough when kappa >= 2. One
+case is easy for every kappa, the symmetric one included: if some subset of
+a largest face has a share inside the ceiling window, the ceiling is exact.
+This is now Proposition D, and it explains the pattern seen with Theorem 5
+(ceiling exact for r <= 0.4, never for r >= 0.7), because the window shrinks
+as r grows. For the hard case we grouped the producers into the units, the
+producer at which the cumulative share jumps over the window, and the rest.
+Six certificates then depend only on three aggregate numbers, and the bound
+becomes an LP in three variables.
+
+Testing that LP on a grid first produced a false alarm: we had compared it
+only with the top sets of one ordering, while the jump producer alone was
+inside the window. With every union of the three blocks allowed, the excess
+shrank but did not vanish. The full certificate LP confirmed it on a
+concrete face, and a local search then found an explicit law: four
+producers with shares (1, 24, 24, 1)/50, depth one, r = 33/50, kappa = 10.
+The law reaches 0.266393 against 0.249614 for the best two-block law. It has
+three levels: the small producer at 1 and the two large ones at 0.41 and
+0.10, a transitional law. To trust it we added a safety margin, rationalized
+the law and checked every coalition in exact arithmetic. The first attempt
+missed one cap by 4.5e-8 through rounding, so the margin was raised and the
+check repeated, after which every constraint holds exactly. Its pinball
+costs, evaluated directly, equal the segment costs. The certificate bound for
+this instance is 0.2787, so its true worst case is still unknown within that
+range ([conjecture_c.md](results/asymmetric/conjecture_c.md)).
+
+So the 299 of 299 was a correct observation and a wrong conclusion: the
+counterexample needs a shape that random sampling rarely produces. In a
+targeted sample with one small share, two-block laws were beaten in 2 of
+200 instances, both at kappa = 2, and in none at kappa = 3 or 10. Conjecture C
+is withdrawn; Theorem C and Proposition D stand.
+
 ### What we would do next
 
 The list is kept up to date in [PROGRESS.md](PROGRESS.md).
 
-1. Prove Conjecture C. For kappa >= 2 only the two-block laws are involved,
-   so the upper bound may be easier than in Conjecture 6.
+1. Transitional laws for arbitrary shares under asymmetric penalties: an
+   explicit family playing the role of V, and the exact worst case of the
+   counterexample (between 0.2664 and 0.2787).
 2. The remaining asymmetric regions: either an asymmetric analogue of V_p,
    or a proof that no demand law reaches the relaxation there.
 3. Revise the draft in `paper_exact/`: a careful read of every proof, an
@@ -545,7 +588,8 @@ be numbered at merge time.
 | PF23 | Theorem B: equal shares, any depth, worst gap min{(1-r)m/n, H_1} outside windows that are nonempty iff kappa < (p+1)(m-p)/(pm); none for kappa >= 2(m-1)/m | asymmetric_penalties.md Section 5; 5565 exact constructions, 1305 laws, 288 certificate cross-checks | Proved |
 | PF24 | Inside the remaining windows (1 < kappa < 2(m-1)/m), and in 3 of 204 arbitrary-share instances with 1 < kappa < 2, the certificate bound equals the exact relaxation but the best explicit law found stays up to 1.8e-3 below it; a local search over general finite laws did not improve on segment laws in 3 of these cases | asymmetric_penalties.md Sections 6-7; asymmetric_checks.md part D; general_shares.md; general_law_probe.md | Open; evidence of a gap between relaxation and demand laws |
 | PF25 | Theorem C: for arbitrary shares, every depth and every kappa, the worst gap is at least the maximum over excluded sets and splits into units and fractional producers of Psi_kappa(a(I), A_J) | asymmetric_penalties.md Section 7; symbolic group L; 600 of 600 laws verified exactly | Proved |
-| PF26 | Conjecture C: for kappa >= 2 the bound of PF25 is the worst gap | general_shares.md: 299 of 299 instances (n = 4..6, intermediate depths) | Conjecture; computational evidence |
+| PF26 | Conjecture C: for kappa >= 2 the bound of PF25 is the worst gap | general_shares.md: 299 of 299 random instances; conjecture_c.md: exact counterexample at kappa = 10 (0.266393 against 0.249614), 2 of 200 failures in a sample with one small share | Refuted; negative result kept |
+| PF27 | Proposition D: for every kappa >= 1, if a subset of a largest face has share in [(1-r)/(1+kappa), kappa(1-r)/(r+kappa)] a(F), the worst gap equals the elementary ceiling; in particular when every producer's share is at most the window width | asymmetric_penalties.md Section 7; symbolic group M | Proved |
 
 PF3 and PF6 of the earlier version (numerical windows, configuration
 heuristic) are superseded by PF9 and PF11.
@@ -564,7 +608,7 @@ heuristic) are superseded by PF9 and PF11.
 * `tests/test_exact_envelopes.py`, `tests/test_seminorm_envelope.py`, `tests/test_certificates.py`, `tests/test_symbolic.py`: fast tests.
 * `scripts/verify_symbolic.py`, `requirements-verify.txt` and `results/verification/`: symbolic verification of the proofs.
 * `PROGRESS.md`: one-page progress report with the current next steps.
-* `src/censored_newsvendor/asymmetric.py`, `docs/asymmetric_penalties.md`, `scripts/check_asymmetric_penalties.py`, `scripts/check_asymmetric_general.py`, `scripts/probe_general_laws.py`, `results/asymmetric/` and `tests/test_asymmetric.py`: asymmetric imbalance penalties.
+* `src/censored_newsvendor/asymmetric.py`, `docs/asymmetric_penalties.md`, `scripts/check_asymmetric_penalties.py`, `scripts/check_asymmetric_general.py`, `scripts/probe_general_laws.py`, `scripts/refute_conjecture_c.py`, `results/asymmetric/` and `tests/test_asymmetric.py`: asymmetric imbalance penalties.
 
 ## Merging
 

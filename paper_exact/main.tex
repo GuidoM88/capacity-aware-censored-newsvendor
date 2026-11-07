@@ -571,18 +571,33 @@ share totals; for $\kappa=1$ this is the best of the families C31, H and G of
 Theorem~\ref{thm:families}.
 In 600 random instances at intermediate depths ($n\le6$), the bound
 \eqref{eq:blocks} equals the certificate bound in all 299 instances with
-$\kappa\ge2$. For $1<\kappa<2$ it does so in 201 of 204; the three exceptions
-resemble the windows below, with differences of at most $1.8\cdot10^{-3}$.
+$\kappa\ge2$, but equality does not hold in general. For shares
+$(1,24,24,1)/50$, depth one, $r=33/50$ and $\kappa=10$, the best value of
+\eqref{eq:blocks} is $0.2496$, while an explicit law with three levels,
+verified in exact arithmetic, reaches $0.2664$; the certificate bound is
+$0.2787$. Transitional laws therefore matter for arbitrary shares at every
+$\kappa$, although they are rare in random samples. What remains true for
+every $\kappa\ge1$ is a criterion for the ceiling.
 
-\begin{conjecture}\label{conj:blocks}
-For $\kappa\ge2$, every depth and all positive shares, equality holds in
-\eqref{eq:blocks}.
-\end{conjecture}
+\begin{proposition}\label{prop:criterion}
+Suppose a largest face $F$ contains a nonempty proper subset $I$ with
+$(1-r)a(F)/(1+\kappa)\le a(I)\le\kappa(1-r)a(F)/(r+\kappa)$. Then
+$\Gamma_k^\kappa(w,r)=(1-r)s_k(w)$. This holds in particular when every
+producer of $F$ has share at most $(1-r)(\kappa^2-r)a(F)/((r+\kappa)(1+\kappa))$.
+\end{proposition}
 
-For equal shares the conjecture is Theorem~\ref{thm:asymequal}. Its content
-is that the transitional family of Conjecture~\ref{conj:closed} is no longer
-needed once a shortfall costs at least twice as much as a surplus.
+\begin{proof}
+The two ends of the interval are the ends of the ceiling regime of $\Psi$ at
+the split $(I,F\setminus I)$, so \eqref{eq:blocks} gives the lower bound, and
+Corollary~\ref{cor:asym}(a) gives the upper bound. Add the producers of $F$
+one at a time. If every share is at most the width of the interval, the
+first partial sum that reaches the interval cannot jump over it, and the
+interval ends below $a(F)$.
+\end{proof}
 
+For $\kappa=1$ the interval is $[(1-r)/2,(1-r)/(1+r)]\,a(F)$. It shrinks from
+$[0.4,0.67]\,a(F)$ at $r=0.2$ to $[0.15,0.18]\,a(F)$ at $r=0.7$, in line with
+the pattern reported after Conjecture~\ref{conj:closed}.
 
 For four producers at depth one and $r=1/4$ the worst gap rises from $31/56$
 with symmetric penalties to $9/16$ with $\kappa=2$. Asymmetry never helps:
@@ -607,7 +622,9 @@ Three questions remain open. The upper bound in Conjecture~\ref{conj:closed};
 whether the relaxation over all seminorms, which the explicit laws met in every
 case we computed, always coincides with the worst case over demand laws; and
 the narrow windows that asymmetric penalties leave open in
-Section~\ref{sec:asym}, together with Conjecture~\ref{conj:blocks}.
+Section~\ref{sec:asym}, together with the exact worst case for arbitrary
+shares under asymmetric penalties, where transitional laws matter at every
+penalty ratio.
 
 \paragraph{Reproducibility.} Every construction, closed form and computational
 claim is checked by scripts that write their outcomes to JSON before any summary

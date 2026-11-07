@@ -40,7 +40,8 @@ but thin. Everything below is new since then.
 | 11 | Asymmetric penalties, equal shares, every depth: closed form outside windows that shrink as kappa grows and vanish for kappa >= 2(m-1)/m; for kappa >= 2 always a two-piece formula | Proved; algebra verified symbolically | Theorem B |
 | 12 | Inside the windows that remain for 1 < kappa < 2(m-1)/m (and in 3 of 204 arbitrary-share instances with 1 < kappa < 2) | Open: relaxation known, best laws found within 1.8e-3 of it | Section 6 of the notes |
 | 13 | Asymmetric penalties, arbitrary shares, every depth: the two-producer formula applied to the best split of the free producers into two blocks is a lower bound for every kappa | Proved; algebra verified symbolically | Theorem C |
-| 14 | Asymmetric penalties, arbitrary shares: for kappa >= 2 that lower bound is the exact worst case | Conjecture; the bound was attained in 299 of 299 random instances | Conjecture C |
+| 14 | Conjecture C: for kappa >= 2 that lower bound is the exact worst case | **Refuted.** Exact counterexample at kappa = 10 (an explicit law reaches 0.2664, the best two-block law 0.2496); failures are rare in random samples (2 of 200 with one small share, 0 of 299 otherwise) | [conjecture_c.md](results/asymmetric/conjecture_c.md) |
+| 15 | Ceiling criterion, for every kappa (symmetric case included): the elementary ceiling is exact whenever a subset of a largest face has share in [(1-r)/(1+kappa), kappa(1-r)/(r+kappa)] a(F), in particular when every producer is small enough | Proved; algebra verified symbolically | Proposition D |
 
 In plain terms: with four producers each paying at least a quarter of their
 standalone cost, the audit can still report a saving of 31/56, about 55%, of
@@ -67,7 +68,7 @@ ceiling.
    depths (`results/asymmetric/`).
 2. **Symbolic verification of the proofs.** The algebra of every proof
    (identities, corner values of the stability checks, dual weights, sign
-   factorizations) is checked with sympy for general sizes: **194 of 194
+   factorizations) is checked with sympy for general sizes: **200 of 200
    checks pass** ([report](results/verification/symbolic_checks.md)).
 3. **Independent evaluation.** Samples of the explicit laws are re-evaluated
    with the project's original audit code, which computes the relaxation and
@@ -93,8 +94,12 @@ the conjecture for arbitrary shares is supported by computation, not proved.
       [checks](results/asymmetric/general_shares.md)). The three families of
       Theorem 5 extend to every kappa. For kappa >= 2 the transitional family
       is never needed in our sample.
-- [ ] **Prove Conjecture C** (kappa >= 2). It may be easier than Conjecture 6,
-      because only the two-block laws are involved.
+- [x] **Attempted proof of Conjecture C** (7 November). The conjecture is
+      false. The attempt produced an exact counterexample (result 14) and
+      the ceiling criterion (result 15).
+- [ ] **Transitional laws for arbitrary shares under asymmetric penalties**:
+      an explicit family playing the role of V for every kappa, and the
+      exact worst case of the counterexample (between 0.2664 and 0.2787).
 - [ ] **The remaining asymmetric windows** (1 < kappa < 2(m-1)/m): find an
       asymmetric analogue of the family V_p, or laws outside the segment class.
 - [ ] **Systematic literature review** to confirm novelty, in particular risk
@@ -117,7 +122,7 @@ Operations Research Letters, TOP, Mathematical Methods of Operations Research
 or the International Journal of Game Theory. The extension to asymmetric
 penalties answers the most likely referee objection and adds a second
 non-obvious structure (windows that close at kappa = 2(m-1)/m), together
-with a simpler conjecture for arbitrary shares when kappa >= 2 (Conjecture C).
+with a criterion for when the elementary ceiling is exact (Proposition D).
 A proof of either conjecture and a data illustration would strengthen the
 paper further.
 Before submission: the expert reading of the proofs, the literature review,
@@ -136,6 +141,7 @@ and a check of the chosen journal's policies.
 | 7 Nov | Symbolic verification of all proof algebra (134 checks) |
 | 7 Nov | Asymmetric penalties: Theorems A and B, windows close for kappa >= 2(m-1)/m (175 symbolic checks) |
 | 7 Nov | Asymmetric penalties, arbitrary shares: Theorem C and Conjecture C (299 of 299 for kappa >= 2; 194 symbolic checks) |
+| 7 Nov | Proof attempt for Conjecture C: counterexample found and verified exactly; ceiling criterion proved (Proposition D; 200 symbolic checks) |
 
 ## Reproducing everything
 
@@ -147,6 +153,7 @@ python scripts/verify_symbolic.py
 python scripts/check_asymmetric_penalties.py
 python scripts/check_asymmetric_general.py
 python scripts/probe_general_laws.py
+python scripts/refute_conjecture_c.py
 ```
 
 The other scripts are listed in [PULP_FICTION.md](PULP_FICTION.md); each

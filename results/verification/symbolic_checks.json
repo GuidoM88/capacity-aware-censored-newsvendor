@@ -1359,6 +1359,48 @@
       "kind": "identity",
       "passed": true,
       "detail": "A_J*a_I*kappa_pen/(A_J*r + a_I*(kappa_pen + r)) + a_I = a_I*(A_J + a_I)*(kappa_pen + r)/(A_J*r + a_I*(kappa_pen + r))"
+    },
+    {
+      "group": "M. ceiling criterion",
+      "check": "lower end: a(I)/A_J = (1-r)/(r+kappa)",
+      "kind": "identity",
+      "passed": true,
+      "detail": "T_face*(1 - r)/((kappa_pen + 1)*(-T_face*(1 - r)/(kappa_pen + 1) + T_face)) = (1 - r)/(kappa_pen + r)"
+    },
+    {
+      "group": "M. ceiling criterion",
+      "check": "upper end: a(I)/A_J = kappa(1-r)/(r(1+kappa))",
+      "kind": "identity",
+      "passed": true,
+      "detail": "T_face*kappa_pen*(1 - r)/((kappa_pen + r)*(-T_face*kappa_pen*(1 - r)/(kappa_pen + r) + T_face)) = kappa_pen*(1 - r)/(r*(kappa_pen + 1))"
+    },
+    {
+      "group": "M. ceiling criterion",
+      "check": "window width",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "T_face*(1 - r)*(kappa_pen**2 - r)/((kappa_pen + 1)*(kappa_pen + r)); nonnegative since kappa >= 1 >= r"
+    },
+    {
+      "group": "M. ceiling criterion",
+      "check": "window stays below the face total",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "T_face*r*(kappa_pen + 1)/(kappa_pen + r); positive"
+    },
+    {
+      "group": "M. ceiling criterion",
+      "check": "unit-cap value increases with the fractional share",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "a_I**2*kappa_pen*(kappa_pen + r)/(B_frac*r + a_I*(kappa_pen + r))**2; positive"
+    },
+    {
+      "group": "M. ceiling criterion",
+      "check": "kappa = 1: the window is [(1-r)/2, (1-r)/(1+r)] a(F)",
+      "kind": "identity",
+      "passed": true,
+      "detail": "-T_face*(1 - r)/2 + T_face*(1 - r)/(r + 1) = -T_face*(1 - r)/2 + T_face*(1 - r)/(r + 1)"
     }
   ]
 }

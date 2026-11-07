@@ -480,6 +480,26 @@ factorization(G, "unit-cap: fractional caps", 1 / r - kp * sub_, (AJ * (1 - r) -
 identity(G, "unit-cap: witness value", aI + tub * AJ, aI * (r + kp) * (aI + AJ) / (aI * (r + kp) + r * AJ))
 
 
+# ---------------------------------------------------------------------------
+# M. Ceiling criterion (Proposition D): a subset share in the window
+# [(1-r)T/(1+kappa), kappa(1-r)T/(r+kappa)] puts a two-block law in the ceiling regime.
+# ---------------------------------------------------------------------------
+TT, Bv = sp.symbols("T_face B_frac", positive=True)
+G = "M. ceiling criterion"
+Alo = (1 - r) * TT / (1 + kp)
+Ahi = kp * (1 - r) * TT / (r + kp)
+identity(G, "lower end: a(I)/A_J = (1-r)/(r+kappa)", Alo / (TT - Alo), (1 - r) / (r + kp))
+identity(G, "upper end: a(I)/A_J = kappa(1-r)/(r(1+kappa))", Ahi / (TT - Ahi), kp * (1 - r) / (r * (1 + kp)))
+factorization(G, "window width", Ahi - Alo, TT * (1 - r) * (kp**2 - r) / ((r + kp) * (1 + kp)),
+              "nonnegative since kappa >= 1 >= r")
+factorization(G, "window stays below the face total", TT - Ahi, TT * r * (1 + kp) / (r + kp), "positive")
+unitcap = aI * (r + kp) * (aI + Bv) / (aI * (r + kp) + r * Bv)
+factorization(G, "unit-cap value increases with the fractional share", sp.diff(unitcap, Bv),
+              aI**2 * kp * (r + kp) / (aI * (r + kp) + r * Bv)**2, "positive")
+identity(G, "kappa = 1: the window is [(1-r)/2, (1-r)/(1+r)] a(F)", (Ahi - Alo).subs(kp, 1),
+         (1 - r) * TT / (1 + r) - (1 - r) * TT / 2)
+
+
 def main():
     failed = [c for c in CHECKS if not c["passed"]]
     output = ROOT / "results/verification/symbolic_checks.json"

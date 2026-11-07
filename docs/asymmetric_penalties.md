@@ -24,9 +24,10 @@ A referee would ask first whether the results survive this. Short answer:
   once the ratio reaches 2(m-1)/m, which is below 2 (Theorem B);
 * for arbitrary shares at every depth, the two-producer formula applied to
   the best split into two blocks is a lower bound for every ratio
-  (Theorem C). For ratios of at least 2 it matched the certificate bound in
-  all 299 random instances tried, which suggests that it is the exact answer
-  (Conjecture C, Section 7);
+  (Theorem C). It is usually the exact answer, but not always: our
+  conjecture that it is exact for ratios of at least 2 is false
+  (Section 7). The ceiling is exact whenever a subset of a largest face
+  has a share in an explicit window (Proposition D);
 * inside the windows that survive for ratios between 1 and 2(m-1)/m, and in
   a few arbitrary-share instances below 2, the question is open: the
   relaxation and the best laws found differ slightly (Section 6).
@@ -341,16 +342,74 @@ law. For 1 < kappa < 2 the three open instances look like the equal-share
 windows: the certificate bound equals the exact relaxation at its maximizer,
 and the best segment law stays slightly below.
 
-**Conjecture C.** For kappa >= 2, every depth and all positive shares,
-Gamma_k^kappa(w, r) = max over K and I of Psi_kappa(a(I), a(F \ I)).
+**Conjecture C (refuted).** We conjectured from these numbers that for
+kappa >= 2, every depth and all positive shares, the worst gap equals the
+two-block bound of Theorem C. It is false
+([conjecture_c.md](../results/asymmetric/conjecture_c.md)). Take four
+producers with shares (1, 24, 24, 1)/50, depth one, r = 33/50 and kappa = 10.
+The best two-block value is 0.249614. An explicit finite law with 24 atoms,
+checked in exact rational arithmetic on every coalition (all producers pay at
+least 66% of their standalone cost, every proper coalition is strictly
+stable), reaches 0.266393 at the membership (1, 0.4098, 0.1035, 0). Its three
+levels make it a transitional law, like the family V of the symmetric notes.
+The certificate bound for this instance is 0.278674, so the true worst case
+lies between 0.2664 and 0.2787.
 
-For equal shares this is Theorem B, since 2 >= 2(m-1)/m. The threshold 2 is
-the natural one: the equal-share windows close at 2(m-1)/m, which tends to 2
-as m grows. If true, the conjecture means that once a shortfall costs at
-least twice as much as a surplus, the transitional family of Conjecture 6
-is no longer needed: the worst case always splits the free producers into
-two blocks and behaves like a two-producer problem.
+The counterexample needs a particular shape: a very small producer at level
+one next to two large producers at different fractional levels. Random
+sampling missed it. Among 200 random four-producer instances with one small
+share, an explicit law beat the two-block value in 2 instances, both at
+kappa = 2 and by at most 0.0032, and in none at kappa = 3 or 10. It came out of
+the attempt to prove the conjecture, described below.
 
+**How the proof attempt went.** Every certificate bound can be written as
+sum_i a_i d(z_i), where d is an asymmetric distance from z to the points
+nu 1_S, with weight (r+kappa)/r above nu and (1-r)/r below it. On the region where
+the coordinates of z are sorted, the certificate LP is a finite zero-sum
+game: the maximizer mixes the vertices 1_{U_s} (indicators of the top-s sets),
+the minimizer mixes certificates. Two-block laws are exactly the mixtures of
+two columns, s and m. The conjecture therefore said that for kappa >= 2 two
+columns suffice. To prove it we grouped the producers into the units, the
+producer at which the cumulative share jumps over the ceiling window below,
+and the rest. Six certificates then depend only on three aggregate numbers,
+and the bound becomes an LP in three variables. Testing that LP on a grid
+first produced a false alarm, a comparison against the top sets of one
+ordering only. Once every union of the three blocks was allowed, the LP
+still exceeded the two-block value by up to 0.03. The full certificate LP
+and then an explicit law confirmed the excess.
+
+**What survives** is Theorem C and the following criterion, valid for every
+kappa >= 1, the symmetric case included.
+
+**Proposition D (ceiling criterion).** Let F be a face with total share
+T = a(F). If some nonempty proper subset I of F has
+
+$$
+\frac{1-r}{1+\kappa}\,T\ \le\ a(I)\ \le\ \frac{\kappa(1-r)}{r+\kappa}\,T ,
+$$
+
+the two-block law of Theorem C for the split (I, F \ I) is in its ceiling
+regime and attains (1-r)T. If F is a largest face, the worst gap therefore
+equals the elementary ceiling (1-r)s_k(w). In particular this holds whenever
+every producer of a largest face has a share of at most W a(F), with
+
+$$
+W=\frac{(1-r)(\kappa^2-r)}{(r+\kappa)(1+\kappa)} ,
+$$
+
+the width of the window: adding producers one at a time, the first partial
+sum that reaches the window cannot jump over it, and the window ends below T.
+
+*Proof.* The two ends of the window are the two ends of the ceiling regime,
+a(I)/A_J = (1-r)/(r+kappa) and a(I)/A_J = kappa(1-r)/(r(1+kappa)). The upper bound is
+Corollary 3(c). The algebra is group M of the symbolic checks. ∎
+
+For kappa = 1 the window is [(1-r)/2, (1-r)/(1+r)] a(F). At r = 0.2 it is
+[0.4, 0.67] a(F); at r = 0.4 it is [0.3, 0.43] a(F); at r = 0.7 it shrinks to
+[0.15, 0.18] a(F). This is consistent with, and largely explains, the
+empirical pattern recorded with Theorem 5 of the exact notes: the ceiling was
+exact in every random instance with r <= 0.4 and in none with r >= 0.7. The
+criterion is sufficient, not necessary.
 
 ## 8. What changes for the overall message
 
@@ -358,8 +417,8 @@ Asymmetric penalties make the audit's overstatement larger, never smaller.
 The elementary ceiling becomes exact on a wider range of r, and at the top of
 the range the exact value increases from (m-1)(1-r^2)/(2nr) towards
 (m-1)(1-r)/(nr). For ratios of at least 2 the equal-share answer is a
-two-piece formula with no windows, and for arbitrary shares the evidence
-points to a two-block formula (Conjecture C). The qualitative conclusion of
+two-piece formula with no windows. For arbitrary shares the two-block
+formula is usually, but not always, the answer. The qualitative conclusion of
 the paper, that fractional audits can be badly wrong even with a high
 standalone floor, is therefore robust to asymmetric pricing, and in fact
 strengthened by it.
@@ -378,11 +437,15 @@ strengthened by it.
 * `scripts/check_asymmetric_general.py` (results in
   [general_shares.md](../results/asymmetric/general_shares.md)): the 600
   random arbitrary-share instances of Section 7.
+* `scripts/refute_conjecture_c.py` (results in
+  [conjecture_c.md](../results/asymmetric/conjecture_c.md)): the exact
+  counterexample to Conjecture C and the sample with one small share.
 * `scripts/probe_general_laws.py` (results in
   [general_law_probe.md](../results/asymmetric/general_law_probe.md)): the
   local search over general finite laws of Section 6.
-* `scripts/verify_symbolic.py`, groups K and L: 41 + 19 identities and
+* `scripts/verify_symbolic.py`, groups K, L and M: 41 + 19 + 6 identities and
   factorizations (pinball inequality, three-point law, the three regimes of
   Theorem A, the certificate pair, both families of Theorem B, the window
-  condition, and the bilinear slacks of the two-block families).
+  condition, the bilinear slacks of the two-block families, and the window
+  of Proposition D).
 * `tests/test_asymmetric.py`.

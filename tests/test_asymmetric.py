@@ -145,6 +145,27 @@ class TwoBlockTests(unittest.TestCase):
             self.assertEqual(asymmetric_best_block(shares, r, depth, 1)["value"], max(symmetric))
 
 
+class ConjectureCTests(unittest.TestCase):
+    def test_counterexample_beats_every_two_block_law(self):
+        from censored_newsvendor.asymmetric import asymmetric_zonotope_minimal_cost
+        shares = [F(1, 50), F(24, 50), F(24, 50), F(1, 50)]
+        r, kappa = F(33, 50), F(10)
+        two_block = asymmetric_best_block(shares, r, 1, kappa)["value"]
+        z = [1.0, 335440 / 818481, 3560 / 34401, 0.0]
+        found = asymmetric_zonotope_minimal_cost(z, [float(x) for x in shares], float(r), float(kappa))
+        law = sum(float(a) * b for a, b in zip(shares, z)) - found["value"]
+        self.assertGreater(law, float(two_block) + 0.016)
+
+    def test_ceiling_criterion_with_small_producers(self):
+        # Every share of the largest face is below the window width, so the
+        # two-block lower bound already reaches the elementary ceiling.
+        shares = [F(k, 55) for k in range(1, 11)][:6]
+        shares = [x / sum(shares) for x in shares]
+        r, kappa = F(1, 5), F(2)
+        face = sum(shares) - min(shares)
+        self.assertEqual(asymmetric_best_block(shares, r, 1, kappa)["value"], (1 - r) * face)
+
+
 class RelaxationTests(unittest.TestCase):
     def test_kappa_one_leaves_the_oracle_unchanged(self):
         z, shares = [1.0, 0.4, 0.2, 0.0], [0.25] * 4
