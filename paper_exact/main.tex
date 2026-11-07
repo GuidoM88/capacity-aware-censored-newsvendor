@@ -185,7 +185,30 @@ the two bounds with weights $1-r$ and $r$ is $(1-r)(a(F)-B)$.
 \end{proof}
 
 The question is how much of the gap between $(1-r)s_k(w)$ and the truth
-remains, and where.
+remains, and where. Whatever the answer, it turns a one-sided check into a
+two-sided one.
+
+\begin{corollary}[Two-sided audit]\label{cor:twosided}
+For every demand law with $\rho\ge r$,
+\[
+D_k-\Gamma_k(w,r)\ \le\ B\ \le\ D_k ,
+\qquad\text{in particular}\qquad
+B\ \ge\ D_k-(1-r)s_k(w).
+\]
+\end{corollary}
+
+\begin{proof}
+$B\le D_k$ by construction, and $(D_k-B)/L\le\Gamma_k(w,r)$ with $L=1$ by the
+definition of $\Gamma_k$ as a supremum over all laws with $\rho\ge r$.
+\end{proof}
+
+Both ends are computable: $D_k$ is a convex program on each face, $r$ follows
+from the standalone costs, and $\Gamma_k$ is given in closed form by the
+results below or bounded by the certificate program of Section~3. A
+fractional audit that reports a saving larger than $\Gamma_k(w,r)$ therefore
+proves that some actual coalition gains, and by how much at least, without
+searching the coalitions; an audit that reports a small saving bounds every
+coalition's gain from above.
 
 \section{Two tools}
 
@@ -682,8 +705,10 @@ the sum of the standalone costs), and the worst case for the same shares and
 floor rises to between 0.35 and 0.41 at depth one. Finally, on all three
 panels the observed overstatement is negligible: at most 0.0013 of the pooled
 cost, zero for the gradient allocation, as the introduction predicts, and zero
-for both allocations on the distant sites. Actual production is far from the
-extremal laws of the theorems. The bounds are guarantees, not predictions.
+for both allocations on the distant sites. By Corollary~\ref{cor:twosided} the
+fractional audits alone certify that no coalition of these producers gains
+more than $D_1\le 0.0018$ of the pooled cost, without enumerating coalitions.
+Actual production is far from the extremal laws of the theorems. The bounds are guarantees, not predictions.
 When $r$ is close to one they certify the fractional audit without any
 knowledge of the joint law. When $r$ is low, as for a diverse portfolio, they
 show that no certificate can be obtained from $r$ alone, and the audit has to
