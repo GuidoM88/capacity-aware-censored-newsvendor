@@ -1401,6 +1401,34 @@
       "kind": "identity",
       "passed": true,
       "detail": "-T_face*(1 - r)/2 + T_face*(1 - r)/(r + 1) = -T_face*(1 - r)/2 + T_face*(1 - r)/(r + 1)"
+    },
+    {
+      "group": "N. three free producers",
+      "check": "dual weights sum to one",
+      "kind": "identity",
+      "passed": true,
+      "detail": "2*a_b3*r/(a_b3 - a_c3 + a_u3 + r*(a_b3 + a_c3 + a_u3)) + r*(-a_u3*(r + 1) + (1 - r)*(a_b3 + a_c3))/(a_b3 - a_c3 + a_u3 + r*(a_b3 + a_c3 + a_u3)) + (a_b3*(1 - r)**2 - a_c3*(1 - r**2) + a_u3*(r + 1)**2)/(a_b3 - a_c3 + a_u3 + r*(a_b3 + a_c3 + a_u3)) = 1"
+    },
+    {
+      "group": "N. three free producers",
+      "check": "weighted certificates are the constant V(u; b; c)",
+      "kind": "identity",
+      "passed": true,
+      "detail": "2*a_b3*r*(a_c3*(1 - r)*(-w3 + y3)/r + a_u3*(1 - y3)*(r + 1)/r)/(a_b3 - a_c3 + a_u3 + r*(a_b3 + a_c3 + a_u3)) + r*(-a_u3*(r + 1) + (1 - r)*(a_b3 + a_c3))*(a_b3*(1 - r)*(1 - y3)/r + a_c3*w3*(r + 1)/r)/(a_b3 - a_c3 + a_u3 + r*(a_b3 + a_c3 + a_u3)) + (a_b3*y3 + a_c3*w3 + a_u3)*(a_b3*(1 - r)**2 - a_c3*(1 - r**2) + a_u3*(r + 1)**2)/(a_b3 - a_c3 + a_u3 + r*(a_b3 + a_c3 + a_u3)) = 2*a_b3*(1 - r)*(a_b3 + a_u3)/(a_b3 - a_c3 + a_u3 + r*(a_b3 + a_c3 + a_u3)) - a_b3*(1 - r) + a_u3*(r + 1)"
+    },
+    {
+      "group": "N. three free producers",
+      "check": "weight on the top-two certificate",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "r*(-a_u3*(r + 1) + (1 - r)*(a_b3 + a_c3))/(a_b3 - a_c3 + a_u3 + r*(a_b3 + a_c3 + a_u3)); nonnegative iff a_u(1+r) <= (1-r)(a_b+a_c), given D > 0"
+    },
+    {
+      "group": "N. three free producers",
+      "check": "weight on zero cost",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "(a_b3*(1 - r)**2 - a_c3*(1 - r**2) + a_u3*(r + 1)**2)/(a_b3 - a_c3 + a_u3 + r*(a_b3 + a_c3 + a_u3)); nonnegative iff (1+r)^2 a_u + (1-r)^2 a_b >= (1-r^2) a_c, given D > 0"
     }
   ]
 }

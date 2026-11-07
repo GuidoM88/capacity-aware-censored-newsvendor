@@ -588,6 +588,26 @@ producers with arbitrary shares. The missing ingredient is the general
 validity condition of the transitional family, which is still checked
 instance by instance.
 
+**Lemma (transitional regime, three free producers).** Let a face have three
+free producers u, b, c and consider memberships with z_u = 1 >= z_b = y >=
+z_c = w >= 0. With P_i = a_i(1+r)/r, Q_i = a_i(1-r)/r and
+D = r(a_u + a_b + a_c) + a_u + a_b - a_c > 0, put
+
+    lambda_B = 2 a_b r / D,
+    lambda_C = r((1-r)(a_b + a_c) - (1+r)a_u) / D,
+    lambda_L = ((1+r)^2 a_u + (1-r)^2 a_b - (1-r^2) a_c) / D.
+
+They sum to one, and lambda_L L + lambda_C C + lambda_B B is the constant
+V(u; b; c) = a_u(1+r) - a_b(1-r) + 2 t_1 a_b, where L = a'z is the zero-cost
+bound, C = Q_b(1-y) + P_c w the certificate of {u, b} at level one, and
+B = P_u(1-y) + Q_c(y-w) the certificate of the whole face at level y (group N
+of the symbolic checks). Hence, whenever a_u(1+r) <= (1-r)(a_b + a_c) and
+(1+r)^2 a_u + (1-r)^2 a_b >= (1-r^2) a_c, the excess of every such membership
+is at most V(u; b; c), the value of the transitional family. Where the family
+is also valid, it is the exact worst case on that ordering. Completing
+Conjecture 6 for three producers needs the same certificates for the other
+regimes and a proof that the regions cover all shares and r.
+
 ## 7. Strict stability and positive definite covariance
 
 The worst-case laws above make some coalition constraints hold with

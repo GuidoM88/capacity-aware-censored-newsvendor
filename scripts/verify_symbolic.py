@@ -500,6 +500,32 @@ identity(G, "kappa = 1: the window is [(1-r)/2, (1-r)/(1+r)] a(F)", (Ahi - Alo).
          (1 - r) * TT / (1 + r) - (1 - r) * TT / 2)
 
 
+# ---------------------------------------------------------------------------
+# N. Three free producers, transitional regime (step toward Conjecture 6).
+# Order u, b, c with z = (1, y, w), 1 >= y >= w >= 0; symmetric loss.
+# ---------------------------------------------------------------------------
+au3, ab3, ac3 = sp.symbols("a_u3 a_b3 a_c3", positive=True)
+y3, w3 = sp.symbols("y3 w3", real=True)
+G = "N. three free producers"
+Pp = lambda v: v * (1 + r) / r
+Qm = lambda v: v * (1 - r) / r
+L3 = au3 + ab3 * y3 + ac3 * w3
+C3 = Qm(ab3) * (1 - y3) + Pp(ac3) * w3
+B3 = Pp(au3) * (1 - y3) + Qm(ac3) * (y3 - w3)
+D3 = r * (au3 + ab3 + ac3) + au3 + ab3 - ac3
+t13 = (1 - r) * (au3 + ab3) / D3
+V3 = au3 * (1 + r) - ab3 * (1 - r) + 2 * t13 * ab3
+lamB = 2 * ab3 * r / D3
+lamC = r * ((1 - r) * (ab3 + ac3) - (1 + r) * au3) / D3
+lamL = ((1 + r)**2 * au3 + (1 - r)**2 * ab3 - (1 - r**2) * ac3) / D3
+identity(G, "dual weights sum to one", lamL + lamC + lamB, 1)
+identity(G, "weighted certificates are the constant V(u; b; c)", lamL * L3 + lamC * C3 + lamB * B3, V3)
+factorization(G, "weight on the top-two certificate", lamC, r * ((1 - r) * (ab3 + ac3) - (1 + r) * au3) / D3,
+              "nonnegative iff a_u(1+r) <= (1-r)(a_b+a_c), given D > 0")
+factorization(G, "weight on zero cost", lamL, ((1 + r)**2 * au3 + (1 - r)**2 * ab3 - (1 - r**2) * ac3) / D3,
+              "nonnegative iff (1+r)^2 a_u + (1-r)^2 a_b >= (1-r^2) a_c, given D > 0")
+
+
 def main():
     failed = [c for c in CHECKS if not c["passed"]]
     output = ROOT / "results/verification/symbolic_checks.json"
