@@ -670,6 +670,25 @@ We also added the two-sided audit corollary to the paper: since the
 overstatement never exceeds Gamma_k(w, r), a fractional audit brackets the
 true largest coalition saving between D_k - Gamma_k and D_k.
 
+### 23. Conjecture 6 with three producers: half a proof
+
+With the Gaussian work done we went back to Conjecture 6 for three free
+producers. Two combinations of certificates turned out to have weights that
+are nonnegative for every share vector and every r: they give the ceiling
+(1-r)T and the separable bound H_u for every membership whose top producer is
+u. When that top producer is not small, the two-block value with units {u} is
+exactly the smaller of the two, so those orderings are proved; in our sample
+they are 1490 of 2400. For a small top producer, the transitional certificate
+of the previous step applies whenever two explicit sign conditions hold, and
+it is tight when the transitional law is valid (218 orderings). The rest, 466
+orderings, are not yet covered. In 465 of them the transitional bound holds
+but is not attained, and 226 sit in two regions where other certificates are
+active. The script `scripts/three_producers.py` maps them
+([three_producers.md](results/exclusion/three_producers.md)): no ordering
+exceeds the best family, and the active certificates are always of a few
+identified types. Writing their dual weights and showing that the regions
+cover every case is a well-defined next step; it did not fit in this session.
+
 ### What we would do next
 
 The list is kept up to date in [PROGRESS.md](PROGRESS.md).

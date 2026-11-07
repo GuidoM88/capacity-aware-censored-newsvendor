@@ -604,9 +604,27 @@ B = P_u(1-y) + Q_c(y-w) the certificate of the whole face at level y (group N
 of the symbolic checks). Hence, whenever a_u(1+r) <= (1-r)(a_b + a_c) and
 (1+r)^2 a_u + (1-r)^2 a_b >= (1-r^2) a_c, the excess of every such membership
 is at most V(u; b; c), the value of the transitional family. Where the family
-is also valid, it is the exact worst case on that ordering. Completing
-Conjecture 6 for three producers needs the same certificates for the other
-regimes and a proof that the regions cover all shares and r.
+is also valid, it is the exact worst case on that ordering.
+
+**Lemma (large top producer).** For the same face and any membership with
+z_u = 1 (no ordering needed), zero cost and the whole face at level one with
+weights (1-r, r) give the bound (1-r)T, and the sets {u, b}, F and {u, c} at
+level one with weights ((1-r)/2, r, (1-r)/2) give H_u = (a_b + a_c)(1-r^2)/(2r)
+(group N). If a_u(1+r) >= (1-r)(a_b + a_c), the two-block value with units
+{u} is exactly min{(1-r)T, H_u}, attained by the C31 or H family. So every
+ordering whose top producer is not small satisfies Conjecture 6.
+
+**Where the proof stands** ([three_producers.md](../results/exclusion/three_producers.md),
+400 random instances, 2400 orderings, none exceeding the best family on the
+face). Orderings with a large top producer, 1490 of them, are covered by the
+lemma. For a small top producer with D > 0 and lambda_L >= 0 (684), the
+transitional certificate holds; it is tight in the 218 orderings where the
+transitional law is valid, and elsewhere the true value is lower and comes
+from other certificates. The other small-top orderings (146 with
+lambda_L < 0, 80 with D <= 0) use, in all observed cases, zero cost and the
+whole face at the level of the second or third producer, sometimes with
+{u, b} at the level of the second. Their dual weights and a covering argument
+are what remains for a proof with three producers.
 
 ## 7. Strict stability and positive definite covariance
 

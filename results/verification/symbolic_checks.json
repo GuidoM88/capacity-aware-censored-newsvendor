@@ -1431,6 +1431,20 @@
       "detail": "(a_b3*(1 - r)**2 - a_c3*(1 - r**2) + a_u3*(r + 1)**2)/(a_b3 - a_c3 + a_u3 + r*(a_b3 + a_c3 + a_u3)); nonnegative iff (1+r)^2 a_u + (1-r)^2 a_b >= (1-r^2) a_c, given D > 0"
     },
     {
+      "group": "N. three free producers",
+      "check": "zero cost and the face with weights (1-r, r) give the ceiling (1-r)T",
+      "kind": "identity",
+      "passed": true,
+      "detail": "r*(a_b3*(1 - r)*(1 - y3)/r + a_c3*(1 - r)*(1 - w3)/r) + (1 - r)*(a_b3*y3 + a_c3*w3 + a_u3) = (1 - r)*(a_b3 + a_c3 + a_u3)"
+    },
+    {
+      "group": "N. three free producers",
+      "check": "{u,b}, F and {u,c} at level one with weights ((1-r)/2, r, (1-r)/2) give H_u",
+      "kind": "identity",
+      "passed": true,
+      "detail": "r*(a_b3*(1 - r)*(1 - y3)/r + a_c3*(1 - r)*(1 - w3)/r) + (1/2 - r/2)*(a_b3*y3*(r + 1)/r + a_c3*(1 - r)*(1 - w3)/r) + (1/2 - r/2)*(a_b3*(1 - r)*(1 - y3)/r + a_c3*w3*(r + 1)/r) = (1 - r**2)*(a_b3 + a_c3)/(2*r)"
+    },
+    {
       "group": "O. Gaussian, nonnegative correlations",
       "check": "Abel summation: sum gamma_i z_i^2 = sum_s A_s^2 (z_s^2 - z_{s+1}^2)",
       "kind": "identity",

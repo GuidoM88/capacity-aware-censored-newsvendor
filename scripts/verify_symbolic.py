@@ -524,6 +524,12 @@ factorization(G, "weight on the top-two certificate", lamC, r * ((1 - r) * (ab3 
               "nonnegative iff a_u(1+r) <= (1-r)(a_b+a_c), given D > 0")
 factorization(G, "weight on zero cost", lamL, ((1 + r)**2 * au3 + (1 - r)**2 * ab3 - (1 - r**2) * ac3) / D3,
               "nonnegative iff (1+r)^2 a_u + (1-r)^2 a_b >= (1-r^2) a_c, given D > 0")
+A3 = Qm(ab3) * (1 - y3) + Qm(ac3) * (1 - w3)             # whole face at level one
+Cuc3 = Pp(ab3) * y3 + Qm(ac3) * (1 - w3)                 # {u, c} at level one
+identity(G, "zero cost and the face with weights (1-r, r) give the ceiling (1-r)T",
+         (1 - r) * L3 + r * A3, (1 - r) * (au3 + ab3 + ac3))
+identity(G, "{u,b}, F and {u,c} at level one with weights ((1-r)/2, r, (1-r)/2) give H_u",
+         (1 - r) / 2 * C3 + r * A3 + (1 - r) / 2 * Cuc3, (ab3 + ac3) * (1 - r**2) / (2 * r))
 
 
 # ---------------------------------------------------------------------------
