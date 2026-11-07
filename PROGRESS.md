@@ -151,9 +151,9 @@ the conjecture for arbitrary shares is supported by computation, not proved.
       combinations; five bounds now settle 2393 of the 2400 sampled orderings.
       Fifth step done: the conjecture is proved for three free producers on
       every ordering outside one explicit region (Proposition T in the
-      notes; 2028 of 2400 sampled orderings lie outside it). Still needed:
-      that region, where the five bounds settle 365 of 372 orderings
-      numerically.
+      notes), and inside it wherever the face satisfies the ceiling
+      criterion: 2248 of 2400 sampled orderings are proved. Still needed: the
+      remaining part of that region.
 - [ ] **The open asymmetric regions**: the remaining equal-share windows for
       1 < kappa < 2(m-1)/m and transitional laws for arbitrary shares
       (counterexample value between 0.2664 and 0.2787). The likely tool is an

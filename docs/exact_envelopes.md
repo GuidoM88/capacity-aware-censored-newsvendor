@@ -652,9 +652,15 @@ Otherwise the block {u, b} is in one of three regimes. In the unit-cap
 regime the bound G_ub is its value; in the ceiling window the ceiling
 (1-r)T is its value; and in the H regime with (1-r)a_c >= 2a_u the bound
 H_ub is its value. So Conjecture 6 holds for three free producers whenever
-no ordering of any face falls in the single open region above. In our
-sample 2028 of 2400 orderings lie outside it, and inside it the five bounds
-settle 365 of 372 numerically ([three_producers.md](../results/exclusion/three_producers.md)).
+no ordering of any face falls in the single open region above. Inside that
+region the ceiling criterion of the asymmetric notes (Proposition D, here
+with kappa = 1) still applies: if some subset of the face has share in
+[(1-r)T/2, (1-r)T/(1+r)], the face value is the ceiling, which the
+always-valid bound (1-r)T reaches. So the conjecture is open only on
+orderings in the region above whose face has no subset in that window. In
+our sample 2248 of 2400 orderings are proved in this way; for the remaining
+152 the five bounds settle 145 numerically
+([three_producers.md](../results/exclusion/three_producers.md)).
 
 ## 7. Strict stability and positive definite covariance
 

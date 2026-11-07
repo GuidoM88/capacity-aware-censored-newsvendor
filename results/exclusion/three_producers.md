@@ -21,7 +21,8 @@ Five explicit combinations of certificates (ceiling, H_u, G for {u,b}, H for {u,
 | {u,b} unit-cap | 80 | 80 |
 | {u,b} ceiling | 356 | 356 |
 | {u,b} H, a_c(1-r) >= 2a_u | 102 | 102 |
-| open | 372 | 365 |
+| ceiling criterion (Proposition D) | 220 | 220 |
+| open | 152 | 145 |
 
 In the transitional region the law is valid and attains the certificate value in 218 of 684 orderings; in the others the value is lower and other patterns are active.
 

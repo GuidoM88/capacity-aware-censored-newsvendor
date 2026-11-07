@@ -59,6 +59,10 @@ def analytic_region(a_u, a_b, a_c, r):
         return "{u,b} ceiling"
     if a_c * (1 - r) >= 2 * a_u:
         return "{u,b} H, a_c(1-r) >= 2a_u"
+    T = a_u + a_b + a_c
+    lo, hi = (1 - r) * T / 2, (1 - r) * T / (1 + r)
+    if any(lo <= v <= hi for v in (a_u, a_b, a_c, a_u + a_b, a_u + a_c, a_b + a_c)):
+        return "ceiling criterion (Proposition D)"
     return "open"
 
 
@@ -137,7 +141,7 @@ def main(count=400, seed=3):
     lines += ["", "## Analytic regions (Proposition T)", "",
               "| region | orderings | settled by the five bounds |", "| --- | ---: | ---: |"]
     for region in ("top producer not small", "{u,b} unit-cap", "{u,b} ceiling",
-                   "{u,b} H, a_c(1-r) >= 2a_u", "open"):
+                   "{u,b} H, a_c(1-r) >= 2a_u", "ceiling criterion (Proposition D)", "open"):
         group = [r for r in saved if r["analytic_region"] == region]
         lines.append(f"| {region} | {len(group)} | {sum(r['covered'] for r in group)} |")
     trans = [r for r in saved if "V_law_valid" in r]
