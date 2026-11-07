@@ -72,7 +72,7 @@ ceiling.
    depths (`results/asymmetric/`).
 2. **Symbolic verification of the proofs.** The algebra of every proof
    (identities, corner values of the stability checks, dual weights, sign
-   factorizations) is checked with sympy for general sizes: **214 of 214
+   factorizations) is checked with sympy for general sizes: **217 of 217
    checks pass** ([report](results/verification/symbolic_checks.md)).
 3. **Independent evaluation.** Samples of the explicit laws are re-evaluated
    with the project's original audit code, which computes the relaxation and
@@ -89,7 +89,7 @@ the conjecture for arbitrary shares is supported by computation, not proved.
 
 ### Done (5 to 7 November)
 
-- [x] **Symbolic verification of all proof algebra**: now 214 checks, all
+- [x] **Symbolic verification of all proof algebra**: now 217 checks, all
       passing. It also turned "the window value is the larger of the two
       families" into an identity, V_p - H_{p+1} = a(m+p+1)(r - r_L)Q(r)/(2rD).
 - [x] **Asymmetric imbalance penalties**: results 9 to 15
@@ -147,8 +147,10 @@ the conjecture for arbitrary shares is supported by computation, not proved.
       nonnegative), and the remaining cases are mapped
       ([three_producers.md](results/exclusion/three_producers.md): 0 of 2400
       orderings above the best family; 226 orderings in two open regions with
-      identified certificate patterns). Still needed: their dual weights and
-      a covering argument.
+      identified certificate patterns). Fourth step done: two more explicit
+      combinations; five bounds now settle 2393 of the 2400 sampled orderings.
+      Still needed: two or three more combinations for the last cases, and
+      an analytic argument that the regions cover all shares and r.
 - [ ] **The open asymmetric regions**: the remaining equal-share windows for
       1 < kappa < 2(m-1)/m and transitional laws for arbitrary shares
       (counterexample value between 0.2664 and 0.2787). The likely tool is an

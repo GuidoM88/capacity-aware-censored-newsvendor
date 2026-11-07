@@ -626,6 +626,19 @@ whole face at the level of the second or third producer, sometimes with
 {u, b} at the level of the second. Their dual weights and a covering argument
 are what remains for a proof with three producers.
 
+**Two more combinations** (group N), valid on explicit regions: zero cost and
+the whole face at the level of the third producer, together with the
+constraint z_b <= 1, give the two-block value G for units {u, b}. The weights
+are always nonnegative, so this bound is the exact value when {u, b} is in the
+unit-cap regime. The sets {u, b} and F at the level of the second producer,
+with the same constraint, give H for units {u, b}, a_c(1-r^2)/(2r), whenever
+a_c(1-r) >= 2a_u. With the ceiling, H_u and the transitional bound this makes
+five explicit bounds. In 2393 of the 2400 sampled orderings the smallest of
+them is at or below the best family value, which proves Conjecture 6 on those
+orderings. The other 7 satisfy the conjecture too, but need further
+combinations, and a proof for all shares still needs an analytic argument
+that the regions where these bounds are tight cover every case.
+
 ## 7. Strict stability and positive definite covariance
 
 The worst-case laws above make some coalition constraints hold with

@@ -1445,6 +1445,27 @@
       "detail": "r*(a_b3*(1 - r)*(1 - y3)/r + a_c3*(1 - r)*(1 - w3)/r) + (1/2 - r/2)*(a_b3*y3*(r + 1)/r + a_c3*(1 - r)*(1 - w3)/r) + (1/2 - r/2)*(a_b3*(1 - r)*(1 - y3)/r + a_c3*w3*(r + 1)/r) = (1 - r**2)*(a_b3 + a_c3)/(2*r)"
     },
     {
+      "group": "N. three free producers",
+      "check": "zero cost and F at level w, with 1 - y >= 0, give G for units {u,b}",
+      "kind": "identity",
+      "passed": true,
+      "detail": "(1 - y3)*(a_b3*(a_b3*(r + 1)/r + a_u3*(r + 1)/r)/(a_b3*(r + 1)/r + a_c3 + a_u3*(r + 1)/r) + a_b3*(r + 1)*(-(a_b3*(r + 1)/r + a_u3*(r + 1)/r)/(a_b3*(r + 1)/r + a_c3 + a_u3*(r + 1)/r) + 1)/r) + (-(a_b3*(r + 1)/r + a_u3*(r + 1)/r)/(a_b3*(r + 1)/r + a_c3 + a_u3*(r + 1)/r) + 1)*(a_b3*(r + 1)*(-w3 + y3)/r + a_u3*(1 - w3)*(r + 1)/r) + (a_b3*(r + 1)/r + a_u3*(r + 1)/r)*(a_b3*y3 + a_c3*w3 + a_u3)/(a_b3*(r + 1)/r + a_c3 + a_u3*(r + 1)/r) = (a_b3 + a_u3)*(r + 1)*(a_b3 + a_c3 + a_u3)/(a_c3*r + (a_b3 + a_u3)*(r + 1))"
+    },
+    {
+      "group": "N. three free producers",
+      "check": "{u,b} and F at level y, with 1 - y >= 0, give H for units {u,b}",
+      "kind": "identity",
+      "passed": true,
+      "detail": "(1/2 - r/2)*(a_c3*w3*(r + 1)/r + a_u3*(1 - y3)*(r + 1)/r) + (1 - y3)*(a_c3*(1 - r)*(r + 1)/(2*r) - a_u3*(r + 1)/r) + (r/2 + 1/2)*(a_c3*(1 - r)*(-w3 + y3)/r + a_u3*(1 - y3)*(r + 1)/r) = a_c3*(1 - r**2)/(2*r)"
+    },
+    {
+      "group": "N. three free producers",
+      "check": "multiplier of 1 - y >= 0 in the last combination",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "(r + 1)*(a_c3*(1 - r) - 2*a_u3)/(2*r); nonnegative iff a_c(1-r) >= 2 a_u"
+    },
+    {
       "group": "O. Gaussian, nonnegative correlations",
       "check": "Abel summation: sum gamma_i z_i^2 = sum_s A_s^2 (z_s^2 - z_{s+1}^2)",
       "kind": "identity",

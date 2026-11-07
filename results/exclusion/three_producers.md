@@ -11,6 +11,8 @@ Orderings whose certificate LP value exceeds the best family value on the face: 
 | small, D>0, L<0 | 146 | open: other certificate patterns |
 | small, D<=0 | 80 | open: other certificate patterns |
 
+Five explicit combinations of certificates (ceiling, H_u, G for {u,b}, H for {u,b} when a_c(1-r) >= 2a_u, and the transitional one under its sign conditions) give a bound at or below the best family value in 2393 of 2400 orderings. In the others the conjecture still holds (the LP is below the best family), but further combinations would be needed.
+
 In the transitional region the law is valid and attains the certificate value in 218 of 684 orderings; in the others the value is lower and other patterns are active.
 
 ## Active certificates by region (most frequent)

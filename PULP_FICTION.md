@@ -686,8 +686,13 @@ but is not attained, and 226 sit in two regions where other certificates are
 active. The script `scripts/three_producers.py` maps them
 ([three_producers.md](results/exclusion/three_producers.md)): no ordering
 exceeds the best family, and the active certificates are always of a few
-identified types. Writing their dual weights and showing that the regions
-cover every case is a well-defined next step; it did not fit in this session.
+identified types. Two of those patterns gave further explicit bounds: the
+two-block values G and H for units {u, b}, with weights that are
+nonnegative always (G) or when a_c(1-r) >= 2a_u (H). With five bounds, the
+sampled orderings left open drop from 612 to 7. What is still missing is a
+couple more combinations and, above all, an analytic covering argument: the
+sample shows the regions cover almost everything, but a proof must show it
+for all shares and r.
 
 ### What we would do next
 

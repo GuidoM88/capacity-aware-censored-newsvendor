@@ -530,6 +530,18 @@ identity(G, "zero cost and the face with weights (1-r, r) give the ceiling (1-r)
          (1 - r) * L3 + r * A3, (1 - r) * (au3 + ab3 + ac3))
 identity(G, "{u,b}, F and {u,c} at level one with weights ((1-r)/2, r, (1-r)/2) give H_u",
          (1 - r) / 2 * C3 + r * A3 + (1 - r) / 2 * Cuc3, (ab3 + ac3) * (1 - r**2) / (2 * r))
+Bw3 = Pp(au3) * (1 - w3) + Pp(ab3) * (y3 - w3)            # whole face at the level w
+PI3 = Pp(au3) + Pp(ab3)
+lamG = PI3 / (ac3 + PI3)
+identity(G, "zero cost and F at level w, with 1 - y >= 0, give G for units {u,b}",
+         lamG * L3 + (1 - lamG) * Bw3 + (lamG * ab3 + (1 - lamG) * Pp(ab3)) * (1 - y3),
+         (au3 + ab3) * (1 + r) * (au3 + ab3 + ac3) / (r * ac3 + (1 + r) * (au3 + ab3)))
+Cy3 = Pp(au3) * (1 - y3) + Pp(ac3) * w3                    # {u, b} at level y
+rhoH = (1 + r) * Qm(ac3) / 2 - Pp(au3)
+identity(G, "{u,b} and F at level y, with 1 - y >= 0, give H for units {u,b}",
+         (1 - r) / 2 * Cy3 + (1 + r) / 2 * B3 + rhoH * (1 - y3), ac3 * (1 - r**2) / (2 * r))
+factorization(G, "multiplier of 1 - y >= 0 in the last combination", rhoH,
+              (1 + r) * (ac3 * (1 - r) - 2 * au3) / (2 * r), "nonnegative iff a_c(1-r) >= 2 a_u")
 
 
 # ---------------------------------------------------------------------------

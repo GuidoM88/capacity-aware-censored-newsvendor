@@ -99,6 +99,26 @@ def main(count=400, seed=3):
     for region in status:
         group = [r for r in saved if r["region"] == region]
         lines.append(f"| {region} | {len(group)} | {status[region]} |")
+    covered = 0
+    for row in saved:
+        a_u, a_b, a_c = (F(row["shares"][i]) for i in row["order"])
+        rr = F(row["r"])
+        T, aI = a_u + a_b + a_c, a_u + a_b
+        bounds = [(1 - rr) * T, (a_b + a_c) * (1 - rr * rr) / (2 * rr),
+                  aI * (1 + rr) * T / (rr * a_c + (1 + rr) * aI)]
+        if a_c * (1 - rr) >= 2 * a_u:
+            bounds.append(a_c * (1 - rr * rr) / (2 * rr))
+        D = rr * T + a_u + a_b - a_c
+        if (a_u * (1 + rr) <= (1 - rr) * (a_b + a_c) and D > 0
+                and (1 + rr) ** 2 * a_u + (1 - rr) ** 2 * a_b >= (1 - rr * rr) * a_c):
+            bounds.append(a_u * (1 + rr) - a_b * (1 - rr) + 2 * (1 - rr) * (a_u + a_b) / D * a_b)
+        row["explicit_bound"] = float(min(bounds))
+        row["covered"] = bool(row["explicit_bound"] <= row["family_max"] + 1e-9)
+        covered += row["covered"]
+    lines += ["", f"Five explicit combinations of certificates (ceiling, H_u, G for {{u,b}}, H for {{u,b}} "
+              f"when a_c(1-r) >= 2a_u, and the transitional one under its sign conditions) give a bound at or "
+              f"below the best family value in {covered} of {len(saved)} orderings. In the others the conjecture "
+              "still holds (the LP is below the best family), but further combinations would be needed."]
     trans = [r for r in saved if "V_law_valid" in r]
     tight = sum(1 for r in trans if r["V_law_valid"] and abs(r["lp"] - r["V_formula"]) < 1e-8)
     lines += ["", f"In the transitional region the law is valid and attains the certificate value in {tight} "
