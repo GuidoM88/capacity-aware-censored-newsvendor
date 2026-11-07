@@ -46,8 +46,10 @@ it easy to compare them before deciding what goes into the paper.
 
 ## How to read the branch
 
-Start with [docs/exact_envelopes.md](docs/exact_envelopes.md): statements and
-complete proofs of the theorems. [docs/paper_plan.md](docs/paper_plan.md)
+For a one-page summary of the state of the project, see
+[PROGRESS.md](PROGRESS.md). Then start with
+[docs/exact_envelopes.md](docs/exact_envelopes.md): statements and complete
+proofs of the theorems. [docs/paper_plan.md](docs/paper_plan.md)
 proposes how to rebuild the manuscript around them. [docs/seminorm_envelope.md](docs/seminorm_envelope.md)
 explains the oracle, the upper bounds and the numerical map that led there.
 The `results/exclusion/*.md` files are generated from saved JSON by the
@@ -370,15 +372,41 @@ conjecture and its evidence, and the mixture argument. Proofs are condensed
 from the notes; the corner checks are stated with their values. It compiles
 cleanly with pdflatex and bibtex. The original `paper/` folder is untouched.
 
+### 15. Checking the proofs symbolically
+
+Exact arithmetic at sample points tests the constructions, but a proof is
+about all sizes at once. We therefore checked the algebra of every proof with
+sympy (`scripts/verify_symbolic.py`): every identity (closed forms of the
+generator coefficients, vanishing at the witness, tight caps, grand cost),
+every corner value of the bilinear stability checks, the dual weights of
+Theorem 4 in both regimes, and every inequality, each reduced to a
+factorization whose sign is stated. The positivity needed for t_2 >= 0 is
+checked by substituting the window bounds and verifying that all
+coefficients of the resulting polynomial are nonnegative.
+
+The first run found 7 failures out of 128, all in the checking script rather
+than in the mathematics: a matrix compared with the scalar zero, a factor
+(1+r) missing from one expected expression, and two absolute values removed
+with the wrong sign in the three-producer plane law. After fixing them, and
+adding explicit checks for the signs that had been implicit, all 134 checks
+pass. One check turned out to be a small result of its own: V_p - H_{p+1}
+factors as a(m+p+1)(r - r_L) Q(r) / (2rD), so the claim that the window value
+is the larger of the two families is now an identity rather than an
+observation. Some counts quoted earlier came from interactive runs that were
+not saved; the notes now cite only saved results.
+
 ### What we would do next
 
-1. Revise the draft in `paper_exact/`: a careful read of every proof, an
+1. Asymmetric imbalance penalties: extend the results or determine what
+   changes (tracked in [PROGRESS.md](PROGRESS.md), where the next steps are
+   kept up to date).
+2. Revise the draft in `paper_exact/`: a careful read of every proof, an
    example section with numbers a practitioner can use, and the literature
    check of the plan.
-2. Prove Conjecture 6: an upper-bound argument for arbitrary shares, along
+3. Prove Conjecture 6: an upper-bound argument for arbitrary shares, along
    the lines of Theorem 4 (few active certificates, explicit dual weights),
    and general conditions for the transitional family.
-3. Check the literature on zonotopes and zonoids in cooperative games before
+4. Check the literature on zonotopes and zonoids in cooperative games before
    claiming contributions 3 to 5 of the plan.
 
 ## Proposed claim-register rows
@@ -398,12 +426,12 @@ be numbered at merge time.
 | PF10 | Theorem 2: arbitrary positive shares at depth n-2, exact worst gap for every r, three regimes per ordered pair, explicit laws | exact_envelopes.md; 600 exact checks, independent re-evaluation | Proved |
 | PF11 | For equal shares at depth one, the windows not covered by Theorem 1 have total length 0.13 to 0.20 for 4 <= n <= 30, decaying like n^(-1/2) | exact_envelopes.md, windows table | Exact computation of the intervals |
 | PF12 | The seminorm relaxation was attained by an explicit finite symmetric law in 17 of 17 cases outside every theorem (n = 4, 5; depths 1, 2; equal and unequal shares) | realizability_conjecture.md | Evidence for the realizability conjecture; not a proof |
-| PF13 | Families H_p and V_p of explicit laws inside the windows | exact_envelopes.md Section 5 | Proved (both families verified algebraically; exact checks at 441 + 324 ratios) |
+| PF13 | Families H_p and V_p of explicit laws inside the windows | exact_envelopes.md Section 5 | Proved; algebra checked symbolically (results/verification), exact checks at 324 saved ratios |
 | PF14 | A certificate LP bounds the equal-share worst gap for every law; it equals the best explicit law at all 324 tested window ratios | exact_envelopes.md Section 5; window_envelopes.md | Upper bound proved; equality now also follows from PF17 |
 | PF15 | Theorem 3: for three free producers and 1/5 <= r <= 1/3 the worst gap is 2(2-r+3r^2)/(n(1+3r)); the four-producer depth-one curve is complete | exact_envelopes.md Section 5 | Proved |
 | PF16 | For arbitrary shares, a certificate LP bounds the worst gap for every law; in 68 of 68 random instances (n = 4..6, depths 1..3) it equals the exact relaxation, and in 38 of 38 an explicit law reaches it | exact_envelopes.md Section 6; certificate_method.md | Upper bound proved; equality computational |
 | PF20 | Conjecture 6: for arbitrary shares and any depth the worst gap is the maximum over the four families C31, H, G, V | exact_envelopes.md Section 6; general_formula.md (1000 of 1000) and certificate_method.md (68 of 68) | Lower bound proved (V checked per instance); upper bound computational |
-| PF19 | Theorem 5: for arbitrary shares and any depth, two explicit families give the lower bound max over partitions of (1-r)a(F) or A_J(1-r^2)/(2r) under stated conditions | exact_envelopes.md Section 6; exact checks on 368 instances | Proved lower bound; equals the exact worst gap in 67 of 68 random instances |
+| PF19 | Theorem 5: for arbitrary shares and any depth, two explicit families give the lower bound max over partitions of (1-r)a(F) or A_J(1-r^2)/(2r) under stated conditions | exact_envelopes.md Section 6; algebra checked symbolically; exact checks on the 1068 saved instances | Proved lower bound; equals the exact worst gap in 67 of 68 random instances |
 | PF18 | Proposition 5: for r < 1 the suprema of Theorems 1, 2 and 4 (and the values attained in the two-LP computations) are unchanged under strict stability and positive definite covariance | exact_envelopes.md Section 7; strict_mixtures.md (12 mixed laws) | Proved |
 | PF17 | Theorem 4: inside each equal-share window the worst gap is V_p(r) if Q(r) >= 0 and H_{p+1}(r) if Q(r) <= 0, with explicit laws; with Theorem 1 the equal-share case is solved for every n, depth and r | exact_envelopes.md Section 5; window_envelopes.md; 129,888 exact window checks | Proved |
 
@@ -421,7 +449,9 @@ heuristic) are superseded by PF9 and PF11.
 * `docs/paper_plan.md`: proposed structure, abstract and contributions for the revised paper.
 * `paper_exact/`: the eight-page draft built from the plan (`main.tex`, `references.bib`, the figure and the compiled `main.pdf`).
 * `scripts/check_*envelope*.py` (including `check_window_envelopes.py`), `scripts/check_zonotope_realizability.py`, `scripts/check_realizability_conjecture.py`: generators of the summaries in `results/exclusion/`.
-* `tests/test_exact_envelopes.py`, `tests/test_seminorm_envelope.py`, `tests/test_certificates.py`: fast tests.
+* `tests/test_exact_envelopes.py`, `tests/test_seminorm_envelope.py`, `tests/test_certificates.py`, `tests/test_symbolic.py`: fast tests.
+* `scripts/verify_symbolic.py`, `requirements-verify.txt` and `results/verification/`: symbolic verification of the proofs.
+* `PROGRESS.md`: one-page progress report with the current next steps.
 
 ## Merging
 

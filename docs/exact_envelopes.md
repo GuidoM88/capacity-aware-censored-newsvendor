@@ -224,6 +224,18 @@ third regime with i the producer of share 1/4 and j the producer of share
 
 ## 4. Checks
 
+**Symbolic verification.** `scripts/verify_symbolic.py` checks the algebra
+of every proof in this note with sympy, for general sizes rather than at
+sample points: 134 checks, all passing
+([report](../results/verification/symbolic_checks.md)). Equalities are
+checked as identities; each inequality is reduced to a factorization whose
+sign is stated; the positivity needed for t_2 >= 0 is checked through
+nonnegative polynomial coefficients after substituting the window bounds. Not
+covered: the short convex-analysis lemmas and the general conditions of the
+transitional family for arbitrary shares.
+
+**Exact checks at sample points.**
+
 `python scripts/check_exact_envelopes.py` verifies, in exact arithmetic,
 1910 equal-share constructions (n = 3..10, every depth, r = k/60 outside the
 windows) and 600 random rational instances of Theorem 2 (n = 3..6), compares
@@ -336,7 +348,9 @@ Q(r)=mr^2+2(p-1)r+2+2p-m .
 $$
 
 Then the worst gap is V_p(r) if Q(r) >= 0 and H_{p+1}(r) if Q(r) <= 0;
-equivalently, it is max(V_p(r), H_{p+1}(r)).
+equivalently, it is max(V_p(r), H_{p+1}(r)), because
+V_p - H_{p+1} = a(m+p+1)(r - r_L) Q(r) / (2rD) with D = 2(p+1) - m(1-r) > 0
+on the window.
 
 *Proof.* The lower bounds are the two laws above (H_{p+1} is available since
 r >= r_L = (m-p-1)/(m+p+1)). For the upper bounds we combine the certificates
@@ -513,7 +527,7 @@ the larger of the two values equals the exact worst gap 67 times; the
 exception (five producers with shares 0.045, 0.409, 0.409, 0.091, 0.045 at
 r = 0.6, value 0.306 against 0.291) needs a transitional family like V_p or the
 third regime of Theorem 2. Every construction was checked in exact
-arithmetic, on those 68 instances and on 300 further random ones.
+arithmetic on those 68 instances, and again in the 1000-instance check below.
 
 **Two more families, and a conjectured closed form.** Two further mechanisms
 complete the picture; both reduce to known cases.

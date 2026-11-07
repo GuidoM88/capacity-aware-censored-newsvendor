@@ -1,0 +1,944 @@
+{
+  "date": "2026-11-07",
+  "sympy": "1.14.0",
+  "checks": [
+    {
+      "group": "A. C31",
+      "check": "weighted average of the two bounds",
+      "kind": "identity",
+      "passed": true,
+      "detail": "r*x*(-1 + 1/r) + (1 - r)*(-B + a_F - x) = (1 - r)*(-B + a_F)"
+    },
+    {
+      "group": "B. separable bound",
+      "check": "peak of h at t* = (1-r)/2",
+      "kind": "identity",
+      "passed": true,
+      "detail": "r*(-a + a/r)/(2*a) = 1/2 - r/2"
+    },
+    {
+      "group": "B. separable bound",
+      "check": "both branches of h meet at t*",
+      "kind": "identity",
+      "passed": true,
+      "detail": "(1 - r*(-a + a/r)/(2*a))*(-a + a/r) = r*(-a + a/r)*(a + a/r)/(2*a)"
+    },
+    {
+      "group": "B. separable bound",
+      "check": "peak value a(1-r^2)/(2r)",
+      "kind": "identity",
+      "passed": true,
+      "detail": "r*(-a + a/r)*(a + a/r)/(2*a) = a*(1 - r**2)/(2*r)"
+    },
+    {
+      "group": "B. separable bound",
+      "check": "regime threshold r >= q/(q+2)",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "a*(-q + r*(q + 2))/(2*r); nonnegative exactly when r >= q/(q+2)"
+    },
+    {
+      "group": "B. separable bound",
+      "check": "low-regime intersection",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a*(q*(-r + 1 - r/q) + 1) = q*(-a + a/r)*(r + r/q)"
+    },
+    {
+      "group": "B. separable bound",
+      "check": "low-regime value (1-r)(q+1)a",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a*(q*(-r + 1 - r/q) + 1) = a*(1 - r)*(q + 1)"
+    },
+    {
+      "group": "B. separable bound",
+      "check": "low-regime point lies right of the peak",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "(q*(1 - r) - 2*r)/(2*q); nonnegative exactly when r <= q/(q+2)"
+    },
+    {
+      "group": "C. Theorem 1, I_p",
+      "check": "fractional generators vanish at the witness",
+      "kind": "identity",
+      "passed": true,
+      "detail": "0 = 0"
+    },
+    {
+      "group": "C. Theorem 1, I_p",
+      "check": "witness value (1-r)(p+q)a",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a*(p + q*(-p*r/q - r + 1)) = a*(1 - r)*(p + q)"
+    },
+    {
+      "group": "C. Theorem 1, I_p",
+      "check": "unit cap q t <= p",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "p - q + r*(p + q); nonnegative exactly when r >= (q-p)/(q+p)"
+    },
+    {
+      "group": "C. Theorem 1, I_p",
+      "check": "grand cost k a + q M (1-t) = (p+q+k) a",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a*k + a*q*(p*r/q + r)/r = a*(k + p + q)"
+    },
+    {
+      "group": "C. Theorem 1, I_p",
+      "check": "coalition cost formula",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a*kappa + a*s*(q - tau)*(-p*r/q - r + 1)/(p*r) + tau*(a/r - a*s*(-p*r/q - r + 1)/(p*r)) = a*kappa + a*tau/r + a*s*(q - 2*tau)*(-p*r/q - r + 1)/(p*r)"
+    },
+    {
+      "group": "C. Theorem 1, I_p",
+      "check": "slack = cost - a|S|",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a*kappa - a*(kappa + s + tau) + a*s*(q - tau)*(-p*r/q - r + 1)/(p*r) + tau*(a/r - a*s*(-p*r/q - r + 1)/(p*r)) = -a*s + a*s*(q - 2*tau)*(-p*r/q - r + 1)/(p*r) + tau*(-a + a/r)"
+    },
+    {
+      "group": "C. Theorem 1, I_p",
+      "check": "slack bilinear in (s, tau)",
+      "kind": "bilinearity",
+      "passed": true,
+      "detail": "second derivatives in each variable vanish, so the minimum over a box is at a corner"
+    },
+    {
+      "group": "C. Theorem 1, I_p",
+      "check": "corner (0,0)",
+      "kind": "identity",
+      "passed": true,
+      "detail": "0 = 0"
+    },
+    {
+      "group": "C. Theorem 1, I_p",
+      "check": "corner (0,q)",
+      "kind": "identity",
+      "passed": true,
+      "detail": "q*(-a + a/r) = q*(-a + a/r)"
+    },
+    {
+      "group": "C. Theorem 1, I_p",
+      "check": "corner (p,0) >= 0",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "a*(q - r*(2*p + q))/r; nonnegative exactly when r <= q/(q+2p)"
+    },
+    {
+      "group": "C. Theorem 1, I_p",
+      "check": "corner (p,q)",
+      "kind": "identity",
+      "passed": true,
+      "detail": "-a*p - a*q*(-p*r/q - r + 1)/r + q*(-a + a/r) = 0"
+    },
+    {
+      "group": "C. Theorem 1, I_p",
+      "check": "witness level t >= 0",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "(-p*r + q*(1 - r))/q; nonnegative when r <= q/(q+p), implied by r <= q/(q+2p)"
+    },
+    {
+      "group": "D. family H_p",
+      "check": "fractional generators vanish at the witness",
+      "kind": "identity",
+      "passed": true,
+      "detail": "-a*(1/2 - r/2)/r + a*(1 - r)/(2*r) = 0"
+    },
+    {
+      "group": "D. family H_p",
+      "check": "witness value (m-p)(1-r^2)a/(2r)",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a*q*(r + 1)/(2*r) - a*(p + q) + a*(p + q*(1/2 - r/2)) = a*q*(1 - r**2)/(2*r)"
+    },
+    {
+      "group": "D. family H_p",
+      "check": "unit singleton cost equals a",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a*q*(1 - r)/(2*p*r) + (-a*q*(r + 1)/(2*r) + a*(p + q))/p = a"
+    },
+    {
+      "group": "D. family H_p",
+      "check": "grand cost",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a*k - a*q*(r + 1)/(2*r) + a*(p + q) + q*(-a*(1 - r)/(2*r) + a/r) = a*(k + p + q)"
+    },
+    {
+      "group": "D. family H_p",
+      "check": "slack bilinear in (s, tau)",
+      "kind": "bilinearity",
+      "passed": true,
+      "detail": "second derivatives in each variable vanish, so the minimum over a box is at a corner"
+    },
+    {
+      "group": "D. family H_p",
+      "check": "corner (0,q)",
+      "kind": "identity",
+      "passed": true,
+      "detail": "q*(-a + a/r) = q*(-a + a/r)"
+    },
+    {
+      "group": "D. family H_p",
+      "check": "corner (p,0)",
+      "kind": "identity",
+      "passed": true,
+      "detail": "-a*p + a*q*(1 - r)/(2*r) - a*q*(r + 1)/(2*r) + a*(p + q) = 0"
+    },
+    {
+      "group": "D. family H_p",
+      "check": "corner (p,q)",
+      "kind": "identity",
+      "passed": true,
+      "detail": "-a*p - a*q*(1 - r)/(2*r) - a*q*(r + 1)/(2*r) + a*(p + q) + q*(-a + a/r) = 0"
+    },
+    {
+      "group": "D. family H_p",
+      "check": "beta >= 0",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "a*(-q + r*(2*p + q))/(2*r); nonnegative exactly when r >= q/(q+2p) = (m-p)/(m+p)"
+    },
+    {
+      "group": "D. family H_p",
+      "check": "meets C31 at r = q/(q+2p)",
+      "kind": "identity",
+      "passed": true,
+      "detail": "-a*(p + q)*(-q/(2*p + q) + 1) + a*(2*p + q)*(-q**2/(2*p + q)**2 + 1)/2 = 0"
+    },
+    {
+      "group": "E. Theorem 4, V_p",
+      "check": "gamma closed form",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a*(p - r*(p + 1) + 1)/(2*p*r) = a*(1 - r)*(p + 1)/(2*p*r)"
+    },
+    {
+      "group": "E. Theorem 4, V_p",
+      "check": "alpha closed form",
+      "kind": "identity",
+      "passed": true,
+      "detail": "p*(a/r - a*(p - r*(p + 1) + 1)/(2*p*r))/(m - p - 1) = a*(p + r*(p + 1) - 1)/(r*(2*m - 2*p - 2))"
+    },
+    {
+      "group": "E. Theorem 4, V_p",
+      "check": "beta closed form",
+      "kind": "identity",
+      "passed": true,
+      "detail": "(a/r - a*(p - r*(p + 1) + 1)*(-m*(1 - r) + 2*p + 2)/(2*r*(1 - r)*(p + 1)))/(m - p - 1) = a*(m*(1 - r) - 2*p)/(r*(2*m - 2*p - 2))"
+    },
+    {
+      "group": "E. Theorem 4, V_p",
+      "check": "delta closed form",
+      "kind": "identity",
+      "passed": true,
+      "detail": "-a*(p - r*(p + 1) + 1)*(-m*(1 - r) + 2*p + 2)/(2*r*(1 - r)*(p + 1)) = -a*(-m*(1 - r) + 2*p + 2)/(2*r)"
+    },
+    {
+      "group": "E. Theorem 4, V_p",
+      "check": "fractional generators vanish at the witness",
+      "kind": "identity",
+      "passed": true,
+      "detail": "-a*(r*(p + 1) + (1 - r)*(p + 1)/(-m*(1 - r) + 2*p + 2) - 1)/(r*(m - p - 1)) + p*(a/r - a*(p - r*(p + 1) + 1)/(2*p*r))/(m - p - 1) + (1 - r)*(p + 1)*(a/r - a*(p - r*(p + 1) + 1)*(-m*(1 - r) + 2*p + 2)/(2*r*(1 - r)*(p + 1)))/((m - p - 1)*(-m*(1 - r) + 2*p + 2)) = 0"
+    },
+    {
+      "group": "E. Theorem 4, V_p",
+      "check": "transition generator vanishes at the witness",
+      "kind": "identity",
+      "passed": true,
+      "detail": "0 = 0"
+    },
+    {
+      "group": "E. Theorem 4, V_p",
+      "check": "unit caps tight",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a/r = a/r"
+    },
+    {
+      "group": "E. Theorem 4, V_p",
+      "check": "transition cap tight",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a/r = a/r"
+    },
+    {
+      "group": "E. Theorem 4, V_p",
+      "check": "alpha + beta = M(1-r)/2",
+      "kind": "identity",
+      "passed": true,
+      "detail": "p*(a/r - a*(p - r*(p + 1) + 1)/(2*p*r))/(m - p - 1) + (a/r - a*(p - r*(p + 1) + 1)*(-m*(1 - r) + 2*p + 2)/(2*r*(1 - r)*(p + 1)))/(m - p - 1) = a*(1 - r)/(2*r)"
+    },
+    {
+      "group": "E. Theorem 4, V_p",
+      "check": "free grand cost m a",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a*(-(1 - r)*(p + 1)/(-m*(1 - r) + 2*p + 2) + 1)*(p - r*(p + 1) + 1)*(-m*(1 - r) + 2*p + 2)/(2*r*(1 - r)*(p + 1)) + (m - p - 1)*(a/r - p*(a/r - a*(p - r*(p + 1) + 1)/(2*p*r))/(m - p - 1) - (a/r - a*(p - r*(p + 1) + 1)*(-m*(1 - r) + 2*p + 2)/(2*r*(1 - r)*(p + 1)))/(m - p - 1)) = a*m"
+    },
+    {
+      "group": "E. Theorem 4, V_p",
+      "check": "witness value",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a*(p + r*(p + 1) + 2*(1 - r)*(p + 1)/(-m*(1 - r) + 2*p + 2) - 1) = a*(p + r*(p + 1) + 2*(1 - r)*(p + 1)/(-m*(1 - r) + 2*p + 2) - 1)"
+    },
+    {
+      "group": "E. Theorem 4, V_p",
+      "check": "slack without * bilinear",
+      "kind": "bilinearity",
+      "passed": true,
+      "detail": "second derivatives in each variable vanish, so the minimum over a box is at a corner"
+    },
+    {
+      "group": "E. Theorem 4, V_p",
+      "check": "slack with * bilinear",
+      "kind": "bilinearity",
+      "passed": true,
+      "detail": "second derivatives in each variable vanish, so the minimum over a box is at a corner"
+    },
+    {
+      "group": "E. Theorem 4, V_p",
+      "check": "corner (0,q'), * out",
+      "kind": "identity",
+      "passed": true,
+      "detail": "(-a + a/r)*(m - p - 1) = (-a + a/r)*(m - p - 1)"
+    },
+    {
+      "group": "E. Theorem 4, V_p",
+      "check": "corner (p,0), * out",
+      "kind": "identity",
+      "passed": true,
+      "detail": "-a*p + a*(p - r*(p + 1) + 1)/(2*r) + p*(a/r - a*(p - r*(p + 1) + 1)/(2*p*r)) = p*(-a + a/r)"
+    },
+    {
+      "group": "E. Theorem 4, V_p",
+      "check": "corner (p,q'), * out",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "a*(-m - p + (m - p)/r); nonnegative when r <= (m-p)/(m+p), implied by r <= r_R"
+    },
+    {
+      "group": "E. Theorem 4, V_p",
+      "check": "corner (0,0), * in",
+      "kind": "identity",
+      "passed": true,
+      "detail": "-a + a/r = -a + a/r"
+    },
+    {
+      "group": "E. Theorem 4, V_p",
+      "check": "corner (0,q'), * in",
+      "kind": "identity",
+      "passed": true,
+      "detail": "-a + a*(p - r*(p + 1) + 1)*(-m*(1 - r) + 2*p + 2)/(2*r*(1 - r)*(p + 1)) + (-a + a/r)*(m - p - 1) + (a/r - a*(p - r*(p + 1) + 1)*(-m*(1 - r) + 2*p + 2)/(2*r*(1 - r)*(p + 1)))*(-m + p + 1)/(m - p - 1) = a*(p + p/r)"
+    },
+    {
+      "group": "E. Theorem 4, V_p",
+      "check": "corner (p,0), * in",
+      "kind": "identity",
+      "passed": true,
+      "detail": "-a*(p + 1) + a*(-p + p*(-m*(1 - r) + 2*p + 2)/((1 - r)*(p + 1)))*(p - r*(p + 1) + 1)/(2*p*r) + (p*(a/r - a*(p - r*(p + 1) + 1)/(2*p*r))/(m - p - 1) + (a/r - a*(p - r*(p + 1) + 1)*(-m*(1 - r) + 2*p + 2)/(2*r*(1 - r)*(p + 1)))/(m - p - 1))*(m - p - 1) = 0"
+    },
+    {
+      "group": "E. Theorem 4, V_p",
+      "check": "corner (p,q'), * in",
+      "kind": "identity",
+      "passed": true,
+      "detail": "-a*(p + 1) + a*(-p + p*(-m*(1 - r) + 2*p + 2)/((1 - r)*(p + 1)))*(p - r*(p + 1) + 1)/(2*p*r) + (-a + a/r)*(m - p - 1) + (p*(a/r - a*(p - r*(p + 1) + 1)/(2*p*r))/(m - p - 1) + (a/r - a*(p - r*(p + 1) + 1)*(-m*(1 - r) + 2*p + 2)/(2*r*(1 - r)*(p + 1)))/(m - p - 1))*(-m + p + 1) = 0"
+    },
+    {
+      "group": "E. Theorem 4, V_p",
+      "check": "r_R <= (m-p)/(m+p)",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "2*p**2/(m*(m + p)); positive"
+    },
+    {
+      "group": "E. Theorem 4, V_p",
+      "check": "beta >= 0 iff r <= r_R",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "a*m*(-r + (m - 2*p)/m)/(r*(2*m - 2*p - 2)); nonnegative exactly when r <= r_R = (m-2p)/m"
+    },
+    {
+      "group": "E. Theorem 4, V_p",
+      "check": "t1 <= 1 iff r >= r_L",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "(r - (m - p - 1)/(m + p + 1))*(m + p + 1)/(-m*(1 - r) + 2*p + 2); nonnegative exactly when r >= r_L, with D > 0"
+    },
+    {
+      "group": "E. Theorem 4, V_p",
+      "check": "D > 0 on the window",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "2*(p + 1)**2/(m*(m + p + 1)); r_L exceeds (m-2p-2)/m, the zero of D"
+    },
+    {
+      "group": "E. Theorem 4, V_p",
+      "check": "q' t2 D equals the quadratic phi(1-r)",
+      "kind": "identity",
+      "passed": true,
+      "detail": "m*p*r**2 - m*p*r**2/(m*r - m + 2*p + 2) - m*p*r + 2*m*p*r/(m*r - m + 2*p + 2) - m*p/(m*r - m + 2*p + 2) + m*r**2 - m*r**2/(m*r - m + 2*p + 2) - 2*m*r + 2*m*r/(m*r - m + 2*p + 2) + m - m/(m*r - m + 2*p + 2) + 2*p**2*r - 2*p**2*r/(m*r - m + 2*p + 2) + 2*p**2/(m*r - m + 2*p + 2) + 4*p*r - 4*p*r/(m*r - m + 2*p + 2) - 2*p + 4*p/(m*r - m + 2*p + 2) + 2*r - 2*r/(m*r - m + 2*p + 2) - 2 + 2/(m*r - m + 2*p + 2) = m*(1 - r)**2*(p + 1) + 2*p*(p + 1) - (1 - r)*(m*p + (p + 1)*(2*p + 1))"
+    },
+    {
+      "group": "E. Theorem 4, V_p",
+      "check": "phi at the right end of the window",
+      "kind": "identity",
+      "passed": true,
+      "detail": "2*p*(p + 1) + 4*p**2*(p + 1)/m - 2*p*(m*p + (p + 1)*(2*p + 1))/m = 2*p*(m - p - 1)/m"
+    },
+    {
+      "group": "E. Theorem 4, V_p",
+      "check": "vertex of phi right of the window, p >= 3",
+      "kind": "polynomial coefficients",
+      "passed": true,
+      "detail": "12 coefficients, all >= 0; windows need m >= p^2+p+1; substituted m = p^2+p+1+u, p = 3+v"
+    },
+    {
+      "group": "E. Theorem 4, V_p",
+      "check": "vertex condition for p = 2",
+      "kind": "identity",
+      "passed": true,
+      "detail": "-36*m + (m + 3)*(2*m + 15) = 2*m**2 - 15*m + 45"
+    },
+    {
+      "group": "E. Theorem 4, V_p",
+      "check": "2m^2 - 15m + 45 > 0",
+      "kind": "discriminant",
+      "passed": true,
+      "detail": "discriminant -135 < 0"
+    },
+    {
+      "group": "E. Theorem 4, V_p",
+      "check": "vertex condition for p = 1",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "(m - 6)*(m - 2); nonnegative for m >= 6"
+    },
+    {
+      "group": "E. Theorem 4, V_p",
+      "check": "discriminant of phi for p = 1",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "(m - 18)*(m - 2); negative for m = 3, 4, 5"
+    },
+    {
+      "group": "E. Theorem 4, duals",
+      "check": "V regime: coefficient of Z_I cancels",
+      "kind": "identity",
+      "passed": true,
+      "detail": "0 = 0"
+    },
+    {
+      "group": "E. Theorem 4, duals",
+      "check": "V regime: coefficient of u_tr cancels",
+      "kind": "identity",
+      "passed": true,
+      "detail": "0 = 0"
+    },
+    {
+      "group": "E. Theorem 4, duals",
+      "check": "V regime: coefficient of Y cancels",
+      "kind": "identity",
+      "passed": true,
+      "detail": "0 = 0"
+    },
+    {
+      "group": "E. Theorem 4, duals",
+      "check": "V regime: constant equals V_p",
+      "kind": "identity",
+      "passed": true,
+      "detail": "(a*m*p*r/2 - a*m*p/(2*r) + a*m*r/2 - a*m + a*m/(2*r) + a*p**2 + a*p**2/r + a*p + a*p/r)/(1 + r*(-a*m + a*(m - 2*p)/r)/(2*a) + r*(a**2*m + 2*a**2*(p - 1)/r + a**2*(-m + 2*p + 2)/r**2)/(2*a**2)) = a*(p + r*(p + 1) + 2*(1 - r)*(p + 1)/(-m*(1 - r) + 2*p + 2) - 1)"
+    },
+    {
+      "group": "E. Theorem 4, duals",
+      "check": "V regime: lambda_0 proportional to Q",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a**2*m + 2*a**2*(p - 1)/r + a**2*(-m + 2*p + 2)/r**2 = a**2*(m*r**2 - m + 2*p + r*(2*p - 2) + 2)/r**2"
+    },
+    {
+      "group": "E. Theorem 4, duals",
+      "check": "V regime: lambda_A >= 0",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "m*(-r + (m - 2*p)/m)/2; nonnegative exactly when r <= r_R"
+    },
+    {
+      "group": "E. Theorem 4, duals",
+      "check": "V regime: multiplier on p - Z_I >= 0",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "a*m*(r - (m - 2*p - 2)/m)/r; nonnegative since r >= r_L > (m-2p-2)/m"
+    },
+    {
+      "group": "E. Theorem 4, duals",
+      "check": "H regime: coefficient of Z_I cancels for every lambda_B",
+      "kind": "identity",
+      "passed": true,
+      "detail": "0 = 0"
+    },
+    {
+      "group": "E. Theorem 4, duals",
+      "check": "H regime: coefficient of u_tr cancels for every lambda_B",
+      "kind": "identity",
+      "passed": true,
+      "detail": "0 = 0"
+    },
+    {
+      "group": "E. Theorem 4, duals",
+      "check": "H regime: coefficient of Y cancels for every lambda_B",
+      "kind": "identity",
+      "passed": true,
+      "detail": "0 = 0"
+    },
+    {
+      "group": "E. Theorem 4, duals",
+      "check": "H regime: weights sum to one",
+      "kind": "identity",
+      "passed": true,
+      "detail": "r*(-a + a/r)/(2*a) + r*(a + a/r)/(2*a) = 1"
+    },
+    {
+      "group": "E. Theorem 4, duals",
+      "check": "H regime: constant equals H_{p+1}",
+      "kind": "identity",
+      "passed": true,
+      "detail": "-a*m*r/2 + a*m/(2*r) + a*p*r/2 - a*p/(2*r) + a*r/2 - a/(2*r) = a*(1 - r**2)*(m - p - 1)/(2*r)"
+    },
+    {
+      "group": "E. Theorem 4, duals",
+      "check": "H regime: feasibility rearranges to Q <= 0",
+      "kind": "identity",
+      "passed": true,
+      "detail": "-2*a*(-a + a/r)/r + (a + a/r)*(-a*m + a*(m - 2*p)/r) = -a**2*(m*r**2 - m + 2*p + r*(2*p - 2) + 2)/r**2"
+    },
+    {
+      "group": "E. Theorem 4, duals",
+      "check": "V_p - H_{p+1} has the sign of Q on the window",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "a*(r - (m - p - 1)/(m + p + 1))*(m + p + 1)*(m*r**2 - m + 2*p + r*(2*p - 2) + 2)/(2*r*(-m*(1 - r) + 2*p + 2)); the other factors are nonnegative on the window, so V_p >= H_{p+1} exactly when Q >= 0"
+    },
+    {
+      "group": "F. Theorem 3",
+      "check": "Q for m = 3, p = 1 is 3r^2 + 1",
+      "kind": "identity",
+      "passed": true,
+      "detail": "3*r**2 + 1 = 3*r**2 + 1"
+    },
+    {
+      "group": "F. Theorem 3",
+      "check": "window value for m = 3",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a*(2*r + 4*(1 - r)/(3*r + 1)) = 2*a*(3*r**2 - r + 2)/(3*r + 1)"
+    },
+    {
+      "group": "F. Theorem 3",
+      "check": "lambda_A for m = 3",
+      "kind": "identity",
+      "passed": true,
+      "detail": "r*(-3*a + a/r)/(2*a) = r*(-3*a + a/r)/(2*a)"
+    },
+    {
+      "group": "F. Theorem 3",
+      "check": "lambda_0 for m = 3",
+      "kind": "identity",
+      "passed": true,
+      "detail": "r*(3*a**2 + a**2/r**2)/(2*a**2) = r*(3*a**2 + a**2/r**2)/(2*a**2)"
+    },
+    {
+      "group": "F. Theorem 3",
+      "check": "t2 = t1 - (1-2r) for m = 3",
+      "kind": "identity",
+      "passed": true,
+      "detail": "2*r + 2*(1 - r)/(3*r + 1) - 1 = 2*r + 2*(1 - r)/(3*r + 1) - 1"
+    },
+    {
+      "group": "F. Theorem 3",
+      "check": "plane law: g1 vanishes at z",
+      "kind": "identity",
+      "passed": true,
+      "detail": "2*(1 - r)*(-a/r + a*(2 - 2*r)*(3*r + 1)/(4*r*(1 - r)))/(3*r + 1) + 2*(1 - r)*(a/r - a*(2 - 2*r)*(3*r + 1)/(4*r*(1 - r)))/(3*r + 1) = 0"
+    },
+    {
+      "group": "F. Theorem 3",
+      "check": "plane law: g2 vanishes at z",
+      "kind": "identity",
+      "passed": true,
+      "detail": "0 = 0"
+    },
+    {
+      "group": "F. Theorem 3",
+      "check": "plane law: first unit entry equals -a",
+      "kind": "identity",
+      "passed": true,
+      "detail": "-a*(2*r + 2*(1 - r)/(3*r + 1) - 1)/r + 2*(1 - r)*(a/r - a*(2 - 2*r)*(3*r + 1)/(4*r*(1 - r)))/(3*r + 1) = -a"
+    },
+    {
+      "group": "F. Theorem 3",
+      "check": "plane law: u <= M",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "a*(3*r + 1)*(2*r + 4*(1 - r)/(3*r + 1) - 2)/(4*r*(1 - r)); nonnegative since t1 + t2 - 1 = 2(t1 - (1-r)) >= 0 below"
+    },
+    {
+      "group": "F. Theorem 3",
+      "check": "plane law: t1 >= 1 - r",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "(1 - 3*r)*(1 - r)/(3*r + 1); nonnegative for r <= 1/3"
+    },
+    {
+      "group": "F. Theorem 3",
+      "check": "plane law: g2 at the top-two coalition is nonpositive",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "-a*(2 - 2*r)*(3*r + 1)*(-2*(1 - r)/(3*r + 1) + 1)/(4*r*(1 - r)); nonpositive since t1 <= 1"
+    },
+    {
+      "group": "F. Theorem 3",
+      "check": "plane law: g1 at the top-two coalition is nonpositive",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "-a*(2*r + 2*(1 - r)/(3*r + 1) - 1)/r + (-a/r + a*(2 - 2*r)*(3*r + 1)/(4*r*(1 - r)))*(-2*(1 - r)/(3*r + 1) + 1); nonpositive since u <= M, t1 <= 1, t2 >= 0"
+    },
+    {
+      "group": "F. Theorem 3",
+      "check": "plane law: unit cap",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a*(2 - 2*r)/(2*r) + a*(2*r + 2*(1 - r)/(3*r + 1) - 1)/r - 2*(1 - r)*(a/r - a*(2 - 2*r)*(3*r + 1)/(4*r*(1 - r)))/(3*r + 1) = a/r"
+    },
+    {
+      "group": "F. Theorem 3",
+      "check": "plane law: transitional cap",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a/r = a/r"
+    },
+    {
+      "group": "F. Theorem 3",
+      "check": "plane law: top-two coalition",
+      "kind": "identity",
+      "passed": true,
+      "detail": "-a*(2 - 2*r)/(2*r) + a*(2*r + 2*(1 - r)/(3*r + 1) - 1)/r + a/r - 2*(1 - r)*(a/r - a*(2 - 2*r)*(3*r + 1)/(4*r*(1 - r)))/(3*r + 1) = 2*a"
+    },
+    {
+      "group": "F. Theorem 3",
+      "check": "plane law: face coalition",
+      "kind": "identity",
+      "passed": true,
+      "detail": "-a*(2 - 2*r)/(2*r) - a*(2*r + 2*(1 - r)/(3*r + 1) - 1)/r + a*(2 - 2*r)*(3*r + 1)/(2*r*(1 - r)) + 2*(1 - r)*(a/r - a*(2 - 2*r)*(3*r + 1)/(4*r*(1 - r)))/(3*r + 1) = 3*a"
+    },
+    {
+      "group": "F. Theorem 3",
+      "check": "plane law: g1 at the face coalition is nonnegative",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "a*(-2*r - 2*(1 - r)/(3*r + 1) + 2)/r - (a/r - a*(2 - 2*r)*(3*r + 1)/(4*r*(1 - r)))*(-2*(1 - r)/(3*r + 1) + 1); nonnegative since 1 - t2 >= 1 - t1 and M >= M - u"
+    },
+    {
+      "group": "G. Theorem 2",
+      "check": "g4 <= g3 exactly when x <= (1-r)/(1+r)",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "(1 - t)*(-a_i*(r + 1) + a_j*(1 - r))/r; sign of a_j(1-r) - a_i(1+r) for t < 1"
+    },
+    {
+      "group": "G. Theorem 2",
+      "check": "g1 meets g4",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a_i*a_j/(a_i*(r + 1) + a_j*r) + a_i = a_i*(1 + 1/r)*(-a_i/(a_i*(r + 1) + a_j*r) + 1)"
+    },
+    {
+      "group": "G. Theorem 2",
+      "check": "third-regime value",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a_i*a_j/(a_i*(r + 1) + a_j*r) + a_i = a_i*(a_i + a_j)*(r + 1)/(a_i*(r + 1) + a_j*r)"
+    },
+    {
+      "group": "G. Theorem 2",
+      "check": "g1 meets g3",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a_i + a_j*(-a_i*r/a_j - r + 1) = a_j*(-1 + 1/r)*(a_i*r/a_j + r)"
+    },
+    {
+      "group": "G. Theorem 2",
+      "check": "middle-regime value",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a_i + a_j*(-a_i*r/a_j - r + 1) = (1 - r)*(a_i + a_j)"
+    },
+    {
+      "group": "G. Theorem 2",
+      "check": "g1 <= g2 at the middle point",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "(-2*a_i*r + a_j*(1 - r))/r; nonnegative exactly when x <= (1-r)/(2r)"
+    },
+    {
+      "group": "G. Theorem 2",
+      "check": "g2 meets g3 at t = (1-r)/2",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a_j*(1/2 - r/2)*(1 + 1/r) = a_j*(-1 + 1/r)*(r/2 + 1/2)"
+    },
+    {
+      "group": "G. Theorem 2",
+      "check": "first-regime value",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a_j*(1/2 - r/2)*(1 + 1/r) = a_j*(1 - r**2)/(2*r)"
+    },
+    {
+      "group": "G. Theorem 2",
+      "check": "g1 <= g2 at the third-regime point",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "a_i*(r + 1)*(-a_i*r + a_j*(1 - r))/(r*(a_i*(r + 1) + a_j*r)); nonnegative when x <= (1-r)/r, implied by x <= (1-r)/(1+r)"
+    },
+    {
+      "group": "G. Theorem 2",
+      "check": "continuity at x = (1-r)/(1+r)",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a_j*(1 - r)*(a_j*(1 - r)/(r + 1) + a_j)/(a_j*r + a_j*(1 - r)) - (1 - r)*(a_j*(1 - r)/(r + 1) + a_j) = 0"
+    },
+    {
+      "group": "G. Theorem 2",
+      "check": "continuity at x = (1-r)/(2r)",
+      "kind": "identity",
+      "passed": true,
+      "detail": "-a_j*(1 - r**2)/(2*r) + (1 - r)*(a_j + a_j*(1 - r)/(2*r)) = 0"
+    },
+    {
+      "group": "G. Theorem 2",
+      "check": "no regime where g2 meets g4",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "(1 - r)/(r*(r + 1)); positive for 0 < r < 1, so x >= (1-r)/r and x <= (1-r)/(1+r) cannot both hold"
+    },
+    {
+      "group": "H. Theorem 5, C31",
+      "check": "unit caps",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "A*(r + 1) - A_J*(1 - r); nonnegative exactly when a(I) >= A_J(1-r)/(1+r)"
+    },
+    {
+      "group": "H. Theorem 5, C31",
+      "check": "grand cost",
+      "kind": "identity",
+      "passed": true,
+      "detail": "A_J*(A*r/A_J + r)/r + a_K = A + A_J + a_K"
+    },
+    {
+      "group": "H. Theorem 5, C31",
+      "check": "slack bilinear in (sigma, a(T))",
+      "kind": "bilinearity",
+      "passed": true,
+      "detail": "second derivatives in each variable vanish, so the minimum over a box is at a corner"
+    },
+    {
+      "group": "H. Theorem 5, C31",
+      "check": "corner (0,0)",
+      "kind": "identity",
+      "passed": true,
+      "detail": "0 = 0"
+    },
+    {
+      "group": "H. Theorem 5, C31",
+      "check": "corner (0,A_J)",
+      "kind": "identity",
+      "passed": true,
+      "detail": "-A_J + A_J/r = A_J*(-1 + 1/r)"
+    },
+    {
+      "group": "H. Theorem 5, C31",
+      "check": "corner (1,0)",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "(-2*A*r + A_J*(1 - r))/r; nonnegative exactly when a(I) <= A_J(1-r)/(2r)"
+    },
+    {
+      "group": "H. Theorem 5, C31",
+      "check": "corner (1,A_J)",
+      "kind": "identity",
+      "passed": true,
+      "detail": "-A - A_J + A_J*(A*r/A_J + r)/r = 0"
+    },
+    {
+      "group": "H. Theorem 5, C31",
+      "check": "value (1-r)a(F)",
+      "kind": "identity",
+      "passed": true,
+      "detail": "A + A_J*(-A*r/A_J - r + 1) = (1 - r)*(A + A_J)"
+    },
+    {
+      "group": "H. Theorem 5, H",
+      "check": "unit singleton cost a_i",
+      "kind": "identity",
+      "passed": true,
+      "detail": "1 = 1"
+    },
+    {
+      "group": "H. Theorem 5, H",
+      "check": "grand cost",
+      "kind": "identity",
+      "passed": true,
+      "detail": "A*(1 - A_J*(1 - r)/(2*A*r)) - A_J*(1 - r)/(2*r) + A_J/r + a_K = A + A_J + a_K"
+    },
+    {
+      "group": "H. Theorem 5, H",
+      "check": "slack a(T)(1/r-1)(1-sigma)",
+      "kind": "identity",
+      "passed": true,
+      "detail": "A*sigma*(1 - A_J*(1 - r)/(2*A*r)) - A*sigma - T - T*sigma*(1 - r)/(2*r) + T/r + sigma*(A_J*(1 - r)/(2*r) - T*(1 - r)/(2*r)) = T*(-1 + 1/r)*(1 - sigma)"
+    },
+    {
+      "group": "H. Theorem 5, H",
+      "check": "value A_J(1-r^2)/(2r)",
+      "kind": "identity",
+      "passed": true,
+      "detail": "-A*(1 - A_J*(1 - r)/(2*A*r)) + A + A_J*(1/2 - r/2) = A_J*(1 - r**2)/(2*r)"
+    },
+    {
+      "group": "H. Theorem 5, H",
+      "check": "unit coefficients nonnegative",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "A - A_J*(1 - r)/(2*r); nonnegative exactly when a(I) >= A_J(1-r)/(2r)"
+    },
+    {
+      "group": "H. Theorem 5, G",
+      "check": "unit caps tight",
+      "kind": "identity",
+      "passed": true,
+      "detail": "1/r = 1/r"
+    },
+    {
+      "group": "H. Theorem 5, G",
+      "check": "fractional caps",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "A*(-A*(r + 1) + A_J*(1 - r))/(A_J*(A*(r + 1) + A_J*r)); nonnegative exactly when a(I) <= A_J(1-r)/(1+r)"
+    },
+    {
+      "group": "H. Theorem 5, G",
+      "check": "grand cost",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a_K + (A*(r + 1) + A_J*r)*(-A/(A*(r + 1) + A_J*r) + 1)/r = A + A_J + a_K"
+    },
+    {
+      "group": "H. Theorem 5, G",
+      "check": "slack bilinear in (sigma, a(T))",
+      "kind": "bilinearity",
+      "passed": true,
+      "detail": "second derivatives in each variable vanish, so the minimum over a box is at a corner"
+    },
+    {
+      "group": "H. Theorem 5, G",
+      "check": "corner (0,0)",
+      "kind": "identity",
+      "passed": true,
+      "detail": "0 = 0"
+    },
+    {
+      "group": "H. Theorem 5, G",
+      "check": "corner (0,A_J) via lambda >= 1",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "A*(r + 1)/(A_J*r); positive, so lambda >= 1"
+    },
+    {
+      "group": "H. Theorem 5, G",
+      "check": "corner (1,0)",
+      "kind": "identity",
+      "passed": true,
+      "detail": "-A + A/r = A*(-1 + 1/r)"
+    },
+    {
+      "group": "H. Theorem 5, G",
+      "check": "corner (1,A_J)",
+      "kind": "identity",
+      "passed": true,
+      "detail": "-A - A_J + (A*(r + 1) + A_J*r)*(-A/(A*(r + 1) + A_J*r) + 1)/r = 0"
+    },
+    {
+      "group": "H. Theorem 5, G",
+      "check": "value reduces to the third regime of Theorem 2",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a_i*a_j/(a_i*(r + 1) + a_j*r) + a_i = a_i*(a_i + a_j)*(r + 1)/(a_i*(r + 1) + a_j*r)"
+    },
+    {
+      "group": "I. Proposition 5",
+      "check": "pair mass at the minimal cut",
+      "kind": "identity",
+      "passed": true,
+      "detail": "9*s_scale/(5*n) = 9*s_scale/(5*n)"
+    },
+    {
+      "group": "I. Proposition 5",
+      "check": "cut size |S|(n-|S|) >= n-1",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "(S_size - 1)*(-S_size + n - 1); nonnegative for 1 <= |S| <= n-1"
+    },
+    {
+      "group": "I. Proposition 5",
+      "check": "sum of pair outer products, n = 3",
+      "kind": "identity",
+      "passed": true,
+      "detail": "matrix identity"
+    },
+    {
+      "group": "I. Proposition 5",
+      "check": "sum of pair outer products, n = 4",
+      "kind": "identity",
+      "passed": true,
+      "detail": "matrix identity"
+    },
+    {
+      "group": "I. Proposition 5",
+      "check": "sum of pair outer products, n = 5",
+      "kind": "identity",
+      "passed": true,
+      "detail": "matrix identity"
+    },
+    {
+      "group": "I. Proposition 5",
+      "check": "sum of pair outer products, n = 6",
+      "kind": "identity",
+      "passed": true,
+      "detail": "matrix identity"
+    },
+    {
+      "group": "I. Proposition 5",
+      "check": "caps hold with equality at the binding producer",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a_jj*epsilon*kappa_j + a_jj*(-epsilon*kappa_j + 1/r) = a_jj/r"
+    },
+    {
+      "group": "J. windows",
+      "check": "window length between I_{p+1} and I_p",
+      "kind": "identity",
+      "passed": true,
+      "detail": "-(m - p - 1)/(m + p + 1) + (m - 2*p)/m = (2*m - 2*p**2 - 2*p)/(m*(m + p + 1))"
+    }
+  ]
+}

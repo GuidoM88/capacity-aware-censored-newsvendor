@@ -263,6 +263,9 @@ V_p(r)=\frac1n\bigl(p-1+(p+1)r+2t_1\bigr).
 \begin{theorem}\label{thm:windows}
 Let $p^2+p<m$, $r_L\le r\le r_R$ and $Q(r)=mr^2+2(p-1)r+2+2p-m$. Then
 $\Gamma_k=V_p(r)$ if $Q(r)\ge0$ and $\Gamma_k=H_{p+1}(r)$ if $Q(r)\le0$.
+Equivalently $\Gamma_k=\max(V_p,H_{p+1})$, since
+$V_p-H_{p+1}=a(m+p+1)(r-r_L)\,Q(r)/(2rD)$ with $D=2(p+1)-m(1-r)>0$ on the
+window.
 \end{theorem}
 
 \begin{proof}
@@ -442,7 +445,9 @@ Section~3 need to be rebuilt.
 
 \paragraph{Reproducibility.} Every construction, closed form and computational
 claim is checked by scripts that write their outcomes to JSON before any summary
-is generated; exact rational arithmetic is used for all constructions.
+is generated; exact rational arithmetic is used for all constructions, and the
+algebra of every proof (identities, corner values, dual weights and the sign
+factorizations) is verified symbolically for general sizes.
 
 \bibliographystyle{plainnat}
 \bibliography{references}
