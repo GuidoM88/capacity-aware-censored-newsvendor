@@ -1,0 +1,77 @@
+{
+ "date": "2026-11-07",
+ "cases": [
+  {
+   "label": "equal shares, window",
+   "shares": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+   ],
+   "depth": 1,
+   "kappa": 1.2,
+   "r": 0.2405,
+   "certificate": 0.5682568976161079,
+   "membership": [
+    0.0,
+    1.0,
+    0.865609,
+    0.402341
+   ],
+   "best_segment_law": 0.5669875829575327,
+   "segment_law_as_atoms": 0.5669875829561917,
+   "atoms": 36,
+   "hops": 150,
+   "best_general_law": 0.5669875829561917
+  },
+  {
+   "label": "equal shares, window",
+   "shares": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+   ],
+   "depth": 1,
+   "kappa": 1.1,
+   "r": 0.2538,
+   "certificate": 0.5552885486305801,
+   "membership": [
+    0.0,
+    1.0,
+    0.84293,
+    0.3739
+   ],
+   "best_segment_law": 0.5542075277283587,
+   "segment_law_as_atoms": 0.5542075277137813,
+   "atoms": 54,
+   "hops": 150,
+   "best_general_law": 0.5542075277137813
+  },
+  {
+   "label": "arbitrary shares, seed 7591",
+   "shares": [
+    0.425531914893617,
+    0.1276595744680851,
+    0.10638297872340426,
+    0.3404255319148936
+   ],
+   "depth": 1,
+   "kappa": 1.5,
+   "r": 0.62,
+   "certificate": 0.32755010152732417,
+   "membership": [
+    0.205444,
+    1.0,
+    0.0,
+    0.325207
+   ],
+   "best_segment_law": 0.32579148811897995,
+   "segment_law_as_atoms": 0.3257914881177986,
+   "atoms": 72,
+   "hops": 150,
+   "best_general_law": 0.3257914881177986
+  }
+ ]
+}

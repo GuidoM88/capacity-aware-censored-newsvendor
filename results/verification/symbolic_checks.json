@@ -1226,6 +1226,139 @@
       "kind": "sign by factorization",
       "passed": true,
       "detail": "(m + p**2 + p)/(m*p*(p + 1)); positive, so the closing ratio decreases in p"
+    },
+    {
+      "group": "L. two-block families",
+      "check": "ceiling: coalition slack bilinear in (theta, A')",
+      "kind": "bilinearity",
+      "passed": true,
+      "detail": "second derivatives in each variable vanish, so the minimum over a box is at a corner"
+    },
+    {
+      "group": "L. two-block families",
+      "check": "ceiling: slack zero for the whole face (grand cost one)",
+      "kind": "identity",
+      "passed": true,
+      "detail": "-A_J + A_J*(r + a_I*r/A_J)/r - a_I = 0"
+    },
+    {
+      "group": "L. two-block families",
+      "check": "ceiling: slack of the fractional block",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "A_J*(1 - r)/r; nonnegative"
+    },
+    {
+      "group": "L. two-block families",
+      "check": "ceiling: slack of the unit block",
+      "kind": "identity",
+      "passed": true,
+      "detail": "A_J*lambda_c*(-r + 1 - a_I*r/A_J)/r - a_I = (A_J*lambda_c*(-r + 1 - a_I*r/A_J) - a_I*r)/r"
+    },
+    {
+      "group": "L. two-block families",
+      "check": "ceiling: witness value (1-r)a(F)",
+      "kind": "identity",
+      "passed": true,
+      "detail": "A_J*(-r + 1 - a_I*r/A_J) + a_I = (1 - r)*(A_J + a_I)"
+    },
+    {
+      "group": "L. two-block families",
+      "check": "shortfall: coalition slack bilinear",
+      "kind": "bilinearity",
+      "passed": true,
+      "detail": "second derivatives in each variable vanish, so the minimum over a box is at a corner"
+    },
+    {
+      "group": "L. two-block families",
+      "check": "shortfall: slack zero for the unit block",
+      "kind": "identity",
+      "passed": true,
+      "detail": "A_J*kappa_pen*(1 - r)/(r*(kappa_pen + 1)) + a_I*(-A_J*kappa_pen*(1 - r)/(a_I*r*(kappa_pen + 1)) + 1) - a_I = 0"
+    },
+    {
+      "group": "L. two-block families",
+      "check": "shortfall: slack zero for the whole face",
+      "kind": "identity",
+      "passed": true,
+      "detail": "-A_J + A_J*(-(1 - r)/(kappa_pen + 1) + 1)/r + a_I*(-A_J*kappa_pen*(1 - r)/(a_I*r*(kappa_pen + 1)) + 1) - a_I = 0"
+    },
+    {
+      "group": "L. two-block families",
+      "check": "shortfall: slack of the fractional block",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "A_J*(1 - r)/r; nonnegative"
+    },
+    {
+      "group": "L. two-block families",
+      "check": "shortfall: every unit costs exactly its share",
+      "kind": "identity",
+      "passed": true,
+      "detail": "1 = 1"
+    },
+    {
+      "group": "L. two-block families",
+      "check": "shortfall: unit weight nonnegative",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "(-A_J*kappa_pen*(1 - r) + a_I*r*(kappa_pen + 1))/(a_I*r*(kappa_pen + 1)); nonnegative iff a(I)/A_J >= kappa(1-r)/(r(1+kappa))"
+    },
+    {
+      "group": "L. two-block families",
+      "check": "shortfall: witness value",
+      "kind": "identity",
+      "passed": true,
+      "detail": "A_J*(1 - r)/(kappa_pen + 1) - a_I*(-A_J*kappa_pen*(1 - r)/(a_I*r*(kappa_pen + 1)) + 1) + a_I = A_J*(1 - r)*(kappa_pen + r)/(r*(kappa_pen + 1))"
+    },
+    {
+      "group": "L. two-block families",
+      "check": "unit-cap: coalition slack bilinear",
+      "kind": "bilinearity",
+      "passed": true,
+      "detail": "second derivatives in each variable vanish, so the minimum over a box is at a corner"
+    },
+    {
+      "group": "L. two-block families",
+      "check": "unit-cap: slack zero for the whole face",
+      "kind": "identity",
+      "passed": true,
+      "detail": "-A_J - a_I + (A_J*r + a_I*(kappa_pen + r))*(-a_I*kappa_pen/(A_J*r + a_I*(kappa_pen + r)) + 1)/r = 0"
+    },
+    {
+      "group": "L. two-block families",
+      "check": "unit-cap: slack of the fractional block",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "a_I*(kappa_pen + r)/r; nonnegative"
+    },
+    {
+      "group": "L. two-block families",
+      "check": "unit-cap: slack of the unit block",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "a_I*(1 - r)/r; nonnegative"
+    },
+    {
+      "group": "L. two-block families",
+      "check": "unit-cap: units at their caps",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a_I/r = a_I/r"
+    },
+    {
+      "group": "L. two-block families",
+      "check": "unit-cap: fractional caps",
+      "kind": "sign by factorization",
+      "passed": true,
+      "detail": "(A_J*(1 - r) - a_I*(kappa_pen + r))/(A_J*r); nonnegative iff a(I)/A_J <= (1-r)/(r+kappa)"
+    },
+    {
+      "group": "L. two-block families",
+      "check": "unit-cap: witness value",
+      "kind": "identity",
+      "passed": true,
+      "detail": "A_J*a_I*kappa_pen/(A_J*r + a_I*(kappa_pen + r)) + a_I = a_I*(A_J + a_I)*(kappa_pen + r)/(A_J*r + a_I*(kappa_pen + r))"
     }
   ]
 }

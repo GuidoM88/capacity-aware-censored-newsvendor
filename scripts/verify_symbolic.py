@@ -438,6 +438,48 @@ factorization(G, "windows: the first window closes last",
               (m + p**2 + p) / (p * (p + 1) * m), "positive, so the closing ratio decreases in p")
 
 
+# ---------------------------------------------------------------------------
+# L. Two-block families for arbitrary shares under asymmetric penalties.
+# aI, AJ: share totals of the units and of the fractional producers;
+# th = a(I')/a(I) and Ap = a(J') describe a coalition inside the face.
+# ---------------------------------------------------------------------------
+aI, AJ, th, Ap, lm = sp.symbols("a_I A_J theta A_prime lambda_c", positive=True)
+G = "L. two-block families"
+tcb = 1 - r - r * aI / AJ
+slack_cb = Ap * (1 - tcb * th) / r + lm * (AJ - Ap) * tcb * th / r - th * aI - Ap
+bilinear(G, "ceiling: coalition slack bilinear in (theta, A')", slack_cb, th, Ap)
+identity(G, "ceiling: slack zero for the whole face (grand cost one)", slack_cb.subs({th: 1, Ap: AJ}), 0)
+factorization(G, "ceiling: slack of the fractional block", slack_cb.subs({th: 0, Ap: AJ}), AJ * (1 - r) / r,
+              "nonnegative")
+identity(G, "ceiling: slack of the unit block", slack_cb.subs({th: 1, Ap: 0}), (lm * tcb * AJ - r * aI) / r)
+identity(G, "ceiling: witness value (1-r)a(F)", aI + tcb * AJ, (1 - r) * (aI + AJ))
+tsb = (1 - r) / (1 + kp)
+om = 1 - AJ * kp * (1 - r) / (r * (1 + kp) * aI)
+slack_sb = Ap * (1 - tsb * th) / r + kp * (AJ - Ap) * tsb * th / r + om * th * aI - th * aI - Ap
+bilinear(G, "shortfall: coalition slack bilinear", slack_sb, th, Ap)
+identity(G, "shortfall: slack zero for the unit block", slack_sb.subs({th: 1, Ap: 0}), 0)
+identity(G, "shortfall: slack zero for the whole face", slack_sb.subs({th: 1, Ap: AJ}), 0)
+factorization(G, "shortfall: slack of the fractional block", slack_sb.subs({th: 0, Ap: AJ}), AJ * (1 - r) / r,
+              "nonnegative")
+identity(G, "shortfall: every unit costs exactly its share", kp * tsb * AJ / (r * aI) + om, 1)
+factorization(G, "shortfall: unit weight nonnegative", om, (r * (1 + kp) * aI - kp * (1 - r) * AJ) / (r * (1 + kp) * aI),
+              "nonnegative iff a(I)/A_J >= kappa(1-r)/(r(1+kappa))")
+identity(G, "shortfall: witness value", aI + tsb * AJ - om * aI, AJ * (1 - r) * (r + kp) / (r * (1 + kp)))
+tub = kp * aI / (aI * (r + kp) + r * AJ)
+sub_ = aI / (r * tub * AJ)
+slack_ub = kp * sub_ * Ap * (1 - tub * th) + sub_ * (AJ - Ap) * tub * th - th * aI - Ap
+bilinear(G, "unit-cap: coalition slack bilinear", slack_ub, th, Ap)
+identity(G, "unit-cap: slack zero for the whole face", slack_ub.subs({th: 1, Ap: AJ}), 0)
+factorization(G, "unit-cap: slack of the fractional block", slack_ub.subs({th: 0, Ap: AJ}),
+              aI * (r + kp) / r, "nonnegative")
+factorization(G, "unit-cap: slack of the unit block", slack_ub.subs({th: 1, Ap: 0}), aI * (1 - r) / r,
+              "nonnegative")
+identity(G, "unit-cap: units at their caps", sub_ * tub * AJ, aI / r)
+factorization(G, "unit-cap: fractional caps", 1 / r - kp * sub_, (AJ * (1 - r) - aI * (r + kp)) / (r * AJ),
+              "nonnegative iff a(I)/A_J <= (1-r)/(r+kappa)")
+identity(G, "unit-cap: witness value", aI + tub * AJ, aI * (r + kp) * (aI + AJ) / (aI * (r + kp) + r * AJ))
+
+
 def main():
     failed = [c for c in CHECKS if not c["passed"]]
     output = ROOT / "results/verification/symbolic_checks.json"

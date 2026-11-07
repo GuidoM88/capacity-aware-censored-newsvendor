@@ -555,6 +555,35 @@ $(m-(1+\kappa)p)(\kappa m+p+1)-m\kappa(m-p-1)
 =(1+\kappa)\bigl(m(p+1-p\kappa)-p(p+1)\bigr)$.
 \end{proof}
 
+For arbitrary shares at intermediate depths the same segments, applied to two
+blocks of producers, give a lower bound. For an excluded set $K$ and a split
+of $F=N\setminus K$ into units $I$ and fractional producers $J$, give each
+$j\in J$ one segment along $(ta_i/a(I))_{i\in I}-e_j$ with coefficients
+proportional to $a_j$, as in the three regimes of
+Theorem~\ref{thm:asymlast}. The cost of a coalition then depends only on
+$a(S\cap I)/a(I)$ and $a(S\cap J)$, and its stability slack is bilinear in
+these two numbers. Hence
+\begin{equation}\label{eq:blocks}
+\Gamma_k^\kappa(w,r)\ \ge\ \max_{K,\,I}\ \Psi\bigl(a(I),a(F\setminus I)\bigr),
+\end{equation}
+with $\Psi$ the function of Theorem~\ref{thm:asymlast} evaluated at the two
+share totals; for $\kappa=1$ this is the best of the families C31, H and G of
+Theorem~\ref{thm:families}.
+In 600 random instances at intermediate depths ($n\le6$), the bound
+\eqref{eq:blocks} equals the certificate bound in all 299 instances with
+$\kappa\ge2$. For $1<\kappa<2$ it does so in 201 of 204; the three exceptions
+resemble the windows below, with differences of at most $1.8\cdot10^{-3}$.
+
+\begin{conjecture}\label{conj:blocks}
+For $\kappa\ge2$, every depth and all positive shares, equality holds in
+\eqref{eq:blocks}.
+\end{conjecture}
+
+For equal shares the conjecture is Theorem~\ref{thm:asymequal}. Its content
+is that the transitional family of Conjecture~\ref{conj:closed} is no longer
+needed once a shortfall costs at least twice as much as a surplus.
+
+
 For four producers at depth one and $r=1/4$ the worst gap rises from $31/56$
 with symmetric penalties to $9/16$ with $\kappa=2$. Asymmetry never helps:
 every exact value above is nondecreasing in $\kappa$, and as $\kappa\to\infty$
@@ -578,8 +607,7 @@ Three questions remain open. The upper bound in Conjecture~\ref{conj:closed};
 whether the relaxation over all seminorms, which the explicit laws met in every
 case we computed, always coincides with the worst case over demand laws; and
 the narrow windows that asymmetric penalties leave open in
-Section~\ref{sec:asym}, together with arbitrary shares at intermediate depths
-under asymmetric penalties.
+Section~\ref{sec:asym}, together with Conjecture~\ref{conj:blocks}.
 
 \paragraph{Reproducibility.} Every construction, closed form and computational
 claim is checked by scripts that write their outcomes to JSON before any summary

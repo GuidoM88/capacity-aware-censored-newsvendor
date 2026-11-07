@@ -410,3 +410,67 @@ def asymmetric_equal_share_construction(n, r, depth, kappa, *, family=None, p=No
     z = _vec(n, {**{i: 1 for i in range(p)}, **{j: t for j in range(p, m)}})
     return {"family": family, "p": p, "segments": segments + excluded,
             "membership": z, "value": value}
+
+
+# ---------------------------------------------------------------------------
+# Arbitrary shares at every depth: two-block families
+# ---------------------------------------------------------------------------
+
+def asymmetric_block_construction(shares, r, kappa, excluded, units):
+    """The two-block law for an excluded set K and units I (fractional J = F - I).
+
+    Its value is the last-depth formula applied to the blocks,
+    Psi_kappa(a(I), A_J), in the regime fixed by x = a(I)/A_J. One segment per
+    fractional j along d_j = (t a_i/a(I) on the units, -1 on j), so d_j'z = 0:
+      shortfall: alpha = kappa a_j/r, beta = a_j/r, t = (1-r)/(1+kappa), plus a
+                 symmetric segment of weight w a_i on each unit;
+      ceiling:   beta = a_j/r, alpha = lam a_j/r with lam in [1/kappa, kappa]
+                 and r a(I) <= lam t A_J <= a(I), t = 1 - r - r x;
+      unit-cap:  alpha = s a_j, beta = kappa s a_j with s = a(I)/(r t A_J),
+                 t = kappa a(I)/(a(I)(r+kappa) + r A_J).
+    Excluded producers get symmetric segments of weight a_k.
+    """
+    a = [F(x) for x in shares]
+    r, kappa = F(r), F(kappa)
+    n = len(a)
+    face = [j for j in range(n) if j not in excluded]
+    fractional = [j for j in face if j not in units]
+    a_units, a_frac = sum(a[i] for i in units), sum(a[j] for j in fractional)
+    regime, t, value = asymmetric_pair_regime(a_units, a_frac, r, kappa)
+    segments = [(_vec(n, {k: 1}), a[k], a[k]) for k in excluded]
+
+    def direction(j):
+        return _vec(n, {**{i: t * a[i] / a_units for i in units}, j: -1})
+
+    if regime == "shortfall":
+        weight = 1 - a_frac * kappa * (1 - r) / (r * (1 + kappa) * a_units)
+        segments += [(direction(j), kappa * a[j] / r, a[j] / r) for j in fractional]
+        segments += [(_vec(n, {i: 1}), weight * a[i], weight * a[i]) for i in units]
+    elif regime == "ceiling":
+        low = max(1 / kappa, r * a_units / (t * a_frac))
+        high = min(kappa, a_units / (t * a_frac))
+        lam = min(max(F(1), low), high)
+        segments += [(direction(j), lam * a[j] / r, a[j] / r) for j in fractional]
+    else:
+        s = a_units / (r * t * a_frac)
+        segments += [(direction(j), s * a[j], kappa * s * a[j]) for j in fractional]
+    z = _vec(n, {**{i: 1 for i in units}, **{j: t for j in fractional}})
+    return {"regime": regime, "excluded": tuple(excluded), "units": tuple(units),
+            "segments": segments, "membership": z, "value": value}
+
+
+def asymmetric_best_block(shares, r, depth, kappa):
+    """Largest two-block value max over K and I of Psi_kappa(a(I), A_J), with its law."""
+    a = [F(x) for x in shares]
+    n = len(a)
+    best = None
+    for excluded in itertools.combinations(range(n), depth):
+        face = [j for j in range(n) if j not in excluded]
+        for size in range(1, len(face)):
+            for units in itertools.combinations(face, size):
+                a_units = sum(a[i] for i in units)
+                a_frac = sum(a[j] for j in face) - a_units
+                value = asymmetric_pair_regime(a_units, a_frac, r, kappa)[2]
+                if best is None or value > best[0]:
+                    best = (value, excluded, units)
+    return asymmetric_block_construction(a, r, kappa, best[1], best[2])

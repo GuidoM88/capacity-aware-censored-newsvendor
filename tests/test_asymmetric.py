@@ -3,12 +3,13 @@ import unittest
 from fractions import Fraction as F
 
 from censored_newsvendor.asymmetric import (
-    _vec, asymmetric_equal_share_construction, asymmetric_equal_share_value,
+    _vec, asymmetric_best_block, asymmetric_equal_share_construction, asymmetric_equal_share_value,
     asymmetric_last_depth_construction, asymmetric_last_depth_value, asymmetric_windows,
     level_for_ratio, pinball_cost, ratio_for_level, segment_cost, three_point_law,
     verify_segments)
 from censored_newsvendor.certificates import certificate_bound
-from censored_newsvendor.exact_envelopes import equal_share_value, last_depth_value
+from censored_newsvendor.exact_envelopes import (
+    equal_share_value, general_cap_binding_candidates, general_share_construction, last_depth_value)
 from censored_newsvendor.seminorm_envelope import minimal_cost
 
 
@@ -107,6 +108,41 @@ class EqualShareTests(unittest.TestCase):
         self.assertEqual(asymmetric_equal_share_value(4, F(1, 4), 1, 2), F(9, 16))
         bound, _ = certificate_bound([.25] * 4, .25, 1, kappa=2.0)
         self.assertAlmostEqual(bound, 9 / 16, places=9)
+
+
+class TwoBlockTests(unittest.TestCase):
+    def test_laws_are_valid_at_intermediate_depths(self):
+        rng = random.Random(4)
+        for _ in range(10):
+            n = rng.choice([4, 5])
+            raw = [rng.randint(1, 20) for _ in range(n)]
+            shares = [F(x, sum(raw)) for x in raw]
+            r, kappa = F(rng.randint(1, 19), 20), rng.choice([F(1), F(2), F(10)])
+            depth = rng.randint(1, n - 3)
+            block = asymmetric_best_block(shares, r, depth, kappa)
+            check = verify_segments(block["segments"], shares, r, kappa,
+                                    block["membership"], block["value"])
+            self.assertTrue(attained(check), (shares, r, kappa, depth, check))
+
+    def test_last_depth_is_theorem_a(self):
+        shares = [F(3, 10), F(1, 2), F(1, 5)]
+        for r in (F(1, 5), F(1, 2), F(4, 5)):
+            for kappa in (1, 2, 5):
+                self.assertEqual(asymmetric_best_block(shares, r, 1, kappa)["value"],
+                                 asymmetric_last_depth_value(shares, r, kappa))
+
+    def test_kappa_one_is_the_best_of_the_three_symmetric_families(self):
+        rng = random.Random(8)
+        for _ in range(8):
+            n = rng.choice([4, 5])
+            raw = [rng.randint(1, 20) for _ in range(n)]
+            shares = [F(x, sum(raw)) for x in raw]
+            r, depth = F(rng.randint(1, 19), 20), rng.randint(1, n - 3)
+            symmetric = [c["value"] for c in general_cap_binding_candidates(shares, r, depth)]
+            two = general_share_construction(shares, r, depth)
+            if two is not None:
+                symmetric.append(two["value"])
+            self.assertEqual(asymmetric_best_block(shares, r, depth, 1)["value"], max(symmetric))
 
 
 class RelaxationTests(unittest.TestCase):

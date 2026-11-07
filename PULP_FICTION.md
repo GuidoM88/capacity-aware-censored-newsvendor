@@ -45,12 +45,14 @@ it easy to compare them before deciding what goes into the paper.
   from a surplus can only increase the overstatement. The last depth is
   solved for every penalty ratio kappa (Theorem A); for equal shares the
   windows shrink and vanish once kappa >= 2(m-1)/m, which leaves a two-piece
-  formula (Theorem B).
+  formula (Theorem B). For arbitrary shares the best split into two blocks
+  gives a lower bound at every depth (Theorem C); for kappa >= 2 it was the
+  exact answer in all 299 random instances tried (Conjecture C).
 * **Open.** A proof of the upper bound for arbitrary shares (Conjecture 6);
   general conditions for one of the four families; a proof that the seminorm
   relaxation is always attained by a demand law; the asymmetric windows for
-  1 < kappa < 2(m-1)/m; asymmetric penalties with arbitrary shares at
-  intermediate depths.
+  1 < kappa < 2(m-1)/m, where the relaxation may not be attained at all;
+  Conjecture C.
 
 ## How to read the branch
 
@@ -454,15 +456,55 @@ verified in exact arithmetic, 1605 explicit laws evaluated directly under
 the asymmetric loss, 288 certificate cross-checks, and 41 new symbolic checks
 (175 in total, all passing).
 
+### 17. Arbitrary shares with asymmetric penalties
+
+The next step after Theorems A and B was to go back to arbitrary shares at
+intermediate depths, where even the symmetric case rests on a conjecture
+(Conjecture 6). The three explicit families of Theorem 5 (C31, H and G)
+share one structure: a block of units at 1, a block of fractional producers
+at a common level t, one generator per fractional producer, and
+coefficients proportional to the shares. With asymmetric penalties each
+generator becomes a segment, and the cost of a coalition depends only on two
+numbers: the fraction of the units' share it contains and the fractional
+share it contains. The stability slack is bilinear in these two numbers, so
+four corner coalitions decide everything, and they reduce to the conditions
+of the last-depth regimes. The result is Theorem C: the two-producer formula
+of Theorem A, applied to the best split into two blocks, is a lower bound at
+every depth and for every ratio.
+
+Whether it is also the answer we tested on 600 random instances against the
+certificate bound ([summary](results/asymmetric/general_shares.md)). For
+kappa >= 2 it matched in all 299 instances. For kappa = 1 the fourth,
+transitional family of Conjecture 6 was needed in 8 of 97 instances, as
+expected. For 1 < kappa < 2, three instances out of 204 stayed open, with
+differences of at most 1.8e-3. Hence Conjecture C: for kappa >= 2 the worst
+gap is the two-block formula, and the transitional family disappears, just
+as the windows do for equal shares.
+
+The first run of this check crashed at the very end, because a numpy boolean
+cannot be written to JSON, and nothing was saved. The values are now
+converted explicitly and the run was repeated; the numbers above come from
+the saved run.
+
+The open cases raised one more question: could general finite laws, not
+just sums of segments, reach the certificate bound? Under pinball loss the
+cost of a finite law is linear in the atom positions once the order of the
+atoms along each test vector is fixed, so the best law in an order cell is
+an LP. A local search over such cells, started from the best segment law,
+found no improvement in any of three cases
+([probe](results/asymmetric/general_law_probe.md)). This is a hint, not a
+proof: with asymmetric penalties the relaxation can apparently overstate the
+true worst case inside these narrow regions, which never happened with
+symmetric loss.
+
 ### What we would do next
 
 The list is kept up to date in [PROGRESS.md](PROGRESS.md).
 
-1. Asymmetric penalties with arbitrary shares at intermediate depths: the
-   four families of Theorem 5 should generalize as the last-depth regimes
-   did; both LPs already accept kappa.
-2. The remaining asymmetric windows: an asymmetric analogue of V_p, or laws
-   outside the segment class.
+1. Prove Conjecture C. For kappa >= 2 only the two-block laws are involved,
+   so the upper bound may be easier than in Conjecture 6.
+2. The remaining asymmetric regions: either an asymmetric analogue of V_p,
+   or a proof that no demand law reaches the relaxation there.
 3. Revise the draft in `paper_exact/`: a careful read of every proof, an
    example section with numbers a practitioner can use, and the literature
    check of the plan.
@@ -501,7 +543,9 @@ be numbered at merge time.
 | PF21 | With asymmetric penalties of ratio kappa the cost is sublinear with c(-x) <= kappa c(x); every sum of kappa-segments is the cost of a finite three-point mixture; hence the C31 ceiling remains an upper bound and every symmetric lower bound remains attained | asymmetric_penalties.md Sections 1-2; symbolic group K | Proved |
 | PF22 | Theorem A: arbitrary shares at depth n-2, exact worst gap for every kappa, three regimes per ordered pair, explicit laws; kappa = 1 gives Theorem 2 | asymmetric_penalties.md Section 4; 300 of 300 random instances (construction, law, certificate) | Proved |
 | PF23 | Theorem B: equal shares, any depth, worst gap min{(1-r)m/n, H_1} outside windows that are nonempty iff kappa < (p+1)(m-p)/(pm); none for kappa >= 2(m-1)/m | asymmetric_penalties.md Section 5; 5565 exact constructions, 1305 laws, 288 certificate cross-checks | Proved |
-| PF24 | Inside the remaining windows (1 < kappa < 2(m-1)/m) the certificate bound equals the exact relaxation, but the best explicit law found is 4e-4 to 1.3e-3 below it (nine cases, four producers) | asymmetric_penalties.md Section 6; asymmetric_checks.md part D | Open; a gap between relaxation and laws is possible |
+| PF24 | Inside the remaining windows (1 < kappa < 2(m-1)/m), and in 3 of 204 arbitrary-share instances with 1 < kappa < 2, the certificate bound equals the exact relaxation but the best explicit law found stays up to 1.8e-3 below it; a local search over general finite laws did not improve on segment laws in 3 of these cases | asymmetric_penalties.md Sections 6-7; asymmetric_checks.md part D; general_shares.md; general_law_probe.md | Open; evidence of a gap between relaxation and demand laws |
+| PF25 | Theorem C: for arbitrary shares, every depth and every kappa, the worst gap is at least the maximum over excluded sets and splits into units and fractional producers of Psi_kappa(a(I), A_J) | asymmetric_penalties.md Section 7; symbolic group L; 600 of 600 laws verified exactly | Proved |
+| PF26 | Conjecture C: for kappa >= 2 the bound of PF25 is the worst gap | general_shares.md: 299 of 299 instances (n = 4..6, intermediate depths) | Conjecture; computational evidence |
 
 PF3 and PF6 of the earlier version (numerical windows, configuration
 heuristic) are superseded by PF9 and PF11.
@@ -520,7 +564,7 @@ heuristic) are superseded by PF9 and PF11.
 * `tests/test_exact_envelopes.py`, `tests/test_seminorm_envelope.py`, `tests/test_certificates.py`, `tests/test_symbolic.py`: fast tests.
 * `scripts/verify_symbolic.py`, `requirements-verify.txt` and `results/verification/`: symbolic verification of the proofs.
 * `PROGRESS.md`: one-page progress report with the current next steps.
-* `src/censored_newsvendor/asymmetric.py`, `docs/asymmetric_penalties.md`, `scripts/check_asymmetric_penalties.py`, `results/asymmetric/` and `tests/test_asymmetric.py`: asymmetric imbalance penalties.
+* `src/censored_newsvendor/asymmetric.py`, `docs/asymmetric_penalties.md`, `scripts/check_asymmetric_penalties.py`, `scripts/check_asymmetric_general.py`, `scripts/probe_general_laws.py`, `results/asymmetric/` and `tests/test_asymmetric.py`: asymmetric imbalance penalties.
 
 ## Merging
 

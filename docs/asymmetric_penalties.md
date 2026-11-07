@@ -22,9 +22,14 @@ A referee would ask first whether the results survive this. Short answer:
 * for equal shares at every depth the worst gap has a closed form outside a
   set of windows that shrinks as the penalties drift apart and disappears
   once the ratio reaches 2(m-1)/m, which is below 2 (Theorem B);
-* inside the windows that survive for ratios between 1 and 2(m-1)/m the
-  question is open: the relaxation and the best laws found differ slightly
-  (Section 6).
+* for arbitrary shares at every depth, the two-producer formula applied to
+  the best split into two blocks is a lower bound for every ratio
+  (Theorem C). For ratios of at least 2 it matched the certificate bound in
+  all 299 random instances tried, which suggests that it is the exact answer
+  (Conjecture C, Section 7);
+* inside the windows that survive for ratios between 1 and 2(m-1)/m, and in
+  a few arbitrary-share instances below 2, the question is open: the
+  relaxation and the best laws found differ slightly (Section 6).
 
 ## 1. Model
 
@@ -269,22 +274,92 @@ zonoid trimmed regions shifted to the mean, are richer than sums of segments.
 For kappa = 1 the symmetric family V_p closed this gap (Theorem 4 of the exact
 notes). An asymmetric analogue of V_p has not been found yet.
 
+A local search over general finite laws tried to tell the two explanations
+apart ([general_law_probe.md](../results/asymmetric/general_law_probe.md)).
+Once the order of the atoms along every test vector is fixed, the pinball
+cost is linear in the atom positions, with the optimal offer at the atom
+where the cumulative mass reaches tau, so the best law in an order cell is an
+LP; random hops move between cells. Starting from the best segment law, 150
+hops with 36 to 72 atoms found no improvement in any of three cases: two
+equal-share windows and the open arbitrary-share instance of Section 7 with
+seed 7591. This points to the first explanation. Unlike the symmetric case,
+where the relaxation was attained in every case tested, with asymmetric
+penalties the relaxation may overstate the true worst case inside these
+narrow regions. A local search is evidence, not proof.
+
 ## 7. Arbitrary shares at intermediate depths
 
-Not yet studied with asymmetric penalties. The three regimes of Theorem A are
-the two-producer cases of the families C31, H and G of Theorem 5, and the
-equal-share proofs suggest the same pattern: replace (1+r)/2 by
-(r+kappa)/(1+kappa) and let the shortfall sides carry kappa times the caps. Both
-the certificate LP and the segment-law LP already take kappa, so this can be
-tested in the same way as Conjecture 6.
+**Theorem C (two-block lower bound).** For positive shares, any depth
+1 <= k <= n-2 and kappa >= 1,
+
+$$
+\Gamma_k^\kappa(w,r)\ \ge\ \max_{K,\ I}\ \Psi_\kappa\bigl(a(I),\,a(F\setminus I)\bigr),
+$$
+
+where K runs over the excluded sets of size k, F = N \ K, I over the nonempty
+proper subsets of F, and Psi_kappa is the function of Theorem A with the two
+producers replaced by two blocks: the units I and the fractional producers
+J = F \ I, with share totals a(I) and A_J. At the last depth this is
+Theorem A. With kappa = 1 it is the best of the families C31, H and G of
+Theorem 5 of the exact notes.
+
+*Laws.* Give each fractional j one segment along
+d_j = (t a_i/a(I) on the units, -1 on j), so that d_j'z = 0 for
+z = 1_I + t 1_J, with coefficients proportional to a_j:
+
+* shortfall regime: alpha_j = kappa a_j/r, beta_j = a_j/r, t = (1-r)/(1+kappa),
+  plus a symmetric segment of weight omega a_i on each unit, with
+  omega = 1 - kappa(1-r)A_J/(r(1+kappa)a(I));
+* ceiling regime: beta_j = a_j/r and alpha_j = lambda a_j/r, with lambda in
+  [1/kappa, kappa] and r a(I) <= lambda t A_J <= a(I), t = 1 - r - r a(I)/A_J;
+* unit-cap regime: alpha_j = s a_j, beta_j = kappa s a_j, s = a(I)/(r t A_J),
+  t = kappa a(I)/(a(I)(r+kappa) + r A_J).
+
+The cost of a coalition S inside the face depends only on
+theta = a(S ∩ I)/a(I) and A' = a(S ∩ J), and its stability slack is bilinear
+in (theta, A'). So the four corners (the empty set, J, I and F) suffice, and
+they reduce to the conditions of Theorem A (group L of the symbolic checks).
+Excluded producers get symmetric segments of weight a_k, as before.
+
+**Computation** ([general_shares.md](../results/asymmetric/general_shares.md)).
+600 random instances with n = 4, 5, 6, intermediate depths 1 <= k <= n-3,
+r = k/50 and kappa drawn from {1, 5/4, 3/2, 2, 3, 10}. Every two-block law passes
+the exact verification. Compared with the certificate bound:
+
+| kappa | instances | two-block value = certificate | otherwise an explicit law reaches it | open |
+| --- | ---: | ---: | ---: | ---: |
+| 1 | 97 | 89 | 8 (the transitional family of Conjecture 6) | 0 |
+| 5/4 | 104 | 103 | 0 | 1 (difference 7.9e-4) |
+| 3/2 | 100 | 98 | 0 | 2 (difference up to 1.8e-3) |
+| 2 | 101 | 101 | | 0 |
+| 3 | 93 | 93 | | 0 |
+| 10 | 105 | 105 | | 0 |
+
+For kappa >= 2 the two-block formula equals the certificate bound in all 299
+instances, so in each of them it is the worst gap, attained by an explicit
+law. For 1 < kappa < 2 the three open instances look like the equal-share
+windows: the certificate bound equals the exact relaxation at its maximizer,
+and the best segment law stays slightly below.
+
+**Conjecture C.** For kappa >= 2, every depth and all positive shares,
+Gamma_k^kappa(w, r) = max over K and I of Psi_kappa(a(I), a(F \ I)).
+
+For equal shares this is Theorem B, since 2 >= 2(m-1)/m. The threshold 2 is
+the natural one: the equal-share windows close at 2(m-1)/m, which tends to 2
+as m grows. If true, the conjecture means that once a shortfall costs at
+least twice as much as a surplus, the transitional family of Conjecture 6
+is no longer needed: the worst case always splits the free producers into
+two blocks and behaves like a two-producer problem.
+
 
 ## 8. What changes for the overall message
 
 Asymmetric penalties make the audit's overstatement larger, never smaller.
 The elementary ceiling becomes exact on a wider range of r, and at the top of
 the range the exact value increases from (m-1)(1-r^2)/(2nr) towards
-(m-1)(1-r)/(nr). For practically relevant ratios (kappa >= 2) the equal-share
-answer is a two-piece formula with no windows. The qualitative conclusion of
+(m-1)(1-r)/(nr). For ratios of at least 2 the equal-share answer is a
+two-piece formula with no windows, and for arbitrary shares the evidence
+points to a two-block formula (Conjecture C). The qualitative conclusion of
 the paper, that fractional audits can be badly wrong even with a high
 standalone floor, is therefore robust to asymmetric pricing, and in fact
 strengthened by it.
@@ -300,7 +375,14 @@ strengthened by it.
   also as explicit laws; agreement with Theorem 1 at kappa = 1 on all 819 grid
   points; 288 of 288 certificate cross-checks outside the windows; and the
   window probe of Section 6.
-* `scripts/verify_symbolic.py`, group K: 41 identities and factorizations
-  (pinball inequality, three-point law, the three regimes of Theorem A, the
-  certificate pair, both families of Theorem B and the window condition).
+* `scripts/check_asymmetric_general.py` (results in
+  [general_shares.md](../results/asymmetric/general_shares.md)): the 600
+  random arbitrary-share instances of Section 7.
+* `scripts/probe_general_laws.py` (results in
+  [general_law_probe.md](../results/asymmetric/general_law_probe.md)): the
+  local search over general finite laws of Section 6.
+* `scripts/verify_symbolic.py`, groups K and L: 41 + 19 identities and
+  factorizations (pinball inequality, three-point law, the three regimes of
+  Theorem A, the certificate pair, both families of Theorem B, the window
+  condition, and the bilinear slacks of the two-block families).
 * `tests/test_asymmetric.py`.
