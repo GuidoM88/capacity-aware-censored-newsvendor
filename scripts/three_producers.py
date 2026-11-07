@@ -48,6 +48,20 @@ def families_on_face(shares, r, face):
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def analytic_region(a_u, a_b, a_c, r):
+    """Proved regions of Proposition T (docs/exact_envelopes.md), for the ordering u, b, c."""
+    if a_u * (1 + r) >= (1 - r) * (a_b + a_c):
+        return "top producer not small"
+    x = (a_u + a_b) / a_c
+    if x <= (1 - r) / (1 + r):
+        return "{u,b} unit-cap"
+    if x <= (1 - r) / (2 * r):
+        return "{u,b} ceiling"
+    if a_c * (1 - r) >= 2 * a_u:
+        return "{u,b} H, a_c(1-r) >= 2a_u"
+    return "open"
+
+
 def main(count=400, seed=3):
     import importlib.util
     spec = importlib.util.spec_from_file_location("ac", ROOT / "scripts/active_certificates.py")
@@ -81,6 +95,7 @@ def main(count=400, seed=3):
                     Vf = au * (1 + r) - ab * (1 - r) + 2 * t1 * ab
                     row["V_formula"] = float(Vf)
                     row["V_law_valid"] = any(c_["units"] == (u,) and c_["transitional"] == b for c_ in trans)
+                row["analytic_region"] = analytic_region(au, ab, ac_, r)
                 rows.append(row)
     out = ROOT / "results/exclusion"
     (out / "three_producers.json").write_text(json.dumps({"date": "2026-11-07", "rows": rows}) + "\n")
@@ -119,6 +134,12 @@ def main(count=400, seed=3):
               f"when a_c(1-r) >= 2a_u, and the transitional one under its sign conditions) give a bound at or "
               f"below the best family value in {covered} of {len(saved)} orderings. In the others the conjecture "
               "still holds (the LP is below the best family), but further combinations would be needed."]
+    lines += ["", "## Analytic regions (Proposition T)", "",
+              "| region | orderings | settled by the five bounds |", "| --- | ---: | ---: |"]
+    for region in ("top producer not small", "{u,b} unit-cap", "{u,b} ceiling",
+                   "{u,b} H, a_c(1-r) >= 2a_u", "open"):
+        group = [r for r in saved if r["analytic_region"] == region]
+        lines.append(f"| {region} | {len(group)} | {sum(r['covered'] for r in group)} |")
     trans = [r for r in saved if "V_law_valid" in r]
     tight = sum(1 for r in trans if r["V_law_valid"] and abs(r["lp"] - r["V_formula"]) < 1e-8)
     lines += ["", f"In the transitional region the law is valid and attains the certificate value in {tight} "

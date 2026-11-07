@@ -13,6 +13,16 @@ Orderings whose certificate LP value exceeds the best family value on the face: 
 
 Five explicit combinations of certificates (ceiling, H_u, G for {u,b}, H for {u,b} when a_c(1-r) >= 2a_u, and the transitional one under its sign conditions) give a bound at or below the best family value in 2393 of 2400 orderings. In the others the conjecture still holds (the LP is below the best family), but further combinations would be needed.
 
+## Analytic regions (Proposition T)
+
+| region | orderings | settled by the five bounds |
+| --- | ---: | ---: |
+| top producer not small | 1490 | 1490 |
+| {u,b} unit-cap | 80 | 80 |
+| {u,b} ceiling | 356 | 356 |
+| {u,b} H, a_c(1-r) >= 2a_u | 102 | 102 |
+| open | 372 | 365 |
+
 In the transitional region the law is valid and attains the certificate value in 218 of 684 orderings; in the others the value is lower and other patterns are active.
 
 ## Active certificates by region (most frequent)

@@ -639,6 +639,23 @@ orderings. The other 7 satisfy the conjecture too, but need further
 combinations, and a proof for all shares still needs an analytic argument
 that the regions where these bounds are tight cover every case.
 
+**Proposition T (three free producers).** Fix a face with three free
+producers and an ordering u, b, c of its memberships, z_u = 1 >= z_b >= z_c.
+Unless
+
+    a_u(1+r) < (1-r)(a_b + a_c),   2r(a_u + a_b) > (1-r)a_c   and   (1-r)a_c < 2a_u,
+
+the excess of every membership with that ordering is at most the value of a
+two-block family that is attained by an explicit law. If the top producer
+is not small, the bound is min{(1-r)T, H_u}, the value for units {u}.
+Otherwise the block {u, b} is in one of three regimes. In the unit-cap
+regime the bound G_ub is its value; in the ceiling window the ceiling
+(1-r)T is its value; and in the H regime with (1-r)a_c >= 2a_u the bound
+H_ub is its value. So Conjecture 6 holds for three free producers whenever
+no ordering of any face falls in the single open region above. In our
+sample 2028 of 2400 orderings lie outside it, and inside it the five bounds
+settle 365 of 372 numerically ([three_producers.md](../results/exclusion/three_producers.md)).
+
 ## 7. Strict stability and positive definite covariance
 
 The worst-case laws above make some coalition constraints hold with

@@ -149,8 +149,11 @@ the conjecture for arbitrary shares is supported by computation, not proved.
       orderings above the best family; 226 orderings in two open regions with
       identified certificate patterns). Fourth step done: two more explicit
       combinations; five bounds now settle 2393 of the 2400 sampled orderings.
-      Still needed: two or three more combinations for the last cases, and
-      an analytic argument that the regions cover all shares and r.
+      Fifth step done: the conjecture is proved for three free producers on
+      every ordering outside one explicit region (Proposition T in the
+      notes; 2028 of 2400 sampled orderings lie outside it). Still needed:
+      that region, where the five bounds settle 365 of 372 orderings
+      numerically.
 - [ ] **The open asymmetric regions**: the remaining equal-share windows for
       1 < kappa < 2(m-1)/m and transitional laws for arbitrary shares
       (counterexample value between 0.2664 and 0.2787). The likely tool is an

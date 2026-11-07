@@ -694,6 +694,16 @@ couple more combinations and, above all, an analytic covering argument: the
 sample shows the regions cover almost everything, but a proof must show it
 for all shares and r.
 
+The covering argument turned out to be partly easy. For the ordering u, b,
+c, the block {u, b} is always in exactly one of the three regimes of the
+two-producer formula, and in each of them one of the five bounds is that
+block's value. The two-block family attains it, so the conjecture holds
+there. The only exception is the H regime when (1-r)a_c < 2a_u, where the
+weight of the H_ub combination turns negative. That gives Proposition T in
+the notes. The conjecture holds for three free producers outside one
+explicit region, which contains 372 of the 2400 sampled orderings; inside it
+the five bounds still settle 365 numerically.
+
 ### What we would do next
 
 The list is kept up to date in [PROGRESS.md](PROGRESS.md).
