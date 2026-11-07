@@ -84,49 +84,51 @@ the conjecture for arbitrary shares is supported by computation, not proved.
 
 ## Next steps
 
-- [x] **Symbolic verification of all proof algebra** (done 7 November: 134
-      checks; it also turned the claim "the window value is the larger of the
-      two families" into an identity, V_p - H_{p+1} = a(m+p+1)(r - r_L)Q(r)/(2rD)).
-- [x] **Asymmetric imbalance penalties** (done 7 November: results 9 to 12;
-      [notes](docs/asymmetric_penalties.md), [checks](results/asymmetric/asymmetric_checks.md)).
-      The results survive and get stronger; one narrow region is left open.
-- [x] **Asymmetric penalties with arbitrary shares at intermediate depths**
-      (done 7 November: results 13 and 14,
-      [checks](results/asymmetric/general_shares.md)). The three families of
-      Theorem 5 extend to every kappa. For kappa >= 2 the transitional family
-      is never needed in our sample.
-- [x] **Attempted proof of Conjecture C** (7 November). The conjecture is
-      false. The attempt produced an exact counterexample (result 14) and
-      the ceiling criterion (result 15).
-- [ ] **Transitional laws for arbitrary shares under asymmetric penalties**:
-      an explicit family playing the role of V for every kappa, and the
-      exact worst case of the counterexample (between 0.2664 and 0.2787).
-- [ ] **The remaining asymmetric windows** (1 < kappa < 2(m-1)/m): find an
-      asymmetric analogue of the family V_p, or laws outside the segment class.
-- [x] **Systematic literature review** (done 7 November:
-      [literature_review.md](docs/literature_review.md)). 25 web queries,
-      30 verified references. No prior work bounds the overstatement of a
-      fractional audit; the closest are the relaxation itself (Burer and
-      Dror 2005), fuzzy-game results on when fuzzy and crisp cores coincide,
-      and the NP-hardness of core membership (Chen and Zhang 2009). The zonoid
-      identity is classical and credited. Still open: a database search
-      (Scopus, Web of Science) and full-text checks of seven items seen only
-      as abstracts.
-- [ ] **Revise the paper draft** ([paper_exact/main.pdf](paper_exact/main.pdf),
-      now 11 pages) and have the proofs read by an expert. Prepared on
-      7 November: a [guide for the expert reading](docs/proof_guide.md) (which
-      half of each proof comes from where, what is machine-checked, and the
-      seven steps that rest on reasoning alone); the formal statements were
-      re-read for consistency. At 11 pages the draft is too long for
-      Operations Research Letters; MMOR, TOP or IJGT fit as it is.
-- [ ] **Prove Conjecture 6** (the upper bound for arbitrary shares), along the
-      lines of the equal-share proof.
-- [x] **Illustration on real data** (done 7 November: result 16). Texas
-      and French panels of nearby producers (r 0.95 to 0.99) and four
-      distant US sites (r about 0.5). The audit was essentially exact on all
-      of them. So the bounds are guarantees, not predictions: when r is high
-      they certify the audit on their own; when r is low the audit must be
-      checked against the joint law.
+### Done (5 to 7 November)
+
+- [x] **Symbolic verification of all proof algebra**: now 200 checks, all
+      passing. It also turned "the window value is the larger of the two
+      families" into an identity, V_p - H_{p+1} = a(m+p+1)(r - r_L)Q(r)/(2rD).
+- [x] **Asymmetric imbalance penalties**: results 9 to 15
+      ([notes](docs/asymmetric_penalties.md)). The results survive and get
+      stronger; Conjecture C was refuted by an exact counterexample, and the
+      ceiling criterion came out of the attempt.
+- [x] **Systematic literature review**
+      ([literature_review.md](docs/literature_review.md)): 25 logged queries,
+      30 verified references, novelty assessed contribution by
+      contribution. No prior work bounds the overstatement of a fractional
+      audit.
+- [x] **Illustration on real data**: result 16. On real wind production the
+      audit was essentially exact, so the bounds are guarantees, not
+      predictions.
+- [x] **Full re-reading of the draft** (now 12 pages): two passages
+      corrected (a misattributed certificate in the proof of the last-depth
+      theorem, a notation clash), discussion updated, every number checked
+      against the saved results; a
+      [guide for the expert reading](docs/proof_guide.md) lists the seven
+      steps that rest on reasoning alone.
+
+### Before submission (needs a person)
+
+- [ ] **Expert reading of the proofs**, starting from the
+      [guide](docs/proof_guide.md): Lemmas 2 and 3, then Theorem 7, Theorems
+      4 and 5, and Section 7.
+- [ ] **Choice of venue and length.** At 12 pages the draft is too long
+      for Operations Research Letters. Either a letter with the symmetric
+      theory (Sections 2 to 6) and the rest in a supplement, or the full
+      version for MMOR, TOP or IJGT.
+- [ ] **Database search** (Scopus, Web of Science, MathSciNet) and full-text
+      checks of the seven references seen only as abstracts.
+
+### Research that would strengthen the paper (optional)
+
+- [ ] **Prove Conjecture 6** (the upper bound for arbitrary shares with
+      symmetric penalties), along the lines of the equal-share proof.
+- [ ] **The open asymmetric regions**: the remaining equal-share windows for
+      1 < kappa < 2(m-1)/m and transitional laws for arbitrary shares
+      (counterexample value between 0.2664 and 0.2787). The likely tool is an
+      inequality satisfied by all pinball costs (sections of lift zonoids)
+      beyond quasi-symmetry.
 
 ## Publication outlook
 
