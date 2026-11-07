@@ -50,6 +50,16 @@ it easy to compare them before deciding what goes into the paper.
   kappa >= 2 it is always the answer (Conjecture C). Trying to prove it
   produced an exact counterexample instead, and a proved criterion for when
   the ceiling is exact (Proposition D).
+* **Literature: no prior bound found.** A systematic search
+  ([literature_review.md](docs/literature_review.md)) found the relaxation
+  itself, the NP-hardness of core membership and results on when fuzzy and
+  crisp cores coincide, but nothing that bounds how much a fractional audit
+  can overstate.
+* **Real data: the bounds are guarantees, not predictions.** On hourly wind
+  production (three panels, 24 exact audits) the observed overstatement is at
+  most 0.0013 of the pooled cost, while the worst case for the same shares and
+  floor reaches 0.41 for a diverse portfolio
+  ([wind_audit.md](results/illustration/wind_audit.md)).
 * **Open.** A proof of the upper bound for arbitrary shares (Conjecture 6);
   general conditions for one of the four families; a proof that the seminorm
   relaxation is always attained by a demand law; the asymmetric windows for
