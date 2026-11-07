@@ -1429,6 +1429,62 @@
       "kind": "sign by factorization",
       "passed": true,
       "detail": "(a_b3*(1 - r)**2 - a_c3*(1 - r**2) + a_u3*(r + 1)**2)/(a_b3 - a_c3 + a_u3 + r*(a_b3 + a_c3 + a_u3)); nonnegative iff (1+r)^2 a_u + (1-r)^2 a_b >= (1-r^2) a_c, given D > 0"
+    },
+    {
+      "group": "O. Gaussian, nonnegative correlations",
+      "check": "Abel summation: sum gamma_i z_i^2 = sum_s A_s^2 (z_s^2 - z_{s+1}^2)",
+      "kind": "identity",
+      "passed": true,
+      "detail": "g_a1**2*g_z1**2 + g_z2**2*(-g_a1**2 + (g_a1 + g_a2)**2) + g_z3**2*(-(g_a1 + g_a2)**2 + (g_a1 + g_a2 + g_a3)**2) + g_z4**2*(-(g_a1 + g_a2 + g_a3)**2 + (g_a1 + g_a2 + g_a3 + g_a4)**2) = g_a1**2*(g_z1**2 - g_z2**2) + g_z4**2*(g_a1 + g_a2 + g_a3 + g_a4)**2 + (g_a1 + g_a2)**2*(g_z2**2 - g_z3**2) + (g_z3**2 - g_z4**2)*(g_a1 + g_a2 + g_a3)**2"
+    },
+    {
+      "group": "O. Gaussian, nonnegative correlations",
+      "check": "lower bound sum_{s,t} mu_s mu_t A_min(s,t)^2 equals sum gamma_i z_i^2",
+      "kind": "identity",
+      "passed": true,
+      "detail": "2*g_a1**2*g_z4*(g_z1 - g_z2) + g_a1**2*(g_z1 - g_z2)**2 + 2*g_a1**2*(g_z1 - g_z2)*(g_z2 - g_z3) + 2*g_a1**2*(g_z1 - g_z2)*(g_z3 - g_z4) + g_z4**2*(g_a1 + g_a2 + g_a3 + g_a4)**2 + 2*g_z4*(g_a1 + g_a2)**2*(g_z2 - g_z3) + 2*g_z4*(g_z3 - g_z4)*(g_a1 + g_a2 + g_a3)**2 + (g_a1 + g_a2)**2*(g_z2 - g_z3)**2 + 2*(g_a1 + g_a2)**2*(g_z2 - g_z3)*(g_z3 - g_z4) + (g_z3 - g_z4)**2*(g_a1 + g_a2 + g_a3)**2 = g_a1**2*g_z1**2 + g_z2**2*(-g_a1**2 + (g_a1 + g_a2)**2) + g_z3**2*(-(g_a1 + g_a2)**2 + (g_a1 + g_a2 + g_a3)**2) + g_z4**2*(-(g_a1 + g_a2 + g_a3)**2 + (g_a1 + g_a2 + g_a3 + g_a4)**2)"
+    },
+    {
+      "group": "O. Gaussian, nonnegative correlations",
+      "check": "gamma_i = a_i (a_i + 2 A_{i-1})",
+      "kind": "identity",
+      "passed": true,
+      "detail": "matrix identity"
+    },
+    {
+      "group": "O. Gaussian, nonnegative correlations",
+      "check": "stationary point: a_i = gamma_i z_i / c for i >= 2",
+      "kind": "identity",
+      "passed": true,
+      "detail": "matrix identity"
+    },
+    {
+      "group": "O. Gaussian, nonnegative correlations",
+      "check": "at the stationary point c^2 = gamma_1 + sum gamma_i z_i^2",
+      "kind": "identity",
+      "passed": true,
+      "detail": "g_a1**2*g_a2**2/((-g_a1**2 + (g_a1 + g_a2)**2)*(-g_a2**2/(-g_a1**2 + (g_a1 + g_a2)**2) - g_a3**2/(-(g_a1 + g_a2)**2 + (g_a1 + g_a2 + g_a3)**2) - g_a4**2/(-(g_a1 + g_a2 + g_a3)**2 + (g_a1 + g_a2 + g_a3 + g_a4)**2) + 1)) + g_a1**2*g_a3**2/((-(g_a1 + g_a2)**2 + (g_a1 + g_a2 + g_a3)**2)*(-g_a2**2/(-g_a1**2 + (g_a1 + g_a2)**2) - g_a3**2/(-(g_a1 + g_a2)**2 + (g_a1 + g_a2 + g_a3)**2) - g_a4**2/(-(g_a1 + g_a2 + g_a3)**2 + (g_a1 + g_a2 + g_a3 + g_a4)**2) + 1)) + g_a1**2*g_a4**2/((-(g_a1 + g_a2 + g_a3)**2 + (g_a1 + g_a2 + g_a3 + g_a4)**2)*(-g_a2**2/(-g_a1**2 + (g_a1 + g_a2)**2) - g_a3**2/(-(g_a1 + g_a2)**2 + (g_a1 + g_a2 + g_a3)**2) - g_a4**2/(-(g_a1 + g_a2 + g_a3)**2 + (g_a1 + g_a2 + g_a3 + g_a4)**2) + 1)) + g_a1**2 = g_a1**2/(-g_a2**2/(-g_a1**2 + (g_a1 + g_a2)**2) - g_a3**2/(-(g_a1 + g_a2)**2 + (g_a1 + g_a2 + g_a3)**2) - g_a4**2/(-(g_a1 + g_a2 + g_a3)**2 + (g_a1 + g_a2 + g_a3 + g_a4)**2) + 1)"
+    },
+    {
+      "group": "O. Gaussian, nonnegative correlations",
+      "check": "maximum value a_1 (1 - sqrt(1 - h))",
+      "kind": "identity",
+      "passed": true,
+      "detail": "g_a1*g_a2**2/((-g_a1**2 + (g_a1 + g_a2)**2)*sqrt(-g_a2**2/(-g_a1**2 + (g_a1 + g_a2)**2) - g_a3**2/(-(g_a1 + g_a2)**2 + (g_a1 + g_a2 + g_a3)**2) - g_a4**2/(-(g_a1 + g_a2 + g_a3)**2 + (g_a1 + g_a2 + g_a3 + g_a4)**2) + 1)) + g_a1*g_a3**2/((-(g_a1 + g_a2)**2 + (g_a1 + g_a2 + g_a3)**2)*sqrt(-g_a2**2/(-g_a1**2 + (g_a1 + g_a2)**2) - g_a3**2/(-(g_a1 + g_a2)**2 + (g_a1 + g_a2 + g_a3)**2) - g_a4**2/(-(g_a1 + g_a2 + g_a3)**2 + (g_a1 + g_a2 + g_a3 + g_a4)**2) + 1)) + g_a1*g_a4**2/((-(g_a1 + g_a2 + g_a3)**2 + (g_a1 + g_a2 + g_a3 + g_a4)**2)*sqrt(-g_a2**2/(-g_a1**2 + (g_a1 + g_a2)**2) - g_a3**2/(-(g_a1 + g_a2)**2 + (g_a1 + g_a2 + g_a3)**2) - g_a4**2/(-(g_a1 + g_a2 + g_a3)**2 + (g_a1 + g_a2 + g_a3 + g_a4)**2) + 1)) + g_a1 - g_a1/sqrt(-g_a2**2/(-g_a1**2 + (g_a1 + g_a2)**2) - g_a3**2/(-(g_a1 + g_a2)**2 + (g_a1 + g_a2 + g_a3)**2) - g_a4**2/(-(g_a1 + g_a2 + g_a3)**2 + (g_a1 + g_a2 + g_a3 + g_a4)**2) + 1) = g_a1*(1 - sqrt(-g_a2**2/(-g_a1**2 + (g_a1 + g_a2)**2) - g_a3**2/(-(g_a1 + g_a2)**2 + (g_a1 + g_a2 + g_a3)**2) - g_a4**2/(-(g_a1 + g_a2 + g_a3)**2 + (g_a1 + g_a2 + g_a3 + g_a4)**2) + 1))"
+    },
+    {
+      "group": "O. Gaussian, nonnegative correlations",
+      "check": "equal shares: a_i^2 / gamma_i = 1/(2i-1)",
+      "kind": "identity",
+      "passed": true,
+      "detail": "matrix identity"
+    },
+    {
+      "group": "O. Gaussian, nonnegative correlations",
+      "check": "equal shares, m = 3: value a(1 - sqrt(7/15))",
+      "kind": "identity",
+      "passed": true,
+      "detail": "a*(1 - sqrt(105)/15) = a*(1 - sqrt(105)/15)"
     }
   ]
 }

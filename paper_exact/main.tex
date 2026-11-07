@@ -48,9 +48,11 @@ bounds rest on triangle-inequality certificates. With asymmetric imbalance
 penalties the ceiling remains valid and every worst case persists; we give the
 exact worst case at the deepest level for every penalty ratio, and for equal
 shares show that the windows close once a shortfall costs at least $2(m-1)/m$
-times as much as a surplus. On hourly wind production the observed
-overstatement is negligible, so the bounds act as guarantees rather than
-predictions.
+times as much as a surplus. For Gaussian demand with nonnegative
+correlations the overstatement is at most $a_1(1-\sqrt{1-h})$, an explicit
+bound independent of $r$ (below $0.093$ of the pooled cost for up to seven
+equal producers), and on hourly wind production the observed overstatement is
+negligible: the bounds act as guarantees rather than predictions.
 \end{abstract}
 
 \section{Introduction}
@@ -664,6 +666,55 @@ the relaxation over all sublinear costs with $c(-x)\le\kappa c(x)$. The best
 $\kappa$-segment law we found stays up to $1.3\cdot10^{-3}$ below it, so these
 narrow windows remain open.
 
+\section{Gaussian demand}\label{sec:gauss}
+
+The worst cases above are attained by atomic, carefully correlated laws. For
+Gaussian demand $Y\sim N(\mu,\Sigma)$ the optimal expected pinball loss of a
+membership is $\phi(\Phi^{-1}(\tau))\,(x^\top\Sigma x)^{1/2}$, a Euclidean norm,
+symmetric in $x$ whatever the penalty ratio. Write $c(x)=(x^\top Gx)^{1/2}$ for
+a scaled covariance $G$. The caps, the stability of every proper coalition and
+the grand cost are then linear constraints on $G$, so for a fixed membership the
+least favourable covariance solves a semidefinite program.
+
+\begin{theorem}\label{thm:gauss}
+Let demand be Gaussian with nonnegative correlations and the allocation be in
+the core. For a membership $z$ on a face, order the face so that
+$1=z_1\ge z_2\ge\dots\ge z_m\ge0$, and put $A_i=a_1+\dots+a_i$ and
+$\gamma_i=A_i^2-A_{i-1}^2$. Then
+\[
+a^\top z-c(z)\ \le\ \sum_ia_iz_i-\Bigl(\sum_i\gamma_iz_i^2\Bigr)^{1/2}
+\ \le\ a_1\bigl(1-\sqrt{1-h}\bigr),\qquad
+h=\sum_{i\ge2}\frac{a_i}{a_i+2A_{i-1}},
+\]
+the second inequality when $h<1$, whatever the floor $r$. The bound is attained
+by independent demand with variances $\gamma_i$ whenever
+$r\le\min_i\sqrt{a_i/(a_i+2A_{i-1})}$ and the stationary membership
+$z_i=a_1a_i/(\gamma_i\sqrt{1-h})$ lies in the cube.
+\end{theorem}
+
+\begin{proof}
+Write $z=\sum_s\mu_s\one_{U_s}$ with $U_s$ the $s$ largest coordinates and
+$\mu_s=z_s-z_{s+1}\ge0$. For $s\le t$, nonnegative correlations give
+$\one_{U_s}^\top G\one_{U_t}\ge\one_{U_s}^\top G\one_{U_s}$, and stability of
+$U_s$ gives $\one_{U_s}^\top G\one_{U_s}\ge A_s^2$. Hence
+$z^\top Gz\ge\sum_{s,t}\mu_s\mu_tA_{\min(s,t)}^2=\sum_i\gamma_iz_i^2$. The middle
+expression is concave in $(z_2,\dots,z_m)$ and its stationary point gives the
+last value. Independent demand with variances $\gamma_i$, with the excluded
+producers appended to the order, makes every proper coalition stable, since
+$\sum_{i\in T}\gamma_i\ge a(T)^2$ for every $T$, and has $c(\one)=1$. Its caps
+are the condition on $r$, and the excess at the stationary membership equals
+the bound.
+\end{proof}
+
+For equal shares $\gamma_i=(2i-1)a^2$ and the bound is
+$a\bigl(1-\sqrt{1-H_m}\bigr)$ with $H_m=\frac13+\frac15+\dots+\frac1{2m-1}$:
+at depth one $0.061$, $0.079$, $0.086$, $0.090$ and $0.093$ of the pooled cost
+for $n=3,\dots,7$, attained for $r\le1/\sqrt{2n-1}$. Over all laws the
+corresponding worst cases tend to $(n-1)/n$ as $r\to0$. Without the sign
+restriction Gaussian laws can be as bad as arbitrary ones when $r$ is small
+(for $n=4$ at depth one and $r=0.1$ both give $0.675$), but they fall far below
+them as $r$ grows ($0.116$ against $0.375$ at $r=0.5$).
+
 \section{An illustration on wind data}\label{sec:data}
 
 The bounds above are worst cases. To see what an audit finds on actual
@@ -672,7 +723,10 @@ NREL WIND Toolkit in Texas (modeled hourly production, 2007 and 2008,
 capacities 2, 16, 10 and 16~MW), the four 2.05~MW turbines of the ENGIE La
 Haute Borne farm in France (measured, 2014 and 2015), and four distant 16~MW
 WIND Toolkit sites in Texas, Iowa, Wyoming and New York (modeled, 2007 and
-2008). For each calendar year the empirical
+2008). For these shares and floors the worst case over Gaussian laws
+with nonnegative correlations (Section~\ref{sec:gauss}) is $0.004$ to $0.0125$
+for the Texas panel, $0.0008$ to $0.0018$ for the French one and $0.075$ to
+$0.080$ for the distant sites, against $0.35$ to $0.41$ over all laws. For each calendar year the empirical
 joint law of hourly production defines the costs, with symmetric penalties
 ($\kappa=1$) and with a shortfall penalty twice the surplus penalty
 ($\kappa=2$), and $L=c(\one)$. Two allocations are audited: charges

@@ -526,6 +526,43 @@ factorization(G, "weight on zero cost", lamL, ((1 + r)**2 * au3 + (1 - r)**2 * a
               "nonnegative iff (1+r)^2 a_u + (1-r)^2 a_b >= (1-r^2) a_c, given D > 0")
 
 
+# ---------------------------------------------------------------------------
+# O. Gaussian demand with nonnegative correlations (docs/gaussian_envelopes.md).
+# Shares a_1..a_4 in the order of the membership, prefix sums A_i,
+# gamma_i = A_i^2 - A_{i-1}^2; z sorted with z_1 = 1.
+# ---------------------------------------------------------------------------
+G = "O. Gaussian, nonnegative correlations"
+ag = sp.symbols("g_a1:5", positive=True)
+zg = sp.symbols("g_z1:5", positive=True)
+Ag = [sum(ag[:i]) for i in range(5)]
+gam = [Ag[i + 1]**2 - Ag[i]**2 for i in range(4)]
+zz = list(zg) + [0]
+mu = [zz[i] - zz[i + 1] for i in range(4)]
+identity(G, "Abel summation: sum gamma_i z_i^2 = sum_s A_s^2 (z_s^2 - z_{s+1}^2)",
+         sum(gam[i] * zz[i]**2 for i in range(4)), sum(Ag[i + 1]**2 * (zz[i]**2 - zz[i + 1]**2) for i in range(4)))
+identity(G, "lower bound sum_{s,t} mu_s mu_t A_min(s,t)^2 equals sum gamma_i z_i^2",
+         sum(mu[i] * mu[j] * Ag[min(i, j) + 1]**2 for i in range(4) for j in range(4)),
+         sum(gam[i] * zz[i]**2 for i in range(4)))
+identity(G, "gamma_i = a_i (a_i + 2 A_{i-1})", sp.Matrix(gam),
+         sp.Matrix([ag[i] * (ag[i] + 2 * Ag[i]) for i in range(4)]))
+cg = sp.symbols("c_g", positive=True)
+zs = [1] + [cg * ag[i] / gam[i] for i in range(1, 4)]
+h = sum(ag[i]**2 / gam[i] for i in range(1, 4))
+identity(G, "stationary point: a_i = gamma_i z_i / c for i >= 2",
+         sp.Matrix([gam[i] * zs[i] / cg - ag[i] for i in range(1, 4)]), sp.zeros(3, 1))
+cstar = ag[0] / sp.sqrt(1 - h)
+identity(G, "at the stationary point c^2 = gamma_1 + sum gamma_i z_i^2",
+         (gam[0] + sum(gam[i] * zs[i]**2 for i in range(1, 4))).subs(cg, cstar), cstar**2)
+identity(G, "maximum value a_1 (1 - sqrt(1 - h))",
+         (sum(ag[i] * zs[i] for i in range(4)) - cg).subs(cg, cstar), ag[0] * (1 - sp.sqrt(1 - h)))
+eq = {ag[i]: a for i in range(4)}
+identity(G, "equal shares: a_i^2 / gamma_i = 1/(2i-1)",
+         sp.Matrix([(ag[i]**2 / gam[i]).subs(eq) for i in range(4)]),
+         sp.Matrix([sp.Rational(1, 2 * i + 1) for i in range(4)]))
+identity(G, "equal shares, m = 3: value a(1 - sqrt(7/15))",
+         (ag[0] * (1 - sp.sqrt(1 - ag[1]**2 / gam[1] - ag[2]**2 / gam[2]))).subs(eq), a * (1 - sp.sqrt(sp.Rational(7, 15))))
+
+
 def main():
     failed = [c for c in CHECKS if not c["passed"]]
     output = ROOT / "results/verification/symbolic_checks.json"

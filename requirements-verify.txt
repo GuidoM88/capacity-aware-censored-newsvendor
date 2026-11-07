@@ -1,2 +1,4 @@
-# Extra dependency for scripts/verify_symbolic.py (symbolic checks of the proofs).
+# Extra dependencies for the verification scripts: sympy for scripts/verify_symbolic.py
+# (symbolic checks of the proofs), cvxpy for the Gaussian SDP in censored_newsvendor/gaussian.py.
 sympy==1.14.0
+cvxpy==1.6.0

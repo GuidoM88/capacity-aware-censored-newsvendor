@@ -41,6 +41,8 @@ but thin. Everything below is new since then.
 | 12 | Inside the windows that remain for 1 < kappa < 2(m-1)/m (and in 3 of 204 arbitrary-share instances with 1 < kappa < 2) | Open: relaxation known, best laws found within 1.8e-3 of it | Section 6 of the notes |
 | 13 | Asymmetric penalties, arbitrary shares, every depth: the two-producer formula applied to the best split of the free producers into two blocks is a lower bound for every kappa | Proved; algebra verified symbolically | Theorem C |
 | 14 | Conjecture C: for kappa >= 2 that lower bound is the exact worst case | **Refuted.** Exact counterexample at kappa = 10 (an explicit law reaches 0.2664, the best two-block law 0.2496); failures are rare in random samples (2 of 200 with one small share, 0 of 299 otherwise) | [conjecture_c.md](results/asymmetric/conjecture_c.md) |
+| 18 | Gaussian demand with nonnegative correlations: the overstatement is at most a_1(1 - sqrt(1 - h)), independent of r; for equal shares (1/n)(1 - sqrt(1 - H_m)), i.e. 0.061, 0.079, 0.086, 0.090, 0.093 at depth one for n = 3..7, attained for r <= 1/sqrt(2n-1) | Proved; algebra verified symbolically; 9 of 9 configurations match the SDP computation | Theorem G, [notes](docs/gaussian_envelopes.md), Section 8 of the paper |
+| 19 | Gaussian demand, any correlations: as bad as all laws at small r (0.675 for n = 4, r = 0.1) but far below as r grows (0.116 against 0.375 at r = 0.5); on the wind panels the Gaussian worst case is 1/6 to 1/2 of the general one, 0.08 against 0.41 for the distant sites | Computed (SDP per membership, search over memberships); every law re-checked | [gaussian_envelopes.md](results/gaussian/gaussian_envelopes.md) |
 | 17 | Two-sided audit: for every law with floor r, D_k - Gamma_k(w,r) <= B <= D_k, so a fractional audit reporting more than the worst-case overstatement proves that an actual coalition gains | Proved (corollary of the definitions) | Corollary 2 of the paper |
 | 16 | On real hourly wind production (three panels of four producers, 24 audits) the observed overstatement is at most 0.0013 of the pooled cost, while the worst case for the same shares and floor ranges from 0.005 to 0.41 | Computed exactly on the empirical laws | [wind_audit.md](results/illustration/wind_audit.md), Section 8 of the paper |
 | 15 | Ceiling criterion, for every kappa (symmetric case included): the elementary ceiling is exact whenever a subset of a largest face has share in [(1-r)/(1+kappa), kappa(1-r)/(r+kappa)] a(F), in particular when every producer is small enough | Proved; algebra verified symbolically | Proposition D |
@@ -70,7 +72,7 @@ ceiling.
    depths (`results/asymmetric/`).
 2. **Symbolic verification of the proofs.** The algebra of every proof
    (identities, corner values of the stability checks, dual weights, sign
-   factorizations) is checked with sympy for general sizes: **204 of 204
+   factorizations) is checked with sympy for general sizes: **212 of 212
    checks pass** ([report](results/verification/symbolic_checks.md)).
 3. **Independent evaluation.** Samples of the explicit laws are re-evaluated
    with the project's original audit code, which computes the relaxation and
@@ -87,7 +89,7 @@ the conjecture for arbitrary shares is supported by computation, not proved.
 
 ### Done (5 to 7 November)
 
-- [x] **Symbolic verification of all proof algebra**: now 204 checks, all
+- [x] **Symbolic verification of all proof algebra**: now 212 checks, all
       passing. It also turned "the window value is the larger of the two
       families" into an identity, V_p - H_{p+1} = a(m+p+1)(r - r_L)Q(r)/(2rD).
 - [x] **Asymmetric imbalance penalties**: results 9 to 15
@@ -122,6 +124,14 @@ the conjecture for arbitrary shares is supported by computation, not proved.
       checks of the seven references seen only as abstracts.
 
 ### Research that would strengthen the paper (optional)
+
+- [x] **Realistic laws: Gaussian demand** (done 7 November: results 18 and
+      19). For positively correlated Gaussian producers the overstatement is
+      bounded by an explicit constant, whatever r (about 9% of the pooled
+      cost for up to seven equal producers), and the bound is attained. This
+      explains most of the distance between the worst case and the wind data.
+      Open: arbitrary shares beyond the closed form, elliptical laws, and a
+      certified outer search for correlations of any sign.
 
 - [ ] **Prove Conjecture 6** (the upper bound for arbitrary shares with
       symmetric penalties), along the lines of the equal-share proof. First
@@ -171,6 +181,7 @@ and a check of the chosen journal's policies.
 | 7 Nov | Proof attempt for Conjecture C: counterexample found and verified exactly; ceiling criterion proved (Proposition D; 200 symbolic checks) |
 | 7 Nov | Systematic literature review; bibliography corrected and extended to 30 entries |
 | 7 Nov | Guide for the expert reading; illustration on real wind data (24 exact audits) |
+| 7 Nov | Two-sided audit corollary; Gaussian demand: Theorem G (bound independent of r) |
 
 ## Reproducing everything
 

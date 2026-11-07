@@ -60,6 +60,10 @@ it easy to compare them before deciding what goes into the paper.
   most 0.0013 of the pooled cost, while the worst case for the same shares and
   floor reaches 0.41 for a diverse portfolio
   ([wind_audit.md](results/illustration/wind_audit.md)).
+* **Gaussian demand: a bound independent of r.** With nonnegative
+  correlations the overstatement is at most an explicit constant, about 9%
+  of the pooled cost for up to seven equal producers, and the bound is
+  attained ([gaussian_envelopes.md](docs/gaussian_envelopes.md)).
 * **Open.** A proof of the upper bound for arbitrary shares (Conjecture 6);
   general conditions for one of the four families; a proof that the seminorm
   relaxation is always attained by a demand law; the asymmetric windows for
@@ -628,6 +632,44 @@ for each ratio ([hlawka.md](results/asymmetric/hlawka.md)). So that door is
 closed; an inequality would have to use the structure of sections of
 zonoids more specifically.
 
+### 22. Realistic laws: Gaussian demand
+
+The wind data left an obvious question: if real audits are nearly exact while
+the worst case is large, what is the worst case over realistic laws? For
+Gaussian demand the cost is a Euclidean norm, sqrt(x'Gx) for a scaled
+covariance G, the same for every penalty ratio, and every constraint of the
+game is linear in G. So for a fixed membership the least favourable covariance
+is a semidefinite program, solved to optimality, and only the search over
+memberships is numerical. A first quick search (local optimization over G and
+z together) had suggested that positive correlations cut the worst case by an
+order of magnitude. The SDP version confirmed it.
+
+The numbers had a pattern that turned into a theorem (Theorem G in
+[gaussian_envelopes.md](docs/gaussian_envelopes.md)). The worst law with
+nonnegative correlations is independent, with variances in the ratio
+1 : 3 : 5 : ... along the top sets, whose partial sums are perfect squares.
+The proof is short. Nonnegative correlations and stability of the top sets
+bound z'Gz from below by the cost of exactly that independent law (Abel
+summation), and a concave maximization does the rest. The result is an
+explicit bound that does not depend on the floor r: for equal shares
+(1/n)(1 - sqrt(1 - H_m)), about 9% of the pooled cost for up to seven
+producers, attained for r <= 1/sqrt(2n-1). It matches the SDP computation in
+all 9 configurations tried and is never exceeded above that range. On the wind
+panels the Gaussian worst case closes most, but not all, of the distance
+between the theorems and the data: 0.08 instead of 0.41 for the distant
+sites, where the observed overstatement is 0.
+
+Two slips along the way. The first summary table used the face's own range
+1/sqrt(2m-1) for the closed form, which ignores the caps of the excluded
+producers; the proved range is 1/sqrt(2n-1), and the table is now generated
+that way. Also, a Python string that was not raw turned `\frac` into a control
+character in the notes (the same mistake as on November 6); it was caught by
+the check for control characters.
+
+We also added the two-sided audit corollary to the paper: since the
+overstatement never exceeds Gamma_k(w, r), a fractional audit brackets the
+true largest coalition saving between D_k - Gamma_k and D_k.
+
 ### What we would do next
 
 The list is kept up to date in [PROGRESS.md](PROGRESS.md).
@@ -697,6 +739,7 @@ heuristic) are superseded by PF9 and PF11.
 * `tests/test_exact_envelopes.py`, `tests/test_seminorm_envelope.py`, `tests/test_certificates.py`, `tests/test_symbolic.py`: fast tests.
 * `scripts/verify_symbolic.py`, `requirements-verify.txt` and `results/verification/`: symbolic verification of the proofs.
 * `PROGRESS.md`: one-page progress report with the current next steps.
+* `src/censored_newsvendor/gaussian.py`, `docs/gaussian_envelopes.md`, `scripts/check_gaussian_envelopes.py`, `results/gaussian/` and `tests/test_gaussian.py`: Gaussian demand (needs cvxpy, in requirements-verify.txt).
 * `docs/literature_review.md` and `docs/proof_guide.md`: the systematic literature review and the guide for the expert reading.
 * `scripts/illustrate_wind_audit.py`, `scripts/table_wind_audit.py`, `configs/illustration_wind_sites.json`, `results/illustration/` and `tests/test_illustration.py`: the illustration on wind data.
 * `src/censored_newsvendor/asymmetric.py`, `docs/asymmetric_penalties.md`, `scripts/check_asymmetric_penalties.py`, `scripts/check_asymmetric_general.py`, `scripts/probe_general_laws.py`, `scripts/refute_conjecture_c.py`, `results/asymmetric/` and `tests/test_asymmetric.py`: asymmetric imbalance penalties.
