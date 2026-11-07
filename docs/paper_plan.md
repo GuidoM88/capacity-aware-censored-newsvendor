@@ -151,8 +151,10 @@ A short web search, not a systematic review:
 
 ## Before submission
 
-1. A fuller literature check on zonoids in cooperative games and on
-   relaxations of core membership, starting from the pointers above.
+1. Done on November 7: [literature_review.md](literature_review.md)
+   (systematic web search, 25 queries, novelty table, corrected
+   bibliography). Still open: a database search and full-text checks of the
+   items seen only as abstracts.
 2. Independent reading of the proofs of Theorems 1 to 4 (the corner checks
    and the dual weights in particular).
 3. Rewrite of the manuscript along the structure above, with the figure in

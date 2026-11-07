@@ -60,18 +60,34 @@ group of producers would pay less by leaving and offering on its own: the split
 must lie in the core of the pooling game \citep{baeyens2013wind,
 chakraborty2018causation}. For newsvendor-type games the core is nonempty
 \citep{hartman2000cores, muller2002newsvendor, montrucchio2012review}, but
-deciding whether a given split lies in it is NP-hard \citep{chenzhang2009inventorygames}.
+deciding whether a given split lies in it is NP-hard
+\citep{chenzhang2009inventorygames}, and NP-complete for production--inventory
+games \citep{guardiola2020quid}. Computational work therefore handles the
+exponentially many coalition constraints by row generation or decomposition
+\citep{bonnans2008leastcore, freire2015nucleolus}, or approximates the core by
+sampling its extreme points \citep{camacho2025core}.
 
 A natural tractable check replaces actual coalitions by fractional ones: a
 producer may join with a fraction of its output, and the largest saving over
 fractional memberships is a convex program. The fixed-allocation version of
-this relaxation appears in \citet[Section~5]{burer2005centralized}; fractional
+this relaxation appears in \citet[Section~5]{burer2005centralized}. Fractional
 and partially continuous memberships have a long history in cooperative game
-theory \citep{aubin1981fuzzy, samet1984dualcore, denault2001coherent,
-bonnans2008leastcore}, and integrality gaps of relaxations are closely tied to
+theory \citep{aubin1981fuzzy, samet1984dualcore, tijs2004fuzzy,
+shellshear2009fuzzy}, and in risk allocation \citep{denault2001coherent,
+csoka2009stable}. Integrality gaps of relaxations are closely tied to
 approximate cores in combinatorial games \citep{deng1999algorithmic,
-goemans2004facility, caprara2010costsharing}. The relaxation can only
-overstate the saving. The question of this paper is by how much.
+goemans2004facility, caprara2010costsharing}. For positively homogeneous costs
+an efficient allocation passes the full fractional check only if it is a
+subgradient of the cost extension at the grand coalition, which in the
+differentiable case is the gradient (Aumann--Shapley) allocation
+\citep{denault2001coherent, fischer2003onesided}. In large newsvendor games with
+nonatomic demand the core itself shrinks to a single allocation
+\citep{montrucchio2006large}. With few producers, however, the fractional check
+tests membership in a set that can be much smaller than the core. The
+relaxation can only overstate the saving. The question of this paper is by
+how much. Worst cases over demand laws also appear in distributionally robust
+newsvendor games, where they decide whether the core is nonempty
+\citep{doan2020robust}; here they bound the error of an audit.
 
 Without further information the answer is discouraging: the overstatement can
 be as large as the charges of the producers kept in the search
@@ -92,7 +108,13 @@ lower bounds (Theorem~\ref{thm:families}) whose maximum matched a certified
 upper bound in every one of 1068 random instances, which we state as a
 conjectured closed form (Conjecture~\ref{conj:closed}). With generic shares the
 elementary ceiling turned out to be exact whenever $r\le 0.4$ in our samples,
-and never when $r\ge 0.7$.
+and never when $r\ge 0.7$, a pattern explained by the criterion of
+Proposition~\ref{prop:criterion}. Section~\ref{sec:asym} extends the analysis to
+asymmetric imbalance penalties. Every worst case persists, the last depth is
+solved for every ratio of the two penalties, and for equal shares the windows
+close once a shortfall costs at least $2(m-1)/m$ times as much as a surplus;
+for arbitrary shares, two-block laws give a lower bound that is usually,
+but not always, exact.
 
 \paragraph{Method.} Every lower bound is attained by an explicit finite,
 centrally symmetric demand law. Such laws have costs $c(x)=\sum_k p_k|x_k^\top
@@ -438,7 +460,11 @@ surplus. With penalties $\lambda_+$ per unit of surplus and $\lambda_-$ per
 unit of shortfall the loss is, up to a constant factor, the pinball loss
 $\ell_\tau(u)=\tau u^++(1-\tau)u^-$ of level
 $\tau=\lambda_+/(\lambda_++\lambda_-)$, and the coalition cost becomes
-$c(x)=\min_q\E\,\ell_\tau(x^\top Y-q)$. Write
+$c(x)=\min_q\E\,\ell_\tau(x^\top Y-q)$, a scaled CVaR-type deviation of
+$x^\top Y$ in the sense of \citet{rockafellar2006deviations}. Single producers
+facing such penalties are studied by \citet{pinson2007trading} and
+\citet{bitar2012bringing}; with linear penalties the optimal offer is a
+quantile, by the newsvendor argument. Write
 $\kappa=\max(\tau,1-\tau)/\min(\tau,1-\tau)\ge1$ for the ratio of the two
 penalties and $\Gamma_k^\kappa(w,r)$ for the worst gap; $\kappa=1$ is the
 symmetric case.

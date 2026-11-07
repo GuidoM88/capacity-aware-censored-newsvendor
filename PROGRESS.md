@@ -102,10 +102,15 @@ the conjecture for arbitrary shares is supported by computation, not proved.
       exact worst case of the counterexample (between 0.2664 and 0.2787).
 - [ ] **The remaining asymmetric windows** (1 < kappa < 2(m-1)/m): find an
       asymmetric analogue of the family V_p, or laws outside the segment class.
-- [ ] **Systematic literature review** to confirm novelty, in particular risk
-      capital allocation with homogeneous risk measures and relaxations of
-      core membership. The zonoid identity used in the constructions is
-      classical and is credited as such.
+- [x] **Systematic literature review** (done 7 November:
+      [literature_review.md](docs/literature_review.md)). 25 web queries,
+      30 verified references. No prior work bounds the overstatement of a
+      fractional audit; the closest are the relaxation itself (Burer and
+      Dror 2005), fuzzy-game results on when fuzzy and crisp cores coincide,
+      and the NP-hardness of core membership (Chen and Zhang 2009). The zonoid
+      identity is classical and credited. Still open: a database search
+      (Scopus, Web of Science) and full-text checks of seven items seen only
+      as abstracts.
 - [ ] **Revise the paper draft** ([paper_exact/main.pdf](paper_exact/main.pdf),
       8 pages) and have the proofs read by an expert.
 - [ ] **Prove Conjecture 6** (the upper bound for arbitrary shares), along the
@@ -142,6 +147,7 @@ and a check of the chosen journal's policies.
 | 7 Nov | Asymmetric penalties: Theorems A and B, windows close for kappa >= 2(m-1)/m (175 symbolic checks) |
 | 7 Nov | Asymmetric penalties, arbitrary shares: Theorem C and Conjecture C (299 of 299 for kappa >= 2; 194 symbolic checks) |
 | 7 Nov | Proof attempt for Conjecture C: counterexample found and verified exactly; ceiling criterion proved (Proposition D; 200 symbolic checks) |
+| 7 Nov | Systematic literature review; bibliography corrected and extended to 30 entries |
 
 ## Reproducing everything
 

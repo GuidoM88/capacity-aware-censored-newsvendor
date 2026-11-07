@@ -539,6 +539,30 @@ targeted sample with one small share, two-block laws were beaten in 2 of
 200 instances, both at kappa = 2, and in none at kappa = 3 or 10. Conjecture C
 is withdrawn; Theorem C and Proposition D stand.
 
+### 19. The literature, properly this time
+
+The first pass of November 6 was a handful of searches. This time we wrote
+down the questions first (has anyone bounded the overstatement? are zonoids
+used in cost allocation? is the asymmetric extension known?), logged every
+query, and checked the bibliographic data of every reference
+([literature_review.md](docs/literature_review.md)). The answer to the main
+question is still no. The closest work states the fractional relaxation
+(Burer and Dror 2005), proves that core membership is NP-hard (Chen and
+Zhang 2009) or NP-complete (Guardiola, Meca and Puerto 2020), or shows when
+fuzzy and crisp cores coincide (convex fuzzy games). One observation from the
+reading changed how the introduction argues. For homogeneous costs an
+allocation passes the full fractional check only if it is a subgradient of
+the cost extension, the gradient allocation of risk capital allocation. So
+the audit tests membership in a much smaller set than the core, and our
+results measure how wrong that can be.
+
+Three entries were out of date (two working papers now published, one
+missing volume), and ten verified references were added. The environment
+blocks Crossref and arXiv, so DOIs were checked through publisher and RePEc
+pages, and seven items were seen only as abstracts; they are flagged in the
+review. A database search by someone with institutional access remains the
+last step before submission.
+
 ### What we would do next
 
 The list is kept up to date in [PROGRESS.md](PROGRESS.md).
